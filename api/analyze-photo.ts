@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { askClaudeForJson } from './_lib/claude'
+import { askClaudeForJson } from './_lib/claude.js'
 
 const SYSTEM_PROMPT = `你是一个食物照片识别助手。识别图片中的每一种食物，并估算营养数据。
 只输出 JSON 本身，不要任何前言、解释或 Markdown 代码块标记（不要用 \`\`\`）。

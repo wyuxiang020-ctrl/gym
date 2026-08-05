@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { askClaudeForJson } from './_lib/claude'
+import { askClaudeForJson } from './_lib/claude.js'
 
 const SYSTEM_PROMPT = `你是一个饮食记录修正助手。用户会给你一份原始的食物估算列表(JSON)和一段备注文字,备注描述了实际情况和估算的差异。
 根据备注调整每一项食物的克数和营养数据,没有被备注提到的项目保持不变。

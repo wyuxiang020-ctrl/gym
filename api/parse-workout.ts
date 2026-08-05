@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { askClaudeForJson } from './_lib/claude'
+import { askClaudeForJson } from './_lib/claude.js'
 
 const SYSTEM_PROMPT = `你是一个健身记录解析助手。将用户输入的一段中文训练描述(可能来自语音转写)解析为结构化 JSON。
 只输出 JSON 本身,不要任何前言、解释或 Markdown 代码块标记(不要用 \`\`\`)。

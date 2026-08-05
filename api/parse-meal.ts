@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { askClaudeForJson } from './_lib/claude'
+import { askClaudeForJson } from './_lib/claude.js'
 
 const SYSTEM_PROMPT = `你是一个饮食记录解析助手。将用户输入的一段中文饮食描述解析为结构化 JSON，并估算每一种食物的营养数据。
 只输出 JSON 本身，不要任何前言、解释或 Markdown 代码块标记（不要用 \`\`\`）。
