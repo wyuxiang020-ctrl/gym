@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-app-bg: #eaedef;
+  --color-card: #ffffff;
+  --color-primary: #c8102e;
+  --color-primary-dark: #a50d26;
+
+  --color-plate-red: #c8102e; /* 25kg */
+  --color-plate-blue: #1d4ed8; /* 20kg */
+  --color-plate-yellow: #eab308; /* 15kg */
+  --color-plate-green: #16a34a; /* 10kg */
+  --color-plate-gray: #9ca3af; /* 5kg */
+
+  --font-sans: 'Barlow', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-heading: 'Barlow Condensed', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+
+  --animate-pop: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-fade-in: fade-in 0.25s ease-out;
+  --animate-burst: burst 0.6s ease-out forwards;
+  --animate-flicker: flicker 1.6s ease-in-out infinite;
+  --animate-motion-y: motion-y 1.6s ease-in-out infinite;
+  --animate-motion-x: motion-x 1.6s ease-in-out infinite;
+  --animate-motion-rotate: motion-rotate 1.6s ease-in-out infinite;
+  --animate-motion-pulse: motion-pulse 1.6s ease-in-out infinite;
+}
+
+html,
+body {
+  background: var(--color-app-bg);
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+/* 记分牌风格的大数字:连续打卡天数、BMI、热量目标等 */
+.font-display {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+button,
+a {
+  transition:
+    transform 0.12s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes burst {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--burst-x, 20px), var(--burst-y, -20px)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1) rotate(-1deg);
+  }
+  50% {
+    transform: scale(1.06) rotate(1deg);
+  }
+}
+
+@keyframes motion-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--motion-dy, -18px));
+  }
+}
+
+@keyframes motion-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(var(--motion-dx, -18px));
+  }
+}
+
+@keyframes motion-rotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(var(--motion-deg, -30deg));
+  }
+}
+
+@keyframes motion-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  button:active {
+    transform: none;
+  }
+}
