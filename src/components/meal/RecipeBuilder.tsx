@@ -1,28 +1,28 @@
 import { useState } from 'react'
-import { PROTEIN_INGREDIENTS, VEGETABLE_INGREDIENTS, scaleIngredient, suggestRecipeName } from '../../lib/recipeIngredients'
+import {
+  PROTEIN_INGREDIENTS,
+  VEGETABLE_INGREDIENTS,
+  scaleIngredient,
+  suggestRecipeName,
+} from '../../lib/recipeIngredients'
 import type { FoodItem } from '../../lib/types'
+import { Stepper } from '../workout/Stepper'
 
+const DEFAULT_PROTEIN_G = 150
 const DEFAULT_VEGETABLE_G = 150
 
-export function RecipeBuilder({
-  proteinGapG,
-  onAddToMeal,
-}: {
-  proteinGapG: number
-  onAddToMeal: (items: FoodItem[]) => void
-}) {
+export function RecipeBuilder({ onAddToMeal }: { onAddToMeal: (items: FoodItem[]) => void }) {
   const [proteinName, setProteinName] = useState(PROTEIN_INGREDIENTS[0].name)
   const [vegName, setVegName] = useState(VEGETABLE_INGREDIENTS[0].name)
+  const [proteinGrams, setProteinGrams] = useState(DEFAULT_PROTEIN_G)
+  const [vegGrams, setVegGrams] = useState(DEFAULT_VEGETABLE_G)
   const [added, setAdded] = useState(false)
 
   const proteinIngredient = PROTEIN_INGREDIENTS.find((p) => p.name === proteinName)!
   const vegIngredient = VEGETABLE_INGREDIENTS.find((v) => v.name === vegName)!
 
-  const proteinGrams =
-    proteinGapG > 0 ? Math.max(50, Math.round(((proteinGapG / proteinIngredient.protein) * 100) / 10) * 10) : 100
-
   const proteinScaled = scaleIngredient(proteinIngredient, proteinGrams)
-  const vegScaled = scaleIngredient(vegIngredient, DEFAULT_VEGETABLE_G)
+  const vegScaled = scaleIngredient(vegIngredient, vegGrams)
   const dishName = suggestRecipeName(vegName, proteinName)
 
   const totalKcal = proteinScaled.kcal + vegScaled.kcal
@@ -55,11 +55,11 @@ export function RecipeBuilder({
   }
 
   return (
-    <div className="space-y-3 border-t border-neutral-200 pt-3">
+    <div className="space-y-3 rounded-lg border border-neutral-300 bg-card p-3">
       <p className="text-sm font-medium text-neutral-900">搭配一份菜谱</p>
 
       <div>
-        <p className="mb-1 text-xs text-neutral-500">选蛋白质</p>
+        <p className="mb-1 text-xs text-neutral-500">选蛋白质(肉蛋奶豆制品)</p>
         <div className="flex flex-wrap gap-1.5">
           {PROTEIN_INGREDIENTS.map((p) => (
             <button
@@ -72,6 +72,12 @@ export function RecipeBuilder({
               {p.name}
             </button>
           ))}
+        </div>
+        <div className="mt-2 flex items-center gap-2">
+          <Stepper value={proteinGrams} step={25} min={25} onChange={setProteinGrams} suffix="g" />
+          <span className="text-xs text-neutral-500">
+            {proteinScaled.kcal} kcal · 蛋白质 {proteinScaled.protein}g
+          </span>
         </div>
       </div>
 
@@ -90,6 +96,12 @@ export function RecipeBuilder({
             </button>
           ))}
         </div>
+        <div className="mt-2 flex items-center gap-2">
+          <Stepper value={vegGrams} step={25} min={25} onChange={setVegGrams} suffix="g" />
+          <span className="text-xs text-neutral-500">
+            {vegScaled.kcal} kcal · 蛋白质 {vegScaled.protein}g
+          </span>
+        </div>
       </div>
 
       <div className="space-y-1 rounded-md bg-neutral-100 p-3">
@@ -98,7 +110,7 @@ export function RecipeBuilder({
           {proteinScaled.name} {proteinScaled.grams}g · {vegScaled.name} {vegScaled.grams}g
         </p>
         <p className="text-xs text-neutral-500">
-          约 {totalKcal} kcal · 蛋白质 {totalProtein}g
+          合计约 {totalKcal} kcal · 蛋白质 {totalProtein}g
         </p>
       </div>
 

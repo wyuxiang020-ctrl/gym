@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import * as store from '../../lib/store'
-import type { DayLog, FoodItem, Meal, Profile } from '../../lib/types'
-import { defaultSlot } from '../../lib/mealSlot'
+import type { DayLog, Meal, Profile } from '../../lib/types'
 import { MealSection } from './MealSection'
 import { DailyTargets } from './DailyTargets'
 
@@ -34,11 +33,6 @@ export function MealDaySection({
 
   function addMeal(meal: Omit<Meal, 'id'>) {
     store.addMeal(date, meal)
-    refresh()
-  }
-
-  function addRecipe(items: FoodItem[]) {
-    store.addMeal(date, { slot: defaultSlot(), items, confirmed: true })
     refresh()
   }
 
@@ -75,7 +69,7 @@ export function MealDaySection({
         onUpdateNote={updateNote}
         onRecalc={recalc}
       />
-      <DailyTargets profile={profile} weightKg={weightKg} meals={dayLog.meals} onAddRecipe={addRecipe} />
+      <DailyTargets profile={profile} weightKg={weightKg} meals={dayLog.meals} />
     </div>
   )
 }

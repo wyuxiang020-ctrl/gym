@@ -38,6 +38,19 @@ export const EXERCISE_PATTERNS: Record<string, MotionPattern> = {
   站姿提踵: 'calf',
   平板支撑: 'core_static',
   卷腹: 'core_crunch',
+  固定器械推胸: 'press_horizontal',
+  蝴蝶机夹胸: 'rotate_arm',
+  史密斯卧推: 'press_horizontal',
+  器械划船: 'pull_horizontal',
+  反向蝴蝶机: 'rotate_arm',
+  器械推肩: 'press_vertical',
+  史密斯推举: 'press_vertical',
+  器械弯举: 'rotate_arm',
+  器械三头屈伸: 'rotate_arm',
+  史密斯深蹲: 'squat',
+  大腿内收器械: 'rotate_arm',
+  大腿外展器械: 'rotate_arm',
+  悬垂举腿: 'core_crunch',
 }
 
 export function patternFor(exerciseName: string): MotionPattern {

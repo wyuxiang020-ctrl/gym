@@ -5,9 +5,9 @@ import { ExerciseLibraryTab } from './workout/ExerciseLibraryTab'
 import type { Plan, PlanDay, Profile } from '../lib/types'
 
 const TABS = [
-  { key: 'log', label: '训练记录' },
-  { key: 'plan', label: '训练计划' },
   { key: 'library', label: '动作库' },
+  { key: 'plan', label: '训练计划' },
+  { key: 'log', label: '训练记录' },
 ] as const
 
 export function WorkoutTab({
@@ -47,7 +47,7 @@ export function WorkoutTab({
         ))}
       </div>
 
-      {tab === 'log' && <WorkoutSection date={date} weightKg={weightKg} />}
+      {tab === 'log' && <WorkoutSection date={date} weightKg={weightKg} plans={plans} />}
 
       {tab === 'plan' && (
         <PlanSection

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import * as store from '../../lib/store'
 import { calcCardioKcal, calcStrengthKcal, type CardioActivity } from '../../lib/met'
-import type { CardioEntry, DayLog, StrengthEntry } from '../../lib/types'
+import type { CardioEntry, DayLog, Plan, PlanDay, StrengthEntry } from '../../lib/types'
 import { StrengthLogger } from './StrengthLogger'
 import { CardioLogger } from './CardioLogger'
 import { NLWorkoutInput } from './NLWorkoutInput'
@@ -17,8 +17,22 @@ const LABEL_TO_ACTIVITY: Record<string, CardioActivity> = {
   划船机: 'rowing',
 }
 
-export function WorkoutSection({ date, weightKg }: { date: string; weightKg: number | null }) {
+function parseRepsFromRange(repRange: string): number {
+  const match = repRange.match(/\d+/)
+  return match ? Number(match[0]) : 8
+}
+
+export function WorkoutSection({
+  date,
+  weightKg,
+  plans,
+}: {
+  date: string
+  weightKg: number | null
+  plans: Plan[]
+}) {
   const [dayLog, setDayLog] = useState<DayLog>(() => store.getDayLog(date))
+  const activePlan = plans.find((p) => p.isActive) ?? null
 
   function refresh() {
     setDayLog(store.getDayLog(date))
@@ -31,6 +45,19 @@ export function WorkoutSection({ date, weightKg }: { date: string; weightKg: num
       estKcal: 0,
       source: 'manual',
     })
+    refresh()
+  }
+
+  function importPlanDay(day: PlanDay) {
+    for (const ex of day.exercises) {
+      const last = store.getLastStrengthEntry(ex.name, date)
+      const lastSet = last?.sets[last.sets.length - 1]
+      const weight = lastSet?.weight ?? 20
+      const reps = parseRepsFromRange(ex.repRange)
+      const sets = Array.from({ length: Math.max(1, ex.sets) }, () => ({ weight, reps, done: false }))
+      const estKcal = weightKg ? calcStrengthKcal(sets.length, weightKg, 'mid') : 0
+      store.addStrengthEntry(date, { name: ex.name, sets, estKcal, source: 'manual' })
+    }
     refresh()
   }
 
@@ -85,13 +112,28 @@ export function WorkoutSection({ date, weightKg }: { date: string; weightKg: num
     refresh()
   }
 
+  // 自然语言解析结果里,同名动作直接并入已有条目(比如从计划导入后又用语音补充这个动作做了几组)
   function applyParsedWorkout(parsed: {
     strength: Omit<StrengthEntry, 'id' | 'source' | 'estKcal'>[]
     cardio: Omit<CardioEntry, 'id' | 'source' | 'estKcal'>[]
   }) {
     for (const s of parsed.strength) {
-      const estKcal = weightKg ? calcStrengthKcal(s.sets.length, weightKg, s.intensity ?? 'mid') : 0
-      store.addStrengthEntry(date, { ...s, estKcal, source: 'nl' })
+      const existing = dayLog.strength.find((e) => e.name.trim() === s.name.trim())
+      if (existing) {
+        const mergedSets = [...existing.sets, ...s.sets]
+        const estKcal = weightKg
+          ? calcStrengthKcal(mergedSets.length, weightKg, existing.intensity ?? 'mid')
+          : existing.estKcal
+        store.updateStrengthEntry(date, existing.id, {
+          sets: mergedSets,
+          estKcal,
+          note: s.note ?? existing.note,
+          uncertain: s.uncertain ?? existing.uncertain,
+        })
+      } else {
+        const estKcal = weightKg ? calcStrengthKcal(s.sets.length, weightKg, s.intensity ?? 'mid') : 0
+        store.addStrengthEntry(date, { ...s, estKcal, source: 'nl' })
+      }
     }
     for (const c of parsed.cardio) {
       const activity = LABEL_TO_ACTIVITY[c.type] ?? 'walk'
@@ -103,6 +145,25 @@ export function WorkoutSection({ date, weightKg }: { date: string; weightKg: num
 
   return (
     <div className="space-y-6">
+      {activePlan && (
+        <div className="space-y-2 rounded-lg border border-neutral-300 bg-card p-3">
+          <p className="text-sm font-medium text-neutral-900">从计划导入今天的动作</p>
+          <p className="text-xs text-neutral-500">当前计划:{activePlan.name}</p>
+          <div className="flex flex-wrap gap-1.5">
+            {activePlan.days.map((day, i) => (
+              <button
+                key={i}
+                onClick={() => importPlanDay(day)}
+                className="min-h-11 rounded-md border border-neutral-300 px-3 text-sm text-neutral-800 active:bg-neutral-100"
+              >
+                {day.label}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-neutral-400">导入后每组会预填组数和重量,勾选「完成」记录就行</p>
+        </div>
+      )}
+
       <NLWorkoutInput onConfirm={applyParsedWorkout} />
 
       <div>

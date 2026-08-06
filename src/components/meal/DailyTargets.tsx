@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { FoodItem, Meal, Profile } from '../../lib/types'
+import type { Meal, Profile } from '../../lib/types'
 import { calcAge, calcBMR, calcTDEE } from '../../lib/calculations'
 import {
   calcCalorieTarget,
@@ -11,7 +11,6 @@ import {
   VEGETABLE_EXAMPLES,
   VEGETABLE_TARGET_G,
 } from '../../lib/nutritionTargets'
-import { RecipeBuilder } from './RecipeBuilder'
 
 function NutrientRow({
   label,
@@ -71,12 +70,10 @@ export function DailyTargets({
   profile,
   weightKg,
   meals,
-  onAddRecipe,
 }: {
   profile: Profile
   weightKg: number | null
   meals: Meal[]
-  onAddRecipe: (items: FoodItem[]) => void
 }) {
   if (!weightKg) {
     return <p className="text-xs text-neutral-500">添加一条包含体重的测量记录后,这里会显示今日营养目标。</p>
@@ -95,7 +92,6 @@ export function DailyTargets({
   const consumedFat = meals.reduce((s, m) => s + m.items.reduce((s2, i) => s2 + i.fat, 0), 0)
   const consumedKcal = meals.reduce((s, m) => s + m.items.reduce((s2, i) => s2 + i.kcal, 0), 0)
 
-  const proteinGap = proteinTarget - consumedProtein
   const carbsGap = carbsTarget - consumedCarbs
   const fatGap = fatTarget - consumedFat
 
@@ -134,8 +130,6 @@ export function DailyTargets({
       <p className="text-xs text-neutral-400">
         热量 / 蛋白质 / 碳水 / 脂肪基于 TDEE 与体重估算;蔬菜为通用膳食建议,不随体重变化。仅供参考。
       </p>
-
-      {proteinGap > 0 && <RecipeBuilder proteinGapG={proteinGap} onAddToMeal={onAddRecipe} />}
     </div>
   )
 }

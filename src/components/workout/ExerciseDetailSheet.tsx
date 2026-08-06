@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { EXERCISE_DETAILS } from '../../lib/exerciseDetails'
 import { patternFor } from '../../lib/exercisePatterns'
 import * as store from '../../lib/store'
-import { MotionDiagram } from './MotionDiagram'
+import { ExerciseStepCards } from './ExerciseStepCards'
 
 function VideoField({ name }: { name: string }) {
   const [videoUrl, setVideoUrl] = useState<string | null>(() => store.getExerciseVideo(name))
@@ -99,27 +99,10 @@ export function ExerciseDetailSheet({ name, onClose }: { name: string; onClose: 
           </button>
         </div>
 
-        <MotionDiagram pattern={pattern} />
-
         {detail ? (
           <>
             <p className="text-xs text-neutral-500">主要肌群:{detail.muscle}</p>
-            <div>
-              <p className="mb-1 text-sm font-medium text-neutral-900">动作要领</p>
-              <ul className="list-disc space-y-1 pl-4 text-sm text-neutral-700">
-                {detail.cues.map((c, i) => (
-                  <li key={i}>{c}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mb-1 text-sm font-medium text-neutral-900">常见错误</p>
-              <ul className="list-disc space-y-1 pl-4 text-sm text-neutral-700">
-                {detail.mistakes.map((m, i) => (
-                  <li key={i}>{m}</li>
-                ))}
-              </ul>
-            </div>
+            <ExerciseStepCards detail={detail} pattern={pattern} />
           </>
         ) : (
           <p className="text-sm text-neutral-500">这个动作还没有收录详细要领。</p>

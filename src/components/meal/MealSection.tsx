@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import type { Meal } from '../../lib/types'
+import type { FoodItem, Meal } from '../../lib/types'
 import { compressForAnalysis, compressForThumb } from '../../lib/imageCompress'
 import { defaultSlot, SLOT_LABELS, type Slot } from '../../lib/mealSlot'
 import { FoodItemsEditor } from './FoodItemsEditor'
+import { RecipeBuilder } from './RecipeBuilder'
 import { AiBadge } from '../AiBadge'
 
 async function callParseMeal(text: string) {
@@ -40,7 +41,7 @@ export function MealSection({
   onUpdateNote: (id: string, note: string) => void
   onRecalc: (id: string) => void
 }) {
-  const [tab, setTab] = useState<'text' | 'photo' | 'manual'>('text')
+  const [tab, setTab] = useState<'text' | 'photo' | 'manual' | 'recipe'>('text')
   const [slot, setSlot] = useState<Slot>(defaultSlot())
 
   const [text, setText] = useState('')
@@ -117,6 +118,10 @@ export function MealSection({
     setManualItems([])
   }
 
+  function confirmRecipe(items: FoodItem[]) {
+    onAddMeal({ slot, items, confirmed: true })
+  }
+
   return (
     <div className="space-y-4">
       <label className="flex items-center gap-2 text-xs text-neutral-600">
@@ -134,8 +139,8 @@ export function MealSection({
         </select>
       </label>
 
-      <div className="flex gap-2 text-xs">
-        {(['text', 'photo', 'manual'] as const).map((t) => (
+      <div className="flex flex-wrap gap-2 text-xs">
+        {(['text', 'photo', 'manual', 'recipe'] as const).map((t) => (
           <button
             key={t}
             onClick={() => setTab(t)}
@@ -143,7 +148,7 @@ export function MealSection({
               tab === t ? 'border-primary text-primary' : 'border-neutral-300 text-neutral-600'
             }`}
           >
-            {t === 'text' ? '文字记录' : t === 'photo' ? '拍照记录' : '手动添加'}
+            {t === 'text' ? '文字记录' : t === 'photo' ? '拍照记录' : t === 'manual' ? '手动添加' : '搭配菜谱'}
           </button>
         ))}
       </div>
@@ -232,6 +237,8 @@ export function MealSection({
           )}
         </div>
       )}
+
+      {tab === 'recipe' && <RecipeBuilder onAddToMeal={confirmRecipe} />}
 
       <div className="space-y-2">
         {meals.map((meal) => (
