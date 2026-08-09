@@ -8,6 +8,7 @@ import { WorkoutTab } from './components/WorkoutTab'
 import { TodayTab } from './components/checkin/TodayTab'
 import * as store from './lib/store'
 import { todayStr } from './lib/date'
+import { ToastProvider } from './lib/ToastContext'
 import type { Measurement, Plan, PlanDay, Profile } from './lib/types'
 
 function latestWeightKg(measurements: Measurement[]): number | null {
@@ -18,6 +19,14 @@ function latestWeightKg(measurements: Measurement[]): number | null {
 }
 
 function App() {
+  return (
+    <ToastProvider>
+      <AppContent />
+    </ToastProvider>
+  )
+}
+
+function AppContent() {
   const [profile, setProfile] = useState<Profile | null>(() => store.getProfile())
   const [measurements, setMeasurements] = useState<Measurement[]>(() => store.getMeasurements())
   const [plans, setPlans] = useState<Plan[]>(() => store.getPlans())

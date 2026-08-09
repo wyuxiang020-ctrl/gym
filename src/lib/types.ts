@@ -102,4 +102,5 @@ export interface GymData {
   plans: Plan[]
   dayLogs: Record<string, DayLog> // 以 date 为 key
   exerciseVideos: Record<string, string> // 动作名 -> 我自己填的直链视频地址
+  lastFedDate?: string // 上次投喂宠物的日期,每天只能投喂一次
 }

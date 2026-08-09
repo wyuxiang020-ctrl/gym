@@ -28,6 +28,7 @@ function read(): GymData {
       plans: parsed.plans ?? [],
       dayLogs: parsed.dayLogs ?? {},
       exerciseVideos: parsed.exerciseVideos ?? {},
+      lastFedDate: parsed.lastFedDate,
     }
   } catch {
     return emptyData()
@@ -289,6 +290,7 @@ export function importData(json: string) {
     plans: parsed.plans ?? [],
     dayLogs: parsed.dayLogs ?? {},
     exerciseVideos: parsed.exerciseVideos ?? {},
+    lastFedDate: parsed.lastFedDate,
   })
 }
 
@@ -307,6 +309,18 @@ export function setExerciseVideo(name: string, url: string) {
 export function removeExerciseVideo(name: string) {
   const data = read()
   delete data.exerciseVideos[name]
+  write(data)
+}
+
+// ---- 宠物投喂(每天一次) ----
+
+export function getLastFedDate(): string | null {
+  return read().lastFedDate ?? null
+}
+
+export function setLastFedDate(date: string) {
+  const data = read()
+  data.lastFedDate = date
   write(data)
 }
 

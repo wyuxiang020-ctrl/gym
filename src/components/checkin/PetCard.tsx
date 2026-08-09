@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import * as store from '../../lib/store'
 import { currentPetLevel, nextPetLevel, PET_LEVELS } from '../../lib/pet'
 import { PetMascot } from '../icons/PetMascot'
 
@@ -7,8 +8,9 @@ const FEED_BURST = Array.from({ length: 6 }, (_, i) => {
   return { x: Math.cos(angle) * 28, y: Math.sin(angle) * 28 - 10 }
 })
 
-export function PetCard({ totalVolume }: { totalVolume: number }) {
+export function PetCard({ date, totalVolume }: { date: string; totalVolume: number }) {
   const [feeding, setFeeding] = useState(false)
+  const [fedToday, setFedToday] = useState(() => store.getLastFedDate() === date)
   const level = currentPetLevel(totalVolume)
   const next = nextPetLevel(totalVolume)
 
@@ -17,6 +19,9 @@ export function PetCard({ totalVolume }: { totalVolume: number }) {
     : 100
 
   function feed() {
+    if (fedToday) return
+    store.setLastFedDate(date)
+    setFedToday(true)
     setFeeding(true)
     window.setTimeout(() => setFeeding(false), 600)
   }
@@ -30,7 +35,7 @@ export function PetCard({ totalVolume }: { totalVolume: number }) {
             {FEED_BURST.map((d, i) => (
               <span
                 key={i}
-                className="animate-burst absolute h-1.5 w-1.5 rounded-full bg-plate-yellow"
+                className="animate-burst absolute h-1.5 w-1.5 rounded-full bg-plate-green"
                 style={{ '--burst-x': `${d.x}px`, '--burst-y': `${d.y}px` } as React.CSSProperties}
               />
             ))}
@@ -52,9 +57,14 @@ export function PetCard({ totalVolume }: { totalVolume: number }) {
 
       <button
         onClick={feed}
-        className="min-h-11 rounded-md bg-primary hover:bg-primary-dark px-4 text-sm font-medium text-white"
+        disabled={fedToday}
+        className={`min-h-11 rounded-md px-4 text-sm font-medium ${
+          fedToday
+            ? 'bg-neutral-200 text-neutral-400'
+            : 'bg-plate-green text-white hover:brightness-95 active:brightness-90'
+        }`}
       >
-        投喂
+        {fedToday ? '今天已经喂过啦 🎋' : '喂竹子 🎋'}
       </button>
       <p className="text-[10px] text-neutral-400">
         {PET_LEVELS.map((l) => l.name).join(' → ')} · 练得越多,宠物长得越大

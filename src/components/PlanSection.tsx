@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { Plan, PlanDay, Profile } from '../lib/types'
 import { defaultPlanName, generatePlanDays } from '../lib/planGenerator'
 import { PLAN_TEMPLATES } from '../lib/planTemplates'
+import { useToast } from '../lib/ToastContext'
 import { PlanEditor } from './PlanEditor'
 
 export function PlanSection({
@@ -22,6 +23,7 @@ export function PlanSection({
   const [selectedId, setSelectedId] = useState<string | null>(plans.find((p) => p.isActive)?.id ?? null)
   const selected = plans.find((p) => p.id === selectedId) ?? null
   const prevPlanIds = useRef<string[]>(plans.map((p) => p.id))
+  const { showToast } = useToast()
 
   useEffect(() => {
     const newPlan = plans.find((p) => !prevPlanIds.current.includes(p.id))
@@ -33,12 +35,14 @@ export function PlanSection({
     const days = generatePlanDays(profile)
     const name = defaultPlanName(profile)
     onCreatePlan({ name, days, isActive: plans.length === 0 })
+    showToast('已生成训练计划')
   }
 
   function useTemplate(templateId: string) {
     const template = PLAN_TEMPLATES.find((t) => t.id === templateId)
     if (!template) return
     onCreatePlan({ name: template.name, days: template.days, isActive: plans.length === 0 })
+    showToast(`已创建「${template.name}」`)
   }
 
   return (

@@ -9,11 +9,11 @@ export interface PetLevel {
 
 // 门槛按「kg×次数」的历史累计训练容量估算,大致对应几周到几个月的持续训练
 export const PET_LEVELS: PetLevel[] = [
-  { level: 0, name: '蛋', minVolume: 0 },
-  { level: 1, name: '幼兽', minVolume: 1000 },
-  { level: 2, name: '少年', minVolume: 5000 },
-  { level: 3, name: '强壮', minVolume: 20000 },
-  { level: 4, name: '巨兽', minVolume: 50000 },
+  { level: 0, name: '小熊猫宝宝', minVolume: 0 },
+  { level: 1, name: '小熊猫幼崽', minVolume: 1000 },
+  { level: 2, name: '活力小熊猫', minVolume: 5000 },
+  { level: 3, name: '矫健小熊猫', minVolume: 20000 },
+  { level: 4, name: '熊猫之王', minVolume: 50000 },
 ]
 
 export function totalLifetimeVolume(dayLogs: Record<string, DayLog>): number {

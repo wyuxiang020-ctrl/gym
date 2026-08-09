@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { CheckInMode } from '../../lib/checkIn'
+import { quoteForDate } from '../../lib/motivationalQuotes'
 
 const INELIGIBLE_HINT: Record<CheckInMode, string | null> = {
   open: null,
@@ -13,11 +14,13 @@ const BURST_DOTS = Array.from({ length: 8 }, (_, i) => {
 })
 
 export function CheckInButton({
+  date,
   checkedIn,
   eligible,
   mode,
   onCheckIn,
 }: {
+  date: string
   checkedIn: boolean
   eligible: boolean
   mode: CheckInMode
@@ -61,6 +64,7 @@ export function CheckInButton({
           </div>
         )}
       </div>
+      {checkedIn && <p className="text-center text-xs text-neutral-500">{quoteForDate(date)}</p>}
       {!checkedIn && !eligible && INELIGIBLE_HINT[mode] && (
         <p className="text-center text-xs text-neutral-500">{INELIGIBLE_HINT[mode]}</p>
       )}

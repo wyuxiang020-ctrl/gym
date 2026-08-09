@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { Plan, PlanDay } from '../lib/types'
+import { EXERCISE_DETAILS } from '../lib/exerciseDetails'
+import { useToast } from '../lib/ToastContext'
 import { ExercisePicker } from './workout/ExercisePicker'
 import { ExerciseDetailSheet } from './workout/ExerciseDetailSheet'
 
 type Exercise = PlanDay['exercises'][number]
+type DragScope = { type: 'day' } | { type: 'exercise'; dayIndex: number }
 
 export function PlanEditor({
   plan,
@@ -20,10 +23,13 @@ export function PlanEditor({
 }) {
   const [name, setName] = useState(plan.name)
   const [days, setDays] = useState<PlanDay[]>(plan.days)
-  const [dragDay, setDragDay] = useState<number | null>(null)
-  const [dragExercise, setDragExercise] = useState<{ dayIndex: number; exIndex: number } | null>(null)
   const [pickerOpenFor, setPickerOpenFor] = useState<number | null>(null)
   const [detailFor, setDetailFor] = useState<string | null>(null)
+  const { showToast } = useToast()
+
+  const [dragScope, setDragScope] = useState<DragScope | null>(null)
+  const [dragIndex, setDragIndex] = useState<number | null>(null)
+  const itemRefs = useRef<Map<string, HTMLElement>>(new Map())
 
   useEffect(() => {
     setName(plan.name)
@@ -49,6 +55,7 @@ export function PlanEditor({
       exercises: [...days[dayIndex].exercises, { name, sets: 3, repRange: '8-12' }],
     })
     setPickerOpenFor(null)
+    showToast(`已添加「${name}」到这一天`)
   }
 
   function removeExercise(dayIndex: number, exIndex: number) {
@@ -93,6 +100,50 @@ export function PlanEditor({
     })
   }
 
+  // 长按拖动排序:用 Pointer Events 而不是 HTML5 draggable,
+  // 因为 draggable 在 iOS Safari 触屏上基本不生效
+  function startDrag(scope: DragScope, index: number, e: React.PointerEvent) {
+    ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
+    setDragScope(scope)
+    setDragIndex(index)
+  }
+
+  function moveDrag(scope: DragScope, e: React.PointerEvent) {
+    if (dragIndex === null || !dragScope) return
+    if (dragScope.type !== scope.type) return
+    if (scope.type === 'exercise' && dragScope.type === 'exercise' && scope.dayIndex !== dragScope.dayIndex) return
+
+    const y = e.clientY
+    const list = scope.type === 'day' ? days : days[scope.dayIndex].exercises
+    const keyFor = (i: number) => (scope.type === 'day' ? `day-${i}` : `ex-${scope.dayIndex}-${i}`)
+
+    for (let i = 0; i < list.length; i++) {
+      if (i === dragIndex) continue
+      const el = itemRefs.current.get(keyFor(i))
+      if (!el) continue
+      const rect = el.getBoundingClientRect()
+      const mid = rect.top + rect.height / 2
+      if ((dragIndex < i && y > mid) || (dragIndex > i && y < mid)) {
+        if (scope.type === 'day') {
+          reorderDays(dragIndex, i)
+        } else {
+          reorderExercises(scope.dayIndex, dragIndex, i)
+        }
+        setDragIndex(i)
+        break
+      }
+    }
+  }
+
+  function endDrag() {
+    setDragScope(null)
+    setDragIndex(null)
+  }
+
+  const isDraggingDay = (i: number) => dragScope?.type === 'day' && dragIndex === i
+  const isDraggingExercise = (dayIndex: number, exIndex: number) =>
+    dragScope?.type === 'exercise' && dragScope.dayIndex === dayIndex && dragIndex === exIndex
+
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-2">
@@ -123,17 +174,25 @@ export function PlanEditor({
         {days.map((day, dayIndex) => (
           <div
             key={dayIndex}
-            draggable
-            onDragStart={() => setDragDay(dayIndex)}
-            onDragOver={(e) => e.preventDefault()}
-            onDrop={() => {
-              if (dragDay != null) reorderDays(dragDay, dayIndex)
-              setDragDay(null)
+            ref={(el) => {
+              if (el) itemRefs.current.set(`day-${dayIndex}`, el)
             }}
-            className="rounded-lg border border-neutral-300 bg-card p-3 space-y-2"
+            className={`rounded-lg border bg-card p-3 space-y-2 transition-shadow ${
+              isDraggingDay(dayIndex) ? 'border-primary shadow-lg opacity-80' : 'border-neutral-300'
+            }`}
           >
             <div className="flex items-center gap-2">
-              <span className="cursor-grab text-neutral-400" title="拖动排序">⠿</span>
+              <span className="font-display w-5 text-sm text-neutral-400">{dayIndex + 1}</span>
+              <button
+                className="touch-none cursor-grab select-none px-1 text-lg text-neutral-400"
+                title="长按拖动排序"
+                onPointerDown={(e) => startDrag({ type: 'day' }, dayIndex, e)}
+                onPointerMove={(e) => moveDrag({ type: 'day' }, e)}
+                onPointerUp={endDrag}
+                onPointerCancel={endDrag}
+              >
+                ⠿
+              </button>
               <input
                 className="flex-1 rounded-md bg-neutral-100 border border-neutral-300 px-2 py-1 text-sm text-neutral-900"
                 value={day.label}
@@ -148,55 +207,67 @@ export function PlanEditor({
             </div>
 
             <div className="space-y-1">
-              {day.exercises.map((ex, exIndex) => (
-                <div
-                  key={exIndex}
-                  draggable
-                  onDragStart={() => setDragExercise({ dayIndex, exIndex })}
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={() => {
-                    if (dragExercise && dragExercise.dayIndex === dayIndex) {
-                      reorderExercises(dayIndex, dragExercise.exIndex, exIndex)
-                    }
-                    setDragExercise(null)
-                  }}
-                  className="animate-fade-in flex flex-wrap items-center gap-2 rounded-md bg-neutral-100 border border-neutral-300 px-2 py-1.5"
-                >
-                  <span className="cursor-grab text-neutral-700 text-xs" title="拖动排序">⠿</span>
-                  <input
-                    className="flex-1 min-w-[100px] bg-transparent text-sm text-neutral-900 outline-none"
-                    value={ex.name}
-                    onChange={(e) => updateExercise(dayIndex, exIndex, { name: e.target.value })}
-                  />
-                  <input
-                    type="number"
-                    className="w-14 bg-card border border-neutral-300 rounded px-1 py-0.5 text-xs text-neutral-800"
-                    value={ex.sets}
-                    onChange={(e) => updateExercise(dayIndex, exIndex, { sets: Number(e.target.value) })}
-                    title="组数"
-                  />
-                  <span className="text-xs text-neutral-400">组 ×</span>
-                  <input
-                    className="w-16 bg-card border border-neutral-300 rounded px-1 py-0.5 text-xs text-neutral-800"
-                    value={ex.repRange}
-                    onChange={(e) => updateExercise(dayIndex, exIndex, { repRange: e.target.value })}
-                    title="次数区间"
-                  />
-                  <button
-                    className="text-xs text-neutral-400"
-                    onClick={() => setDetailFor(ex.name)}
-                    title="查看动作要领"
+              {day.exercises.map((ex, exIndex) => {
+                const muscle = EXERCISE_DETAILS[ex.name]?.muscle
+                return (
+                  <div
+                    key={exIndex}
+                    ref={(el) => {
+                      if (el) itemRefs.current.set(`ex-${dayIndex}-${exIndex}`, el)
+                    }}
+                    className={`animate-fade-in rounded-md border bg-neutral-100 px-2 py-1.5 transition-shadow ${
+                      isDraggingExercise(dayIndex, exIndex) ? 'border-primary shadow-lg opacity-80' : 'border-neutral-300'
+                    }`}
                   >
-                    ⓘ
-                  </button>
-                  <button
-                    className="text-xs text-neutral-400 hover:text-red-500"
-                    onClick={() => removeExercise(dayIndex, exIndex)}
-                  >
-                    ✕
-                  </button>
-                </div>
-              ))}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="w-4 text-xs text-neutral-400">{exIndex + 1}</span>
+                      <button
+                        className="touch-none cursor-grab select-none px-0.5 text-sm text-neutral-400"
+                        title="长按拖动排序"
+                        onPointerDown={(e) => startDrag({ type: 'exercise', dayIndex }, exIndex, e)}
+                        onPointerMove={(e) => moveDrag({ type: 'exercise', dayIndex }, e)}
+                        onPointerUp={endDrag}
+                        onPointerCancel={endDrag}
+                      >
+                        ⠿
+                      </button>
+                      <input
+                        className="flex-1 min-w-[100px] bg-transparent text-sm text-neutral-900 outline-none"
+                        value={ex.name}
+                        onChange={(e) => updateExercise(dayIndex, exIndex, { name: e.target.value })}
+                      />
+                      <input
+                        type="number"
+                        className="w-14 bg-card border border-neutral-300 rounded px-1 py-0.5 text-xs text-neutral-800"
+                        value={ex.sets}
+                        onChange={(e) => updateExercise(dayIndex, exIndex, { sets: Number(e.target.value) })}
+                        title="组数"
+                      />
+                      <span className="text-xs text-neutral-400">组 ×</span>
+                      <input
+                        className="w-16 bg-card border border-neutral-300 rounded px-1 py-0.5 text-xs text-neutral-800"
+                        value={ex.repRange}
+                        onChange={(e) => updateExercise(dayIndex, exIndex, { repRange: e.target.value })}
+                        title="次数区间"
+                      />
+                      <button
+                        className="text-xs text-neutral-400"
+                        onClick={() => setDetailFor(ex.name)}
+                        title="查看动作要领"
+                      >
+                        ⓘ
+                      </button>
+                      <button
+                        className="text-xs text-neutral-400 hover:text-red-500"
+                        onClick={() => removeExercise(dayIndex, exIndex)}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                    {muscle && <p className="ml-9 mt-0.5 text-[10px] text-neutral-400">练:{muscle}</p>}
+                  </div>
+                )
+              })}
             </div>
 
             {pickerOpenFor === dayIndex ? (
@@ -255,13 +326,19 @@ export function PlanEditor({
       <div className="flex gap-2 pt-2">
         <button
           className="min-h-11 rounded-md bg-primary hover:bg-primary-dark px-4 py-2 text-sm font-medium text-white"
-          onClick={() => onSave({ name, days })}
+          onClick={() => {
+            onSave({ name, days })
+            showToast('已保存修改')
+          }}
         >
           保存修改
         </button>
         <button
           className="rounded-md border border-neutral-400 hover:border-neutral-500 px-4 py-2 text-sm text-neutral-800"
-          onClick={() => onSaveAsNew({ name: `${name} 副本`, days })}
+          onClick={() => {
+            onSaveAsNew({ name: `${name} 副本`, days })
+            showToast('已另存为新计划')
+          }}
         >
           另存为新计划
         </button>

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import * as store from '../../lib/store'
 import { calcCardioKcal, calcStrengthKcal, type CardioActivity } from '../../lib/met'
 import type { CardioEntry, DayLog, Plan, PlanDay, StrengthEntry } from '../../lib/types'
+import { useToast } from '../../lib/ToastContext'
+import { quoteForDate } from '../../lib/motivationalQuotes'
 import { StrengthLogger } from './StrengthLogger'
 import { CardioLogger } from './CardioLogger'
 import { NLWorkoutInput } from './NLWorkoutInput'
@@ -33,6 +35,10 @@ export function WorkoutSection({
 }) {
   const [dayLog, setDayLog] = useState<DayLog>(() => store.getDayLog(date))
   const activePlan = plans.find((p) => p.isActive) ?? null
+  const { showToast } = useToast()
+
+  const allSetsDone =
+    dayLog.strength.length > 0 && dayLog.strength.every((e) => e.sets.length > 0 && e.sets.every((s) => s.done))
 
   function refresh() {
     setDayLog(store.getDayLog(date))
@@ -46,6 +52,7 @@ export function WorkoutSection({
       source: 'manual',
     })
     refresh()
+    showToast(`已添加「${name}」`)
   }
 
   function importPlanDay(day: PlanDay) {
@@ -59,6 +66,7 @@ export function WorkoutSection({
       store.addStrengthEntry(date, { name: ex.name, sets, estKcal, source: 'manual' })
     }
     refresh()
+    showToast(`已导入「${day.label}」共 ${day.exercises.length} 个动作`)
   }
 
   function addSet(entryId: string) {
@@ -145,6 +153,13 @@ export function WorkoutSection({
 
   return (
     <div className="space-y-6">
+      {allSetsDone && (
+        <div className="animate-fade-in space-y-1 rounded-lg border border-plate-green bg-plate-green/10 p-3 text-center">
+          <p className="font-heading text-sm font-semibold text-plate-green">✓ 今日训练已计入档案</p>
+          <p className="text-xs text-neutral-600">{quoteForDate(date)}</p>
+        </div>
+      )}
+
       {activePlan && (
         <div className="space-y-2 rounded-lg border border-neutral-300 bg-card p-3">
           <p className="text-sm font-medium text-neutral-900">从计划导入今天的动作</p>

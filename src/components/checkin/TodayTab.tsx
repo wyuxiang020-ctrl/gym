@@ -36,9 +36,9 @@ export function TodayTab({ date, profile }: { date: string; profile: Profile }) 
 
   return (
     <div className="space-y-5">
-      <CheckInButton checkedIn={todayLog.checkedIn} eligible={eligible} mode={mode} onCheckIn={checkIn} />
+      <CheckInButton date={date} checkedIn={todayLog.checkedIn} eligible={eligible} mode={mode} onCheckIn={checkIn} />
 
-      <PetCard totalVolume={totalVolume} />
+      <PetCard date={date} totalVolume={totalVolume} />
 
       <StreakCard streak={streak} />
 
