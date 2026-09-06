@@ -60,6 +60,61 @@ const checks = [
       cardio: [],
     }),
   ],
+  [
+    '计时动作仅重量缺失时允许保留已知秒数',
+    accepted(validateWorkoutResult, {
+      strength: [
+        {
+          ...strength,
+          name: '负重侧桥',
+          sets: Array.from({ length: 2 }, () => ({ ...timedSet, durationSeconds: 45 })),
+          uncertain: ['外加重量缺失，请补充'],
+        },
+      ],
+      cardio: [],
+    }),
+  ],
+  [
+    '重量和次数都缺失时允许空组并保留提示',
+    accepted(validateWorkoutResult, {
+      strength: [
+        {
+          ...strength,
+          sets: [],
+          note: '重量和每组次数未记录',
+          uncertain: ['请补充重量和次数'],
+        },
+      ],
+      cardio: [],
+    }),
+  ],
+  [
+    '重量单位不明确时允许保留数值并标记不确定',
+    accepted(validateWorkoutResult, {
+      strength: [
+        {
+          ...strength,
+          sets: Array.from({ length: 4 }, () => ({ ...repSet })),
+          uncertain: ['重量数值为60，但单位未知，请确认'],
+        },
+      ],
+      cardio: [],
+    }),
+  ],
+  [
+    '自重动作允许0重量且不要求缺重量提示',
+    accepted(validateWorkoutResult, {
+      strength: [
+        {
+          ...strength,
+          name: '俯卧撑',
+          sets: Array.from({ length: 3 }, () => ({ ...repSet, weight: 0, reps: 12 })),
+          uncertain: [],
+        },
+      ],
+      cardio: [],
+    }),
+  ],
   ['待补充有氧允许 minutes 为 null', accepted(validateWorkoutResult, { strength: [], cardio: [cardio] })],
   [
     'reps 与 durationSeconds 同为 null 被拒绝',

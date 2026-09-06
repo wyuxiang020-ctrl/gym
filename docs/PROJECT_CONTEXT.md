@@ -242,9 +242,10 @@ gym/
 - 训练文字解析已完成一次 20 条 V1 正式基线：12/12 核心题直接通过、153/153 核心字段正确、6/8 边界题通过、20/20 HTTP 200 且结构有效。
 - V2 首次正式尝试 `2026-09-05-openai-regression-v2` 严格顺序、评测器与 SDK 均无重试，在 WO-14 后以 14 次请求中止。WO-01～13 有 Response ID / usage，已知小计为 18,302 token、按当时官方单价估算 $0.013075 USD；WO-14 因旧 Schema 允许 `reps` 与 `durationSeconds` 同时为 `null`，服务端校验失败后旧 500 响应丢失 `meta`，其 usage 与整次尝试总成本不可得。partial 不是完整 V2 成绩，不能报告通过率，也不能代表之后修正过的代码。
 - 第二次尝试 `2026-09-06-openai-regression-v2-r2` 在 WO-04 因本机 OpenAI 直连网络错误中止，共 4 次请求、无重试；前三题均为 `direct`，已知 4,616 token / $0.002790 USD，WO-04 无 Response ID、计费状态不可核实。诊断确认 `.env.local` 中已有可用 `OPENAI_PROXY_URL`，但旧 helper 在 Vercel 已注入 key 时不会加载它；当前 helper 已改为补载缺失的本地代理值并保持宿主环境优先。
-- 第三次正式运行 `2026-09-06-openai-regression-v2-r3` 经修正后的代理路径完成 20/20 次请求且无重试：核心题 12/12 直接可用、字段 182/182、精确动作名 15/15、边界题 7/8、结构 20/20；延迟中位 5327.5ms（2514–12632ms），总 token 31,629，估算成本 $0.019134 USD。20 条均有唯一 Response ID/响应哈希，人工复核改分 0 条。唯一失败 WO-13 因重量未知而清空组，丢失已知的 4×8；Prompt 已在结果冻结后补充缺重量占位规则，但尚未重新付费验证。
-- `npm run eval:workout:v1` 是 V1 历史基线工具，旧 `npm run eval:workout` 只是它的兼容别名；`npm run eval:workout:v2` 使用独立的 20 条数据集、规则和运行器。当前离线证据为 20 条用例 / 47 项评分器自检通过且 `network_requests=0`，`npm run check:ai-contracts` 为 14/14，guard 为 10/10；这些离线结果不等于模型通过率。
-- 修正版 V2 runner 把 HTTP 422 + Response ID 记为已调用但该题失败并继续；网络/上游异常、其他非成功 HTTP 或缺少 Response ID 等证据才 fatal。SDK 固定 `maxRetries: 0` / 110 秒，runner 超时 120 秒；首请求前冻结关键文件哈希，完整结束时再次核对。r3 已满足完整证据条件；未来再次完整运行仍须另获授权、使用新 Run ID 从头执行，不能续写现有 partial。
+- 第三次正式运行 `2026-09-06-openai-regression-v2-r3` 经修正后的代理路径完成 20/20 次请求且无重试：核心题 12/12 直接可用、字段 182/182、精确动作名 15/15、边界题 7/8、结构 20/20；延迟中位 5327.5ms（2514–12632ms），总 token 31,629，估算成本 $0.019134 USD。20 条均有唯一 Response ID/响应哈希，人工复核改分 0 条。唯一失败 WO-13 因重量未知而清空组，丢失已知的 4×8。
+- 修复验证 `2026-09-06-openai-regression-v2-r4` 使用相同合约重新完成 20/20 次请求且无重试：核心 12/12、字段 182/182、精确动作名 15/15、边界 8/8、结构 20/20；延迟中位 6405ms（3755–14421ms），总 token 33,482，估算成本 $0.019038 USD。WO-13 正确保留四个 8 次完成组、使用 0 待编辑占位并提示补充重量，其他 19 条没有规则回归；人工复核改分 0 条。
+- `npm run eval:workout:v1` 是 V1 历史基线工具，旧 `npm run eval:workout` 只是它的兼容别名；`npm run eval:workout:v2` 使用独立的 20 条数据集、规则和运行器。当前离线证据为 20 条用例 / 47 项评分器自检通过且 `network_requests=0`，`npm run check:ai-contracts` 为 18/18，guard 为 10/10；这些离线结果不等于模型通过率。
+- 修正版 V2 runner 把 HTTP 422 + Response ID 记为已调用但该题失败并继续；网络/上游异常、其他非成功 HTTP 或缺少 Response ID 等证据才 fatal。SDK 固定 `maxRetries: 0` / 110 秒，runner 超时 120 秒；首请求前冻结关键文件哈希，完整结束时再次核对。r3 与 r4 均满足完整证据条件；未来再次完整运行仍须另获授权、使用新 Run ID 从头执行，不能续写现有 partial。
 - `npm audit --omit=dev` 为 0 个已知漏洞。完整开发依赖审计仍报告 29 项（1 low、12 moderate、15 high、1 critical），主要在 Vercel CLI / `@vercel/*` 的开发工具传递依赖；强制修复可能带来破坏性版本变化，当前没有执行 `npm audit fix --force`。
 - `sharp` 0.35 是图片完整解码和安全重编码所需的生产依赖，当前 lockfile 解析为 0.35.4；它不是只在本地检查脚本使用的开发依赖。
 - 正式评测没有测量真人编辑率、修正耗时、最终保存一致性、外部用户效果或线上 SLA，这些结论不能从 20 条合成 API 用例推断。

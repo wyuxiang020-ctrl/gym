@@ -4,9 +4,9 @@
 
 本套件评估 `POST /api/parse-workout` 的 V2 单轮解析合约。20 条均为合成输入，不代表 20 位用户、真实训练建议或外部用户研究。每题由评测器发送一次请求，评测器不重试；UI 编辑、保存流程和真人行为指标需要另外测试。
 
-截至 2026-09-06，本套件已有完整正式结果 `2026-09-06-openai-regression-v2-r3`：20/20 次顺序请求完成且无重试，核心题 12/12 直接可用、核心字段 182/182、边界题 7/8、结构有效 20/20。原始 JSON、Markdown 报告和人工复核均保存在 `results/`；人工改分 0 条。
+截至 2026-09-06，本套件最新完整正式结果为 `2026-09-06-openai-regression-v2-r4`：20/20 次顺序请求完成且无重试，核心题 12/12 直接可用、核心字段 182/182、边界题 8/8、结构有效 20/20。原始 JSON、Markdown 报告和人工复核均保存在 `results/`；人工改分 0 条。
 
-此前 `2026-09-05-openai-regression-v2` 在 WO-14 后中止，`2026-09-06-openai-regression-v2-r2` 在 WO-04 遇到无 Response ID 的连接错误后中止，两者都只保留 `.partial.json`，不能续写或合并到 r3。r3 唯一失败为 WO-13；正式结果保存后，Prompt 已补充仅重量缺失时保留已知组次的规则，但该后续修复尚未用新 Run ID 重新验证。
+此前 `2026-09-05-openai-regression-v2` 在 WO-14 后中止，`2026-09-06-openai-regression-v2-r2` 在 WO-04 遇到无 Response ID 的连接错误后中止，两者都只保留 `.partial.json`，不能续写或合并。r3 的唯一失败 WO-13 在修正 Prompt 后由独立 r4 验证通过；r3 结果仍保持 7/8，不回写。
 
 ## 与 V1 的隔离
 
@@ -14,7 +14,7 @@
 - V2 使用独立的 `cases.jsonl`、`scripts/run-workout-eval-v2.mjs`、Run ID 和 `results/` 输出。
 - V2 的力量组同时包含 `reps` 与 `durationSeconds`；两者必须一项为正整数、另一项严格为 `null`。
 - V2 的有氧 `minutes` 允许为正数或 `null`。`null` 只表示待用户补充的预览状态，不等于可直接保存。
-- 当前 20 条数据集 / 47 项评分器离线自检通过且 `network_requests=0`，AI 运行时合约固定样例检查为 14/14、API guard 为 10/10；它们都不是模型质量成绩。
+- 当前 20 条数据集 / 47 项评分器离线自检通过且 `network_requests=0`，AI 运行时合约固定样例检查为 18/18、API guard 为 10/10；它们都不是模型质量成绩。
 
 ## 运行与防误付费
 
