@@ -3,9 +3,24 @@ import { toDateStr } from './date'
 
 export type CheckInMode = NonNullable<Profile['checkInMode']>
 
+export function hasCompletedWorkout(dayLog: DayLog): boolean {
+  const hasCompletedStrength = dayLog.strength.some((entry) =>
+    entry.sets.some(
+      (set) =>
+        set.done &&
+        ((Number.isFinite(set.reps) && (set.reps ?? 0) >= 1) ||
+          (Number.isFinite(set.durationSeconds) && (set.durationSeconds ?? 0) >= 1)),
+    ),
+  )
+  const hasCompletedCardio = dayLog.cardio.some(
+    (entry) => entry.done !== false && Number.isFinite(entry.minutes) && entry.minutes > 0,
+  )
+  return hasCompletedStrength || hasCompletedCardio
+}
+
 export function checkInEligible(dayLog: DayLog, mode: CheckInMode): boolean {
-  const hasWorkout = dayLog.strength.length > 0 || dayLog.cardio.length > 0
   if (mode === 'open') return true
+  const hasWorkout = hasCompletedWorkout(dayLog)
   if (mode === 'workout') return hasWorkout
   return hasWorkout && dayLog.meals.length > 0 // workout_and_meal
 }
@@ -32,7 +47,8 @@ export function calcStreak(dayLogs: Record<string, DayLog>, todayDate: string): 
 export function dayVolume(dayLog: DayLog | undefined): number {
   if (!dayLog) return 0
   return dayLog.strength.reduce(
-    (sum, entry) => sum + entry.sets.reduce((s, set) => s + set.weight * set.reps, 0),
+    (sum, entry) =>
+      sum + entry.sets.reduce((s, set) => s + (set.done ? set.weight * (set.reps ?? 0) : 0), 0),
     0,
   )
 }

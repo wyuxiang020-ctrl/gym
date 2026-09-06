@@ -31,6 +31,7 @@ export function ProfileForm({
 }) {
   const [form, setForm] = useState<Profile>(initial ?? emptyProfile())
   const [knowsBodyFat, setKnowsBodyFat] = useState(initial?.targetBodyFat != null)
+  const [error, setError] = useState<string | null>(null)
 
   const targetWarning =
     form.targetWeight != null && isTargetBelowHealthyBmi(form.targetWeight, form.height)
@@ -44,6 +45,24 @@ export function ProfileForm({
       className="space-y-5"
       onSubmit={(e) => {
         e.preventDefault()
+        const currentYear = new Date().getFullYear()
+        if (!Number.isInteger(form.birthYear) || form.birthYear < 1900 || form.birthYear > currentYear) {
+          setError(`出生年份需要在 1900-${currentYear} 之间`)
+          return
+        }
+        if (!Number.isFinite(form.height) || form.height < 100 || form.height > 250) {
+          setError('身高需要在 100-250 cm 之间')
+          return
+        }
+        if (form.targetWeight != null && (form.targetWeight < 20 || form.targetWeight > 400)) {
+          setError('目标体重需要在 20-400 kg 之间')
+          return
+        }
+        if (form.targetBodyFat != null && (form.targetBodyFat < 2 || form.targetBodyFat > 70)) {
+          setError('目标体脂率需要在 2%-70% 之间')
+          return
+        }
+        setError(null)
         onSave(form)
       }}
     >
@@ -64,6 +83,9 @@ export function ProfileForm({
           出生年份
           <input
             type="number"
+            min={1900}
+            max={new Date().getFullYear()}
+            required
             className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
             value={form.birthYear}
             onChange={(e) => update('birthYear', Number(e.target.value))}
@@ -74,6 +96,9 @@ export function ProfileForm({
           身高 (cm)
           <input
             type="number"
+            min={100}
+            max={250}
+            required
             className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
             value={form.height}
             onChange={(e) => update('height', Number(e.target.value))}
@@ -144,6 +169,8 @@ export function ProfileForm({
             目标体重 (kg,可选)
             <input
               type="number"
+              min={20}
+              max={400}
               className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
               value={form.targetWeight ?? ''}
               onChange={(e) =>
@@ -157,6 +184,8 @@ export function ProfileForm({
             <div className="flex items-center gap-2">
               <input
                 type="number"
+                min={2}
+                max={70}
                 disabled={!knowsBodyFat}
                 className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900 disabled:opacity-40"
                 value={form.targetBodyFat ?? ''}
@@ -217,6 +246,7 @@ export function ProfileForm({
       >
         保存档案
       </button>
+      {error && <p className="text-xs text-red-500">{error}</p>}
     </form>
   )
 }

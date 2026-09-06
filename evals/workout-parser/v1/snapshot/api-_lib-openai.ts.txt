@@ -1,0 +1,203 @@
+import OpenAI, { type ClientOptions } from 'openai'
+import { fetch as undiciFetch, ProxyAgent } from 'undici'
+
+const MODEL = 'gpt-5-mini'
+
+type InputContent =
+  | { type: 'input_text'; text: string }
+  | { type: 'input_image'; image_url: string; detail: 'auto' | 'low' | 'high' }
+
+type JsonSchema = Record<string, unknown>
+
+export type AIResponseMetadata = {
+  model: string
+  responseId: string
+  requestId?: string
+  usage?: {
+    inputTokens: number
+    cachedInputTokens: number
+    outputTokens: number
+    reasoningTokens: number
+    totalTokens: number
+  }
+}
+
+export type AIJsonResponse = {
+  value: unknown
+  metadata: AIResponseMetadata
+}
+
+export const FOOD_RESULT_SCHEMA: JsonSchema = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    items: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          name: { type: 'string', minLength: 1 },
+          grams: { type: 'number', minimum: 0 },
+          kcal: { type: 'number', minimum: 0 },
+          protein: { type: 'number', minimum: 0 },
+          carbs: { type: 'number', minimum: 0 },
+          fat: { type: 'number', minimum: 0 },
+          confidence: { type: 'string', enum: ['high', 'mid', 'low'] },
+        },
+        required: ['name', 'grams', 'kcal', 'protein', 'carbs', 'fat', 'confidence'],
+      },
+    },
+  },
+  required: ['items'],
+}
+
+export const WORKOUT_RESULT_SCHEMA: JsonSchema = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    strength: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          name: { type: 'string', minLength: 1 },
+          sets: {
+            type: 'array',
+            items: {
+              type: 'object',
+              additionalProperties: false,
+              properties: {
+                weight: { type: 'number', minimum: 0 },
+                reps: { type: 'number', minimum: 1 },
+                done: { type: 'boolean' },
+              },
+              required: ['weight', 'reps', 'done'],
+            },
+          },
+          note: { type: 'string' },
+          uncertain: { type: 'array', items: { type: 'string' } },
+        },
+        required: ['name', 'sets', 'note', 'uncertain'],
+      },
+    },
+    cardio: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          type: { type: 'string', minLength: 1 },
+          minutes: { type: 'number', minimum: 1 },
+          distance: { type: ['number', 'null'], minimum: 0 },
+          avgHr: { type: ['number', 'null'], minimum: 1 },
+          intensity: { type: 'string', enum: ['low', 'mid', 'high'] },
+          note: { type: 'string' },
+          uncertain: { type: 'array', items: { type: 'string' } },
+        },
+        required: ['type', 'minutes', 'distance', 'avgHr', 'intensity', 'note', 'uncertain'],
+      },
+    },
+  },
+  required: ['strength', 'cardio'],
+}
+
+let client: OpenAI | null = null
+
+function getClient(): OpenAI {
+  if (!client) {
+    // Vercel CLI may inject an empty Development Secret locally. Reload the
+    // server-only file in that case; deployed environments already have the key.
+    if (!process.env.OPENAI_API_KEY) {
+      try {
+        delete process.env.OPENAI_API_KEY
+        process.loadEnvFile('.env.local')
+      } catch {
+        // Production deployments do not contain .env.local; keep the clear error below.
+      }
+    }
+
+    const apiKey = process.env.OPENAI_API_KEY
+    if (!apiKey) {
+      throw new Error('OPENAI_API_KEY is not set in the environment')
+    }
+    const proxyUrl =
+      process.env.OPENAI_PROXY_URL || process.env.HTTPS_PROXY || process.env.HTTP_PROXY
+
+    if (proxyUrl) {
+      client = new OpenAI({
+        apiKey,
+        // The SDK and Undici can resolve through different copies of undici-types.
+        // Runtime shapes match the official SDK proxy example; isolate the cast here.
+        fetch: undiciFetch as unknown as ClientOptions['fetch'],
+        fetchOptions: {
+          dispatcher: new ProxyAgent(proxyUrl),
+        } as unknown as ClientOptions['fetchOptions'],
+      })
+    } else {
+      client = new OpenAI({ apiKey })
+    }
+  }
+  return client
+}
+
+export async function askOpenAIForJson(params: {
+  instructions: string
+  input: string | InputContent[]
+  schemaName: string
+  schema: JsonSchema
+}): Promise<AIJsonResponse> {
+  const openai = getClient()
+  const input =
+    typeof params.input === 'string'
+      ? params.input
+      : [{ role: 'user' as const, content: params.input }]
+
+  const response = await openai.responses.create({
+    model: MODEL,
+    instructions: params.instructions,
+    input,
+    max_output_tokens: 2048,
+    store: false,
+    text: {
+      format: {
+        type: 'json_schema',
+        name: params.schemaName,
+        schema: params.schema,
+        strict: true,
+      },
+    },
+  })
+
+  if (!response.output_text) {
+    throw new Error('OpenAI returned no text output')
+  }
+
+  try {
+    const requestId = (response as typeof response & { _request_id?: string | null })._request_id
+    return {
+      value: JSON.parse(response.output_text),
+      metadata: {
+        model: response.model,
+        responseId: response.id,
+        requestId: requestId ?? undefined,
+        usage: response.usage
+          ? {
+              inputTokens: response.usage.input_tokens,
+              cachedInputTokens: response.usage.input_tokens_details.cached_tokens,
+              outputTokens: response.usage.output_tokens,
+              reasoningTokens: response.usage.output_tokens_details.reasoning_tokens,
+              totalTokens: response.usage.total_tokens,
+            }
+          : undefined,
+      },
+    }
+  } catch {
+    const error = new Error('Failed to parse JSON from OpenAI response') as Error & {
+      rawText?: string
+    }
+    error.rawText = response.output_text
+    throw error
+  }
+}

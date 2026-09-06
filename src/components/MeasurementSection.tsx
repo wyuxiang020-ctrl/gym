@@ -18,6 +18,7 @@ export function MeasurementSection({
   const [draft, setDraft] = useState<Measurement>(emptyDraft())
   const [knowsBodyFat, setKnowsBodyFat] = useState(true)
   const [showMore, setShowMore] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   function update<K extends keyof Measurement>(key: K, value: Measurement[K]) {
     setDraft((d) => ({ ...d, [key]: value }))
@@ -33,6 +34,16 @@ export function MeasurementSection({
         className="space-y-4"
         onSubmit={(e) => {
           e.preventDefault()
+          const values = [draft.weight, draft.bodyFat, draft.waist, draft.chest, draft.hip, draft.arm, draft.thigh]
+          if (!values.some((value) => value != null)) {
+            setError('请至少填写一项身体数据')
+            return
+          }
+          if (measurements.some((measurement) => measurement.date === draft.date)) {
+            setError('当天已有测量记录,请先删除原记录再重新添加')
+            return
+          }
+          setError(null)
           onAdd(draft)
           setDraft(emptyDraft())
           setShowMore(false)
@@ -43,6 +54,7 @@ export function MeasurementSection({
             日期
             <input
               type="date"
+              required
               className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
               value={draft.date}
               onChange={(e) => update('date', e.target.value)}
@@ -54,6 +66,8 @@ export function MeasurementSection({
             <input
               type="number"
               step="0.1"
+              min={20}
+              max={400}
               className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
               value={draft.weight ?? ''}
               onChange={(e) => update('weight', e.target.value === '' ? undefined : Number(e.target.value))}
@@ -66,6 +80,8 @@ export function MeasurementSection({
               <input
                 type="number"
                 step="0.1"
+                min={2}
+                max={70}
                 disabled={!knowsBodyFat}
                 className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900 disabled:opacity-40"
                 value={draft.bodyFat ?? ''}
@@ -90,6 +106,8 @@ export function MeasurementSection({
             <input
               type="number"
               step="0.1"
+              min={20}
+              max={300}
               className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
               value={draft.waist ?? ''}
               onChange={(e) => update('waist', e.target.value === '' ? undefined : Number(e.target.value))}
@@ -112,6 +130,8 @@ export function MeasurementSection({
               <input
                 type="number"
                 step="0.1"
+                min={20}
+                max={300}
                 className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
                 value={draft.chest ?? ''}
                 onChange={(e) => update('chest', e.target.value === '' ? undefined : Number(e.target.value))}
@@ -122,6 +142,8 @@ export function MeasurementSection({
               <input
                 type="number"
                 step="0.1"
+                min={20}
+                max={300}
                 className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
                 value={draft.hip ?? ''}
                 onChange={(e) => update('hip', e.target.value === '' ? undefined : Number(e.target.value))}
@@ -132,6 +154,8 @@ export function MeasurementSection({
               <input
                 type="number"
                 step="0.1"
+                min={10}
+                max={200}
                 className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
                 value={draft.arm ?? ''}
                 onChange={(e) => update('arm', e.target.value === '' ? undefined : Number(e.target.value))}
@@ -142,6 +166,8 @@ export function MeasurementSection({
               <input
                 type="number"
                 step="0.1"
+                min={10}
+                max={200}
                 className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900"
                 value={draft.thigh ?? ''}
                 onChange={(e) => update('thigh', e.target.value === '' ? undefined : Number(e.target.value))}
@@ -156,6 +182,7 @@ export function MeasurementSection({
         >
           添加测量记录
         </button>
+        {error && <p className="text-xs text-red-500">{error}</p>}
       </form>
 
       {sorted.length > 0 && (

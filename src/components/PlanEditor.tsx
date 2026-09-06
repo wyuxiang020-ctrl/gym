@@ -1,12 +1,40 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Plan, PlanDay } from '../lib/types'
 import { EXERCISE_DETAILS } from '../lib/exerciseDetails'
-import { useToast } from '../lib/ToastContext'
+import { useToast } from '../lib/toast'
 import { ExercisePicker } from './workout/ExercisePicker'
 import { ExerciseDetailSheet } from './workout/ExerciseDetailSheet'
 
 type Exercise = PlanDay['exercises'][number]
 type DragScope = { type: 'day' } | { type: 'exercise'; dayIndex: number }
+
+function validatePlan(name: string, days: PlanDay[]): string | null {
+  if (!name.trim()) return '计划名称不能为空'
+  if (name.length > 100) return '计划名称最多 100 个字符'
+  if (days.length === 0) return '训练计划至少需要一天'
+  if (days.length > 50) return '一个计划最多包含 50 天'
+  for (const day of days) {
+    if (!day.label.trim()) return '每天的名称不能为空'
+    if (day.label.length > 100) return '每天的名称最多 100 个字符'
+    if (day.exercises.length > 100) return '每个训练日最多包含 100 个动作'
+    for (const exercise of day.exercises) {
+      if (!exercise.name.trim()) return '动作名称不能为空'
+      if (exercise.name.length > 100) return '动作名称最多 100 个字符'
+      if (!Number.isInteger(exercise.sets) || exercise.sets < 1 || exercise.sets > 20) {
+        return '每个动作的组数需要在 1-20 之间'
+      }
+      if (!exercise.repRange.trim()) return '次数或时长不能为空'
+      if (exercise.repRange.length > 100) return '次数或时长最多 100 个字符'
+    }
+    if (day.cardio && (!day.cardio.type.trim() || day.cardio.type.length > 100)) {
+      return '有氧项目名称需要在 1-100 个字符之间'
+    }
+    if (day.cardio && (!Number.isFinite(day.cardio.minutes) || day.cardio.minutes < 1 || day.cardio.minutes > 1440)) {
+      return '有氧时长需要在 1-1440 分钟之间'
+    }
+  }
+  return null
+}
 
 export function PlanEditor({
   plan,
@@ -25,6 +53,7 @@ export function PlanEditor({
   const [days, setDays] = useState<PlanDay[]>(plan.days)
   const [pickerOpenFor, setPickerOpenFor] = useState<number | null>(null)
   const [detailFor, setDetailFor] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
   const { showToast } = useToast()
 
   const [dragScope, setDragScope] = useState<DragScope | null>(null)
@@ -51,6 +80,10 @@ export function PlanEditor({
   }
 
   function addExercise(dayIndex: number, name: string) {
+    if (days[dayIndex].exercises.length >= 100) {
+      setError('每个训练日最多包含 100 个动作')
+      return
+    }
     updateDay(dayIndex, {
       exercises: [...days[dayIndex].exercises, { name, sets: 3, repRange: '8-12' }],
     })
@@ -63,6 +96,10 @@ export function PlanEditor({
   }
 
   function addDay() {
+    if (days.length >= 50) {
+      setError('一个计划最多包含 50 天')
+      return
+    }
     setDays((ds) => [...ds, { label: `Day ${ds.length + 1}`, exercises: [] }])
   }
 
@@ -98,6 +135,22 @@ export function PlanEditor({
     updateDay(dayIndex, {
       cardio: day.cardio ? undefined : { type: '有氧(可自选)', minutes: 20 },
     })
+  }
+
+  function save(asNew: boolean) {
+    const validationError = validatePlan(name, days)
+    if (validationError) {
+      setError(validationError)
+      return
+    }
+    setError(null)
+    if (asNew) {
+      onSaveAsNew({ name: `${name.trim().slice(0, 97)} 副本`, days })
+      showToast('已另存为新计划')
+    } else {
+      onSave({ name: name.trim(), days })
+      showToast('已保存修改')
+    }
   }
 
   // 长按拖动排序:用 Pointer Events 而不是 HTML5 draggable,
@@ -148,6 +201,7 @@ export function PlanEditor({
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-2">
         <input
+          maxLength={100}
           className="rounded-md bg-card border border-neutral-300 px-3 py-2 text-neutral-900 text-sm flex-1 min-w-[200px]"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -194,6 +248,7 @@ export function PlanEditor({
                 ⠿
               </button>
               <input
+                maxLength={100}
                 className="flex-1 rounded-md bg-neutral-100 border border-neutral-300 px-2 py-1 text-sm text-neutral-900"
                 value={day.label}
                 onChange={(e) => updateDay(dayIndex, { label: e.target.value })}
@@ -232,12 +287,15 @@ export function PlanEditor({
                         ⠿
                       </button>
                       <input
+                        maxLength={100}
                         className="flex-1 min-w-[100px] bg-transparent text-sm text-neutral-900 outline-none"
                         value={ex.name}
                         onChange={(e) => updateExercise(dayIndex, exIndex, { name: e.target.value })}
                       />
                       <input
                         type="number"
+                        min={1}
+                        max={20}
                         className="w-14 bg-card border border-neutral-300 rounded px-1 py-0.5 text-xs text-neutral-800"
                         value={ex.sets}
                         onChange={(e) => updateExercise(dayIndex, exIndex, { sets: Number(e.target.value) })}
@@ -245,6 +303,7 @@ export function PlanEditor({
                       />
                       <span className="text-xs text-neutral-400">组 ×</span>
                       <input
+                        maxLength={100}
                         className="w-16 bg-card border border-neutral-300 rounded px-1 py-0.5 text-xs text-neutral-800"
                         value={ex.repRange}
                         onChange={(e) => updateExercise(dayIndex, exIndex, { repRange: e.target.value })}
@@ -286,12 +345,15 @@ export function PlanEditor({
                 <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-600">
                   <span>有氧</span>
                   <input
+                    maxLength={100}
                     className="w-24 bg-neutral-100 border border-neutral-300 rounded px-2 py-1 text-neutral-800"
                     value={day.cardio.type}
                     onChange={(e) => updateDay(dayIndex, { cardio: { ...day.cardio!, type: e.target.value } })}
                   />
                   <input
                     type="number"
+                    min={1}
+                    max={1440}
                     className="w-16 bg-neutral-100 border border-neutral-300 rounded px-2 py-1 text-neutral-800"
                     value={day.cardio.minutes}
                     onChange={(e) =>
@@ -326,23 +388,18 @@ export function PlanEditor({
       <div className="flex gap-2 pt-2">
         <button
           className="min-h-11 rounded-md bg-primary hover:bg-primary-dark px-4 py-2 text-sm font-medium text-white"
-          onClick={() => {
-            onSave({ name, days })
-            showToast('已保存修改')
-          }}
+          onClick={() => save(false)}
         >
           保存修改
         </button>
         <button
           className="rounded-md border border-neutral-400 hover:border-neutral-500 px-4 py-2 text-sm text-neutral-800"
-          onClick={() => {
-            onSaveAsNew({ name: `${name} 副本`, days })
-            showToast('已另存为新计划')
-          }}
+          onClick={() => save(true)}
         >
           另存为新计划
         </button>
       </div>
+      {error && <p className="text-xs text-red-500">{error}</p>}
 
       {detailFor && <ExerciseDetailSheet name={detailFor} onClose={() => setDetailFor(null)} />}
     </div>

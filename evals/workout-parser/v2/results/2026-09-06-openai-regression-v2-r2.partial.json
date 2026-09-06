@@ -1,0 +1,525 @@
+{
+  "schema_version": 2,
+  "suite_id": "gym-workout-parser-v2",
+  "run_id": "2026-09-06-openai-regression-v2-r2",
+  "started_at": "2026-09-05T16:14:59.882Z",
+  "complete": false,
+  "evaluator_retry_count": 0,
+  "product_snapshot": {
+    "git_head": "d5d853b1e1006ed38946226a6180d0b7d00c47f6",
+    "dirty": true,
+    "dirty_files": [
+      "M .env.example",
+      " M .gitignore",
+      " M CLAUDE.md",
+      " M README.md",
+      " D api/_lib/claude.ts",
+      " M api/analyze-photo.ts",
+      " M api/parse-meal.ts",
+      " M api/parse-workout.ts",
+      " M api/recalc-meal.ts",
+      " M docs/AI_FEATURES.md",
+      " M docs/CHANGELOG.md",
+      " M docs/DECISIONS.md",
+      " M docs/PROJECT_CONTEXT.md",
+      " M package-lock.json",
+      " M package.json",
+      " M src/App.tsx",
+      " M src/components/AiBadge.tsx",
+      " M src/components/MeasurementSection.tsx",
+      " M src/components/PlanEditor.tsx",
+      " M src/components/PlanSection.tsx",
+      " M src/components/ProfileForm.tsx",
+      " M src/components/RecordsTab.tsx",
+      " M src/components/WaterCard.tsx",
+      " M src/components/WaterSection.tsx",
+      " M src/components/meal/FoodItemsEditor.tsx",
+      " M src/components/meal/MealDaySection.tsx",
+      " M src/components/meal/MealSection.tsx",
+      " M src/components/workout/CardioLogger.tsx",
+      " M src/components/workout/ExercisePicker.tsx",
+      " M src/components/workout/NLWorkoutInput.tsx",
+      " M src/components/workout/Stepper.tsx",
+      " M src/components/workout/StrengthLogger.tsx",
+      " M src/components/workout/WorkoutSection.tsx",
+      " M src/lib/ToastContext.tsx",
+      " M src/lib/checkIn.ts",
+      " M src/lib/store.ts",
+      " M src/lib/types.ts",
+      "?? api/_lib/openai.ts",
+      "?? api/_lib/request.ts",
+      "?? api/_lib/validate.ts",
+      "?? evals/",
+      "?? scripts/",
+      "?? src/lib/aiValidation.ts",
+      "?? src/lib/apiClient.ts",
+      "?? src/lib/dataValidation.ts",
+      "?? src/lib/foodValidation.ts",
+      "?? src/lib/toast.ts"
+    ],
+    "file_hashes": {
+      "api/parse-workout.ts": "5c8bafcc034d0d829e16db74947c4b3644141c9450741ba4859db6765fd5150f",
+      "api/_lib/openai.ts": "6026e02f94e3b26cccc0f1335b40c2882f05be129b376cfd63bb69f8109a0589",
+      "api/_lib/validate.ts": "7f43795261fcdbb73e694f413ab2fe60825e5f8163609c6b86929f0e49bb9f91",
+      "evals/workout-parser/v2/cases.jsonl": "e90ce00eb894edb06d58dd736f0142ee8f3b34f3113f07b1d606d077009baa19",
+      "evals/workout-parser/v2/RUBRIC.md": "b5f838d2f581d6b820b1b026ade130af3c5ba7a2f1eeed144812d452cdd117d7",
+      "scripts/run-workout-eval-v2.mjs": "8d65ff5050e3c220526e61a330e089495e46330ece9124232ef42cf745bc7b77"
+    }
+  },
+  "records": [
+    {
+      "run_id": "2026-09-06-openai-regression-v2-r2-WO-01",
+      "attempt": 1,
+      "evaluator_retry_count": 0,
+      "started_at": "2026-09-05T16:15:00.043Z",
+      "completed_at": "2026-09-05T16:15:16.522Z",
+      "case_id": "WO-01",
+      "category": "uniform",
+      "evaluation_group": "core",
+      "input": "卧推60kg，4组，每组8次。",
+      "expected": {
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              }
+            ]
+          }
+        ],
+        "cardio": []
+      },
+      "checks": [
+        "展开4组",
+        "重量单位kg",
+        "次数组使用reps且durationSeconds为null"
+      ],
+      "http_status": 200,
+      "latency_ms": 16478,
+      "structure_valid": true,
+      "verdict": "direct",
+      "score": {
+        "verdict": "direct",
+        "correct": 20,
+        "total": 20,
+        "accuracy": 1,
+        "issues": [],
+        "extras": [],
+        "exactNameMatches": 1,
+        "nameComparisons": 1
+      },
+      "actual_model_id": "gpt-5-mini-2025-08-07",
+      "response_id": "resp_0d0a104d1dddcdd6016a9c400efa0087d09418342ecbca2db0",
+      "request_id": "req_949f3bd8d8f24cc49f007fc88a1cd307",
+      "provider_sdk_max_retries": 0,
+      "provider_timeout_ms": 110000,
+      "request_error": null,
+      "fatal": false,
+      "paid_model_output_failure": false,
+      "usage": {
+        "inputTokens": 1131,
+        "cachedInputTokens": 0,
+        "outputTokens": 392,
+        "reasoningTokens": 256,
+        "totalTokens": 1523
+      },
+      "raw_response_or_error": "{\"result\":{\"strength\":[{\"name\":\"卧推\",\"sets\":[{\"weight\":60,\"reps\":8,\"durationSeconds\":null,\"done\":true},{\"weight\":60,\"reps\":8,\"durationSeconds\":null,\"done\":true},{\"weight\":60,\"reps\":8,\"durationSeconds\":null,\"done\":true},{\"weight\":60,\"reps\":8,\"durationSeconds\":null,\"done\":true}],\"note\":\"\",\"uncertain\":[]}],\"cardio\":[]},\"meta\":{\"model\":\"gpt-5-mini-2025-08-07\",\"responseId\":\"resp_0d0a104d1dddcdd6016a9c400efa0087d09418342ecbca2db0\",\"requestId\":\"req_949f3bd8d8f24cc49f007fc88a1cd307\",\"sdkMaxRetries\":0,\"timeoutMs\":110000,\"usage\":{\"inputTokens\":1131,\"cachedInputTokens\":0,\"outputTokens\":392,\"reasoningTokens\":256,\"totalTokens\":1523}}}",
+      "raw_response_sha256": "0112b217b13ff5c15ce849f9affae7ad72fb21f9659c045a3df4cca7dac6bbef",
+      "result": {
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": []
+          }
+        ],
+        "cardio": []
+      },
+      "correction_actions": [],
+      "final_saved_record_matches": "NOT_MEASURED - API parse-only evaluation"
+    },
+    {
+      "run_id": "2026-09-06-openai-regression-v2-r2-WO-02",
+      "attempt": 1,
+      "evaluator_retry_count": 0,
+      "started_at": "2026-09-05T16:15:16.524Z",
+      "completed_at": "2026-09-05T16:15:22.273Z",
+      "case_id": "WO-02",
+      "category": "variable_reps",
+      "evaluation_group": "core",
+      "input": "卧推60公斤4组，前三组8次，最后一组6次。",
+      "expected": {
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 6,
+                "durationSeconds": null,
+                "done": true
+              }
+            ]
+          }
+        ],
+        "cardio": []
+      },
+      "checks": [
+        "保留最后一组6次",
+        "每组满足reps/durationSeconds二选一"
+      ],
+      "http_status": 200,
+      "latency_ms": 5749,
+      "structure_valid": true,
+      "verdict": "direct",
+      "score": {
+        "verdict": "direct",
+        "correct": 20,
+        "total": 20,
+        "accuracy": 1,
+        "issues": [],
+        "extras": [],
+        "exactNameMatches": 1,
+        "nameComparisons": 1
+      },
+      "actual_model_id": "gpt-5-mini-2025-08-07",
+      "response_id": "resp_0a8c0bd74eac0c2e016a9c4015d73087d0a1d8567eaf5b8a73",
+      "request_id": "req_d7fd445a609641c8b641ef26f134f6d0",
+      "provider_sdk_max_retries": 0,
+      "provider_timeout_ms": 110000,
+      "request_error": null,
+      "fatal": false,
+      "paid_model_output_failure": false,
+      "usage": {
+        "inputTokens": 1137,
+        "cachedInputTokens": 1024,
+        "outputTokens": 293,
+        "reasoningTokens": 128,
+        "totalTokens": 1430
+      },
+      "raw_response_or_error": "{\"result\":{\"strength\":[{\"name\":\"卧推\",\"sets\":[{\"weight\":60,\"reps\":8,\"durationSeconds\":null,\"done\":true},{\"weight\":60,\"reps\":8,\"durationSeconds\":null,\"done\":true},{\"weight\":60,\"reps\":8,\"durationSeconds\":null,\"done\":true},{\"weight\":60,\"reps\":6,\"durationSeconds\":null,\"done\":true}],\"note\":\"\",\"uncertain\":[]}],\"cardio\":[]},\"meta\":{\"model\":\"gpt-5-mini-2025-08-07\",\"responseId\":\"resp_0a8c0bd74eac0c2e016a9c4015d73087d0a1d8567eaf5b8a73\",\"requestId\":\"req_d7fd445a609641c8b641ef26f134f6d0\",\"sdkMaxRetries\":0,\"timeoutMs\":110000,\"usage\":{\"inputTokens\":1137,\"cachedInputTokens\":1024,\"outputTokens\":293,\"reasoningTokens\":128,\"totalTokens\":1430}}}",
+      "raw_response_sha256": "1161a3d10b61f0cad053a554b81a7ad4186d3632fbf3c97c9aa79b280c02cd96",
+      "result": {
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 60,
+                "reps": 6,
+                "durationSeconds": null,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": []
+          }
+        ],
+        "cardio": []
+      },
+      "correction_actions": [],
+      "final_saved_record_matches": "NOT_MEASURED - API parse-only evaluation"
+    },
+    {
+      "run_id": "2026-09-06-openai-regression-v2-r2-WO-03",
+      "attempt": 1,
+      "evaluator_retry_count": 0,
+      "started_at": "2026-09-05T16:15:22.275Z",
+      "completed_at": "2026-09-05T16:15:30.452Z",
+      "case_id": "WO-03",
+      "category": "multiple_exercises",
+      "evaluation_group": "core",
+      "input": "杠铃深蹲80千克3组每组10次；杠铃卧推50千克2组每组8次。",
+      "expected": {
+        "strength": [
+          {
+            "name": "杠铃深蹲",
+            "sets": [
+              {
+                "weight": 80,
+                "reps": 10,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 80,
+                "reps": 10,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 80,
+                "reps": 10,
+                "durationSeconds": null,
+                "done": true
+              }
+            ]
+          },
+          {
+            "name": "杠铃卧推",
+            "sets": [
+              {
+                "weight": 50,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 50,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              }
+            ]
+          }
+        ],
+        "cardio": []
+      },
+      "checks": [
+        "两个独立动作",
+        "不得交换重量"
+      ],
+      "http_status": 200,
+      "latency_ms": 8177,
+      "structure_valid": true,
+      "verdict": "direct",
+      "score": {
+        "verdict": "direct",
+        "correct": 26,
+        "total": 26,
+        "accuracy": 1,
+        "issues": [],
+        "extras": [],
+        "exactNameMatches": 2,
+        "nameComparisons": 2
+      },
+      "actual_model_id": "gpt-5-mini-2025-08-07",
+      "response_id": "resp_042206454e76203c016a9c401b7b4087d0910ed97be8d23885",
+      "request_id": "req_2b3bf6f9e4154bc29c181accd7f4379d",
+      "provider_sdk_max_retries": 0,
+      "provider_timeout_ms": 110000,
+      "request_error": null,
+      "fatal": false,
+      "paid_model_output_failure": false,
+      "usage": {
+        "inputTokens": 1150,
+        "cachedInputTokens": 1024,
+        "outputTokens": 513,
+        "reasoningTokens": 256,
+        "totalTokens": 1663
+      },
+      "raw_response_or_error": "{\"result\":{\"strength\":[{\"name\":\"杠铃深蹲\",\"sets\":[{\"weight\":80,\"reps\":10,\"durationSeconds\":null,\"done\":true},{\"weight\":80,\"reps\":10,\"durationSeconds\":null,\"done\":true},{\"weight\":80,\"reps\":10,\"durationSeconds\":null,\"done\":true}],\"note\":\"\",\"uncertain\":[]},{\"name\":\"杠铃卧推\",\"sets\":[{\"weight\":50,\"reps\":8,\"durationSeconds\":null,\"done\":true},{\"weight\":50,\"reps\":8,\"durationSeconds\":null,\"done\":true}],\"note\":\"\",\"uncertain\":[]}],\"cardio\":[]},\"meta\":{\"model\":\"gpt-5-mini-2025-08-07\",\"responseId\":\"resp_042206454e76203c016a9c401b7b4087d0910ed97be8d23885\",\"requestId\":\"req_2b3bf6f9e4154bc29c181accd7f4379d\",\"sdkMaxRetries\":0,\"timeoutMs\":110000,\"usage\":{\"inputTokens\":1150,\"cachedInputTokens\":1024,\"outputTokens\":513,\"reasoningTokens\":256,\"totalTokens\":1663}}}",
+      "raw_response_sha256": "19f93c330ea3f8372e6b919d1fb2a332c3987acaf3b3cf3ed2e2a1258681a0a3",
+      "result": {
+        "strength": [
+          {
+            "name": "杠铃深蹲",
+            "sets": [
+              {
+                "weight": 80,
+                "reps": 10,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 80,
+                "reps": 10,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 80,
+                "reps": 10,
+                "durationSeconds": null,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": []
+          },
+          {
+            "name": "杠铃卧推",
+            "sets": [
+              {
+                "weight": 50,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 50,
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": []
+          }
+        ],
+        "cardio": []
+      },
+      "correction_actions": [],
+      "final_saved_record_matches": "NOT_MEASURED - API parse-only evaluation"
+    },
+    {
+      "run_id": "2026-09-06-openai-regression-v2-r2-WO-04",
+      "attempt": 1,
+      "evaluator_retry_count": 0,
+      "started_at": "2026-09-05T16:15:30.453Z",
+      "completed_at": "2026-09-05T16:15:31.604Z",
+      "case_id": "WO-04",
+      "category": "decimal_weight",
+      "evaluation_group": "core",
+      "input": "哑铃弯举记录重量12.5kg，3组，每组12次。",
+      "expected": {
+        "strength": [
+          {
+            "name": "哑铃弯举",
+            "sets": [
+              {
+                "weight": 12.5,
+                "reps": 12,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 12.5,
+                "reps": 12,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 12.5,
+                "reps": 12,
+                "durationSeconds": null,
+                "done": true
+              }
+            ]
+          }
+        ],
+        "cardio": []
+      },
+      "checks": [
+        "不丢小数",
+        "不擅自翻倍重量"
+      ],
+      "http_status": 500,
+      "latency_ms": 1151,
+      "structure_valid": false,
+      "verdict": "fail",
+      "score": {
+        "verdict": "fail",
+        "correct": 0,
+        "total": 16,
+        "accuracy": 0,
+        "issues": [
+          "Connection error."
+        ],
+        "extras": [],
+        "exactNameMatches": 0,
+        "nameComparisons": 1
+      },
+      "actual_model_id": null,
+      "response_id": null,
+      "request_id": null,
+      "provider_sdk_max_retries": null,
+      "provider_timeout_ms": null,
+      "request_error": "Connection error.",
+      "fatal": true,
+      "paid_model_output_failure": false,
+      "usage": null,
+      "raw_response_or_error": "{\"error\":\"Connection error.\"}",
+      "raw_response_sha256": "8dc4959a78e8ec4882636a4ece5a2f34c933e021b15b15aef8af0bf4c0ac9af0",
+      "result": null,
+      "correction_actions": [
+        "Connection error."
+      ],
+      "final_saved_record_matches": "NOT_MEASURED - API parse-only evaluation"
+    }
+  ]
+}

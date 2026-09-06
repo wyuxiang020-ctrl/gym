@@ -75,6 +75,7 @@ export function ExercisePicker({
         }}
       >
         <input
+          maxLength={100}
           className="flex-1 rounded-md bg-card border border-neutral-300 px-3 py-2 text-sm text-neutral-900"
           placeholder={customPlaceholder}
           value={customName}

@@ -4,6 +4,7 @@ export function Stepper({
   value,
   step,
   min = 0,
+  max = Number.POSITIVE_INFINITY,
   onChange,
   suffix,
   showPlateColor,
@@ -11,6 +12,7 @@ export function Stepper({
   value: number
   step: number
   min?: number
+  max?: number
   onChange: (value: number) => void
   suffix?: string
   showPlateColor?: boolean
@@ -35,7 +37,7 @@ export function Stepper({
       <button
         type="button"
         className="h-7 w-7 rounded-md border border-neutral-400 text-neutral-700 hover:border-neutral-500"
-        onClick={() => onChange(round(value + step))}
+        onClick={() => onChange(round(Math.min(max, value + step)))}
       >
         +
       </button>

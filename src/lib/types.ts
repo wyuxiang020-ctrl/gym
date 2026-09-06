@@ -27,7 +27,7 @@ export interface Measurement {
   note?: string
 }
 
-// 训练计划(AI 生成初稿,之后完全可编辑)
+// 训练计划(规则生成、模板或手动创建,之后完全可编辑)
 export interface Plan {
   id: string
   createdAt: string
@@ -56,12 +56,19 @@ export interface DayLog {
 export interface StrengthEntry {
   id: string
   name: string
-  sets: { weight: number; reps: number; done: boolean }[]
+  sets: StrengthSet[]
   intensity?: 'low' | 'mid' | 'high' // 用于 MET 热量估算,默认 mid
   estKcal: number // 自动算(MET 公式)
-  source: 'manual' | 'nl' // 手动还是自然语言生成的
+  source: 'manual' | 'nl' | 'mixed' // 手动、自然语言生成，或两者合并
   note?: string // 自然语言解析时识别不出的部分,原文保留
   uncertain?: string[] // 自然语言解析时没把握的地方
+}
+
+export interface StrengthSet {
+  weight: number
+  reps?: number // 次数型动作;计时型动作不使用这个字段
+  durationSeconds?: number // 计时型动作的单组秒数
+  done: boolean
 }
 
 export interface CardioEntry {
@@ -71,6 +78,7 @@ export interface CardioEntry {
   distance?: number // km
   avgHr?: number // 平均心率,可选
   intensity: 'low' | 'mid' | 'high'
+  done?: boolean // 计划导入可为 false；旧记录未存该字段时视为已完成
   estKcal: number // 自动算(MET 公式)
   source: 'manual' | 'nl'
   note?: string

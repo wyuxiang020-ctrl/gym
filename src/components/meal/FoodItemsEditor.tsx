@@ -1,4 +1,5 @@
 import type { FoodItem } from '../../lib/types'
+import { FOOD_SAVE_LIMITS } from '../../lib/foodValidation'
 import { AiBadge } from '../AiBadge'
 
 function emptyItem(): FoodItem {
@@ -20,6 +21,27 @@ export function FoodItemsEditor({
     onChange(items.map((it, idx) => (idx === i ? { ...it, ...patch } : it)))
   }
 
+  function updateGrams(i: number, nextValue: number) {
+    const item = items[i]
+    if (!item) return
+    const grams = Number.isFinite(nextValue) ? Math.max(0, nextValue) : 0
+
+    if (item.grams <= 0) {
+      update(i, { grams })
+      return
+    }
+
+    const ratio = grams / item.grams
+    const scale = (value: number) => Math.round(value * ratio * 10) / 10
+    update(i, {
+      grams,
+      kcal: scale(item.kcal),
+      protein: scale(item.protein),
+      carbs: scale(item.carbs),
+      fat: scale(item.fat),
+    })
+  }
+
   function remove(i: number) {
     onChange(items.filter((_, idx) => idx !== i))
   }
@@ -36,6 +58,7 @@ export function FoodItemsEditor({
           <div className="flex items-center gap-2">
             {aiGenerated && <AiBadge />}
             <input
+              maxLength={FOOD_SAVE_LIMITS.nameCharacters}
               className="flex-1 bg-transparent text-sm text-neutral-900 outline-none"
               placeholder="食物名称"
               value={item.name}
@@ -62,15 +85,19 @@ export function FoodItemsEditor({
               克数
               <input
                 type="number"
+                min={0}
+                max={FOOD_SAVE_LIMITS.grams}
                 className="rounded bg-card border border-neutral-300 px-1.5 py-1 text-neutral-800"
                 value={item.grams}
-                onChange={(e) => update(i, { grams: Number(e.target.value) })}
+                onChange={(e) => updateGrams(i, Number(e.target.value))}
               />
             </label>
             <label className="flex flex-col gap-0.5">
               kcal
               <input
                 type="number"
+                min={0}
+                max={FOOD_SAVE_LIMITS.kcal}
                 className="rounded bg-card border border-neutral-300 px-1.5 py-1 text-neutral-800"
                 value={item.kcal}
                 onChange={(e) => update(i, { kcal: Number(e.target.value) })}
@@ -80,6 +107,8 @@ export function FoodItemsEditor({
               蛋白质g
               <input
                 type="number"
+                min={0}
+                max={FOOD_SAVE_LIMITS.macroGrams}
                 className="rounded bg-card border border-neutral-300 px-1.5 py-1 text-neutral-800"
                 value={item.protein}
                 onChange={(e) => update(i, { protein: Number(e.target.value) })}
@@ -89,6 +118,8 @@ export function FoodItemsEditor({
               碳水g
               <input
                 type="number"
+                min={0}
+                max={FOOD_SAVE_LIMITS.macroGrams}
                 className="rounded bg-card border border-neutral-300 px-1.5 py-1 text-neutral-800"
                 value={item.carbs}
                 onChange={(e) => update(i, { carbs: Number(e.target.value) })}
@@ -98,6 +129,8 @@ export function FoodItemsEditor({
               脂肪g
               <input
                 type="number"
+                min={0}
+                max={FOOD_SAVE_LIMITS.macroGrams}
                 className="rounded bg-card border border-neutral-300 px-1.5 py-1 text-neutral-800"
                 value={item.fat}
                 onChange={(e) => update(i, { fat: Number(e.target.value) })}
@@ -110,9 +143,10 @@ export function FoodItemsEditor({
       {allowAdd && (
         <button
           className="text-xs text-neutral-600 hover:text-neutral-800"
+          disabled={items.length >= FOOD_SAVE_LIMITS.items}
           onClick={() => onChange([...items, emptyItem()])}
         >
-          + 添加一项
+          {items.length >= FOOD_SAVE_LIMITS.items ? '已达到单餐项目上限' : '+ 添加一项'}
         </button>
       )}
     </div>

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { Plan, PlanDay, Profile } from '../lib/types'
 import { defaultPlanName, generatePlanDays } from '../lib/planGenerator'
 import { PLAN_TEMPLATES } from '../lib/planTemplates'
-import { useToast } from '../lib/ToastContext'
+import { useToast } from '../lib/toast'
 import { PlanEditor } from './PlanEditor'
 
 export function PlanSection({
@@ -38,7 +38,7 @@ export function PlanSection({
     showToast('已生成训练计划')
   }
 
-  function useTemplate(templateId: string) {
+  function createFromTemplate(templateId: string) {
     const template = PLAN_TEMPLATES.find((t) => t.id === templateId)
     if (!template) return
     onCreatePlan({ name: template.name, days: template.days, isActive: plans.length === 0 })
@@ -63,7 +63,7 @@ export function PlanSection({
           {PLAN_TEMPLATES.map((t) => (
             <button
               key={t.id}
-              onClick={() => useTemplate(t.id)}
+              onClick={() => createFromTemplate(t.id)}
               className="min-h-11 w-full rounded-md border border-neutral-300 px-3 py-2 text-left active:bg-neutral-100"
             >
               <div className="text-sm font-medium text-neutral-900">{t.name}</div>

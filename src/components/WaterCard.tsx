@@ -58,6 +58,9 @@ export function WaterCard({
             }}
           >
             <input
+              type="number"
+              min={1}
+              max={20000}
               className="w-20 rounded-md bg-neutral-100 border border-neutral-300 px-2 py-0.5 text-xs text-neutral-900"
               value={targetInput}
               onChange={(e) => setTargetInput(e.target.value)}
@@ -115,6 +118,8 @@ export function WaterCard({
         >
           <input
             type="number"
+            min={1}
+            max={5000}
             autoFocus
             className="w-24 rounded-md bg-neutral-100 border border-neutral-300 px-2 py-1 text-sm text-neutral-900"
             placeholder="ml"

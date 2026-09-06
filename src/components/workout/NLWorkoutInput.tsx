@@ -1,33 +1,40 @@
-import { useState } from 'react'
-import type { CardioEntry, StrengthEntry } from '../../lib/types'
+import { useEffect, useState } from 'react'
+import {
+  parseWorkoutResponse,
+  type ConfirmedParsedWorkout,
+  type ParsedCardio,
+  type ParsedStrength,
+  type ParsedWorkout,
+  validateWorkoutForSave,
+} from '../../lib/aiValidation'
+import { postJson } from '../../lib/apiClient'
 import { CARDIO_TYPE_LABELS, type CardioActivity, type Intensity } from '../../lib/met'
 import { IntensityPicker } from './IntensityPicker'
 import { Stepper } from './Stepper'
 import { AiBadge } from '../AiBadge'
 
-type ParsedStrength = Omit<StrengthEntry, 'id' | 'source' | 'estKcal'>
-type ParsedCardio = Omit<CardioEntry, 'id' | 'source' | 'estKcal'>
-type ParsedResult = { strength: ParsedStrength[]; cardio: ParsedCardio[] }
-
-async function callParseWorkout(text: string): Promise<ParsedResult> {
-  const res = await fetch('/api/parse-workout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text }),
-  })
-  const body = await res.json()
-  if (!res.ok) {
-    throw new Error(body.error ?? '解析失败')
-  }
-  const result = body.result as Partial<ParsedResult>
-  return { strength: result.strength ?? [], cardio: result.cardio ?? [] }
+async function callParseWorkout(text: string): Promise<ParsedWorkout> {
+  const body = await postJson('/api/parse-workout', { text }, '训练解析失败,请稍后重试。')
+  return parseWorkoutResponse(body)
 }
 
-export function NLWorkoutInput({ onConfirm }: { onConfirm: (result: ParsedResult) => void }) {
+export function NLWorkoutInput({
+  onConfirm,
+  resetToken,
+}: {
+  onConfirm: (result: ConfirmedParsedWorkout) => void
+  resetToken: number
+}) {
   const [text, setText] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [preview, setPreview] = useState<ParsedResult | null>(null)
+  const [preview, setPreview] = useState<ParsedWorkout | null>(null)
+
+  useEffect(() => {
+    setPreview(null)
+    setText('')
+    setError(null)
+  }, [resetToken])
 
   async function parse() {
     if (!text.trim()) return
@@ -59,11 +66,19 @@ export function NLWorkoutInput({ onConfirm }: { onConfirm: (result: ParsedResult
     setPreview((p) => (p ? { ...p, cardio: p.cardio.filter((_, idx) => idx !== i) } : p))
   }
 
+  const hasIncompleteCardio =
+    preview?.cardio.some(
+      (entry) => entry.minutes === null || !Number.isFinite(entry.minutes) || entry.minutes < 1,
+    ) ?? false
+  const saveValidation = preview ? validateWorkoutForSave(preview) : null
+  const saveError = saveValidation && !saveValidation.ok ? saveValidation.error : null
+
   return (
     <div className="space-y-3 rounded-lg border border-neutral-300 bg-card p-3">
       <label className="flex flex-col gap-1 text-xs text-neutral-600">
         自然语言记录训练(文字或语音转写)
         <textarea
+          maxLength={2000}
           className="rounded-md bg-neutral-100 border border-neutral-300 px-3 py-2 text-sm text-neutral-900"
           rows={2}
           placeholder="今天卧推 60 公斤做了 4 组,前三组 8 次最后一组 6 次,然后深蹲 80 三组 10 次,最后跑步机走了 20 分钟"
@@ -79,6 +94,9 @@ export function NLWorkoutInput({ onConfirm }: { onConfirm: (result: ParsedResult
       >
         {loading ? '解析中…' : '解析'}
       </button>
+      <p className="text-xs text-neutral-400">
+        点击解析后，输入文字会发送给 OpenAI；识别结果只会在你核对并确认后写入本地。
+      </p>
 
       {error && (
         <p className="text-xs text-red-500">
@@ -109,11 +127,31 @@ export function NLWorkoutInput({ onConfirm }: { onConfirm: (result: ParsedResult
               </div>
               <div className="space-y-1">
                 {s.sets.map((set, si) => (
-                  <div key={si} className="flex items-center gap-3">
+                  <div key={si} className="flex flex-wrap items-center gap-2">
                     <span className="w-5 text-xs text-neutral-400">{si + 1}</span>
+                    <select
+                      aria-label={`第 ${si + 1} 组记录方式`}
+                      className="rounded-md border border-neutral-300 bg-card px-2 py-1 text-xs text-neutral-700"
+                      value={set.durationSeconds !== undefined ? 'duration' : 'reps'}
+                      onChange={(event) =>
+                        updateStrength(i, {
+                          sets: s.sets.map((item, index) =>
+                            index !== si
+                              ? item
+                              : event.target.value === 'duration'
+                                ? { weight: item.weight, durationSeconds: item.durationSeconds ?? 30, done: item.done }
+                                : { weight: item.weight, reps: item.reps ?? 8, done: item.done },
+                          ),
+                        })
+                      }
+                    >
+                      <option value="reps">次数</option>
+                      <option value="duration">计时</option>
+                    </select>
                     <Stepper
                       value={set.weight}
                       step={2.5}
+                      max={1000}
                       suffix="kg"
                       showPlateColor
                       onChange={(v) =>
@@ -121,13 +159,30 @@ export function NLWorkoutInput({ onConfirm }: { onConfirm: (result: ParsedResult
                       }
                     />
                     <span className="text-xs text-neutral-400">×</span>
-                    <Stepper
-                      value={set.reps}
-                      step={1}
-                      onChange={(v) =>
-                        updateStrength(i, { sets: s.sets.map((x, xi) => (xi === si ? { ...x, reps: v } : x)) })
-                      }
-                    />
+                    {set.durationSeconds !== undefined ? (
+                      <Stepper
+                        value={set.durationSeconds}
+                        step={5}
+                        min={1}
+                        max={86400}
+                        suffix="秒"
+                        onChange={(v) =>
+                          updateStrength(i, {
+                            sets: s.sets.map((x, xi) => (xi === si ? { ...x, durationSeconds: v } : x)),
+                          })
+                        }
+                      />
+                    ) : (
+                      <Stepper
+                        value={set.reps ?? 0}
+                        step={1}
+                        min={1}
+                        max={1000}
+                        onChange={(v) =>
+                          updateStrength(i, { sets: s.sets.map((x, xi) => (xi === si ? { ...x, reps: v } : x)) })
+                        }
+                      />
+                    )}
                     <button
                       className="text-xs text-neutral-400 hover:text-red-500"
                       onClick={() => updateStrength(i, { sets: s.sets.filter((_, xi) => xi !== si) })}
@@ -137,6 +192,19 @@ export function NLWorkoutInput({ onConfirm }: { onConfirm: (result: ParsedResult
                   </div>
                 ))}
               </div>
+              <button
+                className="text-xs text-neutral-600 hover:text-neutral-800"
+                disabled={s.sets.length >= 50}
+                onClick={() => {
+                  const last = s.sets.at(-1)
+                  const nextSet = last?.durationSeconds !== undefined
+                    ? { weight: last.weight, durationSeconds: last.durationSeconds, done: true }
+                    : { weight: last?.weight ?? 0, reps: last?.reps ?? 8, done: true }
+                  updateStrength(i, { sets: [...s.sets, nextSet] })
+                }}
+              >
+                {s.sets.length >= 50 ? '已达到 50 组上限' : '+ 添加一组'}
+              </button>
               {s.uncertain?.length ? (
                 <p className="text-xs text-amber-700">没把握:{s.uncertain.join('; ')}</p>
               ) : null}
@@ -168,11 +236,40 @@ export function NLWorkoutInput({ onConfirm }: { onConfirm: (result: ParsedResult
                 </select>
                 <input
                   type="number"
-                  className="w-20 rounded-md bg-card border border-neutral-300 px-2 py-1 text-sm text-neutral-900"
-                  value={c.minutes}
-                  onChange={(e) => updateCardio(i, { minutes: Number(e.target.value) })}
+                  min={1}
+                  className={`w-20 rounded-md bg-card border px-2 py-1 text-sm text-neutral-900 ${
+                    c.minutes === null || !Number.isFinite(c.minutes) || c.minutes < 1
+                      ? 'border-amber-400'
+                      : 'border-neutral-300'
+                  }`}
+                  value={c.minutes ?? ''}
+                  placeholder="必填"
+                  onChange={(e) =>
+                    updateCardio(i, { minutes: e.target.value === '' ? null : Number(e.target.value) })
+                  }
                 />
                 <span className="text-xs text-neutral-500">分钟</span>
+                <input
+                  type="number"
+                  min={0}
+                  max={1000}
+                  step="0.1"
+                  className="w-24 rounded-md border border-neutral-300 bg-card px-2 py-1 text-sm text-neutral-900"
+                  value={c.distance ?? ''}
+                  placeholder="距离 km"
+                  aria-label="距离（公里，可选）"
+                  onChange={(e) => updateCardio(i, { distance: e.target.value === '' ? undefined : Number(e.target.value) })}
+                />
+                <input
+                  type="number"
+                  min={1}
+                  max={250}
+                  className="w-24 rounded-md border border-neutral-300 bg-card px-2 py-1 text-sm text-neutral-900"
+                  value={c.avgHr ?? ''}
+                  placeholder="平均心率"
+                  aria-label="平均心率（可选）"
+                  onChange={(e) => updateCardio(i, { avgHr: e.target.value === '' ? undefined : Number(e.target.value) })}
+                />
                 <IntensityPicker value={c.intensity as Intensity} onChange={(v) => updateCardio(i, { intensity: v })} />
                 <button className="ml-auto text-xs text-neutral-400 hover:text-red-500" onClick={() => removeCardio(i)}>
                   删除
@@ -189,16 +286,19 @@ export function NLWorkoutInput({ onConfirm }: { onConfirm: (result: ParsedResult
             <p className="text-xs text-neutral-500">没有识别出训练内容。</p>
           )}
 
+          {saveError && <p className="text-xs text-amber-700">{saveError}</p>}
+
           <div className="flex gap-2 pt-1">
             <button
-              className="min-h-11 rounded-md bg-primary hover:bg-primary-dark px-4 py-2 text-sm font-medium text-white"
+              className="min-h-11 rounded-md bg-primary hover:bg-primary-dark disabled:opacity-50 px-4 py-2 text-sm font-medium text-white"
+              disabled={!saveValidation?.ok}
               onClick={() => {
-                onConfirm(preview)
-                setPreview(null)
-                setText('')
+                const validation = validateWorkoutForSave(preview)
+                if (!validation.ok) return
+                onConfirm(validation.value)
               }}
             >
-              确认写入
+              {hasIncompleteCardio ? '请先补全时长' : saveValidation?.ok ? '确认写入' : '请先检查内容'}
             </button>
             <button
               className="rounded-md border border-neutral-400 hover:border-neutral-500 px-4 py-2 text-sm text-neutral-800"

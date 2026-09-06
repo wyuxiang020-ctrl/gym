@@ -7,11 +7,22 @@ import { ExercisePicker } from './ExercisePicker'
 import { ExerciseDetailSheet } from './ExerciseDetailSheet'
 
 function volumeOf(entry: StrengthEntry): number {
-  return entry.sets.reduce((sum, s) => sum + s.weight * s.reps, 0)
+  return entry.sets.reduce((sum, set) => sum + (set.done ? set.weight * (set.reps ?? 0) : 0), 0)
+}
+
+function completedTimedSetCount(entry: StrengthEntry): number {
+  return entry.sets.filter((set) => set.done && set.durationSeconds !== undefined).length
+}
+
+function formatSet(set: StrengthEntry['sets'][number]): string {
+  if (set.durationSeconds !== undefined) {
+    return `${set.weight > 0 ? `${set.weight}kg×` : ''}${set.durationSeconds}秒`
+  }
+  return `${set.weight}kg×${set.reps ?? 0}`
 }
 
 function formatSets(entry: StrengthEntry): string {
-  return entry.sets.map((s) => `${s.weight}kg×${s.reps}`).join(', ')
+  return entry.sets.filter((set) => set.done).map(formatSet).join(', ')
 }
 
 export function StrengthLogger({
@@ -20,6 +31,7 @@ export function StrengthLogger({
   onAddExercise,
   onAddSet,
   onUpdateSet,
+  onClearNotice,
   onRemoveSet,
   onRemoveEntry,
 }: {
@@ -28,6 +40,7 @@ export function StrengthLogger({
   onAddExercise: (name: string) => void
   onAddSet: (entryId: string) => void
   onUpdateSet: (entryId: string, setIndex: number, patch: Partial<StrengthEntry['sets'][number]>) => void
+  onClearNotice: (entryId: string) => void
   onRemoveSet: (entryId: string, setIndex: number) => void
   onRemoveEntry: (entryId: string) => void
 }) {
@@ -40,6 +53,8 @@ export function StrengthLogger({
       <div className="space-y-3">
         {entries.map((entry) => {
           const last = getLastStrengthEntry(entry.name, date)
+          const volume = volumeOf(entry)
+          const timedSets = completedTimedSetCount(entry)
           return (
             <div key={entry.id} className="animate-fade-in rounded-lg border border-neutral-300 bg-card p-3 space-y-2">
               <div className="flex items-center justify-between gap-2">
@@ -52,12 +67,15 @@ export function StrengthLogger({
                       {entry.name}
                     </button>
                     {entry.source === 'nl' && <AiBadge />}
+                    {entry.source === 'mixed' && <AiBadge assisted />}
                   </div>
                   {last && <div className="text-xs text-neutral-500">上次:{formatSets(last)}</div>}
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-neutral-500">
-                    容量 {volumeOf(entry).toLocaleString()} kg·次 · 估算 {entry.estKcal} kcal
+                    {volume > 0 || timedSets === 0 ? `容量 ${volume.toLocaleString()} kg·次` : ''}
+                    {volume > 0 && timedSets > 0 ? ' · ' : ''}
+                    {timedSets > 0 ? `计时 ${timedSets} 组` : ''} · 估算 {entry.estKcal} kcal
                   </div>
                   <button
                     className="text-xs text-neutral-400 hover:text-red-500"
@@ -68,19 +86,73 @@ export function StrengthLogger({
                 </div>
               </div>
 
+              {(entry.uncertain?.length || entry.note) && (
+                <div className="space-y-1 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs">
+                  {entry.uncertain?.length ? (
+                    <p className="text-amber-800">待核对：{entry.uncertain.join('；')}</p>
+                  ) : null}
+                  {entry.note && <p className="text-amber-700">备注：{entry.note}</p>}
+                  <button
+                    className="text-amber-800 underline underline-offset-2"
+                    onClick={() => onClearNotice(entry.id)}
+                  >
+                    已处理，清除提示
+                  </button>
+                </div>
+              )}
+
               <div className="space-y-1.5">
                 {entry.sets.map((set, i) => (
-                  <div key={i} className="animate-fade-in flex items-center gap-3 rounded-md bg-neutral-100 border border-neutral-300 px-2 py-1.5">
+                  <div key={i} className="animate-fade-in flex flex-wrap items-center gap-x-2 gap-y-2 rounded-md bg-neutral-100 border border-neutral-300 px-2 py-1.5">
                     <span className="w-5 text-xs text-neutral-400">{i + 1}</span>
+                    <select
+                      aria-label={`第 ${i + 1} 组记录方式`}
+                      className="rounded-md border border-neutral-300 bg-card px-2 py-1 text-xs text-neutral-700"
+                      value={set.durationSeconds !== undefined ? 'duration' : 'reps'}
+                      onChange={(event) =>
+                        onUpdateSet(
+                          entry.id,
+                          i,
+                          event.target.value === 'duration'
+                            ? {
+                                weight: set.weight === 20 && set.reps === 8 ? 0 : set.weight,
+                                reps: undefined,
+                                durationSeconds: set.durationSeconds ?? 30,
+                              }
+                            : { reps: set.reps ?? 8, durationSeconds: undefined },
+                        )
+                      }
+                    >
+                      <option value="reps">次数</option>
+                      <option value="duration">计时</option>
+                    </select>
                     <Stepper
                       value={set.weight}
                       step={2.5}
+                      max={1000}
                       onChange={(v) => onUpdateSet(entry.id, i, { weight: v })}
                       suffix="kg"
                       showPlateColor
                     />
                     <span className="text-xs text-neutral-400">×</span>
-                    <Stepper value={set.reps} step={1} onChange={(v) => onUpdateSet(entry.id, i, { reps: v })} />
+                    {set.durationSeconds !== undefined ? (
+                      <Stepper
+                        value={set.durationSeconds}
+                        step={5}
+                        min={1}
+                        max={86400}
+                        suffix="秒"
+                        onChange={(v) => onUpdateSet(entry.id, i, { durationSeconds: v })}
+                      />
+                    ) : (
+                      <Stepper
+                        value={set.reps ?? 0}
+                        step={1}
+                        min={1}
+                        max={1000}
+                        onChange={(v) => onUpdateSet(entry.id, i, { reps: v })}
+                      />
+                    )}
                     <label className="ml-auto flex items-center gap-1 text-xs text-neutral-600">
                       <input
                         type="checkbox"

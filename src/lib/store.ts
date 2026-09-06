@@ -10,6 +10,7 @@ import type {
   StrengthEntry,
 } from './types'
 import { todayStr } from './date'
+import { parseGymData } from './dataValidation'
 
 const STORAGE_KEY = 'gym-data-v1'
 
@@ -21,22 +22,39 @@ function read(): GymData {
   const raw = localStorage.getItem(STORAGE_KEY)
   if (!raw) return emptyData()
   try {
-    const parsed = JSON.parse(raw) as Partial<GymData>
-    return {
-      profile: parsed.profile ?? null,
-      measurements: parsed.measurements ?? [],
-      plans: parsed.plans ?? [],
-      dayLogs: parsed.dayLogs ?? {},
-      exerciseVideos: parsed.exerciseVideos ?? {},
-      lastFedDate: parsed.lastFedDate,
-    }
+    return parseGymData(JSON.parse(raw))
   } catch {
     return emptyData()
   }
 }
 
-function write(data: GymData) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+function parseStoredRaw(raw: string): GymData {
+  return parseGymData(JSON.parse(raw))
+}
+
+function write(data: GymData, replaceInvalidCurrent = false) {
+  const currentRaw = localStorage.getItem(STORAGE_KEY)
+  if (currentRaw && !replaceInvalidCurrent) {
+    try {
+      parseStoredRaw(currentRaw)
+    } catch {
+      throw new Error('本地数据格式异常,为防止覆盖原记录,写入已停止。请先到「记录」页导出安全备份。')
+    }
+  }
+  const validated = parseGymData(data)
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(validated))
+}
+
+export function getStorageIssue(): string | null {
+  const raw = localStorage.getItem(STORAGE_KEY)
+  if (!raw) return null
+  try {
+    parseStoredRaw(raw)
+    return null
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : '无法解析本地数据'
+    return `检测到本地数据不兼容:${detail}`
+  }
 }
 
 function newId() {
@@ -152,6 +170,12 @@ export function getDayLogsMap(): Record<string, DayLog> {
   return read().dayLogs
 }
 
+export function replaceDayLog(date: string, dayLog: DayLog) {
+  const data = read()
+  data.dayLogs[date] = { ...dayLog, date }
+  write(data)
+}
+
 function getOrCreateDayLog(data: GymData, date: string): DayLog {
   if (!data.dayLogs[date]) {
     data.dayLogs[date] = emptyDayLog(date)
@@ -199,16 +223,18 @@ export function updateStrengthEntry(date: string, id: string, patch: Partial<Omi
   write(data)
 }
 
-// 查找除 excludeDate 外,最近一次同名动作的记录(用于「显示上次同一动作的数据」)
+// 查找目标日期之前最近一次同名动作的记录(用于「显示上次同一动作的数据」)
 export function getLastStrengthEntry(name: string, excludeDate?: string): StrengthEntry | null {
   const data = read()
   const normalized = name.trim().toLowerCase()
   const dates = Object.keys(data.dayLogs)
-    .filter((d) => d !== excludeDate)
+    .filter((d) => !excludeDate || d < excludeDate)
     .sort((a, b) => b.localeCompare(a))
 
   for (const date of dates) {
-    const match = data.dayLogs[date].strength.find((s) => s.name.trim().toLowerCase() === normalized)
+    const match = data.dayLogs[date].strength.find(
+      (entry) => entry.name.trim().toLowerCase() === normalized && entry.sets.some((set) => set.done),
+    )
     if (match) return match
   }
   return null
@@ -279,19 +305,21 @@ export function deleteMeal(date: string, id: string) {
 // ---- Export / Import ----
 
 export function exportData(): string {
-  return JSON.stringify(read(), null, 2)
+  const raw = localStorage.getItem(STORAGE_KEY)
+  if (!raw) return JSON.stringify(emptyData(), null, 2)
+  try {
+    return JSON.stringify(JSON.parse(raw), null, 2)
+  } catch {
+    return raw
+  }
+}
+
+export function validateImportData(json: string) {
+  parseGymData(JSON.parse(json))
 }
 
 export function importData(json: string) {
-  const parsed = JSON.parse(json) as Partial<GymData>
-  write({
-    profile: parsed.profile ?? null,
-    measurements: parsed.measurements ?? [],
-    plans: parsed.plans ?? [],
-    dayLogs: parsed.dayLogs ?? {},
-    exerciseVideos: parsed.exerciseVideos ?? {},
-    lastFedDate: parsed.lastFedDate,
-  })
+  write(parseGymData(JSON.parse(json)), true)
 }
 
 // ---- 动作视频(自己填的直链地址) ----
@@ -324,12 +352,12 @@ export function setLastFedDate(date: string) {
   write(data)
 }
 
-export function downloadExport() {
+export function downloadExport(filename = `gym-data-${todayStr()}.json`) {
   const blob = new Blob([exportData()], { type: 'application/json' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `gym-data-${todayStr()}.json`
+  a.download = filename
   a.click()
   URL.revokeObjectURL(url)
 }

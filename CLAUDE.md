@@ -21,7 +21,7 @@
 ## 关键约定,不要违反
 
 1. **所有 `localStorage` 读写必须经过 `src/lib/store.ts`**,不要在组件里直接调 `localStorage`。以后如果要换成真数据库,应该只需要改这一个文件。
-2. **`/api/*.ts` 里的相对导入必须带 `.js` 后缀**(比如 `from './_lib/claude.js'`),即使源文件是 `.ts`。Vercel 的 Node 运行时按原生 ESM 解析,不带后缀会导致接口在线上直接崩溃(`ERR_MODULE_NOT_FOUND`),但本地 `vite dev` 不会暴露这个问题,容易漏测。
+2. **`/api/*.ts` 里的相对导入必须带 `.js` 后缀**(比如 `from './_lib/openai.js'`),即使源文件是 `.ts`。Vercel 的 Node 运行时按原生 ESM 解析,不带后缀会导致接口在线上直接崩溃(`ERR_MODULE_NOT_FOUND`),但本地 `vite dev` 不会暴露这个问题,容易漏测。
 3. **不要用 `new Date().toISOString().slice(0,10)` 取"今天"的日期**,在 UTC+8 等正时区会因为 UTC 转换算错日期。统一用 `src/lib/date.ts` 里的 `todayStr()` / `toDateStr()`。
 4. **API key 永远不出现在前端代码里**。任何新增的外部服务调用,密钥都必须放在 Vercel 环境变量,只在 `/api` 下的 serverless 函数里读取 `process.env.xxx`。
 5. **热量计算用 MET 公式(`src/lib/met.ts`),训练计划用规则生成(`src/lib/planGenerator.ts`),都不要改成让 AI 做**——这是明确的产品决策(公式确定、免费、瞬时;AI 反而不稳定),详见 `docs/DECISIONS.md` 2.1/2.2。

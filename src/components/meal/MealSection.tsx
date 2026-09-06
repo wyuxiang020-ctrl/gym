@@ -5,27 +5,22 @@ import { defaultSlot, SLOT_LABELS, type Slot } from '../../lib/mealSlot'
 import { FoodItemsEditor } from './FoodItemsEditor'
 import { RecipeBuilder } from './RecipeBuilder'
 import { AiBadge } from '../AiBadge'
+import { parseFoodItemsResponse } from '../../lib/aiValidation'
+import { postJson } from '../../lib/apiClient'
+import { validateFoodItemsForSave } from '../../lib/foodValidation'
 
 async function callParseMeal(text: string) {
-  const res = await fetch('/api/parse-meal', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text }),
-  })
-  const body = await res.json()
-  if (!res.ok) throw new Error(body.error ?? '解析失败')
-  return (body.result?.items ?? []) as Meal['items']
+  const body = await postJson('/api/parse-meal', { text }, '饮食解析失败,请稍后重试。')
+  return parseFoodItemsResponse(body)
 }
 
 async function callAnalyzePhoto(base64: string) {
-  const res = await fetch('/api/analyze-photo', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ imageBase64: base64, mediaType: 'image/jpeg' }),
-  })
-  const body = await res.json()
-  if (!res.ok) throw new Error(body.error ?? '识别失败')
-  return (body.result?.items ?? []) as Meal['items']
+  const body = await postJson(
+    '/api/analyze-photo',
+    { imageBase64: base64, mediaType: 'image/jpeg' },
+    '照片识别失败,请稍后重试。',
+  )
+  return parseFoodItemsResponse(body)
 }
 
 export function MealSection({
@@ -34,12 +29,14 @@ export function MealSection({
   onDeleteMeal,
   onUpdateNote,
   onRecalc,
+  recalcLoadingId,
 }: {
   meals: Meal[]
   onAddMeal: (meal: Omit<Meal, 'id'>) => void
   onDeleteMeal: (id: string) => void
   onUpdateNote: (id: string, note: string) => void
   onRecalc: (id: string) => void
+  recalcLoadingId: string | null
 }) {
   const [tab, setTab] = useState<'text' | 'photo' | 'manual' | 'recipe'>('text')
   const [slot, setSlot] = useState<Slot>(defaultSlot())
@@ -58,6 +55,7 @@ export function MealSection({
   const [photoError, setPhotoError] = useState<string | null>(null)
 
   const [manualItems, setManualItems] = useState<Meal['items']>([])
+  const [manualError, setManualError] = useState<string | null>(null)
 
   async function handleParseText() {
     if (!text.trim()) return
@@ -73,7 +71,15 @@ export function MealSection({
   }
 
   function confirmText() {
-    if (!textItems) return
+    if (!textItems) {
+      setTextError('请至少保留一项食物')
+      return
+    }
+    const validationError = validateFoodItemsForSave(textItems)
+    if (validationError) {
+      setTextError(validationError)
+      return
+    }
     onAddMeal({ slot, rawText: text, items: textItems, confirmed: true })
     setText('')
     setTextItems(null)
@@ -103,7 +109,15 @@ export function MealSection({
   }
 
   function confirmPhoto() {
-    if (!photoItems) return
+    if (!photoItems) {
+      setPhotoError('请至少保留一项食物')
+      return
+    }
+    const validationError = validateFoodItemsForSave(photoItems)
+    if (validationError) {
+      setPhotoError(validationError)
+      return
+    }
     onAddMeal({ slot, photoThumb: photoThumb ?? undefined, items: photoItems, confirmed: true })
     setPhotoFile(null)
     setPhotoPreviewUrl(null)
@@ -113,7 +127,12 @@ export function MealSection({
   }
 
   function confirmManual() {
-    if (manualItems.length === 0) return
+    const validationError = validateFoodItemsForSave(manualItems)
+    if (validationError) {
+      setManualError(validationError)
+      return
+    }
+    setManualError(null)
     onAddMeal({ slot, items: manualItems, confirmed: true })
     setManualItems([])
   }
@@ -153,9 +172,14 @@ export function MealSection({
         ))}
       </div>
 
+      <p className="text-xs text-neutral-400">
+        使用 AI 解析、识别或重算时，相应文字、餐食数据或压缩照片会发送给 OpenAI；结果只会在你确认后写入本地。
+      </p>
+
       {tab === 'text' && (
         <div className="space-y-2 rounded-lg border border-neutral-300 bg-card p-3">
           <textarea
+            maxLength={2000}
             className="w-full rounded-md bg-neutral-100 border border-neutral-300 px-3 py-2 text-sm text-neutral-900"
             rows={2}
             placeholder="中午吃了一碗牛肉面加一个卤蛋"
@@ -227,6 +251,7 @@ export function MealSection({
       {tab === 'manual' && (
         <div className="space-y-2 rounded-lg border border-neutral-300 bg-card p-3">
           <FoodItemsEditor items={manualItems} onChange={setManualItems} />
+          {manualError && <p className="text-xs text-red-500">{manualError}</p>}
           {manualItems.length > 0 && (
             <button
               className="min-h-11 rounded-md bg-primary hover:bg-primary-dark px-4 py-2 text-sm font-medium text-white"
@@ -242,7 +267,14 @@ export function MealSection({
 
       <div className="space-y-2">
         {meals.map((meal) => (
-          <MealCard key={meal.id} meal={meal} onDelete={() => onDeleteMeal(meal.id)} onUpdateNote={onUpdateNote} onRecalc={onRecalc} />
+          <MealCard
+            key={meal.id}
+            meal={meal}
+            onDelete={() => onDeleteMeal(meal.id)}
+            onUpdateNote={onUpdateNote}
+            onRecalc={onRecalc}
+            recalcLoading={recalcLoadingId === meal.id}
+          />
         ))}
       </div>
     </div>
@@ -254,11 +286,13 @@ function MealCard({
   onDelete,
   onUpdateNote,
   onRecalc,
+  recalcLoading,
 }: {
   meal: Meal
   onDelete: () => void
   onUpdateNote: (id: string, note: string) => void
   onRecalc: (id: string) => void
+  recalcLoading: boolean
 }) {
   const totalKcal = meal.items.reduce((s, i) => s + i.kcal, 0)
   const hasLowConfidence = meal.items.some((i) => i.confidence === 'low')
@@ -282,6 +316,7 @@ function MealCard({
       )}
       <div className="flex gap-2">
         <input
+          maxLength={1000}
           className="flex-1 rounded-md bg-neutral-100 border border-neutral-300 px-2 py-1 text-xs text-neutral-800"
           placeholder="备注,如「米饭大概只吃了半碗」"
           value={meal.note ?? ''}
@@ -289,10 +324,10 @@ function MealCard({
         />
         <button
           className="rounded-md border border-neutral-400 hover:border-neutral-500 px-2 py-1 text-xs text-neutral-700 disabled:opacity-40"
-          disabled={!meal.note?.trim()}
+          disabled={!meal.note?.trim() || recalcLoading}
           onClick={() => onRecalc(meal.id)}
         >
-          按备注重算
+          {recalcLoading ? '重算中…' : '按备注重算'}
         </button>
       </div>
     </div>

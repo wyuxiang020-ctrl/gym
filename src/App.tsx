@@ -27,11 +27,21 @@ function App() {
 }
 
 function AppContent() {
+  const [storageIssue, setStorageIssue] = useState<string | null>(() => store.getStorageIssue())
   const [profile, setProfile] = useState<Profile | null>(() => store.getProfile())
   const [measurements, setMeasurements] = useState<Measurement[]>(() => store.getMeasurements())
   const [plans, setPlans] = useState<Plan[]>(() => store.getPlans())
   const [editingProfile, setEditingProfile] = useState(false)
   const [tab, setTab] = useState<TabKey>('today')
+
+  function reloadImportedData() {
+    setStorageIssue(store.getStorageIssue())
+    setProfile(store.getProfile())
+    setMeasurements(store.getMeasurements())
+    setPlans(store.getPlans())
+    setEditingProfile(false)
+    setTab('today')
+  }
 
   function saveProfile(p: Profile) {
     store.saveProfile(p)
@@ -67,6 +77,22 @@ function AppContent() {
   function deletePlan(id: string) {
     store.deletePlan(id)
     setPlans(store.getPlans())
+  }
+
+  if (storageIssue) {
+    return (
+      <div className="min-h-screen bg-app-bg px-4 py-10">
+        <div className="mx-auto w-full max-w-[520px] space-y-6">
+          <div className="space-y-2">
+            <h1 className="font-heading text-2xl font-semibold text-neutral-900">本地数据需要恢复</h1>
+            <p className="text-sm text-neutral-600">
+              为避免覆盖原记录，应用已暂停普通写入。请先导出当前原始数据，再导入一份有效备份。
+            </p>
+          </div>
+          <RecordsTab onImportSuccess={reloadImportedData} />
+        </div>
+      </div>
+    )
   }
 
   if (!profile || editingProfile) {
@@ -119,7 +145,7 @@ function AppContent() {
           />
         )}
 
-        {tab === 'records' && <RecordsTab />}
+        {tab === 'records' && <RecordsTab onImportSuccess={reloadImportedData} />}
       </div>
 
       <BottomTabBar active={tab} onChange={setTab} />
