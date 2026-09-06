@@ -50,6 +50,8 @@ npm run build
 npx tsc -p api/tsconfig.json --noEmit
 npm run check:ai-contracts
 npm run check:api-guards -- http://127.0.0.1:3000
+npm run check:demo-safety
+npm run eval:food:v1 -- --validate-only
 ```
 
 训练文字解析按合约分为 V1 历史基线和 V2 当前回归。先运行 V2 离线检查；它校验 20 条数据集和 47 项评分器行为，不访问本地接口或 OpenAI：
@@ -86,9 +88,11 @@ V2 曾以 `2026-09-05-openai-regression-v2` 做首次正式尝试：严格顺序
 
 当前离线证据是 V2 的 20 条用例与 47 项评分器自检全部通过（`network_requests=0`）、AI 运行时合约固定样例检查 18/18、API guard 10/10。评测器会把“422 且有 Response ID”计为已调用但该题失败并继续；网络、上游错误或缺少证据才会中止。SDK 固定 `maxRetries: 0` / 110 秒超时，评测器为 120 秒，并在首请求前和完整结束时核对关键源码哈希。前两次中止尝试只保留为 partial，r3 是修复前完整基线，r4 是修复验证结果；任何新一轮仍必须另获用户授权、使用全新 Run ID 从头运行。真人编辑率、修正耗时和最终保存一致性仍为 `NOT_MEASURED`。详见 `evals/workout-parser/v2/results/2026-09-06-openai-regression-v2-r4-review.md` 与 `evals/workout-parser/v2/README.md`。
 
+饮食 AI V1 使用 15 条文字、10 条备注重算和 10 张合成餐食图片完成 35 次正式顺序调用，全部结构有效；自动基线为 26 direct / 8 partial / 1 fail，人工复核确认其中 4 条是名称别名造成的评分器误报，复核后为 30 direct / 5 partial / 0 fail。真实问题集中在“备注未提及的食物被重估、置信度被抬高”和一处名称未随替换食材更新；修改重算 Prompt 后，用同一 10 条重算用例重新验证为 10/10 direct、全部硬检查 100%。这次定向回归不能表述为 35 条全量重跑。两次正式运行合计估算成本 $0.068159 USD（非账单），真人指标仍为 `NOT_MEASURED`。详见 `evals/food-ai/v1/results/2026-09-06-openai-food-baseline-v1-review.md` 与 `evals/food-ai/v1/results/2026-09-06-openai-food-recalc-prompt-v2.md`。
+
 AI API 强制使用 `application/json`，并限制请求方法、正文、文字/备注长度、重算食物数量及图片输入。照片在调用模型前由服务端完整解码：只接受匹配声明格式的单帧 JPEG / PNG / WebP / GIF，Base64 解码后的输入文件最多 3 MiB，原图单边不超过 4096 像素且总像素不超过 1600 万；通过后自动旋转、最长边缩到 1024、移除元数据并重编码为 JPEG。无付费 guard 检查现为 10/10，全部在模型调用前被预期拦截。AI 每次最多返回 30 项食物；本地单餐最多保存 100 项，名称最多 120 字符，克数/热量上限 100,000，单项宏量营养素上限 10,000。
 
-当前每 IP 每分钟 30 次的限流仍只是 Serverless 实例内计数器，会随冷启动重置且不同实例不共享。公开部署仍有一个 **P1 风险**：缺少用户鉴权、跨实例共享限流和预算级防滥用保护。
+公开演示保护已实现：共享访问码、Upstash 跨实例分钟 / 日限额、日预算预留与 80% 告警、脱敏审计，并在 Vercel Preview / Production 缺少关键配置时 fail closed。本地开发才允许使用内存回退；无 usage 的上游失败会按预留成本保守记账。当前 Vercel 三个环境仍只有旧的 `ANTHROPIC_API_KEY`，尚未配置 `OPENAI_API_KEY`、访问码、审计 salt 与 Upstash REST 凭证，因此代码已就绪但线上 AI 尚未激活。完整配置与验证顺序见 `docs/PUBLIC_DEMO_SAFETY.md`。
 
 ## 数据与隐私边界
 
@@ -110,3 +114,6 @@ AI API 强制使用 `application/json`，并限制请求方法、正文、文字
 - `docs/AI_FEATURES.md`：AI 接口、提示词、容错、成本与评测。
 - `docs/DECISIONS.md`：主要产品和技术取舍。
 - `docs/CHANGELOG.md`：按批次记录变更及原因。
+- `docs/PUBLIC_DEMO_SAFETY.md`：公开作品集演示的访问码、共享限流、预算与审计配置。
+- `docs/portfolio/SCREENSHOT_INDEX.md`：4 页作品集的截图编排、图注与证据边界。
+- `docs/research/SYNTHETIC_HITL_PRETEST.md`：8 个合成 persona 的可用性预演；明确不是真人研究。

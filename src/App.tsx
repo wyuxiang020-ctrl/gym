@@ -6,10 +6,12 @@ import { ProfileForm } from './components/ProfileForm'
 import { RecordsTab } from './components/RecordsTab'
 import { WorkoutTab } from './components/WorkoutTab'
 import { TodayTab } from './components/checkin/TodayTab'
+import { DemoAccessControl } from './components/DemoAccessControl'
 import * as store from './lib/store'
 import { todayStr } from './lib/date'
 import { ToastProvider } from './lib/ToastContext'
 import type { Measurement, Plan, PlanDay, Profile } from './lib/types'
+import syntheticPortfolioData from '../docs/portfolio/fixtures/synthetic-demo-data.json'
 
 function latestWeightKg(measurements: Measurement[]): number | null {
   const withWeight = measurements
@@ -27,6 +29,30 @@ function App() {
 }
 
 function AppContent() {
+  const searchParams = new URLSearchParams(window.location.search)
+  const portfolioDemo = import.meta.env.DEV && searchParams.get('portfolio-demo') === '1'
+  const portfolioState = searchParams.get('portfolio-state') ?? 'partial'
+  if (portfolioDemo && localStorage.getItem('gym-data-v1') === null) {
+    const demoData = structuredClone(syntheticPortfolioData)
+    const demoToday = demoData.dayLogs['2026-09-06']
+    if (portfolioState === 'incomplete') {
+      demoToday.checkedIn = false
+      demoToday.strength.forEach((entry) => {
+        entry.estKcal = 0
+        entry.sets.forEach((set) => { set.done = false })
+      })
+      demoToday.cardio.forEach((entry) => {
+        entry.done = false
+        entry.estKcal = 0
+      })
+    }
+    if (portfolioState === 'complete') {
+      demoToday.checkedIn = true
+      demoToday.strength.forEach((entry) => entry.sets.forEach((set) => { set.done = true }))
+      demoToday.cardio.forEach((entry) => { entry.done = true })
+    }
+    store.importData(JSON.stringify(demoData))
+  }
   const [storageIssue, setStorageIssue] = useState<string | null>(() => store.getStorageIssue())
   const [profile, setProfile] = useState<Profile | null>(() => store.getProfile())
   const [measurements, setMeasurements] = useState<Measurement[]>(() => store.getMeasurements())
@@ -114,7 +140,17 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-app-bg">
       <div className="mx-auto w-full max-w-[520px] px-4 pb-24 pt-6">
-        <h1 className="font-heading mb-6 text-2xl font-semibold text-neutral-900">Gym</h1>
+        <div className="mb-6 flex items-center justify-between gap-3">
+          <h1 className="font-heading text-2xl font-semibold text-neutral-900">Gym</h1>
+          <div className="flex items-center gap-2">
+            {portfolioDemo && (
+              <span className="rounded-full bg-amber-100 px-2.5 py-1.5 text-xs font-semibold text-amber-800">
+                合成演示{portfolioState === 'incomplete' ? '·未完成' : portfolioState === 'complete' ? '·已完成' : '·部分完成'}
+              </span>
+            )}
+            <DemoAccessControl />
+          </div>
+        </div>
 
         {tab === 'today' && <TodayTab date={date} profile={profile} />}
 

@@ -9,9 +9,13 @@
     "build": "tsc -b && vite build",
     "check:ai-contracts": "node --experimental-strip-types scripts/check-ai-contracts.mjs",
     "check:api-guards": "node scripts/check-api-guards.mjs",
+    "check:demo-safety": "node --experimental-strip-types scripts/check-demo-safety.mts",
     "eval:workout": "node scripts/run-workout-eval.mjs",
     "eval:workout:v1": "node scripts/run-workout-eval.mjs",
     "eval:workout:v2": "node scripts/run-workout-eval-v2.mjs",
+    "eval:food": "node scripts/run-food-eval.mjs",
+    "eval:food:v1": "node scripts/run-food-eval.mjs",
+    "assets:food-eval": "node scripts/create-food-eval-variants.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },

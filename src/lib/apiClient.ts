@@ -1,5 +1,27 @@
 type ErrorBody = {
   error?: unknown
+  code?: unknown
+}
+
+const DEMO_ACCESS_KEY = 'gym_demo_access_code'
+export const DEMO_ACCESS_REQUIRED_EVENT = 'gym:demo-access-required'
+
+export function getDemoAccessCode(): string {
+  try {
+    return sessionStorage.getItem(DEMO_ACCESS_KEY)?.trim() ?? ''
+  } catch {
+    return ''
+  }
+}
+
+export function saveDemoAccessCode(value: string): void {
+  try {
+    const normalized = value.trim()
+    if (normalized) sessionStorage.setItem(DEMO_ACCESS_KEY, normalized)
+    else sessionStorage.removeItem(DEMO_ACCESS_KEY)
+  } catch {
+    // The API still returns a useful access error if browser storage is unavailable.
+  }
 }
 
 function messageFromErrorBody(body: unknown, fallback: string): string {
@@ -17,10 +39,14 @@ function messageFromErrorBody(body: unknown, fallback: string): string {
 
 export async function postJson(url: string, payload: unknown, fallback: string): Promise<unknown> {
   let response: Response
+  const accessCode = getDemoAccessCode()
   try {
     response = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        ...(accessCode ? { 'X-Gym-Access-Code': accessCode } : {}),
+      },
       body: JSON.stringify(payload),
     })
   } catch {
@@ -37,6 +63,11 @@ export async function postJson(url: string, payload: unknown, fallback: string):
     throw new Error('AI 服务返回了无法读取的响应,请稍后重试。')
   }
 
-  if (!response.ok) throw new Error(messageFromErrorBody(body, fallback))
+  if (!response.ok) {
+    if (response.status === 401 && (body as ErrorBody)?.code === 'DEMO_ACCESS_REQUIRED') {
+      window.dispatchEvent(new Event(DEMO_ACCESS_REQUIRED_EVENT))
+    }
+    throw new Error(messageFromErrorBody(body, fallback))
+  }
   return body
 }

@@ -20,6 +20,7 @@
 | 后端 | 无独立后端,用 Vercel Serverless Functions(`/api` 目录下的文件,每个文件是一个接口) |
 | AI 能力 | OpenAI Responses API(`gpt-5-mini-2025-08-07` 固定快照),通过官方 `openai` SDK 调用;文字和图片统一走严格 JSON Schema 输出 |
 | 图片服务端处理 | 生产依赖 `sharp` 0.35；在模型调用前完整解码、限制格式/尺寸/像素/帧数，并规范化重编码为 JPEG |
+| 公开演示保护 | 共享访问码 + Upstash 跨实例限流 / 日预算 + 脱敏审计；Preview / Production 缺配置时 fail closed |
 | 数据存储 | 浏览器 `localStorage`,单个 key 存一个大 JSON 对象,没有数据库 |
 | PWA / 离线 | `vite-plugin-pwa`,生成 manifest 和 service worker,支持"添加到主屏幕"、离线打开已缓存的页面 |
 | 部署 | Vercel(前端静态资源 + serverless 接口一起部署) |
@@ -57,6 +58,7 @@ gym/
 |---|---|
 | `api/_lib/openai.ts` / `api/_lib/validate.ts` | 封装 OpenAI Responses API、严格 JSON Schema 以及 AI 返回结构校验,4 个接口都复用 |
 | `api/_lib/request.ts` | 统一校验 POST + `application/json`、正文与字段上限；用 `sharp` 完整解码并规范化图片，同时提供实例内的每 IP 限流 |
+| `api/_lib/demoSafety.ts` | 公开演示访问码、跨实例分钟 / 日限额、预算预留、告警和脱敏审计；本地才允许内存回退 |
 | `api/parse-workout.ts`<br>`api/parse-meal.ts`<br>`api/analyze-photo.ts`<br>`api/recalc-meal.ts` | 4 个独立的 serverless 接口,详见第 6 节 |
 
 **重要说明**:`api/` 目录下每个 `.ts` 文件会被 Vercel 独立部署成一个接口,不经过打包(bundler),所以文件之间的相对导入必须写成 `./_lib/openai.js`(带 `.js` 后缀),即使源文件是 `.ts`——这是 Node.js 原生 ESM 模块解析的要求,写错会导致接口在线上直接崩溃(本地开发环境不会报错,是个容易踩的坑)。
@@ -205,9 +207,9 @@ gym/
 
 饮食输出在严格 Schema、服务端和前端都限制为最多 30 项；名称最多 120 字符，克数 / kcal 最高 100,000，蛋白质 / 碳水 / 脂肪各最高 10,000。本地确认层允许用户编辑到单餐 100 项并再次验证同一数值范围，因此“AI 返回上限”和“最终保存上限”需分开理解。
 
-当前还提供每 IP 每分钟 30 次的**实例内内存限流**，超出返回 429 和 `Retry-After`。它在冷启动时重置，多实例之间不共享，不能当作公开产品所需的全局防滥用方案；项目也仍没有用户身份鉴权。
+公开演示保护在模型调用前校验共享访问码，并通过 Upstash REST 维护跨实例分钟 / 日请求计数和预算预留；调用结束后按 usage 结算估算成本并写脱敏审计。审计不记录训练文字、饮食内容、照片、原始 IP、访问码或 API key。Vercel Preview / Production 缺少访问码、独立审计 salt 或完整 Redis 配置时返回 503；本地开发才允许实例内内存回退。共享访问码不等于用户身份系统。
 
-无付费边界脚本当前为 10/10：非 POST、非 JSON、空/过长文字、4 类损坏或超尺寸图片输入、空食物重算和过长重算备注都会在模型调用前得到预期错误。这个结果只验证 guard，不消除公开部署缺少鉴权与跨实例共享限流的 **P1 风险**。
+无付费边界脚本当前为 10/10；公开演示保护固定检查为 17/17，覆盖缺配置 fail closed、访问码强度、Upstash 公开路径、跨实例限流、预算、失败保守记账、告警去重和审计脱敏。代码检查通过不等于线上已启用；截至 2026-09-06，Vercel Development / Preview / Production 仍只有旧的 `ANTHROPIC_API_KEY`，缺少新的 OpenAI 与 Upstash 配置。
 
 4 个接口都用 `try/catch` 包裹 OpenAI 调用，并区分“尚未取得模型证据”和“已经取得 Response 但输出不可用”。前者返回 500；后者无论是空输出/JSON 解析失败，还是 JSON 结构校验失败，都会返回带错误码和 `meta` 的 422，让 Response ID、usage 等审计证据不再随失败丢失。可获得的原始文字仍放在 `rawText`；前端不会把 422 结果当成成功数据。服务端使用 Structured Outputs 约束结构,前端收到成功响应后仍会再校验一次,避免异常结果进入界面或本地数据。
 
@@ -218,6 +220,7 @@ gym/
 | 服务 | 用途 | 涉及的环境变量名 |
 |---|---|---|
 | OpenAI Responses API | 用户主动调用上述 4 个接口时,处理训练/饮食文字、餐食数据或压缩图片 | `OPENAI_API_KEY`(存在 Vercel 的环境变量里,前端代码完全不接触这个值,只有 `/api` 下的 serverless 函数在运行时读取) |
+| Upstash Redis REST | 公开演示的跨实例限流、预算计数和脱敏审计 | `UPSTASH_REDIS_REST_URL`、`UPSTASH_REDIS_REST_TOKEN`，以及访问码 / 审计 salt / 限额变量 |
 | Google Fonts CSS | `src/index.css` 在联网时加载 Barlow / Barlow Condensed 字体样式 | 无 |
 | 用户提供的视频直链 | 用户为动作保存并播放外部视频地址时,浏览器会向该地址发起请求 | 无 |
 
@@ -237,15 +240,17 @@ gym/
 
 ---
 
-## 8. 质量与依赖状态（2026-09-05）
+## 8. 质量与依赖状态（2026-09-06）
 
 - 训练文字解析已完成一次 20 条 V1 正式基线：12/12 核心题直接通过、153/153 核心字段正确、6/8 边界题通过、20/20 HTTP 200 且结构有效。
 - V2 首次正式尝试 `2026-09-05-openai-regression-v2` 严格顺序、评测器与 SDK 均无重试，在 WO-14 后以 14 次请求中止。WO-01～13 有 Response ID / usage，已知小计为 18,302 token、按当时官方单价估算 $0.013075 USD；WO-14 因旧 Schema 允许 `reps` 与 `durationSeconds` 同时为 `null`，服务端校验失败后旧 500 响应丢失 `meta`，其 usage 与整次尝试总成本不可得。partial 不是完整 V2 成绩，不能报告通过率，也不能代表之后修正过的代码。
 - 第二次尝试 `2026-09-06-openai-regression-v2-r2` 在 WO-04 因本机 OpenAI 直连网络错误中止，共 4 次请求、无重试；前三题均为 `direct`，已知 4,616 token / $0.002790 USD，WO-04 无 Response ID、计费状态不可核实。诊断确认 `.env.local` 中已有可用 `OPENAI_PROXY_URL`，但旧 helper 在 Vercel 已注入 key 时不会加载它；当前 helper 已改为补载缺失的本地代理值并保持宿主环境优先。
 - 第三次正式运行 `2026-09-06-openai-regression-v2-r3` 经修正后的代理路径完成 20/20 次请求且无重试：核心题 12/12 直接可用、字段 182/182、精确动作名 15/15、边界题 7/8、结构 20/20；延迟中位 5327.5ms（2514–12632ms），总 token 31,629，估算成本 $0.019134 USD。20 条均有唯一 Response ID/响应哈希，人工复核改分 0 条。唯一失败 WO-13 因重量未知而清空组，丢失已知的 4×8。
 - 修复验证 `2026-09-06-openai-regression-v2-r4` 使用相同合约重新完成 20/20 次请求且无重试：核心 12/12、字段 182/182、精确动作名 15/15、边界 8/8、结构 20/20；延迟中位 6405ms（3755–14421ms），总 token 33,482，估算成本 $0.019038 USD。WO-13 正确保留四个 8 次完成组、使用 0 待编辑占位并提示补充重量，其他 19 条没有规则回归；人工复核改分 0 条。
+- 饮食 V1 用 15 条文字、10 条重算和 10 张合成照片完成 35/35 次顺序请求且无重试，结构 35/35；人工复核后 30 direct / 5 partial / 0 fail。修复重算 Prompt 后，同一 10 条重算用例定向回归为 10/10 direct、硬检查 100%。两轮估算成本合计 $0.068159 USD；定向回归不是 35 条全量重跑。
 - `npm run eval:workout:v1` 是 V1 历史基线工具，旧 `npm run eval:workout` 只是它的兼容别名；`npm run eval:workout:v2` 使用独立的 20 条数据集、规则和运行器。当前离线证据为 20 条用例 / 47 项评分器自检通过且 `network_requests=0`，`npm run check:ai-contracts` 为 18/18，guard 为 10/10；这些离线结果不等于模型通过率。
 - 修正版 V2 runner 把 HTTP 422 + Response ID 记为已调用但该题失败并继续；网络/上游异常、其他非成功 HTTP 或缺少 Response ID 等证据才 fatal。SDK 固定 `maxRetries: 0` / 110 秒，runner 超时 120 秒；首请求前冻结关键文件哈希，完整结束时再次核对。r3 与 r4 均满足完整证据条件；未来再次完整运行仍须另获授权、使用新 Run ID 从头执行，不能续写现有 partial。
+- 公开演示安全检查为 17/17；线上配置尚未完成，当前 Vercel 三个环境只有旧 Anthropic 变量，因此 AI 公开访问保持未激活状态。
 - `npm audit --omit=dev` 为 0 个已知漏洞。完整开发依赖审计仍报告 29 项（1 low、12 moderate、15 high、1 critical），主要在 Vercel CLI / `@vercel/*` 的开发工具传递依赖；强制修复可能带来破坏性版本变化，当前没有执行 `npm audit fix --force`。
 - `sharp` 0.35 是图片完整解码和安全重编码所需的生产依赖，当前 lockfile 解析为 0.35.4；它不是只在本地检查脚本使用的开发依赖。
-- 正式评测没有测量真人编辑率、修正耗时、最终保存一致性、外部用户效果或线上 SLA，这些结论不能从 20 条合成 API 用例推断。
+- 正式评测没有测量真人编辑率、修正耗时、最终保存一致性、外部用户效果或线上 SLA；8 个 persona 的 Human-in-the-loop 内容是标记清楚的 AI-simulated pretest，也不能作为真人证据。
