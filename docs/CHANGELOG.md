@@ -12,8 +12,8 @@
 - 基线识别出 4 条评分器名称别名误报和 5 条真实重算缺口；不回写历史自动结果。重算 Prompt 增加未涉及条目逐字段保持、置信度不主动抬高和替换食材同步名称，10 条定向回归为 10/10 direct、硬检查 100%
 - 两轮饮食正式调用共 45 次、总 token 58,416、估算成本 $0.068159 USD（非账单）；第二轮只覆盖重算，不表述为 35 条全量重跑。真人指标继续为 `NOT_MEASURED`
 - 为 4 个 AI 端点增加共享访问码、Upstash 跨实例分钟 / 日限额、预算预留与 80% 告警、脱敏审计；Vercel Preview / Production 缺关键配置时 fail closed，本地才允许内存回退
-- 前端新增会话级 AI 访问码入口；固定安全检查 17/17（含 Upstash 公开路径、失败保守记账和审计字段白名单）、AI 合约 18/18、API guard 10/10，本地真实 happy path 返回 200，并带限流与模型证据
-- 核对 Vercel 三个环境仅发现旧 `ANTHROPIC_API_KEY`；OpenAI key、访问码、审计 salt 与 Upstash 凭证尚未配置，因此不把代码完成误写成线上 AI 已启用
+- 前端新增会话级 AI 访问码入口；固定安全检查 18/18（含 Upstash / Marketplace 路径、失败保守记账和审计字段白名单）、AI 合约 18/18、API guard 10/10，本地真实 happy path 返回 200，并带限流与模型证据
+- 首次核对 Vercel 三个环境仅发现旧 `ANTHROPIC_API_KEY`；随后已写入非敏感限流与预算参数。OpenAI key、访问码、审计 salt 与 Upstash 凭证仍待敏感变量授权 / Marketplace 条款确认，因此不把代码完成误写成线上 AI 已启用
 - 新增 12 张合成数据产品截图，覆盖 Today、计划模板 / 排序 / 导入、未完成 / 部分完成 / 全部完成、训练 AI uncertainty、饮食 AI confidence 和动作详情；另给出 4 页作品集编排
 - 增加 8 个合成 persona 的 AI-simulated Human-in-the-loop pretest，用于发现问题假设；文档与截图都明确禁止冒充真人访谈或真实健康数据
 

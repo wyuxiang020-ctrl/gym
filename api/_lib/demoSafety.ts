@@ -78,8 +78,8 @@ function hashClient(req: VercelRequest): string | null {
 }
 
 function redisConfig(): { url: string; token: string } | null {
-  const url = process.env.UPSTASH_REDIS_REST_URL?.replace(/\/$/, '')
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN
+  const url = (process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL)?.replace(/\/$/, '')
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN
   return url && token ? { url, token } : null
 }
 
@@ -201,7 +201,12 @@ export async function authorizeAiRequest(req: VercelRequest, res: VercelResponse
   const clientHash = hashClient(req)
   if (!clientHash) return sendError(res, 503, '公开演示缺少审计脱敏配置。', 'DEMO_SAFETY_NOT_CONFIGURED')
   const redis = redisConfig()
-  const partialRedisConfig = Boolean(process.env.UPSTASH_REDIS_REST_URL || process.env.UPSTASH_REDIS_REST_TOKEN) && !redis
+  const partialRedisConfig = Boolean(
+    process.env.UPSTASH_REDIS_REST_URL ||
+    process.env.UPSTASH_REDIS_REST_TOKEN ||
+    process.env.KV_REST_API_URL ||
+    process.env.KV_REST_API_TOKEN,
+  ) && !redis
   const allowMemory = !isPublicDeployment() && process.env.AI_ALLOW_LOCAL_MEMORY_GUARD !== 'false'
   if (partialRedisConfig || (!redis && !allowMemory)) return sendError(res, 503, '共享限流尚未配置，请联系演示维护者。', 'DEMO_SAFETY_NOT_CONFIGURED')
 

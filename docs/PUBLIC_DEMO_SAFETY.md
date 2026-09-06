@@ -30,6 +30,8 @@
 
 `AI_DAILY_BUDGET_MICRO_USD` 使用“微美元”：1 美元 = 1,000,000。实际成本仍是根据 token 的估算，不等于供应商账单；应同时在 OpenAI Platform 设置项目级预算与通知。
 
+通过 Vercel Marketplace 创建 Upstash 时，平台可能注入等价的 `KV_REST_API_URL` / `KV_REST_API_TOKEN`；代码同时支持这组名称，不需要复制或暴露凭证。
+
 ## 上线顺序
 
 1. 在 Upstash 创建 Redis 数据库，复制 REST URL 和 Token。

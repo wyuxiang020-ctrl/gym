@@ -35,6 +35,7 @@ function request(ip: string, accessCode?: string) {
 const envNames = [
   'VERCEL_ENV', 'GYM_DEMO_ACCESS_CODE', 'AI_AUDIT_HASH_SALT',
   'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN',
+  'KV_REST_API_URL', 'KV_REST_API_TOKEN',
   'AI_ALLOW_LOCAL_MEMORY_GUARD', 'AI_REQUESTS_PER_MINUTE',
   'AI_DAILY_REQUEST_LIMIT', 'AI_DAILY_BUDGET_MICRO_USD',
   'AI_REQUEST_RESERVE_MICRO_USD', 'AI_BUDGET_ALERT_PERCENT',
@@ -129,6 +130,16 @@ try {
   const publicLimitRes = response()
   const publicLimitPermit = await authorizeAiRequest(request('198.51.100.3', 'correct-test-code') as never, publicLimitRes as never, 'public-test')
   expect(publicLimitPermit === null && publicLimitRes.statusCode === 429, '公开部署跨实例限流拒绝超额请求')
+
+  delete process.env.UPSTASH_REDIS_REST_URL
+  delete process.env.UPSTASH_REDIS_REST_TOKEN
+  process.env.KV_REST_API_URL = 'https://fake-upstash.example'
+  process.env.KV_REST_API_TOKEN = 'fake-test-token'
+  process.env.AI_REQUESTS_PER_MINUTE = '100'
+  const aliasRes = response()
+  const aliasPermit = await authorizeAiRequest(request('198.51.100.4', 'correct-test-code') as never, aliasRes as never, 'alias-test')
+  expect(aliasPermit?.backend === 'upstash', '兼容 Vercel Marketplace 的 KV REST 变量名')
+  if (aliasPermit) await finalizeAiRequest(aliasPermit, { status: 500, outcome: 'upstream_failed' })
 
   clear()
   globalThis.fetch = originalFetch
