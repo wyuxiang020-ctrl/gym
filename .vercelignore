@@ -1,0 +1,11 @@
+# Local secrets and generated output
+.env*
+!.env.example
+dist/
+node_modules/
+
+# Evaluation evidence and portfolio assets are tracked in Git but are not runtime dependencies.
+evals/
+docs/portfolio/screenshots/
+docs/research/
+*.zip
