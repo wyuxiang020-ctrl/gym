@@ -5,7 +5,15 @@
 - Vercel Marketplace 免费 Redis `gym-ai-safety` 已创建并连接 Development、Preview、Production；区域为 `sin1`，自动升级关闭。
 - Marketplace 已自动注入 `KV_REST_API_URL` / `KV_REST_API_TOKEN` 等连接变量，代码兼容这组名称。
 - 非敏感的分钟限额、每日次数、每日预算、单次预留和告警阈值已配置。
-- `OPENAI_API_KEY`、`GYM_DEMO_ACCESS_CODE`、`AI_AUDIT_HASH_SALT` 仍待用户明确授权后作为 Secret 写入；完成前公开环境继续 fail closed。
+- `OPENAI_API_KEY`、`GYM_DEMO_ACCESS_CODE`、`AI_AUDIT_HASH_SALT` 已按用户授权作为 Secret 写入三个环境；文档不记录实际值。
+- Preview `https://gym-ri1ngrd2q-yuxiang-wang-s-projects.vercel.app` 已部署并完成真实 happy-path 验证；Production 尚未发布。
+
+### Preview 验证记录
+
+- 无访问码与错误访问码各发起一次 `POST /api/parse-meal`，Vercel 请求日志确认两次均为 HTTP 401，模型没有被调用。
+- 正确访问码发起一次相同接口请求，Vercel 请求日志为 HTTP 200；页面收到“水 250g、0 kcal、把握高”的可编辑结果，并继续要求用户确认后才写入。
+- Upstash 只读核验显示当日 `requests=1`、`reserved_micro_usd=0`、`spent_micro_usd=513`、`audit_events=1`；最新审计为 `parse-meal / 200 / success / gpt-5-mini-2025-08-07`，有 Response ID、538 total tokens，客户端标识为 24 位哈希。
+- 本次部署最近 30 分钟没有 error-level 运行日志。429 超限和 503 fail-closed 没有通过修改线上配置做故障注入；它们由 18/18 固定安全检查覆盖，不能表述为 Preview 实测。
 
 ## 已实现
 

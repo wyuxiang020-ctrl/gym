@@ -15,6 +15,7 @@
 - 前端新增会话级 AI 访问码入口；固定安全检查 18/18（含 Upstash / Marketplace 路径、失败保守记账和审计字段白名单）、AI 合约 18/18、API guard 10/10，本地真实 happy path 返回 200，并带限流与模型证据
 - 首次核对 Vercel 三个环境仅发现旧 `ANTHROPIC_API_KEY`；随后已写入非敏感限流与预算参数。OpenAI key、访问码、审计 salt 与 Upstash 凭证仍待敏感变量授权 / Marketplace 条款确认，因此不把代码完成误写成线上 AI 已启用
 - 用户接受 Marketplace 条款后，已创建免费 `gym-ai-safety` Redis（`sin1`、关闭自动升级）并连接三个 Vercel 环境；代码兼容自动注入的 `KV_REST_API_*` 变量。敏感 OpenAI / 访问码 / 审计变量仍保持未写入，等待明确授权
+- 获得明确授权后，将 OpenAI key、演示访问码与独立审计 salt 作为 Secret 写入 Development / Preview / Production；部署 Preview 并实测两次 401 拦截与一次 200 模型成功。Upstash 记录 1 次请求、0 未释放预留、$0.000513 估算成本和 1 条脱敏审计，最近 30 分钟无 error-level 日志；Production 未发布，429 / 503 仍只引用 18/18 固定检查
 - 新增 12 张合成数据产品截图，覆盖 Today、计划模板 / 排序 / 导入、未完成 / 部分完成 / 全部完成、训练 AI uncertainty、饮食 AI confidence 和动作详情；另给出 4 页作品集编排
 - 增加 8 个合成 persona 的 AI-simulated Human-in-the-loop pretest，用于发现问题假设；文档与截图都明确禁止冒充真人访谈或真实健康数据
 

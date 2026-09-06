@@ -53,7 +53,7 @@
 - **替代方案**:把任意大小、任意类型的请求直接转发给模型，或只依靠会随冷启动重置的内存限流。
 - **为什么**:文字、图片和重算清单会产生费用，也可能消耗函数内存。第一层统一限制 POST + `application/json`、JSON 正文、字段长度和数组数量，并设置 `Cache-Control: no-store`；无付费 guard 检查当前 10/10。第二层用共享访问码、Upstash 跨实例分钟 / 日限额、预算预留、80% 告警和脱敏审计保护公开演示；检查为 18/18，并兼容 Marketplace 的 `KV_REST_API_*` 变量，无 usage 的上游失败按预留成本保守记账。
 - **Fail closed**:Vercel Preview / Production 缺少访问码、独立审计 salt 或完整 Redis 配置时返回 503，不退回内存模式。本地开发可用内存回退，避免影响离线检查与正式评测。
-- **边界**:共享访问码不是用户账号。还需要在 Vercel 和 Upstash 配好变量、在 OpenAI 设置项目预算，并在 Preview 验证 401 / 429 / 503 后才能开放链接。
+- **边界**:共享访问码不是用户账号。Vercel / Upstash 配置和 Preview 的 401 / 200 / 审计验证已完成；Production 发布前仍要设置 OpenAI 项目预算与通知，并在受控环境补做 429 / 503 故障注入。
 
 ### 1.9 在 AI 提交入口明确第三方数据范围 🟢
 - **替代方案**:只在长文档里写隐私说明，或让用户误以为“业务数据存在 localStorage”等于 AI 输入也完全不离开设备。
@@ -202,5 +202,5 @@
 - `DayLog` 里的 `bodyNote` 和 `mood` 字段目前存在类型定义里,但没有任何界面读写它们。
 - 训练文字解析已有 V1 基线、V2 r3 基线和 r4 修复验证；饮食已有 35 条文字 / 重算 / 照片 V1 基线和 10 条重算 Prompt 定向回归。模型或 Prompt 变化后仍需新建结果，不能回写历史。
 - 真人预览编辑率、修正耗时、最终保存一致性、Plan Import / 手动记录 A/B、外部用户表现和线上 SLA 均为 `NOT_MEASURED`，不能用合成 API 评测替代。
-- 公开演示防护代码已实现，但 Vercel 仍缺 OpenAI、访问码、审计 salt 与 Upstash 配置；完成线上配置和 Preview 验证前不开放 AI。
+- 公开演示防护与 Vercel 配置已完成，Preview 已通过真实 401 / 200 与 Upstash 审计核验；Production 尚未发布，429 / 503 仍只有固定测试证据。
 - 完整开发工具依赖审计仍有 Vercel CLI / `@vercel/*` 的传递依赖漏洞；生产依赖审计为 0。没有使用可能造成破坏性版本变化的 `npm audit fix --force`。
