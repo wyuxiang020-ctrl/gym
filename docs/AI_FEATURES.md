@@ -192,7 +192,7 @@ JSON 格式:
 
 `npm run check:api-guards -- http://127.0.0.1:3000` 当前 10/10 通过：覆盖非 POST、非 JSON、空/超长文字、伪造/仅文件头/截断/超尺寸图片，以及空重算清单和超长备注；这些请求都在任何模型调用前被拒绝，因此该检查不产生模型费用。它证明边界拦截按预期工作，不证明公开部署已安全。
 
-`npm run check:demo-safety` 当前 18/18 通过，覆盖缺配置 fail closed、访问码强度、Upstash 公开路径、Vercel Marketplace 变量别名、跨实例限流、并发预算预留、无 usage 失败的保守记账、告警去重和审计脱敏等固定场景。线上激活仍需要按 `docs/PUBLIC_DEMO_SAFETY.md` 配置 Vercel 与 Upstash；截至 2026-09-06，远端三个环境已有非敏感限额，但敏感变量和 Redis 资源仍未完成，所以公开 AI 还没有启用。
+`npm run check:demo-safety` 当前 18/18 通过，覆盖缺配置 fail closed、访问码强度、Upstash 公开路径、Vercel Marketplace 变量别名、跨实例限流、并发预算预留、无 usage 失败的保守记账、告警去重和审计脱敏等固定场景。2026-09-06 已通过 Marketplace 创建并连接免费 `gym-ai-safety` Redis，三个环境已有 Redis 与非敏感限额；仍缺 `OPENAI_API_KEY`、访问码和审计 salt，所以公开 AI 还没有启用。
 
 上述“最多 30 项”是单次 AI 响应和重算请求边界，“单餐 1–100 项”是用户新确认写入的边界，两者不是同一个指标。备份导入校验每餐 0–100 项和相同数值上限；为兼容历史数据，导入层仍可读取旧的空餐或全零食物，不会自动改写成新值。
 

@@ -92,7 +92,7 @@ V2 曾以 `2026-09-05-openai-regression-v2` 做首次正式尝试：严格顺序
 
 AI API 强制使用 `application/json`，并限制请求方法、正文、文字/备注长度、重算食物数量及图片输入。照片在调用模型前由服务端完整解码：只接受匹配声明格式的单帧 JPEG / PNG / WebP / GIF，Base64 解码后的输入文件最多 3 MiB，原图单边不超过 4096 像素且总像素不超过 1600 万；通过后自动旋转、最长边缩到 1024、移除元数据并重编码为 JPEG。无付费 guard 检查现为 10/10，全部在模型调用前被预期拦截。AI 每次最多返回 30 项食物；本地单餐最多保存 100 项，名称最多 120 字符，克数/热量上限 100,000，单项宏量营养素上限 10,000。
 
-公开演示保护已实现：共享访问码、Upstash 跨实例分钟 / 日限额、日预算预留与 80% 告警、脱敏审计，并在 Vercel Preview / Production 缺少关键配置时 fail closed。本地开发才允许使用内存回退；无 usage 的上游失败会按预留成本保守记账。Vercel 三个环境已写入非敏感的限流与预算参数，但 `OPENAI_API_KEY`、访问码、审计 salt 与 Upstash REST 凭证仍待完成敏感变量授权和 Marketplace 条款确认，因此线上 AI 尚未激活。完整配置与验证顺序见 `docs/PUBLIC_DEMO_SAFETY.md`。
+公开演示保护已实现：共享访问码、Upstash 跨实例分钟 / 日限额、日预算预留与 80% 告警、脱敏审计，并在 Vercel Preview / Production 缺少关键配置时 fail closed。本地开发才允许使用内存回退；无 usage 的上游失败会按预留成本保守记账。Vercel Marketplace 的免费 `gym-ai-safety` Redis 已连接三个环境，自动升级关闭，非敏感限额也已写入；`OPENAI_API_KEY`、访问码与审计 salt 仍待明确敏感变量授权，因此线上 AI 尚未激活。完整配置与验证顺序见 `docs/PUBLIC_DEMO_SAFETY.md`。
 
 ## 数据与隐私边界
 

@@ -209,7 +209,7 @@ gym/
 
 公开演示保护在模型调用前校验共享访问码，并通过 Upstash REST 维护跨实例分钟 / 日请求计数和预算预留；调用结束后按 usage 结算估算成本并写脱敏审计。审计不记录训练文字、饮食内容、照片、原始 IP、访问码或 API key。Vercel Preview / Production 缺少访问码、独立审计 salt 或完整 Redis 配置时返回 503；本地开发才允许实例内内存回退。共享访问码不等于用户身份系统。
 
-无付费边界脚本当前为 10/10；公开演示保护固定检查为 18/18，覆盖缺配置 fail closed、访问码强度、Upstash / Marketplace 变量路径、跨实例限流、预算、失败保守记账、告警去重和审计脱敏。代码检查通过不等于线上已启用；截至 2026-09-06，Vercel Development / Preview / Production 已有非敏感限额，但仍缺 OpenAI、访问码、审计 salt 与 Redis 凭证。
+无付费边界脚本当前为 10/10；公开演示保护固定检查为 18/18，覆盖缺配置 fail closed、访问码强度、Upstash / Marketplace 变量路径、跨实例限流、预算、失败保守记账、告警去重和审计脱敏。代码检查通过不等于线上已启用；截至 2026-09-06，Vercel Development / Preview / Production 已连接免费 Redis 并配置非敏感限额，但仍缺 OpenAI、访问码和审计 salt。
 
 4 个接口都用 `try/catch` 包裹 OpenAI 调用，并区分“尚未取得模型证据”和“已经取得 Response 但输出不可用”。前者返回 500；后者无论是空输出/JSON 解析失败，还是 JSON 结构校验失败，都会返回带错误码和 `meta` 的 422，让 Response ID、usage 等审计证据不再随失败丢失。可获得的原始文字仍放在 `rawText`；前端不会把 422 结果当成成功数据。服务端使用 Structured Outputs 约束结构,前端收到成功响应后仍会再校验一次,避免异常结果进入界面或本地数据。
 
@@ -250,7 +250,7 @@ gym/
 - 饮食 V1 用 15 条文字、10 条重算和 10 张合成照片完成 35/35 次顺序请求且无重试，结构 35/35；人工复核后 30 direct / 5 partial / 0 fail。修复重算 Prompt 后，同一 10 条重算用例定向回归为 10/10 direct、硬检查 100%。两轮估算成本合计 $0.068159 USD；定向回归不是 35 条全量重跑。
 - `npm run eval:workout:v1` 是 V1 历史基线工具，旧 `npm run eval:workout` 只是它的兼容别名；`npm run eval:workout:v2` 使用独立的 20 条数据集、规则和运行器。当前离线证据为 20 条用例 / 47 项评分器自检通过且 `network_requests=0`，`npm run check:ai-contracts` 为 18/18，guard 为 10/10；这些离线结果不等于模型通过率。
 - 修正版 V2 runner 把 HTTP 422 + Response ID 记为已调用但该题失败并继续；网络/上游异常、其他非成功 HTTP 或缺少 Response ID 等证据才 fatal。SDK 固定 `maxRetries: 0` / 110 秒，runner 超时 120 秒；首请求前冻结关键文件哈希，完整结束时再次核对。r3 与 r4 均满足完整证据条件；未来再次完整运行仍须另获授权、使用新 Run ID 从头执行，不能续写现有 partial。
-- 公开演示安全检查为 18/18；线上限额已配置，但敏感变量和 Upstash Marketplace 资源尚未完成，因此 AI 公开访问保持未激活状态。
+- 公开演示安全检查为 18/18；免费 Upstash Marketplace 资源和线上限额已配置，但三个敏感变量尚未写入，因此 AI 公开访问保持未激活状态。
 - `npm audit --omit=dev` 为 0 个已知漏洞。完整开发依赖审计仍报告 29 项（1 low、12 moderate、15 high、1 critical），主要在 Vercel CLI / `@vercel/*` 的开发工具传递依赖；强制修复可能带来破坏性版本变化，当前没有执行 `npm audit fix --force`。
 - `sharp` 0.35 是图片完整解码和安全重编码所需的生产依赖，当前 lockfile 解析为 0.35.4；它不是只在本地检查脚本使用的开发依赖。
 - 正式评测没有测量真人编辑率、修正耗时、最终保存一致性、外部用户效果或线上 SLA；8 个 persona 的 Human-in-the-loop 内容是标记清楚的 AI-simulated pretest，也不能作为真人证据。

@@ -1,5 +1,12 @@
 # Gym 公开演示保护
 
+## 当前激活状态（2026-09-06）
+
+- Vercel Marketplace 免费 Redis `gym-ai-safety` 已创建并连接 Development、Preview、Production；区域为 `sin1`，自动升级关闭。
+- Marketplace 已自动注入 `KV_REST_API_URL` / `KV_REST_API_TOKEN` 等连接变量，代码兼容这组名称。
+- 非敏感的分钟限额、每日次数、每日预算、单次预留和告警阈值已配置。
+- `OPENAI_API_KEY`、`GYM_DEMO_ACCESS_CODE`、`AI_AUDIT_HASH_SALT` 仍待用户明确授权后作为 Secret 写入；完成前公开环境继续 fail closed。
+
 ## 已实现
 
 四个 AI 接口共用同一层服务端保护：
