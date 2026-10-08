@@ -1,0 +1,19 @@
+{
+  "base": "https://gym-iota-self.vercel.app",
+  "kind": "isolated browser and synthetic local storage; real GET requests, no paid AI or physical camera",
+  "checks": [
+    {
+      "label": "scan",
+      "pass": true
+    },
+    {
+      "label": "companion",
+      "pass": true
+    },
+    {
+      "label": "library",
+      "pass": true
+    }
+  ],
+  "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'activating'\n- 'activated'\n          ^\n"
+}

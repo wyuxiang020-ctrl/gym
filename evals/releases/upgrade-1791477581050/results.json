@@ -1,0 +1,8 @@
+{
+  "base": "https://gym-iota-self.vercel.app",
+  "kind": "isolated real production service-worker upgrade with synthetic records; no paid AI or camera",
+  "pass": false,
+  "initiallyNew": true,
+  "beforeWorker": "https://gym-iota-self.vercel.app/sw.js",
+  "error": "apiRequestContext.get: connect ETIMEDOUT 2a03:2880:f11f:83:face:b00c:0:25de:443\nCall log:\n\u001b[2m  - → GET https://gym-iota-self.vercel.app/\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n"
+}

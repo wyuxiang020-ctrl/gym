@@ -1,0 +1,8 @@
+{
+  "base": "https://gym-iota-self.vercel.app",
+  "kind": "isolated real production service-worker upgrade with synthetic records; no paid AI or camera",
+  "pass": true,
+  "initiallyNew": true,
+  "beforeWorker": "https://gym-iota-self.vercel.app/sw.js",
+  "observedOldToNew": false
+}

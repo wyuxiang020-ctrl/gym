@@ -1,0 +1,19 @@
+{
+  "base": "https://gym-iota-self.vercel.app",
+  "kind": "isolated browser and synthetic local storage; real GET requests, no paid AI or physical camera",
+  "checks": [
+    {
+      "label": "scan",
+      "pass": true
+    },
+    {
+      "label": "companion",
+      "pass": true
+    },
+    {
+      "label": "library",
+      "pass": true
+    }
+  ],
+  "error": "page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://gym-iota-self.vercel.app/?equipment-scan=1\", waiting until \"load\"\u001b[22m\n"
+}
