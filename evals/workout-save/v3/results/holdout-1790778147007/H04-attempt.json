@@ -1,0 +1,38 @@
+{
+  "id": "H04",
+  "input": "腿举用了75，三组各9次都完成了，单位没记。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:22:54.766Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1529,
+    "cachedInputTokens": 1408,
+    "outputTokens": 713,
+    "reasoningTokens": 576,
+    "totalTokens": 2242
+  },
+  "estimatedCostUsd": 0.00149145,
+  "rawSha256": "8214e09b3bcf3d49789806affba1c867367906bd801f8065fa53da1abdc2d0b7",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0c191fb0342ca3b6016abd1b41a2bc87d08ce329b2cf7278ff",
+    "requestId": "req_e338a9d82c394f4da61782cf186a8aad",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1529,
+      "cachedInputTokens": 1408,
+      "outputTokens": 713,
+      "reasoningTokens": 576,
+      "totalTokens": 2242
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 8398
+}

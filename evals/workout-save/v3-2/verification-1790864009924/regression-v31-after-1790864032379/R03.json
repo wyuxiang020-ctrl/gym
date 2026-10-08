@@ -1,0 +1,101 @@
+{
+  "id": "R03",
+  "name": "Out-of-range cardio draft remains editable after refresh",
+  "phase": "after",
+  "kind": "automated software test with fixed response, NOT human research",
+  "startedAt": "2026-10-01T14:13:56.856Z",
+  "modelCalls": 0,
+  "costUsd": 0,
+  "pass": true,
+  "recoveredText": "今天卧推50公斤完成两组，每组8次，然后快走15分钟。",
+  "ms": 735,
+  "dataAtEnd": {
+    "profile": {
+      "gender": "male",
+      "birthYear": 1997,
+      "height": 178,
+      "experience": "intermediate",
+      "goal": "bulk",
+      "targetWeight": 75,
+      "targetBodyFat": 15,
+      "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+      "trainingDaysPerWeek": 4,
+      "activityLevel": 3,
+      "waterTargetMl": 2400,
+      "checkInMode": "workout_and_meal"
+    },
+    "measurements": [
+      {
+        "date": "2026-07-05",
+        "weight": 69.8,
+        "bodyFat": 17.2,
+        "waist": 78,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-08-02",
+        "weight": 70.6,
+        "bodyFat": 16.8,
+        "waist": 77.5,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-09-01",
+        "weight": 71.4,
+        "bodyFat": 16.4,
+        "waist": 77,
+        "note": "合成演示数据"
+      }
+    ],
+    "plans": [],
+    "dayLogs": {
+      "2026-10-01": {
+        "date": "2026-10-01",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 50,
+                "weightState": "known",
+                "reps": 8,
+                "done": true
+              },
+              {
+                "weight": 50,
+                "weightState": "known",
+                "reps": 8,
+                "done": true
+              }
+            ],
+            "note": "合成测试",
+            "uncertain": [],
+            "id": "120e33db-daf1-49e1-a538-eeadd4b739df",
+            "estKcal": 40,
+            "source": "nl"
+          }
+        ],
+        "cardio": [
+          {
+            "type": "快走",
+            "done": true,
+            "minutes": 15,
+            "avgHr": 130,
+            "intensity": "mid",
+            "note": "",
+            "uncertain": [],
+            "id": "be7a44ce-8abc-451d-b855-bc2931abbd54",
+            "estKcal": 80,
+            "source": "nl"
+          }
+        ],
+        "meals": [],
+        "water": 0
+      }
+    },
+    "exerciseVideos": {},
+    "lastFedDate": "2026-09-05"
+  },
+  "video": "E:\\gym\\evals\\workout-save\\v3-2\\verification-1790864009924\\regression-v31-after-1790864032379\\page@46a7d4b446f23a62a8c233cfe9529159.webm"
+}

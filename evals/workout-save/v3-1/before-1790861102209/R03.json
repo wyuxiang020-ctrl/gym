@@ -1,0 +1,57 @@
+{
+  "id": "R03",
+  "name": "Out-of-range cardio draft remains editable after refresh",
+  "phase": "before",
+  "kind": "automated software test with fixed response, NOT human research",
+  "startedAt": "2026-10-01T13:25:07.743Z",
+  "modelCalls": 0,
+  "costUsd": 0,
+  "pass": false,
+  "recoveredText": "",
+  "error": "Expected values to be strictly equal:\n+ actual - expected\n\n+ ''\n- '今天卧推50公斤完成两组，每组8次，然后快走15分钟。'\n",
+  "ms": 494,
+  "dataAtEnd": {
+    "profile": {
+      "gender": "male",
+      "birthYear": 1997,
+      "height": 178,
+      "experience": "intermediate",
+      "goal": "bulk",
+      "targetWeight": 75,
+      "targetBodyFat": 15,
+      "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+      "trainingDaysPerWeek": 4,
+      "activityLevel": 3,
+      "waterTargetMl": 2400,
+      "checkInMode": "workout_and_meal"
+    },
+    "measurements": [
+      {
+        "date": "2026-07-05",
+        "weight": 69.8,
+        "bodyFat": 17.2,
+        "waist": 78,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-08-02",
+        "weight": 70.6,
+        "bodyFat": 16.8,
+        "waist": 77.5,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-09-01",
+        "weight": 71.4,
+        "bodyFat": 16.4,
+        "waist": 77,
+        "note": "合成演示数据"
+      }
+    ],
+    "plans": [],
+    "dayLogs": {},
+    "exerciseVideos": {},
+    "lastFedDate": "2026-09-05"
+  },
+  "video": "E:\\gym\\evals\\workout-save\\v3-1\\before-1790861102209\\page@ebeb382a83db5f48c5b5a91d2bd6ca4d.webm"
+}

@@ -1,0 +1,1288 @@
+{
+  "at": "2026-10-01T15:28:05.956Z",
+  "version": "V3.3",
+  "kind": "automated software; synthetic records; fixed YouTube event replay; NOT actual media/model/human test",
+  "width": 820,
+  "modelCalls": 0,
+  "modelCostUsd": 0,
+  "sourceHashes": {
+    "src/lib/teachingVideos.ts": "73962d8fe9855bf76404af9ef01b16ca2e62b5ad7403d9c1769f9e186f2610be",
+    "src/components/workout/TeachingVideoPlayer.tsx": "91822428271a7f9ed02077ffcfa19b96f710a7fbdc8e1bf4ac8d5b4552c8886b",
+    "src/components/workout/ExerciseDetailSheet.tsx": "e2b53575970c53d0283b310d872b2d249d6928c7c6a94ae70020d4949c249a22",
+    "src/components/workout/StrengthLogger.tsx": "a2a78459ee77fd5bbb540cdd5e6481c08320cfee1ae477241930bd800f444a23",
+    "src/components/workout/WorkoutSection.tsx": "2e1483fb99bc9c6d882336373dda25f38baaf19732ec5f173e349614e706130c"
+  },
+  "results": [
+    {
+      "name": "U01 exact four exercise coverage",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "U02 ambiguous and other variants not matched",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "U03 unique IDs and safe source metadata",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "F01 template → four demonstrations → 12 confirmed sets → reload",
+      "pass": true,
+      "confirmed": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [
+          {
+            "id": "6fbff09e-512e-4695-9c13-68f8c0d89d91",
+            "createdAt": "2026-10-01T15:27:59.712Z",
+            "name": "全身训练 · 新手三日",
+            "days": [
+              {
+                "label": "Day 1 · 全身 A",
+                "exercises": [
+                  {
+                    "name": "杠铃深蹲",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "杠铃卧推",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "杠铃划船",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "平板支撑",
+                    "sets": 3,
+                    "repRange": "30-45秒"
+                  }
+                ]
+              },
+              {
+                "label": "Day 2 · 全身 B",
+                "exercises": [
+                  {
+                    "name": "罗马尼亚硬拉",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "站姿杠铃推举",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "高位下拉",
+                    "sets": 3,
+                    "repRange": "10-12"
+                  },
+                  {
+                    "name": "卷腹",
+                    "sets": 3,
+                    "repRange": "12-15"
+                  }
+                ]
+              },
+              {
+                "label": "Day 3 · 全身 C",
+                "exercises": [
+                  {
+                    "name": "杠铃深蹲",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "双杠臂屈伸",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "引体向上",
+                    "sets": 3,
+                    "repRange": "6-10"
+                  },
+                  {
+                    "name": "平板支撑",
+                    "sets": 3,
+                    "repRange": "30-45秒"
+                  }
+                ]
+              }
+            ],
+            "isActive": true
+          }
+        ],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "id": "dd6f7d19-dbed-4b6c-a594-0c7fe05fb2aa",
+                "name": "杠铃深蹲",
+                "sets": [
+                  {
+                    "weight": 20,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 20,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 20,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "estKcal": 50,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "9cb1c0ab-dc02-4b4f-86bb-de32ba582a36",
+                "name": "杠铃卧推",
+                "sets": [
+                  {
+                    "weight": 25,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 25,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 25,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "estKcal": 50,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "cea9b346-85ea-4830-8046-6440fce286b0",
+                "name": "杠铃划船",
+                "sets": [
+                  {
+                    "weight": 30,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 30,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 30,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "estKcal": 50,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "70e11ff4-4f42-4ee9-9a99-a311fd270696",
+                "name": "平板支撑",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "bodyweight",
+                    "durationSeconds": 30,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "bodyweight",
+                    "durationSeconds": 30,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "bodyweight",
+                    "durationSeconds": 30,
+                    "done": true
+                  }
+                ],
+                "estKcal": 50,
+                "source": "manual",
+                "note": "目标时长:30-45秒；本次重量待确认"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "ms": 2548,
+      "storage": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [
+          {
+            "id": "6fbff09e-512e-4695-9c13-68f8c0d89d91",
+            "createdAt": "2026-10-01T15:27:59.712Z",
+            "name": "全身训练 · 新手三日",
+            "days": [
+              {
+                "label": "Day 1 · 全身 A",
+                "exercises": [
+                  {
+                    "name": "杠铃深蹲",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "杠铃卧推",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "杠铃划船",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "平板支撑",
+                    "sets": 3,
+                    "repRange": "30-45秒"
+                  }
+                ]
+              },
+              {
+                "label": "Day 2 · 全身 B",
+                "exercises": [
+                  {
+                    "name": "罗马尼亚硬拉",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "站姿杠铃推举",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "高位下拉",
+                    "sets": 3,
+                    "repRange": "10-12"
+                  },
+                  {
+                    "name": "卷腹",
+                    "sets": 3,
+                    "repRange": "12-15"
+                  }
+                ]
+              },
+              {
+                "label": "Day 3 · 全身 C",
+                "exercises": [
+                  {
+                    "name": "杠铃深蹲",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "双杠臂屈伸",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "引体向上",
+                    "sets": 3,
+                    "repRange": "6-10"
+                  },
+                  {
+                    "name": "平板支撑",
+                    "sets": 3,
+                    "repRange": "30-45秒"
+                  }
+                ]
+              }
+            ],
+            "isActive": true
+          }
+        ],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "id": "dd6f7d19-dbed-4b6c-a594-0c7fe05fb2aa",
+                "name": "杠铃深蹲",
+                "sets": [
+                  {
+                    "weight": 20,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 20,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 20,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "estKcal": 50,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "9cb1c0ab-dc02-4b4f-86bb-de32ba582a36",
+                "name": "杠铃卧推",
+                "sets": [
+                  {
+                    "weight": 25,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 25,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 25,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "estKcal": 50,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "cea9b346-85ea-4830-8046-6440fce286b0",
+                "name": "杠铃划船",
+                "sets": [
+                  {
+                    "weight": 30,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 30,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 30,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "estKcal": 50,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "70e11ff4-4f42-4ee9-9a99-a311fd270696",
+                "name": "平板支撑",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "bodyweight",
+                    "durationSeconds": 30,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "bodyweight",
+                    "durationSeconds": 30,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "bodyweight",
+                    "durationSeconds": 30,
+                    "done": true
+                  }
+                ],
+                "estKcal": 50,
+                "source": "manual",
+                "note": "目标时长:30-45秒；本次重量待确认"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "recording": "E:\\gym\\evals\\video-pilot\\v3-3\\flow-820-1790868477945\\page@dc64310f78d077c838a971884442e193.webm"
+    },
+    {
+      "name": "F02 video failure → draft retained → save → reload",
+      "pass": true,
+      "firstFailure": {
+        "kind": "injected embed error 150",
+        "storage": {
+          "profile": {
+            "gender": "male",
+            "birthYear": 1997,
+            "height": 178,
+            "experience": "intermediate",
+            "goal": "bulk",
+            "targetWeight": 75,
+            "targetBodyFat": 15,
+            "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+            "trainingDaysPerWeek": 4,
+            "activityLevel": 3,
+            "waterTargetMl": 2400,
+            "checkInMode": "workout_and_meal"
+          },
+          "measurements": [
+            {
+              "date": "2026-07-05",
+              "weight": 69.8,
+              "bodyFat": 17.2,
+              "waist": 78,
+              "note": "合成演示数据"
+            },
+            {
+              "date": "2026-08-02",
+              "weight": 70.6,
+              "bodyFat": 16.8,
+              "waist": 77.5,
+              "note": "合成演示数据"
+            },
+            {
+              "date": "2026-09-01",
+              "weight": 71.4,
+              "bodyFat": 16.4,
+              "waist": 77,
+              "note": "合成演示数据"
+            }
+          ],
+          "plans": [
+            {
+              "id": "98e8256a-3150-4347-aa57-e4d7b56ba024",
+              "createdAt": "2026-10-01T15:28:03.012Z",
+              "name": "全身训练 · 新手三日",
+              "days": [
+                {
+                  "label": "Day 1 · 全身 A",
+                  "exercises": [
+                    {
+                      "name": "杠铃深蹲",
+                      "sets": 3,
+                      "repRange": "8-10"
+                    },
+                    {
+                      "name": "杠铃卧推",
+                      "sets": 3,
+                      "repRange": "8-10"
+                    },
+                    {
+                      "name": "杠铃划船",
+                      "sets": 3,
+                      "repRange": "8-10"
+                    },
+                    {
+                      "name": "平板支撑",
+                      "sets": 3,
+                      "repRange": "30-45秒"
+                    }
+                  ]
+                },
+                {
+                  "label": "Day 2 · 全身 B",
+                  "exercises": [
+                    {
+                      "name": "罗马尼亚硬拉",
+                      "sets": 3,
+                      "repRange": "8-10"
+                    },
+                    {
+                      "name": "站姿杠铃推举",
+                      "sets": 3,
+                      "repRange": "8-10"
+                    },
+                    {
+                      "name": "高位下拉",
+                      "sets": 3,
+                      "repRange": "10-12"
+                    },
+                    {
+                      "name": "卷腹",
+                      "sets": 3,
+                      "repRange": "12-15"
+                    }
+                  ]
+                },
+                {
+                  "label": "Day 3 · 全身 C",
+                  "exercises": [
+                    {
+                      "name": "杠铃深蹲",
+                      "sets": 3,
+                      "repRange": "8-10"
+                    },
+                    {
+                      "name": "双杠臂屈伸",
+                      "sets": 3,
+                      "repRange": "8-10"
+                    },
+                    {
+                      "name": "引体向上",
+                      "sets": 3,
+                      "repRange": "6-10"
+                    },
+                    {
+                      "name": "平板支撑",
+                      "sets": 3,
+                      "repRange": "30-45秒"
+                    }
+                  ]
+                }
+              ],
+              "isActive": true
+            }
+          ],
+          "dayLogs": {
+            "2026-10-01": {
+              "date": "2026-10-01",
+              "checkedIn": false,
+              "strength": [
+                {
+                  "id": "32a12685-482a-446e-ba07-a8c4076a863d",
+                  "name": "杠铃深蹲",
+                  "sets": [
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "reps": 8,
+                      "done": false
+                    },
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "reps": 8,
+                      "done": false
+                    },
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "reps": 8,
+                      "done": false
+                    }
+                  ],
+                  "estKcal": 0,
+                  "source": "manual",
+                  "note": "本次重量待确认"
+                },
+                {
+                  "id": "6fa5d543-02a7-4e7c-9eae-04f3c5815999",
+                  "name": "杠铃卧推",
+                  "sets": [
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "reps": 8,
+                      "done": false
+                    },
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "reps": 8,
+                      "done": false
+                    },
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "reps": 8,
+                      "done": false
+                    }
+                  ],
+                  "estKcal": 0,
+                  "source": "manual",
+                  "note": "本次重量待确认"
+                },
+                {
+                  "id": "3fab974b-a686-4ae1-85e5-d3dd1d7fcae6",
+                  "name": "杠铃划船",
+                  "sets": [
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "reps": 8,
+                      "done": false
+                    },
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "reps": 8,
+                      "done": false
+                    },
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "reps": 8,
+                      "done": false
+                    }
+                  ],
+                  "estKcal": 0,
+                  "source": "manual",
+                  "note": "本次重量待确认"
+                },
+                {
+                  "id": "8cd8a0b2-19f9-44af-9861-61e7f50e0a67",
+                  "name": "平板支撑",
+                  "sets": [
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "durationSeconds": 30,
+                      "done": false
+                    },
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "durationSeconds": 30,
+                      "done": false
+                    },
+                    {
+                      "weight": null,
+                      "weightState": "unknown",
+                      "durationSeconds": 30,
+                      "done": false
+                    }
+                  ],
+                  "estKcal": 0,
+                  "source": "manual",
+                  "note": "目标时长:30-45秒；本次重量待确认"
+                }
+              ],
+              "cardio": [],
+              "meals": [],
+              "water": 0
+            }
+          },
+          "exerciseVideos": {},
+          "lastFedDate": "2026-09-05"
+        }
+      },
+      "ms": 1786,
+      "storage": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [
+          {
+            "id": "98e8256a-3150-4347-aa57-e4d7b56ba024",
+            "createdAt": "2026-10-01T15:28:03.012Z",
+            "name": "全身训练 · 新手三日",
+            "days": [
+              {
+                "label": "Day 1 · 全身 A",
+                "exercises": [
+                  {
+                    "name": "杠铃深蹲",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "杠铃卧推",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "杠铃划船",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "平板支撑",
+                    "sets": 3,
+                    "repRange": "30-45秒"
+                  }
+                ]
+              },
+              {
+                "label": "Day 2 · 全身 B",
+                "exercises": [
+                  {
+                    "name": "罗马尼亚硬拉",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "站姿杠铃推举",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "高位下拉",
+                    "sets": 3,
+                    "repRange": "10-12"
+                  },
+                  {
+                    "name": "卷腹",
+                    "sets": 3,
+                    "repRange": "12-15"
+                  }
+                ]
+              },
+              {
+                "label": "Day 3 · 全身 C",
+                "exercises": [
+                  {
+                    "name": "杠铃深蹲",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "双杠臂屈伸",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "引体向上",
+                    "sets": 3,
+                    "repRange": "6-10"
+                  },
+                  {
+                    "name": "平板支撑",
+                    "sets": 3,
+                    "repRange": "30-45秒"
+                  }
+                ]
+              }
+            ],
+            "isActive": true
+          }
+        ],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "id": "32a12685-482a-446e-ba07-a8c4076a863d",
+                "name": "杠铃深蹲",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  }
+                ],
+                "estKcal": 0,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "6fa5d543-02a7-4e7c-9eae-04f3c5815999",
+                "name": "杠铃卧推",
+                "sets": [
+                  {
+                    "weight": 42.5,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  }
+                ],
+                "estKcal": 20,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "3fab974b-a686-4ae1-85e5-d3dd1d7fcae6",
+                "name": "杠铃划船",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  }
+                ],
+                "estKcal": 0,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "8cd8a0b2-19f9-44af-9861-61e7f50e0a67",
+                "name": "平板支撑",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "durationSeconds": 30,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "durationSeconds": 30,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "durationSeconds": 30,
+                    "done": false
+                  }
+                ],
+                "estKcal": 0,
+                "source": "manual",
+                "note": "目标时长:30-45秒；本次重量待确认"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "recording": "E:\\gym\\evals\\video-pilot\\v3-3\\flow-820-1790868477945\\page@d69f527c4a9124e4c619006bce44ba6a.webm"
+    },
+    {
+      "name": "F03 ambiguous name has no automatic video match or mutation",
+      "pass": true,
+      "ms": 945,
+      "storage": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [
+          {
+            "id": "39215d59-0595-408a-a1ca-8ef21ceb483c",
+            "createdAt": "2026-10-01T15:28:05.117Z",
+            "name": "全身训练 · 新手三日",
+            "days": [
+              {
+                "label": "Day 1 · 全身 A",
+                "exercises": [
+                  {
+                    "name": "杠铃深蹲",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "杠铃卧推",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "杠铃划船",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "平板支撑",
+                    "sets": 3,
+                    "repRange": "30-45秒"
+                  }
+                ]
+              },
+              {
+                "label": "Day 2 · 全身 B",
+                "exercises": [
+                  {
+                    "name": "罗马尼亚硬拉",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "站姿杠铃推举",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "高位下拉",
+                    "sets": 3,
+                    "repRange": "10-12"
+                  },
+                  {
+                    "name": "卷腹",
+                    "sets": 3,
+                    "repRange": "12-15"
+                  }
+                ]
+              },
+              {
+                "label": "Day 3 · 全身 C",
+                "exercises": [
+                  {
+                    "name": "杠铃深蹲",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "双杠臂屈伸",
+                    "sets": 3,
+                    "repRange": "8-10"
+                  },
+                  {
+                    "name": "引体向上",
+                    "sets": 3,
+                    "repRange": "6-10"
+                  },
+                  {
+                    "name": "平板支撑",
+                    "sets": 3,
+                    "repRange": "30-45秒"
+                  }
+                ]
+              }
+            ],
+            "isActive": true
+          }
+        ],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "id": "979a6c62-5493-440f-aa19-ff052945a7a1",
+                "name": "杠铃深蹲",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  }
+                ],
+                "estKcal": 0,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "63501831-a161-4d6d-82a6-4d594e1abe23",
+                "name": "杠铃卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  }
+                ],
+                "estKcal": 0,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "d6796128-2811-4c98-bd24-f4a245c25a7d",
+                "name": "杠铃划船",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  }
+                ],
+                "estKcal": 0,
+                "source": "manual",
+                "note": "本次重量待确认"
+              },
+              {
+                "id": "2a3692ba-3724-4871-9b29-8346367590f3",
+                "name": "平板支撑",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "durationSeconds": 30,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "durationSeconds": 30,
+                    "done": false
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "durationSeconds": 30,
+                    "done": false
+                  }
+                ],
+                "estKcal": 0,
+                "source": "manual",
+                "note": "目标时长:30-45秒；本次重量待确认"
+              },
+              {
+                "name": "卧推",
+                "sets": [],
+                "estKcal": 0,
+                "source": "manual",
+                "id": "4f068441-9375-4208-b369-e0b45924dd59"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "recording": "E:\\gym\\evals\\video-pilot\\v3-3\\flow-820-1790868477945\\page@c0bf30cb4e8b26ce5c9db3f3136e0465.webm"
+    }
+  ]
+}

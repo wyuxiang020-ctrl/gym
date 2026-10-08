@@ -1,0 +1,85 @@
+{
+  "id": "B04",
+  "name": "Replacing missing with unit-confirmed known weight clears missing marker",
+  "version": "workout-save-v3.2",
+  "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+  "at": "2026-10-01T14:15:12.971Z",
+  "viewport": 390,
+  "modelCalls": 0,
+  "costUsd": 0,
+  "pass": true,
+  "ms": 518,
+  "dataAtEnd": {
+    "profile": {
+      "gender": "male",
+      "birthYear": 1997,
+      "height": 178,
+      "experience": "intermediate",
+      "goal": "bulk",
+      "targetWeight": 75,
+      "targetBodyFat": 15,
+      "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+      "trainingDaysPerWeek": 4,
+      "activityLevel": 3,
+      "waterTargetMl": 2400,
+      "checkInMode": "workout_and_meal"
+    },
+    "measurements": [
+      {
+        "date": "2026-07-05",
+        "weight": 69.8,
+        "bodyFat": 17.2,
+        "waist": 78,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-08-02",
+        "weight": 70.6,
+        "bodyFat": 16.8,
+        "waist": 77.5,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-09-01",
+        "weight": 71.4,
+        "bodyFat": 16.4,
+        "waist": 77,
+        "note": "合成演示数据"
+      }
+    ],
+    "plans": [],
+    "dayLogs": {
+      "2026-10-01": {
+        "date": "2026-10-01",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 55,
+                "weightState": "known",
+                "reps": 8,
+                "done": true
+              }
+            ],
+            "note": "合成测试，不是真实训练数据",
+            "uncertain": [
+              "重量未提供"
+            ],
+            "id": "f748a8b6-7f18-489a-9031-c17fbd47d972",
+            "estKcal": 20,
+            "source": "nl"
+          }
+        ],
+        "cardio": [],
+        "meals": [],
+        "water": 0
+      }
+    },
+    "exerciseVideos": {},
+    "lastFedDate": "2026-09-05"
+  },
+  "pageErrors": [],
+  "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790864109731\\page@27022ad259866ac973c834ece5417152.webm"
+}

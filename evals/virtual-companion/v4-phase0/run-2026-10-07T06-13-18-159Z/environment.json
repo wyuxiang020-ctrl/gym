@@ -1,0 +1,153 @@
+{
+  "at": "2026-10-07T06:46:09.885Z",
+  "platform": "win32",
+  "arch": "x64",
+  "node": "v24.16.0",
+  "powershell": "7.6.5",
+  "npm": "11.13.0",
+  "dependencies": [
+    {
+      "name": "@tailwindcss/vite",
+      "requested": "^4.3.3",
+      "locked": "4.3.3",
+      "installed": "4.3.3",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "openai",
+      "requested": "^7.10.0",
+      "locked": "7.10.0",
+      "installed": "7.10.0",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "react",
+      "requested": "^19.2.8",
+      "locked": "19.2.8",
+      "installed": "19.2.8",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "react-dom",
+      "requested": "^19.2.8",
+      "locked": "19.2.8",
+      "installed": "19.2.8",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "sharp",
+      "requested": "^0.35.4",
+      "locked": "0.35.4",
+      "installed": "0.35.4",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "tailwindcss",
+      "requested": "^4.3.3",
+      "locked": "4.3.3",
+      "installed": "4.3.3",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "undici",
+      "requested": "^7.29.1",
+      "locked": "7.29.1",
+      "installed": "7.29.1",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "@types/node",
+      "requested": "^24.13.3",
+      "locked": "24.13.3",
+      "installed": "24.13.3",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "@types/react",
+      "requested": "^19.2.17",
+      "locked": "19.2.18",
+      "installed": "19.2.18",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "@types/react-dom",
+      "requested": "^19.2.3",
+      "locked": "19.2.4",
+      "installed": "19.2.4",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "@vercel/node",
+      "requested": "^5.9.5",
+      "locked": "5.9.5",
+      "installed": "5.9.5",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "requested": "^6.0.4",
+      "locked": "6.0.5",
+      "installed": "6.0.5",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "oxlint",
+      "requested": "^1.75.0",
+      "locked": "1.77.0",
+      "installed": "1.77.0",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "typescript",
+      "requested": "~6.0.2",
+      "locked": "6.0.3",
+      "installed": "6.0.3",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "vercel",
+      "requested": "^59.11.2",
+      "locked": "59.11.2",
+      "installed": "59.11.2",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "vite",
+      "requested": "^8.2.0",
+      "locked": "8.2.0",
+      "installed": "8.2.0",
+      "installedMatchesLock": true
+    },
+    {
+      "name": "vite-plugin-pwa",
+      "requested": "^1.3.0",
+      "locked": "1.3.0",
+      "installed": "1.3.0",
+      "installedMatchesLock": true
+    }
+  ],
+  "localRequests": [
+    {
+      "url": "http://127.0.0.1:3000/",
+      "error": "fetch failed",
+      "cause": "ECONNREFUSED"
+    },
+    {
+      "url": "http://127.0.0.1:4173/",
+      "error": "fetch failed",
+      "cause": "ECONNREFUSED"
+    },
+    {
+      "url": "http://127.0.0.1:4174/",
+      "error": "fetch failed",
+      "cause": "ECONNREFUSED"
+    },
+    {
+      "url": "http://127.0.0.1:5173/",
+      "error": "fetch failed",
+      "cause": "ECONNREFUSED"
+    }
+  ],
+  "servicesStarted": false,
+  "envFilesRead": false
+}

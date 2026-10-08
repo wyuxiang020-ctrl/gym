@@ -1,0 +1,289 @@
+{
+  "phase": "after",
+  "sourceHashes": {
+    "src/components/workout/WeightEditor.tsx": "b18e5324ab3222e08af009015131be2b26297bc8257730047ec7c657ea0ee1e6",
+    "src/components/workout/NLWorkoutInput.tsx": "9571352ca38db65a7a0940e39219fc75e5d9bdee5f154d09de543b9b40c2df0e",
+    "src/lib/store.ts": "7459933b2018b015fb7e9f24175debb682871180d292c496b632103fa0eb9f11",
+    "src/lib/aiValidation.ts": "f372f2ee23d7be3f10b175ad7f588ca7313a3866d93553b52e589a4579bcd3f6",
+    "api/parse-workout.ts": "1b5bbf7d89c6fee3e5a2fbefbe746229fa2179b955df6a6b55567ab318d77891",
+    "api/_lib/openai.ts": "afbdfcf532005d2776a07a0beb5063cbe5affcd2622e4aadbae25b490d7b230b",
+    "api/_lib/demoSafety.ts": "6a02434d9bd29026edca5cddb2cdda6627965a51785c26d0713863128cc5f3cc"
+  },
+  "checks": [
+    {
+      "id": "R01",
+      "name": "Editing saved weight must not mutate it before confirmation",
+      "phase": "after",
+      "kind": "automated software test with fixed response, NOT human research",
+      "startedAt": "2026-10-01T13:37:53.882Z",
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "before": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": 50,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 50,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "note": "合成测试",
+                "uncertain": [],
+                "id": "90c71b65-4f46-42ae-9d13-70c393c3e788",
+                "estKcal": 40,
+                "source": "nl"
+              }
+            ],
+            "cardio": [
+              {
+                "type": "快走",
+                "done": true,
+                "minutes": 15,
+                "intensity": "mid",
+                "note": "",
+                "uncertain": [],
+                "id": "97a2a9dd-d0c1-4e66-868a-9d8ab387fc08",
+                "estKcal": 80,
+                "source": "nl"
+              }
+            ],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "afterOpeningEditor": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": 50,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 50,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "note": "合成测试",
+                "uncertain": [],
+                "id": "90c71b65-4f46-42ae-9d13-70c393c3e788",
+                "estKcal": 40,
+                "source": "nl"
+              }
+            ],
+            "cardio": [
+              {
+                "type": "快走",
+                "done": true,
+                "minutes": 15,
+                "intensity": "mid",
+                "note": "",
+                "uncertain": [],
+                "id": "97a2a9dd-d0c1-4e66-868a-9d8ab387fc08",
+                "estKcal": 80,
+                "source": "nl"
+              }
+            ],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "ms": 11339,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": 55,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 50,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "note": "合成测试",
+                "uncertain": [],
+                "id": "90c71b65-4f46-42ae-9d13-70c393c3e788",
+                "estKcal": 40,
+                "source": "nl"
+              }
+            ],
+            "cardio": [
+              {
+                "type": "快走",
+                "done": true,
+                "minutes": 15,
+                "intensity": "mid",
+                "note": "",
+                "uncertain": [],
+                "id": "97a2a9dd-d0c1-4e66-868a-9d8ab387fc08",
+                "estKcal": 80,
+                "source": "nl"
+              }
+            ],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "video": "E:\\gym\\evals\\workout-save\\v3-1\\after-1790861872994\\page@53710f665bfc096e099eac986e09b124.webm"
+    }
+  ],
+  "passed": 1,
+  "total": 1
+}

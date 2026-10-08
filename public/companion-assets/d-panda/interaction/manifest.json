@@ -1,0 +1,17 @@
+{
+  "source": "D4-hand-interaction.png",
+  "sha256": "372e8a2021c38799dc2c06387af145f87c5e6ac8e48eda062e4c8443c194c6e3",
+  "crop": [
+    690,
+    520,
+    315,
+    307
+  ],
+  "method": "Source-pixel alpha masks. Body/head fixed; visible paw/forearm pixels articulate; a visible black neck strip is reused at the attachment. Runtime mesh deformation creates intermediate poses, not exact authored frames. Embedded PNG bytes unchanged, no painting or reflection.",
+  "files": {
+    "body.svg": "0220eeadb7a4e285e7c35ee490b81bbf43cb6f092ae4a9984b18ebcfd5ea0725",
+    "collar.svg": "3c2a39352971c2742ed2bd1187ac8f6a860e0a0337a1beb3973e3b4f993f2c61",
+    "left.svg": "0ab4fa87b3b27116f4f4e7a93924d59aef8414641514ff39d75ad6b7f7db9ecd",
+    "right.svg": "130914ee14138f4c67a2b85f7b3a2512b16e13653ad22aec2568ce3c43cec72d"
+  }
+}

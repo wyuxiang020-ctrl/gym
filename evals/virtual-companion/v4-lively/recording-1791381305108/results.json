@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-07T13:55:09.703Z",
+  "out": "evals/virtual-companion/v4-lively/recording-1791381305108",
+  "kind": "Actual local preset animations, not human camera video",
+  "result": "PASS",
+  "video": "evals/virtual-companion/v4-lively/recording-1791381305108/actual-character-motion.webm",
+  "blocked": [
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+  ],
+  "errors": [],
+  "source": {
+    "pandaRig.ts": "44e6dbf2e543471afe0a00c687e753250c244fb52dee503844541bc48cd584e3",
+    "characterMotion.ts": "8bec0fc73a112f62b4f7640fe7161b52593bb5e5f47a3402e1a470382dc9aa99",
+    "CompanionLab.tsx": "b7309505d994ec75d7f53147a0d8b00346f35ce69820eed0ba0257ba51bf9de8",
+    "PandaStage.tsx": "2722ed569c1914db9f353ac13b4730a9efaad57461b35adab51cdec37331bd36"
+  }
+}

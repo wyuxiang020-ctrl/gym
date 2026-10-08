@@ -1,0 +1,36 @@
+import { useState } from 'react'
+import type { StrengthSet } from '../../lib/types'
+import { WEIGHT_LABELS } from '../../lib/strength'
+
+export function WeightEditor({ set, onChange }: { set: StrengthSet; onChange: (patch: Partial<StrengthSet>) => void }) {
+  const [editing, setEditing] = useState(false)
+  const [text, setText] = useState('')
+  const [unit, setUnit] = useState('kg')
+  const kg = Number(text) * (unit === 'lb' ? 0.4536 : unit === 'jin' ? 0.5 : 1)
+  function start() {
+    setText(set.weight?.toString() ?? '')
+    setUnit('kg')
+    setEditing(true)
+    onChange({ weightState: 'unknown', weight: null })
+  }
+  return <div className="flex flex-wrap items-center gap-1 text-xs">
+    <select aria-label="重量状态" className="min-h-9 rounded border bg-white px-1" value={editing ? 'known' : set.weightState ?? 'unknown'} onChange={(e) => {
+      const state = e.target.value as StrengthSet['weightState']
+      if (state === 'known') start()
+      else { setEditing(false); onChange({ weightState: state, weight: null }) }
+    }}>
+      {Object.entries(WEIGHT_LABELS).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
+    </select>
+    {editing ? <>
+      <input aria-label="重量数值" type="number" min="0.001" step="any" value={text} onChange={(e) => setText(e.target.value)} className="w-20 min-h-9 rounded border px-1" />
+      <select aria-label="重量单位" value={unit} onChange={(e) => setUnit(e.target.value)} className="min-h-9 rounded border">
+        <option value="kg">kg</option><option value="jin">斤</option><option value="lb">磅</option>
+      </select>
+      <button className="min-h-9 rounded border px-2 disabled:opacity-40" disabled={!text || !Number.isFinite(kg) || kg <= 0 || kg > 1000} onClick={() => {
+        onChange({ weightState: 'known', weight: Math.round(kg * 10000) / 10000 }); setEditing(false)
+      }}>确认重量</button>
+      <span className="text-amber-700">未确认，不计入统计</span>
+    </> : set.weightState === 'known' ? <button className="min-h-9 rounded border px-2" onClick={start}>{set.weight} kg · 修改</button> : null}
+    {!editing && set.weightState === 'unknown' && <span className="text-amber-700">待补充{set.legacyWeight !== undefined ? `（旧值 ${set.legacyWeight}kg，需核对）` : ''}</span>}
+  </div>
+}

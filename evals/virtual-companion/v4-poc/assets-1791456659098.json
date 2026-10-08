@@ -1,0 +1,77 @@
+{
+  "at": "2026-10-08T10:50:59.097Z",
+  "version": "1.1.0",
+  "model": "Pose Landmarker Lite float16 version 1",
+  "modelInput": {
+    "detector": "224x224x3",
+    "landmarker": "256x256x3"
+  },
+  "modelCard": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+  "modelLicenseEvidence": "Model card page 2: Apache License, Version 2.0",
+  "scope": "Local inference assets; no photos/videos uploaded; runtime only loads after explicit camera start.",
+  "files": [
+    {
+      "path": "public/companion-assets/vision_bundle.js",
+      "source": "@mediapipe/tasks-vision@1.1.0/vision_bundle.js",
+      "sha256": "022cbbfcdb74bae18e4bbc722e429e046d5fdd35f6183f1359c56b652b8b87f7",
+      "bytes": 156161,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "public/companion-assets/wasm/vision_wasm_internal.js",
+      "source": "@mediapipe/tasks-vision@1.1.0/wasm/vision_wasm_internal.js",
+      "sha256": "7c652617b5bef832f42878ce8c5f752b0724bca6054e4bc1013a37d4b1949723",
+      "bytes": 335393,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "public/companion-assets/wasm/vision_wasm_internal.wasm",
+      "source": "@mediapipe/tasks-vision@1.1.0/wasm/vision_wasm_internal.wasm",
+      "sha256": "782eda3ec1f414fdb4f1d66a8b59093eb4d5ab437e06117796abf05962d68eef",
+      "bytes": 12997248,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "public/companion-assets/wasm/vision_wasm_nosimd_internal.js",
+      "source": "@mediapipe/tasks-vision@1.1.0/wasm/vision_wasm_nosimd_internal.js",
+      "sha256": "510fc70a170eb8b46767a7abab2af89a7a8341fa5b3ebfb8a5de41a79b7fa9df",
+      "bytes": 335196,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "public/companion-assets/wasm/vision_wasm_nosimd_internal.wasm",
+      "source": "@mediapipe/tasks-vision@1.1.0/wasm/vision_wasm_nosimd_internal.wasm",
+      "sha256": "b802041d105876865d6a0806f2ff7c4419a7f1b80bc01340fe36e759c2030011",
+      "bytes": 12168316,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "public/companion-assets/wasm/vision_wasm_module_internal.js",
+      "source": "@mediapipe/tasks-vision@1.1.0/wasm/vision_wasm_module_internal.js",
+      "sha256": "70eff3956521b7de058d7173a4935c95e4a223c26ea624b9f5a936d3a043dcb0",
+      "bytes": 335431,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "public/companion-assets/wasm/vision_wasm_module_internal.wasm",
+      "source": "@mediapipe/tasks-vision@1.1.0/wasm/vision_wasm_module_internal.wasm",
+      "sha256": "ee03b14a878e6c3c053a1bfa62e166dc45244be54dc0bbe61c578f710b771f6a",
+      "bytes": 12997272,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "public/companion-assets/pose_landmarker_lite.task",
+      "source": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task",
+      "sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a",
+      "bytes": 5777746,
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "public/companion-assets/MEDIAPIPE-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/LICENSE",
+      "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8",
+      "bytes": 12331,
+      "license": "Apache-2.0"
+    }
+  ]
+}

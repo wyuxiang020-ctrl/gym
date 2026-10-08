@@ -1,0 +1,38 @@
+{
+  "id": "WO-19",
+  "input": "卧推60做了4组8次，60的单位没有写。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:20:47.023Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1527,
+    "cachedInputTokens": 1408,
+    "outputTokens": 488,
+    "reasoningTokens": 320,
+    "totalTokens": 2015
+  },
+  "estimatedCostUsd": 0.0010409500000000001,
+  "rawSha256": "599cac985b4b48b16752c0af6a7af3f566432432b56ceae487e422fc6a0c364d",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0e3bcbd7d341a128016abd1ac1fc9487d0970513838bea84e6",
+    "requestId": "req_78b963d48a4a4d3aacabd2e7a4ab37ad",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1527,
+      "cachedInputTokens": 1408,
+      "outputTokens": 488,
+      "reasoningTokens": 320,
+      "totalTokens": 2015
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 8271
+}

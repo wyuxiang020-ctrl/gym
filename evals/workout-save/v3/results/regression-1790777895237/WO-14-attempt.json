@@ -1,0 +1,38 @@
+{
+  "id": "WO-14",
+  "input": "卧推60kg，组数和次数我没有记。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:20:02.706Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1524,
+    "cachedInputTokens": 1408,
+    "outputTokens": 837,
+    "reasoningTokens": 768,
+    "totalTokens": 2361
+  },
+  "estimatedCostUsd": 0.0017382,
+  "rawSha256": "15403f785da55062d62eef2582b20b780bec3ff1a579c01e3f13247fad96f03c",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_065e0f3714b62686016abd1a958e4c87d092df90cb050cd2d0",
+    "requestId": "req_de2ffc8a821d456b9c08ea9b9c23a996",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1524,
+      "cachedInputTokens": 1408,
+      "outputTokens": 837,
+      "reasoningTokens": 768,
+      "totalTokens": 2361
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 11017
+}

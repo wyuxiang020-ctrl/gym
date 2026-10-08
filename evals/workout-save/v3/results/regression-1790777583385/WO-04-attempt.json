@@ -1,0 +1,38 @@
+{
+  "id": "WO-04",
+  "input": "哑铃弯举记录重量12.5kg，3组，每组12次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:13:31.887Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1387,
+    "cachedInputTokens": 1280,
+    "outputTokens": 364,
+    "reasoningTokens": 192,
+    "totalTokens": 1751
+  },
+  "estimatedCostUsd": 0.00078675,
+  "rawSha256": "f310e52320ab03ecc08cc4bebcc9639bfbdb7d3528858bde3c45a68ae57f7f92",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0c0d00ccafc6bb61016abd190ddb8c87d0a849707a966aabac",
+    "requestId": "req_5b4dd9648c91425eaa458ff1a8bd758d",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1387,
+      "cachedInputTokens": 1280,
+      "outputTokens": 364,
+      "reasoningTokens": 192,
+      "totalTokens": 1751
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 6393
+}

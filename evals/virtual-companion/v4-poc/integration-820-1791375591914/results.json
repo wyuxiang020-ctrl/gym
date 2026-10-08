@@ -1,0 +1,133 @@
+{
+  "version": "virtual-companion-v4-poc",
+  "startedAt": "2026-10-07T12:19:52.142Z",
+  "base": "http://127.0.0.1:4175",
+  "viewport": {
+    "width": 820,
+    "height": 1024,
+    "deviceScaleFactor": 1
+  },
+  "browser": "154.0.4258.62",
+  "channel": "msedge",
+  "browserArguments": [
+    "--enable-unsafe-swiftshader"
+  ],
+  "evidenceType": "isolated automated browser software checks; generated blank canvas streams and injected failures; real local worker only receives blank synthetic images; NO real camera, human tracking, mobile device or cloud model evidence",
+  "cloudModelCalls": 0,
+  "cloudModelCostUsd": 0,
+  "infrastructureCostUsd": null,
+  "cameraPolicy": "original getUserMedia is never invoked; only deterministic rejection or generated blank canvas captureStream",
+  "sourceHashes": {
+    "src/main.tsx": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e",
+    "src/EntryRouter.tsx": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f",
+    "src/EntryBoundary.tsx": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6",
+    "src/App.tsx": "63154cc983f85486e06a40edf5d97cfb91c31e9f12472a3a0e8fe0506333c8ba",
+    "src/companion/CompanionLab.tsx": "3af11a10ed667e68ff6296ff7d633923d4227f78a21a9b229765e598518a8b39",
+    "src/companion/companion.css": "a6830d357c6cf5c2343fa0a9c98a4ffcac1fef90096ccf4ab807c7502bf89577",
+    "src/companion/preset.ts": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556",
+    "src/companion/PandaStage.tsx": "ec03d70ae4e406d33539bb384c090c346582dcf7d17bb86d55d784e2e72a6062",
+    "src/companion/pandaRig.ts": "a0efcd4c2e06a99092bfee3a93d19d3ae1c7545148a3f86b89c1d3ee18fff96a",
+    "src/companion/mirror/MirrorSession.ts": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+    "src/companion/mirror/mapping.ts": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+    "public/companion-assets/pose-worker.js": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d",
+    "vite.config.ts": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0",
+    "scripts/check-companion-integration-v4.mjs": "d85e0adb9b83fc6bbf46dfd8e66d2bb4972596fe18627a10ce22cdc467f3f3b8"
+  },
+  "results": [
+    {
+      "id": "W02",
+      "name": "First and repeated real worker initialization in a cache-enabled blank test page",
+      "evidenceType": "same-origin local worker; browser HTTP cache enabled; generated blank image only; NO application, camera or human mirror",
+      "attempt": 1,
+      "at": "2026-10-07T12:19:53.024Z",
+      "pass": false,
+      "error": "page.evaluate: Error: Cache worker did not reply within 90 seconds\n    at eval (eval at evaluate (:311:30), <anonymous>:14:53)\n    at E:\\gym\\scripts\\check-companion-integration-v4.mjs:418:32\n    at async scenario (E:\\gym\\scripts\\check-companion-integration-v4.mjs:184:5)\n    at async file:///E:/gym/scripts/check-companion-integration-v4.mjs:409:3",
+      "audit": {
+        "localStorage": {},
+        "sessionStorage": {},
+        "reads": [],
+        "writes": [],
+        "gum": [],
+        "activeTracks": 0,
+        "streams": [],
+        "workers": [],
+        "activeWorkers": 0,
+        "framePosts": 0,
+        "originalCameraCalls": 0
+      },
+      "ms": 91121,
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4175/evals/virtual-companion/v4-poc/integration-820-1791375591914/worker-cache.html",
+          "method": "GET",
+          "kind": "document"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@vite/client",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@react-refresh",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/vite/dist/client/env.mjs",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/evals/virtual-companion/v4-poc/integration-820-1791375591914/worker-cache.html",
+          "method": "GET",
+          "kind": "document"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@vite/client",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@react-refresh",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/vite/dist/client/env.mjs",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "blob:http://127.0.0.1:4175/45b3866c-a739-4ed9-82a3-6806ca328304",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/companion-assets/pose-worker.js",
+          "method": "GET",
+          "kind": "other"
+        }
+      ],
+      "blockedExternalRequests": [],
+      "apiAttempts": [],
+      "pageErrors": [
+        "Failed to construct 'URL': Invalid URL"
+      ],
+      "assetResponses": [
+        {
+          "url": "http://127.0.0.1:4175/companion-assets/pose-worker.js",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {
+            "cache-control": "no-cache",
+            "etag": "W/\"5233-1791375528601\"",
+            "last-modified": "Wed, 07 Oct 2026 12:18:48 GMT",
+            "content-length": "5233"
+          },
+          "conditionalRequest": {}
+        }
+      ],
+      "screenshot": "evals/virtual-companion/v4-poc/integration-820-1791375591914/W02.png"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "at": "2026-10-07T14:12:36.896Z",
+  "files": [
+    {
+      "path": "src/companion/characterMotion.ts",
+      "sha256": "8bec0fc73a112f62b4f7640fe7161b52593bb5e5f47a3402e1a470382dc9aa99"
+    },
+    {
+      "path": "src/companion/companion.css",
+      "sha256": "3dd7e752c129f6116859967b0c313f78771753e17850cb4db69812745ba73faa"
+    },
+    {
+      "path": "src/companion/CompanionLab.tsx",
+      "sha256": "b7309505d994ec75d7f53147a0d8b00346f35ce69820eed0ba0257ba51bf9de8"
+    },
+    {
+      "path": "src/companion/mirror/mapping.ts",
+      "sha256": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346"
+    },
+    {
+      "path": "src/companion/mirror/MirrorSession.ts",
+      "sha256": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb"
+    },
+    {
+      "path": "src/companion/mirror/protocol.ts",
+      "sha256": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094"
+    },
+    {
+      "path": "src/companion/pandaRig.ts",
+      "sha256": "44e6dbf2e543471afe0a00c687e753250c244fb52dee503844541bc48cd584e3"
+    },
+    {
+      "path": "src/companion/PandaStage.tsx",
+      "sha256": "2722ed569c1914db9f353ac13b4730a9efaad57461b35adab51cdec37331bd36"
+    },
+    {
+      "path": "src/companion/preset.ts",
+      "sha256": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556"
+    },
+    {
+      "path": "src/companion/types.ts",
+      "sha256": "7367e112a2cfc9e9861f1c06a6702d003cd5cf68cc51ce17a74ac6f087e4c2ae"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e"
+    },
+    {
+      "path": "src/EntryRouter.tsx",
+      "sha256": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f"
+    },
+    {
+      "path": "src/EntryBoundary.tsx",
+      "sha256": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6"
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0"
+    },
+    {
+      "path": "package.json",
+      "sha256": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539"
+    },
+    {
+      "path": "public/companion-assets/pose-worker.js",
+      "sha256": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+    }
+  ]
+}

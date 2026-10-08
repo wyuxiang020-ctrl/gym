@@ -1,0 +1,70 @@
+{
+  "files": [
+    {
+      "path": "src/companion/types.ts",
+      "sha256": "9e59bd2ab60d20a7b7cdf7fde467d792b6d71ac98d57cec6a284268e78884cce"
+    },
+    {
+      "path": "src/companion/preset.ts",
+      "sha256": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556"
+    },
+    {
+      "path": "src/companion/PandaStage.tsx",
+      "sha256": "d926e1beacee2b2d36ff2e2413f5ee49dbc0e93a30677ecac7f39ca501395c3b"
+    },
+    {
+      "path": "src/companion/pandaRig.ts",
+      "sha256": "91c7411f2baee1810ffbae187e5261a1279827ca97fdd5885937ce16d7ac6f70"
+    },
+    {
+      "path": "src/companion/mirror/protocol.ts",
+      "sha256": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094"
+    },
+    {
+      "path": "src/companion/mirror/MirrorSession.ts",
+      "sha256": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb"
+    },
+    {
+      "path": "src/companion/mirror/mapping.ts",
+      "sha256": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346"
+    },
+    {
+      "path": "src/companion/CompanionLab.tsx",
+      "sha256": "8796abbebc2b54c1d3c8735c0ffb7b8cb9ea504aba9b12b26990a9bc03f4514f"
+    },
+    {
+      "path": "src/companion/companion.css",
+      "sha256": "a6830d357c6cf5c2343fa0a9c98a4ffcac1fef90096ccf4ab807c7502bf89577"
+    },
+    {
+      "path": "src/main.tsx",
+      "sha256": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e"
+    },
+    {
+      "path": "src/EntryRouter.tsx",
+      "sha256": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f"
+    },
+    {
+      "path": "src/EntryBoundary.tsx",
+      "sha256": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6"
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0"
+    },
+    {
+      "path": "package.json",
+      "sha256": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539"
+    },
+    {
+      "path": "public/companion-assets/pose-worker.js",
+      "sha256": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+    }
+  ],
+  "at": "2026-10-07T13:32:18.1139603Z",
+  "reason": "User requested less humanoid silhouette, slightly cool expression, and richer lively motion"
+}

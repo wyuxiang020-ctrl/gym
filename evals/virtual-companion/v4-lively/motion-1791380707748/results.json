@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-07T13:45:07.977Z",
+  "sourceHash": "70378e7ccd0a73fa7f85a30df28863fc1ab229ee25e612587683e9660d1cf9e3",
+  "tests": [
+    {
+      "name": "No human leg mesh, visible shoulder cap, or sleeve band",
+      "pass": true
+    },
+    {
+      "name": "All six performances stay finite, use safe arm angles, and fit the camera throughout",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(arm.shoulder + arm.elbow <= 2.95)\n\n    at file:///E:/gym/scripts/check-companion-lively-motion-v4.mjs:29:161\n    at test (file:///E:/gym/scripts/check-companion-lively-motion-v4.mjs:12:36)\n    at file:///E:/gym/scripts/check-companion-lively-motion-v4.mjs:21:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Preset secondary transforms fully reset when a mirror pose arrives",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ -0\n- 0\n\n    at file:///E:/gym/scripts/check-companion-lively-motion-v4.mjs:52:10\n    at test (file:///E:/gym/scripts/check-companion-lively-motion-v4.mjs:12:36)\n    at file:///E:/gym/scripts/check-companion-lively-motion-v4.mjs:45:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)"
+    },
+    {
+      "name": "Idle loops continuously; each action includes a distinct secondary movement",
+      "pass": true
+    },
+    {
+      "name": "Invalid optional motion values cannot corrupt scene transforms",
+      "pass": true
+    }
+  ],
+  "bounds": {
+    "idle": {
+      "minX": -0.5400824442398404,
+      "maxX": 0.5858450532723154,
+      "minY": -0.7862489718789454,
+      "maxY": 0.6649801341176492
+    }
+  },
+  "samples": "161 frames per action; every third visible vertex; engineering framing and finite-value check, not exhaustive collision proof",
+  "passed": 3,
+  "total": 5
+}

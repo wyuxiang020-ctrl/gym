@@ -1,0 +1,20 @@
+{
+  "version": "V3.2 baseline judged against new V3.3 requirements",
+  "kind": "automated isolated browser, not human/model/actual media test",
+  "at": "2026-10-01T15:20:31.272Z",
+  "ms": 923,
+  "modelCalls": 0,
+  "modelCostUsd": 0,
+  "results": [
+    {
+      "name": "built-in selected demonstration",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n0 !== 1\n"
+    },
+    {
+      "name": "explicit inline loading",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n0 !== 1\n"
+    }
+  ]
+}

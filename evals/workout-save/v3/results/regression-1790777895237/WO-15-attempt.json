@@ -1,0 +1,38 @@
+{
+  "id": "WO-15",
+  "input": "今天跑了一会儿，有点累。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:20:13.725Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1520,
+    "cachedInputTokens": 1408,
+    "outputTokens": 535,
+    "reasoningTokens": 448,
+    "totalTokens": 2055
+  },
+  "estimatedCostUsd": 0.0011332,
+  "rawSha256": "7f3e2bacb5a63a07798f94283fd8d02786840dccc303c80c5821c3658af79923",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_074ba80351114c67016abd1aa35f4c87d09351c7839fc10669",
+    "requestId": "req_b3f5d67a6ede461994bf33ee3cab9628",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1520,
+      "cachedInputTokens": 1408,
+      "outputTokens": 535,
+      "reasoningTokens": 448,
+      "totalTokens": 2055
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 11983
+}

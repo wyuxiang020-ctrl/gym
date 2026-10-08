@@ -1,0 +1,38 @@
+{
+  "id": "WO-13",
+  "input": "卧推做了4组，每组8次，重量忘记了。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:14:47.293Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1383,
+    "cachedInputTokens": 1280,
+    "outputTokens": 454,
+    "reasoningTokens": 192,
+    "totalTokens": 1837
+  },
+  "estimatedCostUsd": 0.00096575,
+  "rawSha256": "7be30d24db6a2aa8e7d65a0f0268ac5f15503e170c50418735dae6ebf2869299",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_054893c8ac516bce016abd1959722887d0818eed83cac2733a",
+    "requestId": "req_76a0659664274bffa9556d7461c2689e",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1383,
+      "cachedInputTokens": 1280,
+      "outputTokens": 454,
+      "reasoningTokens": 192,
+      "totalTokens": 1837
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 6867
+}

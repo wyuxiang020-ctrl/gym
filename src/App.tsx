@@ -7,6 +7,7 @@ import { RecordsTab } from './components/RecordsTab'
 import { WorkoutTab } from './components/WorkoutTab'
 import { TodayTab } from './components/checkin/TodayTab'
 import { DemoAccessControl } from './components/DemoAccessControl'
+import { ReleaseStatus } from './components/ReleaseStatus'
 import * as store from './lib/store'
 import { todayStr } from './lib/date'
 import { ToastProvider } from './lib/ToastContext'
@@ -58,7 +59,7 @@ function AppContent() {
   const [measurements, setMeasurements] = useState<Measurement[]>(() => store.getMeasurements())
   const [plans, setPlans] = useState<Plan[]>(() => store.getPlans())
   const [editingProfile, setEditingProfile] = useState(false)
-  const [tab, setTab] = useState<TabKey>('today')
+  const [tab, setTab] = useState<TabKey>(searchParams.get('equipment-training') === '1' || searchParams.get('training-companion') === '1' ? 'workout' : 'today')
 
   function reloadImportedData() {
     setStorageIssue(store.getStorageIssue())
@@ -141,7 +142,7 @@ function AppContent() {
     <div className="min-h-screen bg-app-bg">
       <div className="mx-auto w-full max-w-[520px] px-4 pb-24 pt-6">
         <div className="mb-6 flex items-center justify-between gap-3">
-          <h1 className="font-heading text-2xl font-semibold text-neutral-900">Gym</h1>
+          <div><h1 className="font-heading text-2xl font-semibold text-neutral-900">Gym</h1></div>
           <div className="flex items-center gap-2">
             {portfolioDemo && (
               <span className="rounded-full bg-amber-100 px-2.5 py-1.5 text-xs font-semibold text-amber-800">
@@ -152,6 +153,12 @@ function AppContent() {
           </div>
         </div>
 
+        <ReleaseStatus />
+        <nav aria-label="器械与伙伴入口" className="mb-5 flex flex-wrap gap-x-4 text-sm text-primary">
+          <a className="inline-flex min-h-11 items-center underline" href="/?equipment-scan=1">器械扫描</a>
+          <a className="inline-flex min-h-11 items-center underline" href="/?training-companion=1">熊猫陪练</a>
+          <a className="inline-flex min-h-11 items-center underline" href="/?companion-lab=1">熊猫形象与动作</a>
+        </nav>
         {tab === 'today' && <TodayTab date={date} profile={profile} />}
 
         {tab === 'workout' && (

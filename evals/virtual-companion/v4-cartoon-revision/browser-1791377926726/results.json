@@ -1,0 +1,720 @@
+{
+  "version": "v4-cartoon-revision",
+  "startedAt": "2026-10-07T12:58:46.947Z",
+  "base": "http://127.0.0.1:4175",
+  "widths": [
+    820,
+    390
+  ],
+  "browser": "154.0.4258.62",
+  "sourceHashes": {
+    "src/companion/PandaStage.tsx": "ff64b734dbef1d3e6999c7ead8bc976be649ad14f471b518afb1c30a3f68d413",
+    "src/companion/pandaRig.ts": "e3364d14f2393437a5b74644a53457180bdbcc0688dc256b15bc96ec6afd23d7",
+    "src/companion/CompanionLab.tsx": "3af11a10ed667e68ff6296ff7d633923d4227f78a21a9b229765e598518a8b39",
+    "src/companion/companion.css": "a6830d357c6cf5c2343fa0a9c98a4ffcac1fef90096ccf4ab807c7502bf89577",
+    "src/companion/preset.ts": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556",
+    "src/companion/types.ts": "9e59bd2ab60d20a7b7cdf7fde467d792b6d71ac98d57cec6a284268e78884cce",
+    "scripts/check-companion-cartoon-v4.mjs": "0410614b81439c842040184e4948290ca0547dee8bb05f8a48e411fd59f9d7f2"
+  },
+  "evidenceType": "Actual application Three.js WebGL preset rendering in an isolated automated desktop browser, including 390 CSS px responsive viewport. Not a real phone, design mockup, real camera or human mirror test.",
+  "cameraPolicy": "Native getUserMedia replaced before page code; the suite never enables mirror or invokes physical devices.",
+  "cloudRequestsAllowed": false,
+  "results": [
+    {
+      "width": 820,
+      "status": "FAIL",
+      "checks": [
+        "No horizontal overflow; real WebGL canvas present",
+        "画面左手: expected arm moves and paused pose remains fixed",
+        "画面右手: expected arm moves and paused pose remains fixed",
+        "双手: expected arm moves and paused pose remains fixed",
+        "Clear and pixel use identical paused joint pose; all three pixel strengths work",
+        "Front, three-quarter and side cameras preserve pose",
+        "Restart restores rest; playback produces continuous pose updates"
+      ],
+      "screenshots": [
+        {
+          "label": "rest-front-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-rest-front-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-rest-front-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "426x420",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":0.1,\"elbow\":0}}",
+              "renderFrame": "51"
+            },
+            "width": 426,
+            "height": 420
+          }
+        },
+        {
+          "label": "right-raised-front-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-right-raised-front-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-right-raised-front-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "426x420",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":2.5500000000000003,\"elbow\":0.3}}",
+              "renderFrame": "192"
+            },
+            "width": 426,
+            "height": 420
+          }
+        },
+        {
+          "label": "left-raised-front-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-left-raised-front-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-left-raised-front-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "426x420",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":2.5500000000000003,\"elbow\":0.3},\"right\":{\"shoulder\":0.1,\"elbow\":0}}",
+              "renderFrame": "312"
+            },
+            "width": 426,
+            "height": 420
+          }
+        },
+        {
+          "label": "both-raised-front-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-both-raised-front-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-both-raised-front-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "426x420",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":2.5500000000000003,\"elbow\":0.3},\"right\":{\"shoulder\":2.5500000000000003,\"elbow\":0.3}}",
+              "renderFrame": "433"
+            },
+            "width": 426,
+            "height": 420
+          }
+        },
+        {
+          "label": "same-pose-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "426x420",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "492"
+            },
+            "width": 426,
+            "height": 420
+          }
+        },
+        {
+          "label": "same-pose-pixel",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-pixel-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-pixel-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "pixel",
+              "actualDisplay": "pixel",
+              "pixelSize": "4",
+              "bufferSize": "106x105",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "533"
+            },
+            "width": 426,
+            "height": 420
+          }
+        },
+        {
+          "label": "same-pose-front",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-front-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-front-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "426x420",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "603"
+            },
+            "width": 426,
+            "height": 420
+          }
+        },
+        {
+          "label": "same-pose-three-quarter",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-three-quarter-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-three-quarter-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "426x420",
+              "dpr": "1",
+              "view": "three-quarter",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "643"
+            },
+            "width": 426,
+            "height": 420
+          }
+        },
+        {
+          "label": "same-pose-side",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-side-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-side-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "426x420",
+              "dpr": "1",
+              "view": "side",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "696"
+            },
+            "width": 426,
+            "height": 420
+          }
+        }
+      ],
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4175/?companion-lab=1",
+          "method": "GET",
+          "kind": "document"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@vite/client",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/main.tsx?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@react-refresh",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react.js?v=6e117f3e",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom_client.js?v=07c36818",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/index.css?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryRouter.tsx?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=6e117f3e",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/vite/dist/client/env.mjs",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/rolldown-runtime-BvCyGRYZ.js?v=863dcaf6",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryBoundary.tsx",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom.js?v=6e117f3e",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "method": "GET",
+          "kind": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/CompanionLab.tsx?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/PandaStage.tsx?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/types.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/preset.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/companion.css",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/favicon.svg",
+          "method": "GET",
+          "kind": "other"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/three.js?v=cc8da93f",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/pandaRig.ts?t=1791377900713",
+          "method": "GET",
+          "kind": "script"
+        }
+      ],
+      "blocked": [
+        "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+      ],
+      "errors": [],
+      "samePose": {
+        "clear": {
+          "dataset": {
+            "engine": "three.js r186",
+            "displayMode": "clear",
+            "actualDisplay": "clear",
+            "pixelSize": "1",
+            "bufferSize": "426x420",
+            "dpr": "1",
+            "view": "front",
+            "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+            "renderFrame": "493"
+          },
+          "width": 426,
+          "height": 420
+        },
+        "pixel": {
+          "dataset": {
+            "engine": "three.js r186",
+            "displayMode": "pixel",
+            "actualDisplay": "pixel",
+            "pixelSize": "4",
+            "bufferSize": "106x105",
+            "dpr": "1",
+            "view": "front",
+            "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+            "renderFrame": "535"
+          },
+          "width": 426,
+          "height": 420
+        }
+      },
+      "audit": {
+        "cameraRequests": 0,
+        "storageWrites": []
+      },
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n\n    at file:///E:/gym/scripts/check-companion-cartoon-v4.mjs:156:14"
+    },
+    {
+      "width": 390,
+      "status": "FAIL",
+      "checks": [
+        "No horizontal overflow; real WebGL canvas present",
+        "画面左手: expected arm moves and paused pose remains fixed",
+        "画面右手: expected arm moves and paused pose remains fixed",
+        "双手: expected arm moves and paused pose remains fixed",
+        "Clear and pixel use identical paused joint pose; all three pixel strengths work",
+        "Front, three-quarter and side cameras preserve pose",
+        "Restart restores rest; playback produces continuous pose updates"
+      ],
+      "screenshots": [
+        {
+          "label": "rest-front-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-rest-front-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-rest-front-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "352x360",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":0.1,\"elbow\":0}}",
+              "renderFrame": "51"
+            },
+            "width": 352,
+            "height": 360
+          }
+        },
+        {
+          "label": "right-raised-front-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-right-raised-front-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-right-raised-front-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "352x360",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":2.5500000000000003,\"elbow\":0.3}}",
+              "renderFrame": "159"
+            },
+            "width": 352,
+            "height": 360
+          }
+        },
+        {
+          "label": "left-raised-front-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-left-raised-front-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-left-raised-front-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "352x360",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":2.5500000000000003,\"elbow\":0.3},\"right\":{\"shoulder\":0.1,\"elbow\":0}}",
+              "renderFrame": "287"
+            },
+            "width": 352,
+            "height": 360
+          }
+        },
+        {
+          "label": "both-raised-front-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-both-raised-front-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-both-raised-front-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "352x360",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":2.5500000000000003,\"elbow\":0.3},\"right\":{\"shoulder\":2.5500000000000003,\"elbow\":0.3}}",
+              "renderFrame": "409"
+            },
+            "width": 352,
+            "height": 360
+          }
+        },
+        {
+          "label": "same-pose-clear",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-clear-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-clear-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "352x360",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "483"
+            },
+            "width": 352,
+            "height": 360
+          }
+        },
+        {
+          "label": "same-pose-pixel",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-pixel-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-pixel-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "pixel",
+              "actualDisplay": "pixel",
+              "pixelSize": "4",
+              "bufferSize": "88x90",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "524"
+            },
+            "width": 352,
+            "height": 360
+          }
+        },
+        {
+          "label": "same-pose-front",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-front-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-front-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "352x360",
+              "dpr": "1",
+              "view": "front",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "602"
+            },
+            "width": 352,
+            "height": 360
+          }
+        },
+        {
+          "label": "same-pose-three-quarter",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-three-quarter-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-three-quarter-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "352x360",
+              "dpr": "1",
+              "view": "three-quarter",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "650"
+            },
+            "width": 352,
+            "height": 360
+          }
+        },
+        {
+          "label": "same-pose-side",
+          "fullPage": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-side-page.png",
+          "canvas": "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-side-canvas.png",
+          "render": {
+            "dataset": {
+              "engine": "three.js r186",
+              "displayMode": "clear",
+              "actualDisplay": "clear",
+              "pixelSize": "1",
+              "bufferSize": "352x360",
+              "dpr": "1",
+              "view": "side",
+              "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+              "renderFrame": "699"
+            },
+            "width": 352,
+            "height": 360
+          }
+        }
+      ],
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4175/?companion-lab=1",
+          "method": "GET",
+          "kind": "document"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@vite/client",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/main.tsx?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@react-refresh",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react.js?v=6e117f3e",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom_client.js?v=07c36818",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/index.css?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryRouter.tsx?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=6e117f3e",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/vite/dist/client/env.mjs",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/rolldown-runtime-BvCyGRYZ.js?v=863dcaf6",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryBoundary.tsx",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom.js?v=6e117f3e",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "method": "GET",
+          "kind": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/CompanionLab.tsx?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/PandaStage.tsx?t=1791377902736",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/types.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/preset.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/companion.css",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/favicon.svg",
+          "method": "GET",
+          "kind": "other"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/three.js?v=cc8da93f",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/pandaRig.ts?t=1791377900713",
+          "method": "GET",
+          "kind": "script"
+        }
+      ],
+      "blocked": [
+        "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+      ],
+      "errors": [],
+      "samePose": {
+        "clear": {
+          "dataset": {
+            "engine": "three.js r186",
+            "displayMode": "clear",
+            "actualDisplay": "clear",
+            "pixelSize": "1",
+            "bufferSize": "352x360",
+            "dpr": "1",
+            "view": "front",
+            "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+            "renderFrame": "485"
+          },
+          "width": 352,
+          "height": 360
+        },
+        "pixel": {
+          "dataset": {
+            "engine": "three.js r186",
+            "displayMode": "pixel",
+            "actualDisplay": "pixel",
+            "pixelSize": "4",
+            "bufferSize": "88x90",
+            "dpr": "1",
+            "view": "front",
+            "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":1.914814814814815,\"elbow\":0.2222222222222222}}",
+            "renderFrame": "525"
+          },
+          "width": 352,
+          "height": 360
+        }
+      },
+      "audit": {
+        "cameraRequests": 0,
+        "storageWrites": []
+      },
+      "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n\n    at file:///E:/gym/scripts/check-companion-cartoon-v4.mjs:156:14"
+    }
+  ]
+}

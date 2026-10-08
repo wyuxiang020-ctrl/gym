@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-07T12:24:00Z",
+  "evidence": "Observed command results from the final implementation; not real camera or user studies",
+  "build": {"command": "npm run build:companion", "exitCode": 0, "log": "final-build-1791375732460.log", "warning": "Three.js experiment chunk exceeds 500 kB minified; dynamically loaded and excluded from PWA precache"},
+  "typescript": {"command": "tsc -b (run by build:companion)", "exitCode": 0},
+  "broadLintFirstResult": {"command": "npm run lint", "exitCode": 1, "observation": "Unscoped oxlint traversed preserved eval build artifacts and minified third-party bundles, producing very large output. Full output was not saved and tool output was truncated. This result is retained as a failed broad lint, not reported as passing."},
+  "scopedLint": {"command": "oxlint src api vite.config.ts scripts/*companion*v4.mjs public/companion-assets/pose-worker.js", "exitCode": 0, "log": "final-scoped-lint-1791375829244.log"},
+  "rig": {"command": "node --experimental-strip-types --import ./scripts/ts-test-loader.mjs scripts/check-companion-rig-v4.mjs", "exitCode": 0, "passed": 7, "total": 7, "cases": ["Native segmented meshes and shoulder-elbow-hand hierarchy", "Shoulder propagation with stationary root and other arm", "Elbow local flexion keeps pivots stationary", "Left/right symmetry", "Finite values and combined angle envelope", "No arm or palm vertex enters head ellipsoid across sampled supported envelope", "Geometry/material/texture disposed once on repeated cleanup"]},
+  "assetVerification": {"command": "node scripts/prepare-companion-assets-v4.mjs", "exitCode": 0, "manifest": "assets-1791376169336.json", "note": "Existing files verified only; fixed model/license hashes enforced and package files compared; no network download was needed"},
+  "deliveryScriptVerification": {"commands": ["node --check scripts/finalize-companion-v4.mjs", "oxlint scripts/finalize-companion-v4.mjs scripts/prepare-companion-assets-v4.mjs"], "exitCode": 0},
+  "productionSmoke": {"report": "integration-820-1791376011888/results.json", "passed": 2, "total": 2, "note": "Actual production build, native worker URL and CSP, no test network routing; two workers each held 12 extra seconds; only same-origin static GETs observed; real camera not used"},
+  "cloudModelCalls": 0,
+  "realCameraCalls": 0,
+  "infrastructureCostUsd": null
+}

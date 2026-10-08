@@ -1,0 +1,38 @@
+{
+  "id": "SMOKE-01",
+  "input": "刚完成负重登阶22公斤一组5次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:11:32.557Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1380,
+    "cachedInputTokens": 0,
+    "outputTokens": 334,
+    "reasoningTokens": 256,
+    "totalTokens": 1714
+  },
+  "estimatedCostUsd": 0.001013,
+  "rawSha256": "52e8f049effe083a338d829bcc07756b6807e8c5bff23ad0e8bc646665e693c2",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0d29e7644695ec9e016abd1897e56487d0b96422b9196a2948",
+    "requestId": "req_f60a9d6b9f294f8ba066591629447e27",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1380,
+      "cachedInputTokens": 0,
+      "outputTokens": 334,
+      "reasoningTokens": 256,
+      "totalTokens": 1714
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 8696
+}

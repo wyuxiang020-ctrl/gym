@@ -1,0 +1,56 @@
+{
+  "kind": "isolated synthetic records; virtual clock; no model or camera",
+  "date": "2026-10-08",
+  "results": [
+    {
+      "name": "U01 timer wall-clock, pause, extend and late wake",
+      "pass": true
+    },
+    {
+      "name": "U02 summaries ignore incomplete and account for missing weight",
+      "pass": true
+    },
+    {
+      "name": "B01 start and finish never manufacture completed sets",
+      "width": 390,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "name": "B02 saved completion rest pause resume expiry manual next",
+      "width": 390,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "name": "B03 failed save produces no completion reaction",
+      "width": 390,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "name": "B04 undo switch and close reset active rest",
+      "width": 390,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "name": "B05 late visible tab expires by deadline without more writes",
+      "width": 390,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "name": "B06 WebGL fallback keeps timer and confirmation usable",
+      "width": 820,
+      "pass": true,
+      "errors": []
+    },
+    {
+      "name": "B07 completed summary respects known missing and timed records",
+      "width": 390,
+      "pass": true,
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-07T06:14:00.179Z",
+  "evidenceType": "anonymous HTTP GET only; no login, cookies, API calls, model calls or browser interaction",
+  "priorAttempts": {
+    "webTool": "Both URLs not accessible via tool",
+    "sandboxNode": "Both failed EACCES"
+  },
+  "results": [
+    {
+      "url": "https://gym-iota-self.vercel.app/",
+      "error": "fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT",
+      "ms": 10683
+    },
+    {
+      "url": "https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app/",
+      "error": "fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT",
+      "ms": 10649
+    }
+  ]
+}

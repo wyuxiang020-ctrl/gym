@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-07T06:16:00.593Z",
+  "kind": "Current-source offline software checks; synthetic storage and fixed validation fixtures; no browser, human, camera, or cloud model test",
+  "realModelCalls": 0,
+  "modelCostUsd": 0,
+  "results": [
+    {
+      "name": "Storage deterministic fixtures (in-memory)",
+      "args": [
+        "scripts/check-workout-save.mjs"
+      ],
+      "exitCode": 0,
+      "ms": 611,
+      "stdout": "{\n  \"output\": \"evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/storage/flow-1791353738245.json\",\n  \"version\": \"V4 phase 0 baseline verification\",\n  \"kind\": \"deterministic synthetic software tests, NOT human tests\",\n  \"time\": \"2026-10-07T06:15:38.242Z\",\n  \"holdoutSha256\": \"a5dda8426f31344f64d58e9bade3ede7f18fd93d4fd22529e326afe20f75cbfe\",\n  \"beforeAfter\": {\n    \"baseline\": \"e96c5b2\",\n    \"scenario\": \"Unknown legacy weight=0, 8 reps, marked done\",\n    \"before\": {\n      \"saveAllowed\": true,\n      \"completed\": true,\n      \"kcal\": 18\n    },\n    \"after\": {\n      \"saveAllowed\": false,\n      \"completed\": false,\n      \"kcal\": 0,\n      \"storedSet\": {\n        \"weight\": null,\n        \"reps\": 8,\n        \"done\": true,\n        \"weightState\": \"unknown\",\n        \"legacyWeight\": 0\n      }\n    }\n  },\n  \"checks\": [\n    {\n      \"name\": \"before/after: unknown zero no longer passes completed/save\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"known: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"bodyweight: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"not_applicable: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"unknown: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"legacy source stays intact on read; zero retained for audit\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"legacy positive number with missing-unit notice is unresolved\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"legacy positive known weight remains compatible\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"known zero rejected by server and save boundary\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"missing unit unknown passes parse only, not completed save\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"future strength and cardio blocked until explicitly marked completed\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"bulk edit preserves reps, duration and done; undo uses snapshot\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"draft per date roundtrip does not persist workout\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"storage quota failure retains previous whole record\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"invalid existing backup not overwritten\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"network error surfaced without automatic retry\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"deadline abort bounds total request wait\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"caller cancel works with no automatic retry\",\n      \"pass\": true\n    }\n  ],\n  \"passed\": 18,\n  \"total\": 18\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "Isolated Vite/PWA build with env files disabled",
+      "args": [
+        "--input-type=module",
+        "-e",
+        "import {build} from 'vite'; await build({\"envFile\":false,\"build\":{\"outDir\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-phase0\\\\run-2026-10-07T06-13-18-159Z\\\\checks-retry-1791353737648\\\\build\"},\"logLevel\":\"info\"});"
+      ],
+      "exitCode": 0,
+      "ms": 22329,
+      "stdout": "vite v8.2.0 building client environment for production...\n\u001b[2K\rtransforming...✓ 84 modules transformed.\nrendering chunks...\ncomputing gzip size...\nevals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/build/registerSW.js                0.13 kB\nevals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/build/manifest.webmanifest         0.44 kB\nevals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/build/index.html                   0.62 kB │ gzip:   0.37 kB\nevals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/build/assets/index-DyAP63jo.css   32.11 kB │ gzip:   6.87 kB\nevals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/build/assets/index-B_ZN1dsm.js   366.68 kB │ gzip: 111.08 kB\n\n✓ built in 1.44s\n\nPWA v1.3.0\nmode      generateSW\nprecache  10 entries (413.70 KiB)\nfiles generated\n  evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/build/sw.js\n  evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/build/workbox-9c191d2f.js\n",
+      "stderr": "The `envFile` option is deprecated, please use `envDir: false` instead.\n"
+    }
+  ]
+}

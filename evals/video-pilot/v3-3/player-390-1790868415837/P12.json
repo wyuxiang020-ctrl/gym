@@ -1,0 +1,57 @@
+{
+  "id": "P12",
+  "name": "Return unmounts the player; reopening needs fresh consent and retains stored data",
+  "kind": "fixed-response browser test",
+  "attempt": 1,
+  "at": "2026-10-01T15:27:04.228Z",
+  "pass": false,
+  "requestCountAfterReopen": 2,
+  "error": "no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n",
+  "stack": "AssertionError [ERR_ASSERTION]: no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n\n    at scenario (file:///E:/gym/scripts/check-teaching-player-v33.mjs:158:12)\n    at async file:///E:/gym/scripts/check-teaching-player-v33.mjs:307:3",
+  "ms": 427,
+  "finalState": "idle",
+  "networkRequests": [
+    {
+      "url": "https://www.youtube.com/iframe_api",
+      "at": "2026-10-01T15:27:04.583Z",
+      "kind": "script"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4174&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+      "at": "2026-10-01T15:27:04.593Z",
+      "kind": "document"
+    }
+  ],
+  "blockedUnexpectedRequests": [
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+  ],
+  "pageErrors": [],
+  "replay": {
+    "created": 1,
+    "destroyed": 2,
+    "calls": [
+      {
+        "type": "construct",
+        "index": 0
+      },
+      {
+        "type": "event",
+        "index": 0,
+        "event": "onReady"
+      },
+      {
+        "type": "destroy"
+      },
+      {
+        "type": "destroy"
+      },
+      {
+        "type": "event",
+        "index": 0,
+        "event": "onStateChange",
+        "data": 1
+      }
+    ]
+  },
+  "screenshot": "evals/video-pilot/v3-3/player-390-1790868415837/P12.png"
+}

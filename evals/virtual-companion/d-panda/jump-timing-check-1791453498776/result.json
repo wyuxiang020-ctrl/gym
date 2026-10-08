@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "output": "evals/virtual-companion/d-panda/jump-timing-check-1791453498776",
+  "checks": [
+    {
+      "name": "全部 23 段时长严格减半，其他 22 段素材与相同进度的运动保持一致",
+      "result": "PASS",
+      "durations": [
+        {
+          "id": "idle",
+          "before": 6000,
+          "after": 3000
+        },
+        {
+          "id": "encourage",
+          "before": 3000,
+          "after": 1500
+        },
+        {
+          "id": "hat",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "stretch",
+          "before": 5000,
+          "after": 2500
+        },
+        {
+          "id": "bow",
+          "before": 4200,
+          "after": 2100
+        },
+        {
+          "id": "wave",
+          "before": 4300,
+          "after": 2150
+        },
+        {
+          "id": "walk",
+          "before": 4500,
+          "after": 2250
+        },
+        {
+          "id": "lookback",
+          "before": 4000,
+          "after": 2000
+        },
+        {
+          "id": "celebrate",
+          "before": 3800,
+          "after": 1900
+        },
+        {
+          "id": "rest",
+          "before": 6500,
+          "after": 3250
+        },
+        {
+          "id": "jump",
+          "before": 3300,
+          "after": 1650
+        },
+        {
+          "id": "expression-1",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-2",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-3",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-4",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-5",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-6",
+          "before": 5200,
+          "after": 2600
+        },
+        {
+          "id": "expression-7",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-8",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-9",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-10",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-11",
+          "before": 3600,
+          "after": 1800
+        },
+        {
+          "id": "expression-12",
+          "before": 5200,
+          "after": 2600
+        }
+      ]
+    },
+    {
+      "name": "新小跳只有一次离地，面部完整、足底接触明确，减少动态不离地",
+      "result": "PASS",
+      "duration": 1650,
+      "takeoff": 510,
+      "apex": 750,
+      "touchdown": 990,
+      "maxLift": 44
+    },
+    {
+      "name": "其他 22 段的峰值截图与修改前逐像素一致，进度条显示新时长",
+      "result": "PASS"
+    },
+    {
+      "name": "新跳跃全部关键帧已保存，实际播放按 1.65 秒时间轴完成",
+      "result": "PASS",
+      "observedPlaybackMs": 1672.1612000000005
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://gym-ri1ngrd2q-yuxiang-wang-s-projects.vercel.app",
+    "at": "2026-09-30T14:11:48.907Z",
+    "authenticated": false,
+    "error": "page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://gym-ri1ngrd2q-yuxiang-wang-s-projects.vercel.app/\nCall log:\n\u001b[2m  - navigating to \"https://gym-ri1ngrd2q-yuxiang-wang-s-projects.vercel.app/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "url": "https://gym-iota-self.vercel.app",
+    "at": "2026-09-30T14:11:49.129Z",
+    "authenticated": false,
+    "error": "page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://gym-iota-self.vercel.app/\nCall log:\n\u001b[2m  - navigating to \"https://gym-iota-self.vercel.app/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  }
+]

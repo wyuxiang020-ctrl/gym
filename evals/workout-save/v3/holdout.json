@@ -1,0 +1,14 @@
+{
+  "version": "workout-save-v3-holdout-2026-09-30",
+  "provenance": "Author-created synthetic inputs, frozen before implementation; not human research or externally blind testing.",
+  "cases": [
+    {"id":"H01","text":"今天坐姿划船用42.5公斤，做完两组，分别11次和9次。","weightState":"known","weight":42.5,"reps":[11,9],"done":true},
+    {"id":"H02","text":"刚刚做了3组自重深蹲，每组17次，没有额外负重。","weightState":"bodyweight","weight":null,"reps":[17,17,17],"done":true},
+    {"id":"H03","text":"高位下拉两组各13次已完成，忘了多少重量。","weightState":"unknown","weight":null,"reps":[13,13],"done":true,"saveBlocked":true},
+    {"id":"H04","text":"腿举用了75，三组各9次都完成了，单位没记。","weightState":"unknown","weight":null,"reps":[9,9,9],"done":true,"saveBlocked":true},
+    {"id":"H05","text":"准备后天做杠铃弯举15kg两组各14次，今天没做。","weightState":"known","weight":15,"reps":[14,14],"done":false,"saveBlocked":true},
+    {"id":"H06","text":"已经完成两组平板支撑，每组55秒，自重无额外负重。","weightState":"bodyweight","weight":null,"seconds":[55,55],"done":true},
+    {"id":"H07","text":"弹力带肩外旋做完2组，每组16次，用黄色带子，不适用公斤记录。","weightState":"not_applicable","weight":null,"reps":[16,16],"done":true},
+    {"id":"H08","text":"卧推完成一组7次，负重90磅。","weightState":"known","weight":40.824,"reps":[7],"done":true}
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "recordedAt": "2026-10-07T06:46:09.887Z",
+  "timezone": "Asia/Shanghai",
+  "authorization": "Phase 0 only. Joint character design discussion before phase 1.",
+  "setupAttempts": [
+    {
+      "operation": "Create new baseline helper with apply_patch",
+      "result": "Initial parent directory creation failed; explicit PowerShell directory creation succeeded."
+    },
+    {
+      "operation": "Initial baseline capture",
+      "result": "Git rejected core.excludesFile=NUL; removed that command-local override and completed capture."
+    },
+    {
+      "operation": "Ordinary git reads",
+      "result": "Global ignore file permission warning; git status completed. No global settings edited."
+    }
+  ],
+  "browserAttempts": [
+    {
+      "provider": "edge",
+      "result": "Browser is not available: edge"
+    },
+    {
+      "provider": "iab",
+      "result": "createBrowserTab timed out after 30 seconds; kernel reset; no usable UI state or screenshot obtained"
+    }
+  ],
+  "automatedChecks": {
+    "firstAttempt": "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks/results.json",
+    "retry": "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/results.json",
+    "fixedFixtureCounts": {
+      "contracts": 18,
+      "storage": 18
+    },
+    "browserBusinessFlow": "NOT_RUN",
+    "realCamera": "NOT_RUN",
+    "realPhone": "NOT_RUN",
+    "cloudModelCalls": 0
+  },
+  "limitations": [
+    "Public current deployment and reachability could not be verified; timeout is not proof that service is down.",
+    "Historical browser, playback and human-task statuses are not current acceptance results.",
+    "No demo service has been started."
+  ]
+}

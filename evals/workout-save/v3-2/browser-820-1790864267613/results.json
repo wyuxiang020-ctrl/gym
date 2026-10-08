@@ -1,0 +1,199 @@
+{
+  "version": "workout-save-v3.2",
+  "sourceHashes": {
+    "src/components/workout/WeightEditor.tsx": "9048e24b64d944043ced4ff97605f99f4e7967a5b9c339c7127021549936c3f3",
+    "src/components/workout/NLWorkoutInput.tsx": "af94cec500ffae671d2ce69589f044746dcbd45fc39c27ebe0180055430f68e8",
+    "src/components/workout/StrengthLogger.tsx": "38bf49c08691febfe0b6262419fa4c966d05007f1856ffbb9e7912bafe1ea1c4",
+    "src/components/workout/WorkoutSection.tsx": "c2400aef72f6d23563d33d507fa938196b6f2be8f9766280b2198e7a4b584c96",
+    "src/lib/types.ts": "6a86845c1eee03712c19ad58f3cff025d882bcae608237464cf2abe77406a0e5",
+    "src/lib/strength.ts": "6d2de8b6c077c2af34f120a18150153ba4d8fa56e77b79ac75a271c42a8e7f03",
+    "src/lib/aiValidation.ts": "dcd94a34a364049e7a815e587c850b32e297bd7fa92847d50a43ef03169a558c",
+    "src/lib/dataValidation.ts": "003a24802c31930f3b5137e33ee9b6011767cb0d7267ee90c17945963a1471f6"
+  },
+  "checks": [
+    {
+      "id": "B02",
+      "name": "Explicit missing confirmation → draft refresh → save → reopen exact values",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:17:48.387Z",
+      "viewport": 820,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "confirmedDraft": {
+        "text": "今天卧推完成一组8次，重量忘了。",
+        "preview": {
+          "strength": [
+            {
+              "name": "卧推",
+              "sets": [
+                {
+                  "weight": null,
+                  "weightState": "unknown",
+                  "reps": 8,
+                  "done": true,
+                  "missingWeightConfirmed": true
+                }
+              ],
+              "note": "合成测试，不是真实训练数据",
+              "uncertain": [
+                "重量未提供"
+              ]
+            }
+          ],
+          "cardio": []
+        }
+      },
+      "confirmedSaved": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ],
+                "id": "c15f85a4-43ec-47ca-840f-05ea156196c4",
+                "estKcal": 0,
+                "source": "nl"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "ms": 6734,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ],
+                "id": "c15f85a4-43ec-47ca-840f-05ea156196c4",
+                "estKcal": 0,
+                "source": "nl"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-820-1790864267613\\page@34f722ff7454c5f2e0d66c89105d6adb.webm"
+    }
+  ],
+  "passed": 1,
+  "total": 1
+}

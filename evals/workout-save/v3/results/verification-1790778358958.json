@@ -1,0 +1,52 @@
+{
+  "at": "2026-09-30T14:25:41.068Z",
+  "version": "save-v3-2026-09-30",
+  "baseline": "e96c5b2",
+  "results": [
+    {
+      "name": "build",
+      "exitCode": 0,
+      "ms": 3897,
+      "output": "\n> gym@0.0.0 build\n> tsc -b && vite build\n\nvite v8.2.0 building client environment for production...\n\u001b[2K\rtransforming...✓ 81 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/registerSW.js                0.13 kB\ndist/manifest.webmanifest         0.44 kB\ndist/index.html                   0.62 kB │ gzip:   0.36 kB\ndist/assets/index-BVsCtJmJ.css   31.38 kB │ gzip:   6.74 kB\ndist/assets/index-sO71AbfC.js   350.41 kB │ gzip: 105.15 kB\n\n✓ built in 233ms\n\nPWA v1.3.0\nmode      generateSW\nprecache  10 entries (397.11 KiB)\nfiles generated\n  dist/sw.js\n  dist/workbox-9c191d2f.js\n",
+      "errors": ""
+    },
+    {
+      "name": "lint",
+      "exitCode": 0,
+      "ms": 651,
+      "output": "\n> gym@0.0.0 lint\n> oxlint\n\n",
+      "errors": ""
+    },
+    {
+      "name": "AI contract",
+      "exitCode": 0,
+      "ms": 631,
+      "output": "\n> gym@0.0.0 check:ai-contracts\n> node --experimental-strip-types scripts/check-ai-contracts.mjs\n\nPASS 次数型力量组通过\nPASS 计时型力量组通过\nPASS 待补充动作允许空组数组\nPASS V3 仅重量缺失时保留已知组次并明确 unknown/null\nPASS 计时动作仅重量缺失时允许保留已知秒数\nPASS 重量和次数都缺失时允许空组并保留提示\nPASS V3 重量单位不明确时保存 unknown/null，原数值保留在提示\nPASS V3 自重动作明确 bodyweight/null\nPASS 待补充有氧允许 minutes 为 null\nPASS reps 与 durationSeconds 同为 null 被拒绝\nPASS 缺失 durationSeconds 键被拒绝\nPASS 力量组额外键被拒绝\nPASS 力量条目缺失 note 被拒绝\nPASS 有氧条目缺失 distance 被拒绝\nPASS 训练结果根级额外键被拒绝\nPASS 合法饮食结果通过\nPASS 饮食条目额外键被拒绝\nPASS 饮食结果根级额外键被拒绝\nPASS 18/18; AI runtime contract fixtures are enforced\n",
+      "errors": ""
+    },
+    {
+      "name": "API guards",
+      "exitCode": 0,
+      "ms": 10907,
+      "output": "\n> gym@0.0.0 check:api-guards\n> node scripts/check-api-guards.mjs\n\nPASS 拒绝非 POST 请求: HTTP 405; no-store/rate headers=true\nPASS 拒绝非 JSON 请求: HTTP 415; no-store/rate headers=true\nPASS 拒绝空训练文字: HTTP 400; no-store/rate headers=true\nPASS 拒绝超过 2000 字的训练文字: HTTP 413; no-store/rate headers=true\nPASS 拒绝伪造图片内容: HTTP 400; no-store/rate headers=true\nPASS 拒绝只有 JPEG 文件头的伪图: HTTP 400; no-store/rate headers=true\nPASS 拒绝被截断的 JPEG: HTTP 400; no-store/rate headers=true\nPASS 拒绝超过单边像素上限的图片: HTTP 413; no-store/rate headers=true\nPASS 拒绝空食物重算清单: HTTP 400; no-store/rate headers=true\nPASS 拒绝超过 1000 字的重算备注: HTTP 413; no-store/rate headers=true\nPASS 10/10; all requests were rejected before any model call\n",
+      "errors": ""
+    },
+    {
+      "name": "demo safeguards",
+      "exitCode": 0,
+      "ms": 684,
+      "output": "\n> gym@0.0.0 check:demo-safety\n> node --experimental-strip-types scripts/check-demo-safety.mts\n\nPASS 公开部署缺少访问码时 fail closed\nPASS 公开部署拒绝过短访问码\nPASS 错误访问码被拒绝\nPASS 公开部署缺少脱敏与共享存储时 fail closed\nPASS 公开部署使用 Upstash 跨实例保护\nPASS Upstash 审计写入模型证据且不含原始 IP\nPASS 公开部署跨实例限流拒绝超额请求\nPASS 兼容 Vercel Marketplace 的 KV REST 变量名\nPASS 本地内存限流允许第 1 次请求\nPASS 本地内存限流允许第 2 次请求\nPASS 本地内存限流拒绝超额请求\nPASS 限流响应包含可观测头\nPASS 审计只包含允许字段\nPASS 审计不包含原始 IP 或访问码\nPASS 预算预留允许首个并发请求\nPASS 预算预留阻止并发超支\nPASS 预算告警在同一天去重\nPASS 无 usage 的上游失败按预留成本保守记账\nPASS 18/18; demo safety fail-closed, access, rate and budget checks\n",
+      "errors": ""
+    },
+    {
+      "name": "storage flow",
+      "exitCode": 0,
+      "ms": 1051,
+      "output": "\n> gym@0.0.0 check:workout-save\n> node scripts/check-workout-save.mjs\n\n{\n  \"output\": \"evals/workout-save/v3/results/flow-1790778358866.json\",\n  \"version\": \"workout-save-v3\",\n  \"kind\": \"deterministic synthetic software tests, NOT human tests\",\n  \"time\": \"2026-09-30T14:25:58.865Z\",\n  \"holdoutSha256\": \"a5dda8426f31344f64d58e9bade3ede7f18fd93d4fd22529e326afe20f75cbfe\",\n  \"beforeAfter\": {\n    \"baseline\": \"e96c5b2\",\n    \"scenario\": \"Unknown legacy weight=0, 8 reps, marked done\",\n    \"before\": {\n      \"saveAllowed\": true,\n      \"completed\": true,\n      \"kcal\": 18\n    },\n    \"after\": {\n      \"saveAllowed\": false,\n      \"completed\": false,\n      \"kcal\": 0,\n      \"storedSet\": {\n        \"weight\": null,\n        \"reps\": 8,\n        \"done\": true,\n        \"weightState\": \"unknown\",\n        \"legacyWeight\": 0\n      }\n    }\n  },\n  \"checks\": [\n    {\n      \"name\": \"before/after: unknown zero no longer passes completed/save\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"known: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"bodyweight: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"not_applicable: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"unknown: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"legacy source stays intact on read; zero retained for audit\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"legacy positive number with missing-unit notice is unresolved\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"legacy positive known weight remains compatible\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"known zero rejected by server and save boundary\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"missing unit unknown passes parse only, not completed save\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"future strength and cardio blocked until explicitly marked completed\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"bulk edit preserves reps, duration and done; undo uses snapshot\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"draft per date roundtrip does not persist workout\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"storage quota failure retains previous whole record\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"invalid existing backup not overwritten\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"network error surfaced without automatic retry\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"deadline abort bounds total request wait\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"caller cancel works with no automatic retry\",\n      \"pass\": true\n    }\n  ],\n  \"passed\": 18,\n  \"total\": 18\n}\n",
+      "errors": ""
+    }
+  ],
+  "historicalEvaluationsUnchanged": true,
+  "historicalDiff": "",
+  "changesSinceHoldout": []
+}

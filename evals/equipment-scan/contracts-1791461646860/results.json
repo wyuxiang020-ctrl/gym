@@ -1,0 +1,34 @@
+{
+  "kind": "fixed model responses and synthetic pixels; no live recognition",
+  "modelCalls": 0,
+  "results": [
+    {
+      "name": "bounded candidate and unknown contracts",
+      "pass": true
+    },
+    {
+      "name": "method, content type and invalid image never reach model",
+      "pass": true
+    },
+    {
+      "name": "access guard stops valid images before model",
+      "pass": true
+    },
+    {
+      "name": "one guarded call with normalized image and no-store",
+      "pass": true
+    },
+    {
+      "name": "malformed model output is 422, not a guessed candidate",
+      "pass": true
+    },
+    {
+      "name": "upstream error has no retry",
+      "pass": true
+    },
+    {
+      "name": "daily request ceiling protects new endpoint",
+      "pass": true
+    }
+  ]
+}

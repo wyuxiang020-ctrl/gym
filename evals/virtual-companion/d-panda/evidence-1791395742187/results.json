@@ -1,0 +1,100 @@
+{
+  "at": "2026-10-07T17:56:56.566Z",
+  "out": "evals/virtual-companion/d-panda/evidence-1791395742187",
+  "recordings": {
+    "samples": [
+      {
+        "id": "raise",
+        "duration": 10003.89999999851,
+        "frames": 1271,
+        "maxInterval": 66.90000000000055
+      },
+      {
+        "id": "hat",
+        "duration": 6203.4000000059605,
+        "frames": 1079,
+        "maxInterval": 29.299999999999272
+      },
+      {
+        "id": "cheer",
+        "duration": 3318.5999999940395,
+        "frames": 645,
+        "maxInterval": 25
+      }
+    ],
+    "library": [
+      {
+        "id": "idle",
+        "duration": 7003.5,
+        "frames": 1185,
+        "maxInterval": 29.200000000000728
+      },
+      {
+        "id": "removeHat",
+        "duration": 7501.80000000447,
+        "frames": 1112,
+        "maxInterval": 37.5
+      },
+      {
+        "id": "wave",
+        "duration": 3502.39999999851,
+        "frames": 725,
+        "maxInterval": 21
+      },
+      {
+        "id": "walk",
+        "duration": 12002.5,
+        "frames": 2112,
+        "maxInterval": 46
+      },
+      {
+        "id": "look",
+        "duration": 5802.10000000149,
+        "frames": 717,
+        "maxInterval": 41.799999999995634
+      },
+      {
+        "id": "stretch",
+        "duration": 4632.5999999940395,
+        "frames": 735,
+        "maxInterval": 46
+      },
+      {
+        "id": "rest",
+        "duration": 3818.2000000029802,
+        "frames": 481,
+        "maxInterval": 41.799999999995634
+      },
+      {
+        "id": "rise",
+        "duration": 2103.2000000029802,
+        "frames": 444,
+        "maxInterval": 33.30000000000291
+      },
+      {
+        "id": "encourage",
+        "duration": 1905.5999999940395,
+        "frames": 423,
+        "maxInterval": 25
+      },
+      {
+        "id": "celebrate",
+        "duration": 2401.89999999851,
+        "frames": 478,
+        "maxInterval": 33.39999999999418
+      }
+    ]
+  },
+  "errors": [],
+  "cameraCalls": 0,
+  "kind": "ACTUAL_PRODUCTION_RENDERER_ROLE_ONLY_REAL_TIME_NO_CAMERA",
+  "source": {
+    "src/companion/dpanda/asset.ts": "962b12dd59da885491b4b8e16410f84742269aea73adbbf1d84ac2f6c17f3951",
+    "src/companion/dpanda/model.ts": "779947adb59976ae686f3355ced90ac0c9ec25170998c0ab55939373383cf438",
+    "src/companion/dpanda/layout.ts": "81c7204a91e32d30c5a62f679c8283362590ec6f48dcc86d12385119e99e910f",
+    "src/companion/dpanda/render.ts": "13be59dab8f9cf928c634ede0afe0ee3c4c4a5b2c8aac0348c1e4a6ac3522c7b",
+    "src/companion/dpanda/motion.ts": "d09e77b4bb4176901202488911078bd9f843732a236e13ac6d19e92fe1385d7b",
+    "src/companion/dpanda/expressions.ts": "c08848763ac350ce8264d4345c7d159ee5e9f7651d7f8225d9b191ad91061fed",
+    "src/companion/dpanda/player.ts": "270cde8acdfde37419ca9e0eaed248d1d7277b9a66f14e7a560a4d204467fff3"
+  }
+}

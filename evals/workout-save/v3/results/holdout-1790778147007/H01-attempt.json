@@ -1,0 +1,38 @@
+{
+  "id": "H01",
+  "input": "今天坐姿划船用42.5公斤，做完两组，分别11次和9次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:22:27.008Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1534,
+    "cachedInputTokens": 1408,
+    "outputTokens": 347,
+    "reasoningTokens": 256,
+    "totalTokens": 1881
+  },
+  "estimatedCostUsd": 0.0007607,
+  "rawSha256": "0613e27151868d382cef4a85fb88a41b15e6a22a416255630b78f3ce07772eee",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0d3516412dd785da016abd1b29792887d0afc163b6162393b3",
+    "requestId": "req_cb2fde4a76fb43bbbc4d4fd0ba54aabb",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1534,
+      "cachedInputTokens": 1408,
+      "outputTokens": 347,
+      "reasoningTokens": 256,
+      "totalTokens": 1881
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 10376
+}

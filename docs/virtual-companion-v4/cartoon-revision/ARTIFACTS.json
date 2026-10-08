@@ -1,0 +1,950 @@
+{
+  "version": "V4.1 cartoon reference revision",
+  "at": "2026-10-07T13:13:16.148Z",
+  "entry": "http://127.0.0.1:4175/?companion-lab=1",
+  "label": "参考图重制 · V4.1",
+  "baseline": "evals/virtual-companion/v4-cartoon-revision/baseline-1791377416159/manifest.json",
+  "comparison": [
+    {
+      "path": "src/companion/types.ts",
+      "before": "9e59bd2ab60d20a7b7cdf7fde467d792b6d71ac98d57cec6a284268e78884cce",
+      "after": "9e59bd2ab60d20a7b7cdf7fde467d792b6d71ac98d57cec6a284268e78884cce",
+      "changed": false
+    },
+    {
+      "path": "src/companion/preset.ts",
+      "before": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556",
+      "after": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556",
+      "changed": false
+    },
+    {
+      "path": "src/companion/PandaStage.tsx",
+      "before": "ec03d70ae4e406d33539bb384c090c346582dcf7d17bb86d55d784e2e72a6062",
+      "after": "d926e1beacee2b2d36ff2e2413f5ee49dbc0e93a30677ecac7f39ca501395c3b",
+      "changed": true
+    },
+    {
+      "path": "src/companion/pandaRig.ts",
+      "before": "a0efcd4c2e06a99092bfee3a93d19d3ae1c7545148a3f86b89c1d3ee18fff96a",
+      "after": "91c7411f2baee1810ffbae187e5261a1279827ca97fdd5885937ce16d7ac6f70",
+      "changed": true
+    },
+    {
+      "path": "src/companion/mirror/protocol.ts",
+      "before": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094",
+      "after": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094",
+      "changed": false
+    },
+    {
+      "path": "src/companion/mirror/MirrorSession.ts",
+      "before": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+      "after": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+      "changed": false
+    },
+    {
+      "path": "src/companion/mirror/mapping.ts",
+      "before": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+      "after": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+      "changed": false
+    },
+    {
+      "path": "src/companion/CompanionLab.tsx",
+      "before": "3af11a10ed667e68ff6296ff7d633923d4227f78a21a9b229765e598518a8b39",
+      "after": "8796abbebc2b54c1d3c8735c0ffb7b8cb9ea504aba9b12b26990a9bc03f4514f",
+      "changed": true
+    },
+    {
+      "path": "src/companion/companion.css",
+      "before": "a6830d357c6cf5c2343fa0a9c98a4ffcac1fef90096ccf4ab807c7502bf89577",
+      "after": "a6830d357c6cf5c2343fa0a9c98a4ffcac1fef90096ccf4ab807c7502bf89577",
+      "changed": false
+    },
+    {
+      "path": "public/companion-assets/pose-worker.js",
+      "before": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d",
+      "after": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d",
+      "changed": false
+    },
+    {
+      "path": "package.json",
+      "before": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c",
+      "after": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c",
+      "changed": false
+    },
+    {
+      "path": "package-lock.json",
+      "before": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539",
+      "after": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539",
+      "changed": false
+    },
+    {
+      "path": "vite.config.ts",
+      "before": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0",
+      "after": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0",
+      "changed": false
+    },
+    {
+      "path": "src/main.tsx",
+      "before": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e",
+      "after": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e",
+      "changed": false
+    },
+    {
+      "path": "src/EntryRouter.tsx",
+      "before": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f",
+      "after": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f",
+      "changed": false
+    },
+    {
+      "path": "src/EntryBoundary.tsx",
+      "before": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6",
+      "after": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6",
+      "changed": false
+    }
+  ],
+  "expectedProductChanges": [
+    "src/companion/pandaRig.ts",
+    "src/companion/PandaStage.tsx",
+    "src/companion/CompanionLab.tsx"
+  ],
+  "initialStageArtifacts": {
+    "checked": 237,
+    "unchanged": 237
+  },
+  "source": {
+    "src/companion/types.ts": {
+      "bytes": 839,
+      "sha256": "9e59bd2ab60d20a7b7cdf7fde467d792b6d71ac98d57cec6a284268e78884cce"
+    },
+    "src/companion/preset.ts": {
+      "bytes": 736,
+      "sha256": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556"
+    },
+    "src/companion/PandaStage.tsx": {
+      "bytes": 9427,
+      "sha256": "d926e1beacee2b2d36ff2e2413f5ee49dbc0e93a30677ecac7f39ca501395c3b"
+    },
+    "src/companion/pandaRig.ts": {
+      "bytes": 14172,
+      "sha256": "91c7411f2baee1810ffbae187e5261a1279827ca97fdd5885937ce16d7ac6f70"
+    },
+    "src/companion/mirror/protocol.ts": {
+      "bytes": 624,
+      "sha256": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094"
+    },
+    "src/companion/mirror/MirrorSession.ts": {
+      "bytes": 17067,
+      "sha256": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb"
+    },
+    "src/companion/mirror/mapping.ts": {
+      "bytes": 5313,
+      "sha256": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346"
+    },
+    "src/companion/CompanionLab.tsx": {
+      "bytes": 13535,
+      "sha256": "8796abbebc2b54c1d3c8735c0ffb7b8cb9ea504aba9b12b26990a9bc03f4514f"
+    },
+    "src/companion/companion.css": {
+      "bytes": 7486,
+      "sha256": "a6830d357c6cf5c2343fa0a9c98a4ffcac1fef90096ccf4ab807c7502bf89577"
+    },
+    "public/companion-assets/pose-worker.js": {
+      "bytes": 5233,
+      "sha256": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+    },
+    "package.json": {
+      "bytes": 1921,
+      "sha256": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c"
+    },
+    "package-lock.json": {
+      "bytes": 469246,
+      "sha256": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539"
+    },
+    "vite.config.ts": {
+      "bytes": 2359,
+      "sha256": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0"
+    },
+    "src/main.tsx": {
+      "bytes": 254,
+      "sha256": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e"
+    },
+    "src/EntryRouter.tsx": {
+      "bytes": 500,
+      "sha256": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f"
+    },
+    "src/EntryBoundary.tsx": {
+      "bytes": 631,
+      "sha256": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6"
+    },
+    "scripts/check-companion-cartoon-v4.mjs": {
+      "bytes": 13382,
+      "sha256": "8c3c8c56e267de3c758854ec7e950f6088721cf449e4613fd87e31d8b40c3faa"
+    },
+    "scripts/check-companion-cartoon-rig-v4.mjs": {
+      "bytes": 12538,
+      "sha256": "b1bd2543a00aba26aad6589757864d26a61c124d398af5aadb9181ab29aa02d5"
+    },
+    "scripts/build-companion-cartoon-v4.mjs": {
+      "bytes": 954,
+      "sha256": "b4e7d0ef249f1c388e72096a764a38d0f02b04663ab6f52811485bab689a972e"
+    }
+  },
+  "evidence": {
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-both-raised-front-clear-canvas.png": {
+      "bytes": 21382,
+      "sha256": "ec055acab9702a283f4c4ebc3af5b9f5d8f765e31263740c596cd5ed09818433"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-both-raised-front-clear-page.png": {
+      "bytes": 75416,
+      "sha256": "50db339e71f19cdf7baece80fdba97d5df7586dc4b6ea477695d1e51380485c1"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-failure.png": {
+      "bytes": 66891,
+      "sha256": "0fc4d721cbf5dd1dbe24e8d56546f7c4b67a3c7e05c1fa03a8705c6ada656c71"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-left-raised-front-clear-canvas.png": {
+      "bytes": 20114,
+      "sha256": "01995a4676959d98716dd5ba0ccba97e2e5c84729b26221e3ab02ef73defdd96"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-left-raised-front-clear-page.png": {
+      "bytes": 74261,
+      "sha256": "24d76ca976ec47ea03b953d900db03ad76c168149447556da91fc59b91ae4513"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-rest-front-clear-canvas.png": {
+      "bytes": 18531,
+      "sha256": "6cc6b03425aacc837a784cbc81650e9c3c04d5e11957b181067ee51c7e939174"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-rest-front-clear-page.png": {
+      "bytes": 72596,
+      "sha256": "7c7529a78d5f5e1db94d2c0b373f3bffa916610860e3f9546b8529428e40f815"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-right-raised-front-clear-canvas.png": {
+      "bytes": 20157,
+      "sha256": "00a4e3d398e492d2ac1fda786a9c9265c26ac3db007cdfe489fc7d252468d8be"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-right-raised-front-clear-page.png": {
+      "bytes": 74230,
+      "sha256": "887b17a012b29aaba2b2b67248818f4b876a0ea68f849b501dbd04df7c26adf6"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-clear-canvas.png": {
+      "bytes": 20647,
+      "sha256": "a0b5d5808535816a5b3ae13b9b64d2131c3cfb8278c4c0d433641d3e5a1636a9"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-clear-page.png": {
+      "bytes": 74677,
+      "sha256": "f6847823eb0962f48e9b285e620d89d686394f7792130e44da11829e5180ad9c"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-front-canvas.png": {
+      "bytes": 20647,
+      "sha256": "a0b5d5808535816a5b3ae13b9b64d2131c3cfb8278c4c0d433641d3e5a1636a9"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-front-page.png": {
+      "bytes": 74786,
+      "sha256": "724054e0a4b5e3474ece95f1d3e96e25c15b5673f88828693c8797de6e2463fb"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-pixel-canvas.png": {
+      "bytes": 6632,
+      "sha256": "b918b9139af490848bb197def7458f51fe9b2bae86894ce3484c3c5475129604"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-pixel-page.png": {
+      "bytes": 62546,
+      "sha256": "2ba6dbf36a411ecf490ce33ecb2ff9bcd92113460e0a5f768fff3a9958b1f4bf"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-side-canvas.png": {
+      "bytes": 12907,
+      "sha256": "ca1cf364049b4913ad05c9705b8be6a13639a051490ced271cfc4c7b9097fe92"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-side-page.png": {
+      "bytes": 67169,
+      "sha256": "fc04bd562acc9949917de51ab25ba98964bf50dd0526b5282522dae471203bc5"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-three-quarter-canvas.png": {
+      "bytes": 20469,
+      "sha256": "dbd2337be418c0f35d4d1cdbfaa5b16df58a0ed3b28da6a498e843e43914485e"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/390-same-pose-three-quarter-page.png": {
+      "bytes": 74934,
+      "sha256": "f3eabce8759038eaa9037425f153165b6e6e5bbd27be6d19fb6b05b23fb80e4a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-both-raised-front-clear-canvas.png": {
+      "bytes": 26741,
+      "sha256": "7e08ac337cc459ce83e03748fcd2ab6b5cd7aab900f90221eeb2c1a2388f1a75"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-both-raised-front-clear-page.png": {
+      "bytes": 86778,
+      "sha256": "3a110926557bea28c6ede0879f645f8dd9538c54567d15758e9ffa345091a2a1"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-failure.png": {
+      "bytes": 75774,
+      "sha256": "74fffed62d5c04267b0929367d6e69d8dc625f76516441fbdd3e21a3a511af70"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-left-raised-front-clear-canvas.png": {
+      "bytes": 25130,
+      "sha256": "afe2b78f065db87e6a66abc18afc8493a8c0036abfacff77986f30c544983aec"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-left-raised-front-clear-page.png": {
+      "bytes": 85539,
+      "sha256": "9d4d2c62e41738d7a17930ef39ea484210b3377f3c1e38e624145f38cc77cddd"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-rest-front-clear-canvas.png": {
+      "bytes": 22984,
+      "sha256": "de73f86018e0aca0a393a744d318931d1d914697fc1c71a0619d6be7d2c0c55d"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-rest-front-clear-page.png": {
+      "bytes": 83210,
+      "sha256": "0665cd6bc864f01263bc5d12a105c64b52e4aceda77a38a3c3771b04ba389d42"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-right-raised-front-clear-canvas.png": {
+      "bytes": 25120,
+      "sha256": "e6ca2a3dd9f7039ddaa5d90ed34e046e8ef34bed2ab6e8da611d9aa9025d9120"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-right-raised-front-clear-page.png": {
+      "bytes": 85421,
+      "sha256": "b502a731fc2fbd8bc9bd1dd53f8bcb981aa0435a066a3019994a14b83df52fef"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-clear-canvas.png": {
+      "bytes": 25666,
+      "sha256": "af7d21edb9e00e1bceb63d6ce8f3676dd99260155b7b86284c3fac7c9e5f4c0d"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-clear-page.png": {
+      "bytes": 85854,
+      "sha256": "79671af7ff134fcbef69c1c5c9af1f0868c3794fc802f00395c7b25c53d5d4d5"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-front-canvas.png": {
+      "bytes": 25666,
+      "sha256": "af7d21edb9e00e1bceb63d6ce8f3676dd99260155b7b86284c3fac7c9e5f4c0d"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-front-page.png": {
+      "bytes": 85979,
+      "sha256": "648bdc48f71f33baa3968b6dcb315faa7bde899829a38d084a29d4e7c99f27da"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-pixel-canvas.png": {
+      "bytes": 8539,
+      "sha256": "497ac52d57cef66c8355c01554233fd545000f140ca859e59e2282adbc96a252"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-pixel-page.png": {
+      "bytes": 69641,
+      "sha256": "e915ebea9ad5b2b399c84a919a40119b28d460ba181ae757b963984254e7a4b2"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-side-canvas.png": {
+      "bytes": 15888,
+      "sha256": "d8dfe2af88420c3723b9ba56c031a966bd14095850ffd94a82405557e43f8976"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-side-page.png": {
+      "bytes": 75828,
+      "sha256": "c0a448b5ac797bb1dea27be97ffb3386aaa2021ab658910f1cf4e4a0dbbeaa10"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-three-quarter-canvas.png": {
+      "bytes": 25294,
+      "sha256": "e1d8d6dace23ee52b71a214431f26ce6de5186fb1e20513b676d481e9c69d1a3"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/820-same-pose-three-quarter-page.png": {
+      "bytes": 85826,
+      "sha256": "235689fe4f804189535f12c33fbae6e8befab9ca5d1afacc0d88891635434fd5"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/results.json": {
+      "bytes": 28154,
+      "sha256": "5a4075e8f40b2cc52b771242da9121b593d84726970c8951a0eaf76de8fab444"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791377926726/runner-source.mjs": {
+      "bytes": 10554,
+      "sha256": "0410614b81439c842040184e4948290ca0547dee8bb05f8a48e411fd59f9d7f2"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-both-raised-front-clear-canvas.png": {
+      "bytes": 21295,
+      "sha256": "6e9693e3c164ca01b7b5698e4f1f96a119cda41419d329aa1b7de3fa5eeb9b8a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-both-raised-front-clear-page.png": {
+      "bytes": 75375,
+      "sha256": "2b11ec92d98902b322d4454d70efaa62c3e7512d211e462618c8a61f76eb7fd7"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-left-raised-front-clear-canvas.png": {
+      "bytes": 20400,
+      "sha256": "35416e571040ee7d3840737147d3bc98e2decdad5ec84de442ce0c30e7c9dfac"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-left-raised-front-clear-page.png": {
+      "bytes": 74458,
+      "sha256": "c9782dadab2f88122780e39b6b5f642890cfd70dbb19a31712757fdd43473aee"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-rest-front-clear-canvas.png": {
+      "bytes": 19199,
+      "sha256": "0a38080c88c52c65fa1bd190138b74921d1d0d5babbca51382c264cea031c11a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-rest-front-clear-page.png": {
+      "bytes": 73294,
+      "sha256": "a4c52b788769690faa02fccbcb6d8ba7de47640c4fb8e6609385ae60ef79d9fe"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-right-raised-front-clear-canvas.png": {
+      "bytes": 20410,
+      "sha256": "5df6fe91fd5b4dfcd895193415e3889a0c62a40c3e955ee9295eca061be5bc06"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-right-raised-front-clear-page.png": {
+      "bytes": 74580,
+      "sha256": "d265459342e9ea3f13593458d9c3bf9704c04d469c3ece329100314c3e03f550"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-clear-canvas.png": {
+      "bytes": 20755,
+      "sha256": "30192bfc72c750ef62575ce019b1e4c804abeb4e513b81a01377823c4ca64cd0"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-clear-page.png": {
+      "bytes": 74912,
+      "sha256": "38a73e11b26278576d6e622f3ed99df99ba386f1a8393348e1ed2a4b95468545"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-front-canvas.png": {
+      "bytes": 20755,
+      "sha256": "30192bfc72c750ef62575ce019b1e4c804abeb4e513b81a01377823c4ca64cd0"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-front-page.png": {
+      "bytes": 75037,
+      "sha256": "ab13517e1650410eef1864b08b652e15c49045b2720e8b60445107816c433bb6"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-pixel-canvas.png": {
+      "bytes": 6623,
+      "sha256": "e9cabef998202a5b7a11cc0ce7fe4a33484fc43d8e5f6ca9fcfd106df186de76"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-pixel-page.png": {
+      "bytes": 62451,
+      "sha256": "f475f67b14b3923a0c42ff22bfed6521a14222be4fd2f6709702af93be0e5491"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-side-canvas.png": {
+      "bytes": 13083,
+      "sha256": "8436c8022081a6cd04d2abc9d4e54c4d6c05719e1ce91377f3033bd205f3d504"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-side-page.png": {
+      "bytes": 67384,
+      "sha256": "50e6ea4e7052a229b56fcd80f44cb657edce8e3491841c4598a6c4c278a562ae"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-three-quarter-canvas.png": {
+      "bytes": 20207,
+      "sha256": "620ac428e910e7c11794f7bfe81155f65616fda1ed3a8a453fae989f50e46d54"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/390-same-pose-three-quarter-page.png": {
+      "bytes": 74581,
+      "sha256": "009f9c059abc0f2abe3478378cbd1588c7d61d5f03d7aaf2186db27e5dd931ae"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-both-raised-front-clear-canvas.png": {
+      "bytes": 26500,
+      "sha256": "00cbb84be1e6f1532f8891aee2b0357593043350b5d2f03c50b2709ea9d1c8e4"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-both-raised-front-clear-page.png": {
+      "bytes": 86436,
+      "sha256": "91f29244328abbd435abaa6b34463ebb334c0667d7e7c378b44ee4122b072f67"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-left-raised-front-clear-canvas.png": {
+      "bytes": 25407,
+      "sha256": "6ca136741d2ae36902f6adc6bb2d8bec8698755c0e52e21a32559c401f6a7f3b"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-left-raised-front-clear-page.png": {
+      "bytes": 85511,
+      "sha256": "e4bf713d774c590498cf9d2b1d379cbb24725975d7a06c75ebeff6f157f300e9"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-rest-front-clear-canvas.png": {
+      "bytes": 23988,
+      "sha256": "5941ed7508f07c00420e1b209e14a70e4c4bf0f668ab07827733ffa6d87e1146"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-rest-front-clear-page.png": {
+      "bytes": 83963,
+      "sha256": "6415e6a3db5fd45bde103d5a3a7cfe2a2c8bf873b695961efab638a96707d697"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-right-raised-front-clear-canvas.png": {
+      "bytes": 25284,
+      "sha256": "07207a1dc2098291f45ae96e091449d046b89941f523a92a667a7ee333cd0c38"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-right-raised-front-clear-page.png": {
+      "bytes": 85623,
+      "sha256": "02fab30e3faedf3607d5f451ee19ab4c9811ba2f8a156e8afa999ff0895f26c0"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-clear-canvas.png": {
+      "bytes": 25808,
+      "sha256": "4f5b352caa9bbbff1a1dff0f2eac07e4886d5e6e2cbcc185d69a2e053e7f00a6"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-clear-page.png": {
+      "bytes": 86215,
+      "sha256": "fd51aab32e274aba429b79d620d8adfbf370f60ce08fddfef4dcefc06c5064b8"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-front-canvas.png": {
+      "bytes": 25808,
+      "sha256": "4f5b352caa9bbbff1a1dff0f2eac07e4886d5e6e2cbcc185d69a2e053e7f00a6"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-front-page.png": {
+      "bytes": 86345,
+      "sha256": "3ad9b8cc3e045b569556ca9fbf426f6f8580dd941dae734b9ebcc563e1333d7b"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-pixel-canvas.png": {
+      "bytes": 8470,
+      "sha256": "a10ea02db2165332af97d339c90c95134259f0f35687fae3c5693bcc0176af24"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-pixel-page.png": {
+      "bytes": 69347,
+      "sha256": "06fbb3b7760ee4274eabca4595c97306af600d80ca3d233659fae36113777d93"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-side-canvas.png": {
+      "bytes": 15948,
+      "sha256": "44eaca8847f099197529c10d3b2f9a48ce480d4e52c23524dec676049676a08b"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-side-page.png": {
+      "bytes": 75949,
+      "sha256": "c7df930f4d0054c4af0d3811cdfc32bb90a898d817265ace8836d730c87976a5"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-three-quarter-canvas.png": {
+      "bytes": 24881,
+      "sha256": "facba3e5f5659952b65396038c1782545aa7be5544ee69d64fd64976c2439450"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/820-same-pose-three-quarter-page.png": {
+      "bytes": 85642,
+      "sha256": "736090167f45d9b99f868571fc884af4d2492bfeebabc78c0aef9be124038dc2"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/actual-preset-clear.webm": {
+      "bytes": 711925,
+      "sha256": "a094f4c2698c127de923c47803acf35841d8bcc5019ab9eb204cbb59a5a8757c"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/page@ccacdfdd58e18320f2341416701ea256.webm": {
+      "bytes": 711925,
+      "sha256": "a094f4c2698c127de923c47803acf35841d8bcc5019ab9eb204cbb59a5a8757c"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/results.json": {
+      "bytes": 28559,
+      "sha256": "4f7a3cdce76cbbf97622c5668ccc67d2e34275f9d0314f24b4ede0eb2cc18f5c"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378139094/runner-source.mjs": {
+      "bytes": 13382,
+      "sha256": "8c3c8c56e267de3c758854ec7e950f6088721cf449e4613fd87e31d8b40c3faa"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-both-raised-front-clear-canvas.png": {
+      "bytes": 21135,
+      "sha256": "d499a6cff3ca714d2e8d1af78295ccdbcef90b0810dc1ff06bc231733882a75c"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-both-raised-front-clear-page.png": {
+      "bytes": 75300,
+      "sha256": "d11db8722d59b5c6c8cc91b5de5af1b499f7a87179cb3b0ac07243aae974ab1d"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-left-raised-front-clear-canvas.png": {
+      "bytes": 20217,
+      "sha256": "f355459f3ea6a26eb7d4b7b07443edba23357ae6b5baf92143bc543511f0640e"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-left-raised-front-clear-page.png": {
+      "bytes": 74332,
+      "sha256": "0832e0d067b9a5c4766f7f0c8834918c2ef9bf008485a2221339bd4774778e2c"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-rest-front-clear-canvas.png": {
+      "bytes": 18961,
+      "sha256": "37810665b9ba7dcb0189d1eccd26889fbdea937eb79e548f5e26f71865e7ede1"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-rest-front-clear-page.png": {
+      "bytes": 73118,
+      "sha256": "9398b557f53e3832541bb46a79b7e4979654b3dae5e83562de68088ee95f7736"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-right-raised-front-clear-canvas.png": {
+      "bytes": 20192,
+      "sha256": "0fc3b6ad91f3dc5b9fd959613060288a03b2fd16ccb7512af5f0131c64ebc692"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-right-raised-front-clear-page.png": {
+      "bytes": 74337,
+      "sha256": "28dce57f57d48cec49dd14cb7f0a2323230d65eb4eb456fd872ca9a55763dd37"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-clear-canvas.png": {
+      "bytes": 20326,
+      "sha256": "9fca6d25bce03cf9d96495aa33816c14b9ab2cb158f9de738a62f0dc8c9c5aed"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-clear-page.png": {
+      "bytes": 74406,
+      "sha256": "3be0953e15c45a4a456b28416cd9bedcc97def73d68abf0f7a21adc35dc1a0aa"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-front-canvas.png": {
+      "bytes": 20326,
+      "sha256": "9fca6d25bce03cf9d96495aa33816c14b9ab2cb158f9de738a62f0dc8c9c5aed"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-front-page.png": {
+      "bytes": 74538,
+      "sha256": "50eb93df923747161936734204f48d6e729130e6480faeb99551f6163a86dccb"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-pixel-canvas.png": {
+      "bytes": 6570,
+      "sha256": "af7ed52c7df121c82c5a88a560e66ac2b79a49362641eb1f9ceb8c894e46eeba"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-pixel-page.png": {
+      "bytes": 62405,
+      "sha256": "cbdeb8d2ba991ed07b1d452cc082916cc47eed679f9e7c87fbd1f909ca276e19"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-side-canvas.png": {
+      "bytes": 13339,
+      "sha256": "dfe287dc32102adc8fb6f791fe412980da5d225dffa336ccb3b4c3891b06162a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-side-page.png": {
+      "bytes": 67535,
+      "sha256": "b8c8bb6dd207da1ca2819ac3e400b4e6538d295b7c49750518781e384aa0f94d"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-three-quarter-canvas.png": {
+      "bytes": 20204,
+      "sha256": "c20378f2e8ce309487729c1b7917e577032fea7440ec4f313cc874b295374300"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/390-same-pose-three-quarter-page.png": {
+      "bytes": 74574,
+      "sha256": "b6f1dcc42e7af741d0340855e458b022f044bf5f550d1f0474b62f677d6ad3e2"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-both-raised-front-clear-canvas.png": {
+      "bytes": 26304,
+      "sha256": "b5c1256d4425c52769c3c3adee35df5e8148d84c60d6a3544108adb4d5652ff4"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-both-raised-front-clear-page.png": {
+      "bytes": 86583,
+      "sha256": "66c21a9759b996e6a8752d745e277bd2f92d4818bca14c02e9df16c6b9686555"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-left-raised-front-clear-canvas.png": {
+      "bytes": 25099,
+      "sha256": "1b800800e49bb5151753ec7409878e43f7244cc87945654d617e2cfb0fd00f6a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-left-raised-front-clear-page.png": {
+      "bytes": 85245,
+      "sha256": "d8cc20afb993ee024db6246f837d136dd264fff6e416aa4af696d21ea4b60fc0"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-rest-front-clear-canvas.png": {
+      "bytes": 23754,
+      "sha256": "ac3a8246861488b2b81cce24b7c68d912583fd770201d498cac12ff67c5fab55"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-rest-front-clear-page.png": {
+      "bytes": 83840,
+      "sha256": "85e5dfbe77df78923dd6a6a36f2b8fea289a2db78cbbc9a91522c6b55e2d4fd5"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-right-raised-front-clear-canvas.png": {
+      "bytes": 25339,
+      "sha256": "dc1ed9d2284f00089918b5aada69c33d256f3058345923c1589c7f0edbbb8f1a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-right-raised-front-clear-page.png": {
+      "bytes": 85630,
+      "sha256": "a2519c223f2f77bd6e733f836e423cc0d828cc15edc4becc7eece7bee5724fea"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-clear-canvas.png": {
+      "bytes": 25462,
+      "sha256": "98056da2d83fc291a2598e60e71a0dd5c905df61eb024c65c4a6c473bcdfb625"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-clear-page.png": {
+      "bytes": 85793,
+      "sha256": "4cd596198beb6ba858ff78726ec71f20735dd55d71dbe9213d145ef1f50e0d8c"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-front-canvas.png": {
+      "bytes": 25462,
+      "sha256": "98056da2d83fc291a2598e60e71a0dd5c905df61eb024c65c4a6c473bcdfb625"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-front-page.png": {
+      "bytes": 85964,
+      "sha256": "d37ee7cae4e208c48a6236a4dfff75e1cdc25403914f5ae9e5f0d3c2140243b3"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-pixel-canvas.png": {
+      "bytes": 8390,
+      "sha256": "15ba008f1781ec967754cb601b376c15981beae17128643d84a5af0a89727e09"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-pixel-page.png": {
+      "bytes": 69352,
+      "sha256": "5a8661f78dbac6d5683bfd8cc1634c8f51535e7e306b19917c504fa81e744570"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-side-canvas.png": {
+      "bytes": 16168,
+      "sha256": "6df0949e4d3e0926ea2c228c853226381a8fedc09a6855b00ddb0859af0f83d1"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-side-page.png": {
+      "bytes": 76130,
+      "sha256": "ec4dc80461afd3439600938439a3f014ecdc505bd04619cb8634d94026ab6b14"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-three-quarter-canvas.png": {
+      "bytes": 24944,
+      "sha256": "25c81543f68c304658eebaac7e235f4866db40ea76ff54b8389ecd5177dfcf56"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/820-same-pose-three-quarter-page.png": {
+      "bytes": 85621,
+      "sha256": "5973e92bf5143e5bb785e2e51ac6d78b2b795113d0a3aee92ae55ed2fff9425e"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/results.json": {
+      "bytes": 28084,
+      "sha256": "cc4a7a34a66de32abd8ef4b1afffaa5913ad3510482384e46f38e05074d7a23d"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/runner-source.mjs": {
+      "bytes": 13382,
+      "sha256": "8c3c8c56e267de3c758854ec7e950f6088721cf449e4613fd87e31d8b40c3faa"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-both-raised-front-clear-canvas.png": {
+      "bytes": 26304,
+      "sha256": "b5c1256d4425c52769c3c3adee35df5e8148d84c60d6a3544108adb4d5652ff4"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-both-raised-front-clear-page.png": {
+      "bytes": 86583,
+      "sha256": "66c21a9759b996e6a8752d745e277bd2f92d4818bca14c02e9df16c6b9686555"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-left-raised-front-clear-canvas.png": {
+      "bytes": 25099,
+      "sha256": "1b800800e49bb5151753ec7409878e43f7244cc87945654d617e2cfb0fd00f6a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-left-raised-front-clear-page.png": {
+      "bytes": 85245,
+      "sha256": "d8cc20afb993ee024db6246f837d136dd264fff6e416aa4af696d21ea4b60fc0"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-rest-front-clear-canvas.png": {
+      "bytes": 23754,
+      "sha256": "ac3a8246861488b2b81cce24b7c68d912583fd770201d498cac12ff67c5fab55"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-rest-front-clear-page.png": {
+      "bytes": 83840,
+      "sha256": "85e5dfbe77df78923dd6a6a36f2b8fea289a2db78cbbc9a91522c6b55e2d4fd5"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-right-raised-front-clear-canvas.png": {
+      "bytes": 25339,
+      "sha256": "dc1ed9d2284f00089918b5aada69c33d256f3058345923c1589c7f0edbbb8f1a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-right-raised-front-clear-page.png": {
+      "bytes": 85630,
+      "sha256": "a2519c223f2f77bd6e733f836e423cc0d828cc15edc4becc7eece7bee5724fea"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-clear-canvas.png": {
+      "bytes": 25462,
+      "sha256": "98056da2d83fc291a2598e60e71a0dd5c905df61eb024c65c4a6c473bcdfb625"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-clear-page.png": {
+      "bytes": 85793,
+      "sha256": "4cd596198beb6ba858ff78726ec71f20735dd55d71dbe9213d145ef1f50e0d8c"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-front-canvas.png": {
+      "bytes": 25462,
+      "sha256": "98056da2d83fc291a2598e60e71a0dd5c905df61eb024c65c4a6c473bcdfb625"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-front-page.png": {
+      "bytes": 85918,
+      "sha256": "3e4b2c0ec1ce96956fb4c32f4c7347a00766d3ac06e0d1a4c9c08cb896695e58"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-pixel-canvas.png": {
+      "bytes": 8390,
+      "sha256": "15ba008f1781ec967754cb601b376c15981beae17128643d84a5af0a89727e09"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-pixel-page.png": {
+      "bytes": 69391,
+      "sha256": "8ac875b123ed7bd93c5c94214eaf95dfd33707652cf98f94eddc6e2bbbfd984d"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-side-canvas.png": {
+      "bytes": 16168,
+      "sha256": "6df0949e4d3e0926ea2c228c853226381a8fedc09a6855b00ddb0859af0f83d1"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-side-page.png": {
+      "bytes": 76130,
+      "sha256": "ec4dc80461afd3439600938439a3f014ecdc505bd04619cb8634d94026ab6b14"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-three-quarter-canvas.png": {
+      "bytes": 24944,
+      "sha256": "25c81543f68c304658eebaac7e235f4866db40ea76ff54b8389ecd5177dfcf56"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/820-same-pose-three-quarter-page.png": {
+      "bytes": 85560,
+      "sha256": "25744fd7aab0f89626dc60924d0e9890a485bb36cf79c01ccccc7d8f0c0d47d4"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/actual-preset-clear.webm": {
+      "bytes": 671510,
+      "sha256": "9a605537fe90954d28c44e9c9aaaefabd7634051492bcbd31091eeb636550666"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/page@d72ab6db191cbbb1037e79617de35920.webm": {
+      "bytes": 671510,
+      "sha256": "9a605537fe90954d28c44e9c9aaaefabd7634051492bcbd31091eeb636550666"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/results.json": {
+      "bytes": 15177,
+      "sha256": "3f74eb14652b55bd8edabc078650f6abfa47f14eb183bc30af0c6cc434564c5a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/runner-source.mjs": {
+      "bytes": 13382,
+      "sha256": "8c3c8c56e267de3c758854ec7e950f6088721cf449e4613fd87e31d8b40c3faa"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/result.json": {
+      "bytes": 202,
+      "sha256": "efbce1b22f39aa05eb015452d129430df1c23d1ccefe5c945decd443eaba1642"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/typecheck.json": {
+      "bytes": 49,
+      "sha256": "498cb7c1016153ed3ca49e0301270b01d83ac50735444be097bf125a26bd1ecb"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-run-1791378522712.log": {
+      "bytes": 2135,
+      "sha256": "029a1ea394744e3b6d19132ff38c0bf3f3b6ce1a58af3d8a1f4f063e59302be9"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/rig-1791378269799/results.json": {
+      "bytes": 7338,
+      "sha256": "028f1e64d17864a056ffa6c4988329c4f53cfc26fbcac3397b57a3b975dacd05"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/rig-1791378269799/runner-source.mjs": {
+      "bytes": 12538,
+      "sha256": "b1bd2543a00aba26aad6589757864d26a61c124d398af5aadb9181ab29aa02d5"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/rig-1791378365603/results.json": {
+      "bytes": 7196,
+      "sha256": "79ed38e6e5de5760b45f60f28a3e2c712071eb95515a138b64e4c02f156c0276"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/rig-1791378365603/runner-source.mjs": {
+      "bytes": 12538,
+      "sha256": "b1bd2543a00aba26aad6589757864d26a61c124d398af5aadb9181ab29aa02d5"
+    }
+  },
+  "build": {
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/assets/App-BdBhOLD4.js": {
+      "bytes": 176054,
+      "sha256": "b555b830d169889c9867acaed780b117ab8edfbfd88d454990ba9bf2d75ad366"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/assets/companion-CompanionLab-DuCyKSWx.js": {
+      "bytes": 566848,
+      "sha256": "a77d94406fdf8896102e844cc033de0bfb3d1b0a09cb60c7bd48094c15301e29"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/assets/companion-MirrorSession-UluEKIBi.js": {
+      "bytes": 12367,
+      "sha256": "70ed1a9d5f64a36eef2928909c9e13775fff64067f42f7ffe0995676424d2c56"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/assets/CompanionLab-C3ZH-Ly4.css": {
+      "bytes": 6804,
+      "sha256": "0912f7f9084365c2c3c513a0a8e35c42f215768d3009f7cd8eeb08aecce1ce46"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/assets/index-DLK54Em4.css": {
+      "bytes": 33439,
+      "sha256": "489f1d1279176ba15b160d57502639f3742e8e0b8f10b45c5d08f8d003b929cb"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/assets/index-DPUW1OlR.js": {
+      "bytes": 192873,
+      "sha256": "1959218df13b599706b1976e6f923e2d8746055e8630e501d1330f39fc3acaf1"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/MEDIAPIPE-LICENSE.txt": {
+      "bytes": 12331,
+      "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/pose-worker.js": {
+      "bytes": 5233,
+      "sha256": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/pose_landmarker_lite.task": {
+      "bytes": 5777746,
+      "sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/THREE-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/vision_bundle.js": {
+      "bytes": 156161,
+      "sha256": "022cbbfcdb74bae18e4bbc722e429e046d5fdd35f6183f1359c56b652b8b87f7"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/wasm/vision_wasm_internal.js": {
+      "bytes": 335393,
+      "sha256": "7c652617b5bef832f42878ce8c5f752b0724bca6054e4bc1013a37d4b1949723"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/wasm/vision_wasm_internal.wasm": {
+      "bytes": 12997248,
+      "sha256": "782eda3ec1f414fdb4f1d66a8b59093eb4d5ab437e06117796abf05962d68eef"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/wasm/vision_wasm_module_internal.js": {
+      "bytes": 335431,
+      "sha256": "70eff3956521b7de058d7173a4935c95e4a223c26ea624b9f5a936d3a043dcb0"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/wasm/vision_wasm_module_internal.wasm": {
+      "bytes": 12997272,
+      "sha256": "ee03b14a878e6c3c053a1bfa62e166dc45244be54dc0bbe61c578f710b771f6a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/wasm/vision_wasm_nosimd_internal.js": {
+      "bytes": 335196,
+      "sha256": "510fc70a170eb8b46767a7abab2af89a7a8341fa5b3ebfb8a5de41a79b7fa9df"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/companion-assets/wasm/vision_wasm_nosimd_internal.wasm": {
+      "bytes": 12168316,
+      "sha256": "b802041d105876865d6a0806f2ff7c4419a7f1b80bc01340fe36e759c2030011"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/favicon.svg": {
+      "bytes": 9522,
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/icons.svg": {
+      "bytes": 5031,
+      "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/index.html": {
+      "bytes": 627,
+      "sha256": "8be064c3e6d04619639c7e00bd2e184f252f59accbd87a97c05ab2f58c7cf592"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/manifest.webmanifest": {
+      "bytes": 443,
+      "sha256": "c07e491eaa3bd2cd85037aa38008527e850ce573d5baeb48f36305b7345d1826"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/pwa-icon.svg": {
+      "bytes": 9522,
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/registerSW.js": {
+      "bytes": 134,
+      "sha256": "9742073ef7fc795e7673d98f272992843298426a0ffd8cb3507784df5143608b"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/sw.js": {
+      "bytes": 1459,
+      "sha256": "4b95fdcbe81fe847eb0747aae364fc198c2cc70634eccc61b42d0e408f53f500"
+    },
+    "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/app/workbox-9c191d2f.js": {
+      "bytes": 15112,
+      "sha256": "04b086f1b2f4215ee4b659a7bc9c76162894abdb43fa876247bc7c0bd6fd1c37"
+    }
+  },
+  "documents": {
+    "docs/virtual-companion-v4/cartoon-revision/actual-preset-clear.webm": {
+      "bytes": 671510,
+      "sha256": "9a605537fe90954d28c44e9c9aaaefabd7634051492bcbd31091eeb636550666"
+    },
+    "docs/virtual-companion-v4/cartoon-revision/compare-clear.png": {
+      "bytes": 25462,
+      "sha256": "98056da2d83fc291a2598e60e71a0dd5c905df61eb024c65c4a6c473bcdfb625"
+    },
+    "docs/virtual-companion-v4/cartoon-revision/compare-pixel.png": {
+      "bytes": 8390,
+      "sha256": "15ba008f1781ec967754cb601b376c15981beae17128643d84a5af0a89727e09"
+    },
+    "docs/virtual-companion-v4/cartoon-revision/DELIVERY.md": {
+      "bytes": 4392,
+      "sha256": "13f2d8084252a8800f7afa66bf6d278fedb38b69d9126f66c5d199863426dce3"
+    },
+    "docs/virtual-companion-v4/cartoon-revision/user-reference.png": {
+      "bytes": 1834026,
+      "sha256": "b31dbee59600beac102a0c822179e5489097bd27071dc8b7031ff1707ae7c6bd"
+    },
+    "docs/virtual-companion-v4/cartoon-revision/wave-clear.png": {
+      "bytes": 25339,
+      "sha256": "dc1ed9d2284f00089918b5aada69c33d256f3058345923c1589c7f0edbbb8f1a"
+    },
+    "docs/PROJECT_CONTEXT.md": {
+      "bytes": 35769,
+      "sha256": "4f52f3a1c26e5e58910ca739edf72987ed3e3f72d51c574d023e514effa93d8b"
+    },
+    "docs/DECISIONS.md": {
+      "bytes": 32688,
+      "sha256": "8403106064962be8e3cd3c5b93c2e3e5de1e92766ce16ecf52ecfae1c8c9cd1d"
+    },
+    "docs/CHANGELOG.md": {
+      "bytes": 30778,
+      "sha256": "23dcb40b8425c819bff0f6b6ed533490debbf02ccabc4d5b8fed2ba8057b58b0"
+    }
+  },
+  "validation": {
+    "geometry": {
+      "path": "evals/virtual-companion/v4-cartoon-revision/rig-1791378365603/results.json",
+      "passed": 9,
+      "total": 9
+    },
+    "browser": {
+      "path": "evals/virtual-companion/v4-cartoon-revision/browser-1791378370777/results.json",
+      "widths": [
+        820,
+        390
+      ],
+      "passedPerWidth": 8
+    },
+    "recording": "evals/virtual-companion/v4-cartoon-revision/browser-1791378524081/results.json",
+    "typecheckAndBuild": "evals/virtual-companion/v4-cartoon-revision/build-1791378523158/result.json",
+    "scopedLint": {
+      "command": "oxlint src/companion scripts/check-companion-cartoon-v4.mjs scripts/check-companion-cartoon-rig-v4.mjs scripts/build-companion-cartoon-v4.mjs",
+      "exitCode": 0
+    },
+    "missingLinks": []
+  },
+  "limits": [
+    "Appearance is subject to user review",
+    "No real camera, human mirror or physical phone test",
+    "No new 60-second performance claim",
+    "No training-storage change or cloud model call"
+  ]
+}

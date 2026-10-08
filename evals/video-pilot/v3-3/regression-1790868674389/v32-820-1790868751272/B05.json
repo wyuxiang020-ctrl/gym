@@ -1,0 +1,81 @@
+{
+  "id": "B05",
+  "name": "Confirming missing load does not silently complete a future plan",
+  "version": "workout-save-v3.2",
+  "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+  "at": "2026-10-01T15:32:36.415Z",
+  "viewport": 820,
+  "modelCalls": 0,
+  "costUsd": 0,
+  "pass": true,
+  "ms": 335,
+  "dataAtEnd": {
+    "profile": {
+      "gender": "male",
+      "birthYear": 1997,
+      "height": 178,
+      "experience": "intermediate",
+      "goal": "bulk",
+      "targetWeight": 75,
+      "targetBodyFat": 15,
+      "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+      "trainingDaysPerWeek": 4,
+      "activityLevel": 3,
+      "waterTargetMl": 2400,
+      "checkInMode": "workout_and_meal"
+    },
+    "measurements": [
+      {
+        "date": "2026-07-05",
+        "weight": 69.8,
+        "bodyFat": 17.2,
+        "waist": 78,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-08-02",
+        "weight": 70.6,
+        "bodyFat": 16.8,
+        "waist": 77.5,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-09-01",
+        "weight": 71.4,
+        "bodyFat": 16.4,
+        "waist": 77,
+        "note": "合成演示数据"
+      }
+    ],
+    "plans": [],
+    "dayLogs": {},
+    "exerciseVideos": {},
+    "lastFedDate": "2026-09-05"
+  },
+  "draftAtEnd": {
+    "text": "今天卧推完成一组8次，重量忘了。",
+    "preview": {
+      "strength": [
+        {
+          "name": "卧推",
+          "sets": [
+            {
+              "weight": null,
+              "weightState": "unknown",
+              "reps": 8,
+              "done": false,
+              "missingWeightConfirmed": true
+            }
+          ],
+          "note": "合成测试，不是真实训练数据",
+          "uncertain": [
+            "重量未提供"
+          ]
+        }
+      ],
+      "cardio": []
+    }
+  },
+  "pageErrors": [],
+  "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\v32-820-1790868751272\\page@0513905e87f88b4baf0fae8f5de4bf11.webm"
+}

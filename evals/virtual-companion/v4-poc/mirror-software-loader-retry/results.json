@@ -1,0 +1,7 @@
+{
+  "evidenceType": "TEST_HARNESS_LOADING",
+  "error": "ERR_MODULE_NOT_FOUND: mapping imported before test loader hook registered",
+  "repair": "Changed test imports to await import after loader registration",
+  "pass": false,
+  "productFailure": false
+}

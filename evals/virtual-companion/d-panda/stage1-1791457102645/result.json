@@ -1,0 +1,343 @@
+{
+  "evidence": "Isolated desktop Edge. Synthetic landmarks / blank generated streams only. No real camera, microphone, people or phone.",
+  "targets": {
+    "renderMedianFps": 30,
+    "poseMedianHz": 15,
+    "releaseMs": 1000,
+    "performanceWindowMs": 60000
+  },
+  "checks": [
+    {
+      "name": "Seven design PNGs and four textures retain source PNG bytes",
+      "pass": true,
+      "data": {
+        "originals": 7,
+        "textures": 4
+      }
+    },
+    {
+      "name": "Independent sides, closed cycle, bounded continuous arm motion",
+      "pass": true,
+      "data": {
+        "duration": 2400,
+        "maxStep": 8.686044826031061
+      }
+    },
+    {
+      "name": "Visible arm mesh does not fold across accepted shoulder/elbow range",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: right folded mesh: -11.216205473821017\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:56:10\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:14:46)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:38:1"
+    },
+    {
+      "name": "Preset sides / pause / seek / reset / clear-pixel same pose / source / mobile",
+      "pass": true,
+      "data": {
+        "audit": {
+          "calls": [],
+          "tracks": 0,
+          "workers": 0,
+          "writes": 0,
+          "reads": 0,
+          "frames": 0
+        }
+      }
+    },
+    {
+      "name": "Camera failure NotAllowedError",
+      "pass": true,
+      "data": {
+        "audit": {
+          "calls": [
+            {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            }
+          ],
+          "tracks": 0,
+          "workers": 0,
+          "writes": 0,
+          "reads": 0,
+          "frames": 0
+        }
+      }
+    },
+    {
+      "name": "Camera failure NotFoundError",
+      "pass": true,
+      "data": {
+        "audit": {
+          "calls": [
+            {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            }
+          ],
+          "tracks": 0,
+          "workers": 0,
+          "writes": 0,
+          "reads": 0,
+          "frames": 0
+        }
+      }
+    },
+    {
+      "name": "Camera failure NotReadableError",
+      "pass": true,
+      "data": {
+        "audit": {
+          "calls": [
+            {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            }
+          ],
+          "tracks": 0,
+          "workers": 0,
+          "writes": 0,
+          "reads": 0,
+          "frames": 0
+        }
+      }
+    },
+    {
+      "name": "Delayed permission released after switching to presets",
+      "pass": true,
+      "data": {
+        "audit": {
+          "calls": [
+            {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            }
+          ],
+          "tracks": 0,
+          "workers": 0,
+          "writes": 0,
+          "reads": 0,
+          "frames": 0
+        }
+      }
+    },
+    {
+      "name": "Initialization failure stops generated track",
+      "pass": true,
+      "data": {
+        "audit": {
+          "calls": [
+            {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            }
+          ],
+          "tracks": 0,
+          "workers": 0,
+          "writes": 0,
+          "reads": 0,
+          "frames": 0
+        }
+      }
+    },
+    {
+      "name": "Fixed landmarks drive independent paws / partial / loss / hidden / restart / switch",
+      "pass": true,
+      "data": {
+        "left": {
+          "left": {
+            "shoulder": 0.10000000000000027,
+            "elbow": 0.14999999866400573
+          },
+          "right": {
+            "shoulder": 2.249999788070415,
+            "elbow": 0.14999999866400635
+          }
+        },
+        "right": {
+          "left": {
+            "shoulder": 2.2499999605852263,
+            "elbow": 0.15000000000000033
+          },
+          "right": {
+            "shoulder": 0.10000003941476031,
+            "elbow": 0.14999999999999927
+          }
+        },
+        "releaseMs": 6,
+        "audit": {
+          "calls": [
+            {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            },
+            {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            }
+          ],
+          "tracks": 0,
+          "workers": 0,
+          "writes": 0,
+          "reads": 0,
+          "frames": 116
+        }
+      }
+    },
+    {
+      "name": "Renderer loss stops camera and recovery uses new canvases",
+      "pass": true,
+      "data": {
+        "audit": {
+          "calls": [
+            {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            }
+          ],
+          "tracks": 0,
+          "workers": 0,
+          "writes": 0,
+          "reads": 0,
+          "frames": 2
+        }
+      }
+    },
+    {
+      "name": "Actual official model runs on synthetic blank frames only",
+      "pass": true,
+      "data": {
+        "text": "画面帧率（近期中位数）\n238 FPS\n帧间隔 p95 / 绘制提交 p50\n4.3 / 1.4 ms\n识别频率\n0.0 Hz\n推理 p50 / p95\n15.2 / 17.4 ms\n资源加载 / 模型初始化\n47 / 167 ms\n活动相机轨道\n1",
+        "realHuman": "NOT_TESTED",
+        "actualPoseHz": "No person in blank input; human pose Hz NOT_MEASURED",
+        "audit": {
+          "calls": [
+            {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            }
+          ],
+          "tracks": 0,
+          "workers": 0,
+          "writes": 0,
+          "reads": 0,
+          "frames": 0
+        }
+      }
+    }
+  ],
+  "sourceHashes": {
+    "src/companion/OriginalInteraction.tsx": "e56d72c7d54b13a5ddfdaf1cd4774dfa0b3e1cc87a39322ccedd4b4ddd4dfc43",
+    "src/companion/interactionMotion.ts": "d0586fc7c572f3d63a2c2a06548cf3d32ca2eee6ac3dca2e9fe4410628c8d510",
+    "src/companion/OriginalIdleRenderer.ts": "6f309f2a4cf8e08e6a5e40ff9a11a5353301b49fcf32e12fcfe7db0cb9ebc686",
+    "src/companion/mirror/MirrorSession.ts": "fc7eb4a4eb40dcf1d64dec3fbf9b666d29366fc93e0fc5c9348e3519e46c945a",
+    "src/companion/mirror/mapping.ts": "80ab014dc175757d4ffca5a5291effac1abcce9b812a490d9e8b2c52392b3cc2",
+    "public/companion-assets/pose-worker.js": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+  },
+  "browser": "154.0.4258.62"
+}

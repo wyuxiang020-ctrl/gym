@@ -1,0 +1,810 @@
+{
+  "version": "teaching-player-v3.3",
+  "startedAt": "2026-10-07T12:09:27.987Z",
+  "base": "http://127.0.0.1:4175",
+  "viewportWidth": 820,
+  "evidenceType": "automated browser software tests; synthetic profile; fixed YouTube API events; fault injection; NO real video playback, model calls or human participants",
+  "timing": "ms is machine wall-clock duration; clockMs in timeout cases is an explicitly advanced Playwright virtual clock, not real network latency or user task time",
+  "modelCalls": 0,
+  "modelCostUsd": 0,
+  "infrastructureCostUsd": null,
+  "sourceHashes": {
+    "src/components/workout/TeachingVideoPlayer.tsx": "053c339ca890ae60726a2b70db08b4845a3558194bc965b45e4c0617c8b635d1",
+    "src/components/workout/ExerciseDetailSheet.tsx": "828e0199ff4595bdcce35f83b5939e9db61fc4273f12e5d5c4e8fb9aba222950",
+    "src/lib/teachingVideos.ts": "73962d8fe9855bf76404af9ef01b16ca2e62b5ad7403d9c1769f9e186f2610be",
+    "scripts/check-teaching-player-v33.mjs": "5218febb30545051db02582c35da3460aa8871eb410acb085cf073d3e9ad5a7e"
+  },
+  "results": [
+    {
+      "id": "P01",
+      "name": "No YouTube or media requests before explicit loading; source remains accessible",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:28.801Z",
+      "pass": true,
+      "sourceUrl": "https://www.nasm.org/resource-center/exercise-library/barbell-bench-press",
+      "ms": 1423,
+      "finalState": "idle",
+      "networkRequests": [],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": null,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P01.png"
+    },
+    {
+      "id": "P02",
+      "name": "Consent loads private embed; iframe load/ready is not playback; state events are distinct",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:30.427Z",
+      "pass": true,
+      "ms": 637,
+      "finalState": "ready",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:31.018Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:31.030Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 0,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 1
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 2
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 5
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P02.png"
+    },
+    {
+      "id": "P03",
+      "name": "Cancel API loading; late API callback cannot resurrect iframe; explicit retry works",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:31.270Z",
+      "pass": true,
+      "ms": 654,
+      "finalState": "ready",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:31.862Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:31.917Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 0,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P03.png"
+    },
+    {
+      "id": "P04",
+      "name": "API initialization has a 15000ms total deadline; late callback stays inert",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:32.132Z",
+      "pass": true,
+      "clockMs": 15001,
+      "ms": 634,
+      "finalState": "error",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:32.716Z",
+          "kind": "script"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 0,
+        "destroyed": 0,
+        "calls": []
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P04.png"
+    },
+    {
+      "id": "P05",
+      "name": "Iframe load without API ready does not escape the shared initialization deadline",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:32.964Z",
+      "pass": true,
+      "clockMs": 15001,
+      "ms": 630,
+      "finalState": "error",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:33.549Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:33.559Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 1,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "destroy"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 1
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P05.png"
+    },
+    {
+      "id": "P06",
+      "name": "Repeated buffering does not reset 15000ms deadline; error preserves source and return",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:33.801Z",
+      "pass": true,
+      "clockMs": 15001,
+      "ms": 651,
+      "finalState": "error",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:34.386Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:34.397Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 1,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 1
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 3
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 3
+          },
+          {
+            "type": "destroy"
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P06.png"
+    },
+    {
+      "id": "P07",
+      "name": "Platform error 100 is explained and does not discard context",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:34.642Z",
+      "pass": true,
+      "errorCode": 100,
+      "ms": 631,
+      "finalState": "playing",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:35.220Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:35.230Z",
+          "kind": "document"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:35.262Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 2,
+        "destroyed": 2,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onError",
+            "data": 100
+          },
+          {
+            "type": "destroy"
+          },
+          {
+            "type": "destroy"
+          },
+          {
+            "type": "construct",
+            "index": 1
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 1
+          },
+          {
+            "type": "event",
+            "index": 1,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 1,
+            "event": "onStateChange",
+            "data": 1
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P07.png"
+    },
+    {
+      "id": "P08",
+      "name": "Platform error 101 is explained and does not discard context",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:35.474Z",
+      "pass": true,
+      "errorCode": 101,
+      "ms": 608,
+      "finalState": "error",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:36.056Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:36.065Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 1,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onError",
+            "data": 101
+          },
+          {
+            "type": "destroy"
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P08.png"
+    },
+    {
+      "id": "P09",
+      "name": "Platform error 150 is explained and does not discard context",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:36.288Z",
+      "pass": true,
+      "errorCode": 150,
+      "ms": 600,
+      "finalState": "error",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:36.862Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:36.873Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 1,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onError",
+            "data": 150
+          },
+          {
+            "type": "destroy"
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P09.png"
+    },
+    {
+      "id": "P10",
+      "name": "Platform error 153 is explained and does not discard context",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:37.092Z",
+      "pass": true,
+      "errorCode": 153,
+      "ms": 597,
+      "finalState": "error",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:37.666Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:37.675Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 1,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onError",
+            "data": 153
+          },
+          {
+            "type": "destroy"
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P10.png"
+    },
+    {
+      "id": "P11",
+      "name": "Closing loaded player destroys iframe and ignores late ready/playback events",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:37.889Z",
+      "pass": true,
+      "ms": 621,
+      "finalState": "cancelled",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:38.469Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:38.480Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 2,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 1
+          },
+          {
+            "type": "destroy"
+          },
+          {
+            "type": "destroy"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 1
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P11.png"
+    },
+    {
+      "id": "P12",
+      "name": "Return unmounts the player; reopening needs fresh consent and retains stored data",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:38.717Z",
+      "pass": true,
+      "requestCountAfterReopen": 2,
+      "ms": 630,
+      "finalState": "idle",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:39.291Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:39.302Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 2,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "destroy"
+          },
+          {
+            "type": "destroy"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onStateChange",
+            "data": 1
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P12.png"
+    },
+    {
+      "id": "P13",
+      "name": "API network failure is visible; manual retry loads a fresh request",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:39.541Z",
+      "pass": true,
+      "ms": 650,
+      "finalState": "ready",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:40.123Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:40.179Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:40.187Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 0,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P13.png"
+    },
+    {
+      "id": "P14",
+      "name": "Autoplay-blocked event invites native play and is not labelled playback",
+      "kind": "fixed-response browser test",
+      "attempt": 1,
+      "at": "2026-10-07T12:09:40.399Z",
+      "pass": true,
+      "ms": 595,
+      "finalState": "ready",
+      "networkRequests": [
+        {
+          "url": "https://www.youtube.com/iframe_api",
+          "at": "2026-10-07T12:09:40.974Z",
+          "kind": "script"
+        },
+        {
+          "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4175&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+          "at": "2026-10-07T12:09:40.985Z",
+          "kind": "document"
+        }
+      ],
+      "existingPageRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "kind": "existing page font stylesheet",
+          "action": "blocked in isolated test"
+        }
+      ],
+      "blockedUnexpectedRequests": [],
+      "pageErrors": [],
+      "replay": {
+        "created": 1,
+        "destroyed": 0,
+        "calls": [
+          {
+            "type": "construct",
+            "index": 0
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onReady"
+          },
+          {
+            "type": "event",
+            "index": 0,
+            "event": "onAutoplayBlocked"
+          }
+        ]
+      },
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791374903584/player-820/P14.png"
+    }
+  ]
+}

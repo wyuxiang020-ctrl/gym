@@ -1,0 +1,864 @@
+{
+  "version": "save-v3",
+  "runId": "regression-1790777583385",
+  "startedAt": "2026-09-30T14:13:03.385Z",
+  "suite": "regression",
+  "kind": "real model; synthetic input, NOT human research",
+  "expected": 20,
+  "retries": 0,
+  "sourceBefore": {
+    "api/_lib/demoSafety.ts": "6a02434d9bd29026edca5cddb2cdda6627965a51785c26d0713863128cc5f3cc",
+    "api/_lib/openai.ts": "afbdfcf532005d2776a07a0beb5063cbe5affcd2622e4aadbae25b490d7b230b",
+    "api/_lib/request.ts": "f0598e78d1305ca006048eed98e561007754f5d9ebc9edaaefa7667502f842f8",
+    "api/_lib/validate.ts": "5eea5484d493f8ec812a9605990ff28367637dcf98b30245d03f2bdadc096396",
+    "api/analyze-photo.ts": "219763da794da1287e21daf66f109df9c5f6e81a9b403889059ff6283711752f",
+    "api/parse-meal.ts": "ca1da0bad68b575abe35b8318c8ebd844a953d5362704f5c461fab018aeb53d2",
+    "api/parse-workout.ts": "f5e8174405ee89d2396b16d000242680bf6412c02b7cf7dd4f73677e18a2f027",
+    "api/recalc-meal.ts": "0ed51b504111b5e8e382e4fcb0da40de68ef8dcf06007f49da7154c39af87180",
+    "src/App.tsx": "2a1328b9686816b56158505d25045521e4666eebbbaa5201b7e8924670bd1dbc",
+    "src/components/AiBadge.tsx": "0e98e8d69b713e7468316633df33fd02e4fa3e94559bee294eed500317690747",
+    "src/components/BodyTab.tsx": "bd0a1c5f8f919fdfa32abfe80d5c24a274640799fd7b471e488b09009248d616",
+    "src/components/BottomTabBar.tsx": "7a86662e30dd7c6678aaefcf851d1413d3ebe06bd631617907b3327f301d5b1f",
+    "src/components/DemoAccessControl.tsx": "2f5de5367a3f6b24ae596605e2ac6af31fb09b99a26ec20acb3c4914e63a640d",
+    "src/components/MealTab.tsx": "1cc72bc8164081d8865edb9706d9e2ec51314a6caf949b9ba7adb8c3eb85b67b",
+    "src/components/MeasurementChart.tsx": "1e7b1c7d0b963678f79d5305df321bcd2429e98603ee97cf9ead779dd26d1660",
+    "src/components/MeasurementSection.tsx": "ef9f7c37215030e3175e53a4227b5e8d987162568967285f2f64b70398266914",
+    "src/components/MetricsPanel.tsx": "3d20b06bac4f64aededdd94b587815523a7a0e7e65c3d66d3fd03a4f52bf0ddb",
+    "src/components/PlanEditor.tsx": "08713cec1f22efae3a3b100400ada13f6abe791fb5e16e970ccc6bd6e4967bd6",
+    "src/components/PlanSection.tsx": "d4e21202be4fcb7db1fedda4af8d44f033abf26956dbbe7e4733ee756e31aedb",
+    "src/components/ProfileForm.tsx": "57d4c4b6436ef51dda027ca38e57413f606006ecb4ccbd2210c8b8892362f6be",
+    "src/components/RecordsTab.tsx": "0dcf77093ecd8d30462083143328ccc195478aa7dea45ae7da94179a4e14e047",
+    "src/components/WaterCard.tsx": "644378b5017a2cef127a500deaa24b7119af64f2b7c161475c0bc7a04560e32b",
+    "src/components/WaterSection.tsx": "531ed92827cba1189d964fda4ee97048c7c11a285db8b8d0ec4767f8a00d5eac",
+    "src/components/WorkoutTab.tsx": "98b56092b39589e6e7c1d3f62aca14798fd72a85ca73db6c75889a1ae5e81097",
+    "src/components/checkin/CheckInButton.tsx": "1eab5e39559d1c5328f84375f3d4f53e905403ad16864b1f1fa8eb358ac8748d",
+    "src/components/checkin/MonthHeatmap.tsx": "d02e85629a6e16d8d122741aa29e2bcaa81ff1265eac5a303e6527fcc1c17209",
+    "src/components/checkin/PetCard.tsx": "bf8af3bf78f68720d33fcc45c47efe8869c9c796ed70349f7814943701291a94",
+    "src/components/checkin/StreakCard.tsx": "ddb22ad535a09526eee41e5b2c60e685809b2efc995bab0a39862a6bac2d41e8",
+    "src/components/checkin/TodayTab.tsx": "8ba5d976a46f318ea931c40f9f8977b6533ee3e932299144f2a180d0d289f760",
+    "src/components/icons/FlameIcon.tsx": "75e50440585222877d6fc2ca0f3b816c62d7530fd95f28cbe167ca1df86f7491",
+    "src/components/icons/PetMascot.tsx": "bbf67b9d5460e20fe1df98121d8a789ff37c0151d35d9f8f555d208820d3a8dd",
+    "src/components/icons/TabIcons.tsx": "59d39dd01a82af08e7533f76aa566c3b920065f6526ca32c3364344c0d9ef64b",
+    "src/components/meal/DailyTargets.tsx": "54e798cdb79022c73167e8bece2a30b858a71084198120980358276a8e030d92",
+    "src/components/meal/FoodItemsEditor.tsx": "b385bc40432fbf534e920f51c56086409819d68c925812704cbaa96b68c52b56",
+    "src/components/meal/MealDaySection.tsx": "6857dfb88686020217cd38721a839cee0f412fb1d299788d8f377e3b2a290223",
+    "src/components/meal/MealSection.tsx": "12869ce01bff31e4086ecb7a10913382dc8629ce7cb51f51f75b269856f7b468",
+    "src/components/meal/RecipeBuilder.tsx": "b65ee6e79df3b3b5f5e0e213ffe444f3f63c8e2092ef118666ddf86f6a3b366f",
+    "src/components/workout/CardioLogger.tsx": "22bf6479bd15d92af8ced83d9dcc250f9ecb03ab4360bcf842bd356db6b626d7",
+    "src/components/workout/ExerciseDetailSheet.tsx": "36545b1c09f4594da9fbf02da93297407d1b85ab6fa703fec4cb44e2ee9b5bd7",
+    "src/components/workout/ExerciseLibraryTab.tsx": "3b563cccc9260cbd0cd043a4cae42415ed23df11182c739d94d805d5237d78cf",
+    "src/components/workout/ExercisePicker.tsx": "497c1085476e24fe42782b74116eabc674c4f767511156ae77eacc618031fc71",
+    "src/components/workout/ExerciseStepCards.tsx": "92b8a6f9aa887f7e8aed459f91a8ae8e728f22fb116ec8cdf2e64362335a506b",
+    "src/components/workout/IntensityPicker.tsx": "0bc0ebe4947dd5dd9fe9057f2ecb81723a1a49a1ae0b1e8af9993b44f838a54f",
+    "src/components/workout/NLWorkoutInput.tsx": "dc2ab02aca4346d09cd5d2a7aa720405c914eb4eb05fa5ae132ed3e1e28d619b",
+    "src/components/workout/Stepper.tsx": "8ff8e8a3e7fc76bb1b4e9066d743c21e6e744c8c20d80bec8609f35a490a6829",
+    "src/components/workout/StrengthLogger.tsx": "fcb92fc4f398033e27b081b4ffaa9abfcf956d4b0be0540fa4fb369e37a88610",
+    "src/components/workout/WorkoutSection.tsx": "90d5933a792e06d093b77678fb4f211085c2e3055275301bac3f661842dcca99",
+    "src/lib/ToastContext.tsx": "8dddd6dacdf2f2cb26cae50768fe5dd68e87626bf73c65af96c46b85591ff44e",
+    "src/lib/aiValidation.ts": "214881242ce2960de65bd66088e6b0cd0beba5c5878a4821e5a9bae36a752a54",
+    "src/lib/apiClient.ts": "02e2619f6609fb5553937f487b05d3231f1611289ee69e979499bf7b6f88ba26",
+    "src/lib/calculations.ts": "d933453707298330772c020bbd3d5c2f855b2db31c333cb6a7d42644cfb9fe96",
+    "src/lib/checkIn.ts": "d709e61b8cdedf228c13b167dd096626780003d051f9c557717e541ae74d504f",
+    "src/lib/dataValidation.ts": "dee8d168bbd9313cd3021fbf0802e202bcd43b53a1808555bab58877716680f8",
+    "src/lib/date.ts": "2af876573270adf66b10a240f7b668898fa808c6dafee9fef97a94e923aaa7e8",
+    "src/lib/exerciseDetails.ts": "daa5e46c652b4fdbdb2e5b4c25701d6f6d1cfab8b131651ad4590e42a426c6ca",
+    "src/lib/exerciseLibrary.ts": "277fb5b1e74d359ff6ff95a2d19c5b50ed896a9eae97977be4514fa8e5e4be70",
+    "src/lib/exercisePatterns.ts": "6b214db8ff863fd117817452d8fb959c846be4debbc3ce977ce0ac1db12be6c5",
+    "src/lib/foodValidation.ts": "c24a709641bed1fa1567cafe11ec5fc690c6e43eeaf202fd12e70f2734926ffd",
+    "src/lib/imageCompress.ts": "635f5c42f98229e36c95078012ddceebedc561d4d47fee104928412df292f237",
+    "src/lib/mealSlot.ts": "39c7ddf1449406c3360a175f3c8a65362de364fa616ba1133c24193846eb4b45",
+    "src/lib/met.ts": "ec7b55e763b2ea533428c84ea916071ea3ad1f8ac8b3a067fe9830639bafadb8",
+    "src/lib/motionPatternConfig.ts": "f0e8df9f785d56e73bb8369620ac86419faf61f6f1d0d29721ca4ac43d12507c",
+    "src/lib/motivationalQuotes.ts": "7b7332b0b72f914423846f0f910f37233386c0e657b9fc7b175ea94f65316084",
+    "src/lib/nutritionTargets.ts": "5981fb1ea47e7f0bd376da368f48bfe1852563ed3612c18d3d98aecd94b5c21d",
+    "src/lib/pet.ts": "0681b38d6f5b0e4dd9fb222c41a718260923e972e1f92900300d9a8697d0fd8a",
+    "src/lib/planGenerator.ts": "d3eea0e9dc28f7189973805a85df37d279087011ad26a4173e6e22a845fc4db6",
+    "src/lib/planTemplates.ts": "89a8b511ae62021ed8d909f35827a8ea0b897b7b89bb928cb6c396a27b9f5abf",
+    "src/lib/plateColors.ts": "cd4ee806066ce65c6ed25fc263ac084f63171819de2615bcf0ff1d3f8741daa8",
+    "src/lib/recipeIngredients.ts": "1bb5e555447bbc2b6f207497a56b5396fcfac6c374dff1a8dfed75a6cd5a52f1",
+    "src/lib/store.ts": "064bc0845773c0616607b03d1ea19b22e32d01a4dd2cf60e84c59923054cd0c5",
+    "src/lib/toast.ts": "c93fdd437533715368f872e36755086bc062108bdf8a4c3782f7b1e04bfff541",
+    "src/lib/types.ts": "fad5a360cfb504118a80cb13c867ec76d2eb3ef1fcbddbd6a2ac4155b6d1f33a",
+    "src/main.tsx": "6e9e5807fcbd48b75a96db5cbef36c996262196be42e6d4760dc86babbe61ad2",
+    "src/lib/strength.ts": "21f941c193720005519530e2ab75b75be0ab34179e77602579f6136f8f68e06a",
+    "src/components/workout/WeightEditor.tsx": "77dd38e292e8ccea9c508d3f42de129eb25f9bab2cbd87d3b1b0801ed8371716",
+    "evals/workout-save/v3/holdout.json": "a5dda8426f31344f64d58e9bade3ede7f18fd93d4fd22529e326afe20f75cbfe",
+    "scripts/run-workout-save-v3.mjs": "da9144ae1773255e004e3fbcb06213bc7ceb2293dcb875a85733db8d0c224ecf"
+  },
+  "records": [
+    {
+      "id": "WO-01",
+      "input": "卧推60kg，4组，每组8次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:13:03.386Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1379,
+        "cachedInputTokens": 1280,
+        "outputTokens": 689,
+        "reasoningTokens": 512,
+        "totalTokens": 2068
+      },
+      "estimatedCostUsd": 0.00143475,
+      "rawSha256": "e4f9e23ad0fa57c04e5eb10efe35ddc44c10f2a83605425994091efcb12f933e",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0f056c0c31c83457016abd18f1e16087d0be73d09f92172e16",
+        "requestId": "req_c2b59354a5c243f182550a84d5833d2d",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1379,
+          "cachedInputTokens": 1280,
+          "outputTokens": 689,
+          "reasoningTokens": 512,
+          "totalTokens": 2068
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 9749
+    },
+    {
+      "id": "WO-02",
+      "input": "卧推60公斤4组，前三组8次，最后一组6次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:13:13.137Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1385,
+        "cachedInputTokens": 1280,
+        "outputTokens": 468,
+        "reasoningTokens": 320,
+        "totalTokens": 1853
+      },
+      "estimatedCostUsd": 0.00099425,
+      "rawSha256": "cf5c19dcfe19b2f3e37e4393bfcdcdeebdeed2390b88435f424b3b9ae0e76ff4",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0456ce8d1dabb6a0016abd18fcb41887d0aeac9e16f907ab6f",
+        "requestId": "req_9885b831ccf74f7d85ce2833e1d7ed93",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1385,
+          "cachedInputTokens": 1280,
+          "outputTokens": 468,
+          "reasoningTokens": 320,
+          "totalTokens": 1853
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 9535
+    },
+    {
+      "id": "WO-03",
+      "input": "杠铃深蹲80千克3组每组10次；杠铃卧推50千克2组每组8次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:13:22.673Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1398,
+        "cachedInputTokens": 1280,
+        "outputTokens": 586,
+        "reasoningTokens": 320,
+        "totalTokens": 1984
+      },
+      "estimatedCostUsd": 0.0012335,
+      "rawSha256": "9b38b15e6bbcc542c287472cbd6147067317624cdd21facbe32c1152b7beee0c",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0a4201e48bfe2121016abd1905351c87d0a8b9ca0d462f76d2",
+        "requestId": "req_84e216e535a44090bf89cfbab2dc52d6",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1398,
+          "cachedInputTokens": 1280,
+          "outputTokens": 586,
+          "reasoningTokens": 320,
+          "totalTokens": 1984
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 9213
+    },
+    {
+      "id": "WO-04",
+      "input": "哑铃弯举记录重量12.5kg，3组，每组12次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:13:31.887Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1387,
+        "cachedInputTokens": 1280,
+        "outputTokens": 364,
+        "reasoningTokens": 192,
+        "totalTokens": 1751
+      },
+      "estimatedCostUsd": 0.00078675,
+      "rawSha256": "f310e52320ab03ecc08cc4bebcc9639bfbdb7d3528858bde3c45a68ae57f7f92",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0c0d00ccafc6bb61016abd190ddb8c87d0a849707a966aabac",
+        "requestId": "req_5b4dd9648c91425eaa458ff1a8bd758d",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1387,
+          "cachedInputTokens": 1280,
+          "outputTokens": 364,
+          "reasoningTokens": 192,
+          "totalTokens": 1751
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 6393
+    },
+    {
+      "id": "WO-05",
+      "input": "杠铃卧推第一组40kg10次，第二组50kg8次，第三组60kg6次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:13:38.281Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1393,
+        "cachedInputTokens": 1280,
+        "outputTokens": 423,
+        "reasoningTokens": 192,
+        "totalTokens": 1816
+      },
+      "estimatedCostUsd": 0.00090625,
+      "rawSha256": "f80aa89272d4c6ae29587ecc442a9ed80e79a58d34ee759929c02baf0d2962a7",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_00d31f1ed9dc773a016abd1914a7f887d0acd54271a4369df1",
+        "requestId": "req_ac570e7d0c4b40719ea191273298c401",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1393,
+          "cachedInputTokens": 1280,
+          "outputTokens": 423,
+          "reasoningTokens": 192,
+          "totalTokens": 1816
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 7063
+    },
+    {
+      "id": "WO-06",
+      "input": "杠铃划船50KG，2组，每组10次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:13:45.346Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1382,
+        "cachedInputTokens": 1280,
+        "outputTokens": 356,
+        "reasoningTokens": 192,
+        "totalTokens": 1738
+      },
+      "estimatedCostUsd": 0.0007695,
+      "rawSha256": "e1d8d8a3200ace5f8216e0ed0c0d1c0cb669349d58c782ae9a99799ee51a1766",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_011e52790cf2aeed016abd191c14bc87d0bdce0fd3d6b77017",
+        "requestId": "req_0c3a4822262e45d99cb3be79ffe87bd0",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1382,
+          "cachedInputTokens": 1280,
+          "outputTokens": 356,
+          "reasoningTokens": 192,
+          "totalTokens": 1738
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 7249
+    },
+    {
+      "id": "WO-07",
+      "input": "杠铃卧推100斤，3组，每组8次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:13:52.595Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1382,
+        "cachedInputTokens": 1280,
+        "outputTokens": 567,
+        "reasoningTokens": 448,
+        "totalTokens": 1949
+      },
+      "estimatedCostUsd": 0.0011915,
+      "rawSha256": "6112f3fe72ca876eab7f129b5db5f385f9ee347987033edaaf9a0a9562bab6a6",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0bcac9dd009099f8016abd192528e887d08785e547caec05f8",
+        "requestId": "req_59c907e08a864e4eb32089cc560fb6b5",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1382,
+          "cachedInputTokens": 1280,
+          "outputTokens": 567,
+          "reasoningTokens": 448,
+          "totalTokens": 1949
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 11379
+    },
+    {
+      "id": "WO-08",
+      "input": "杠铃卧推100磅，2组，每组6次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:14:03.975Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1383,
+        "cachedInputTokens": 1280,
+        "outputTokens": 457,
+        "reasoningTokens": 320,
+        "totalTokens": 1840
+      },
+      "estimatedCostUsd": 0.00097175,
+      "rawSha256": "49258ca892d56dbc61f8c36f6fcf94223a741c4bda28e05941fed5e8d5ce7233",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_025ab807e8a41d76016abd192e1abc87d08bebab43734368b7",
+        "requestId": "req_3596fab909384239b72e615a1ba5461e",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1383,
+          "cachedInputTokens": 1280,
+          "outputTokens": 457,
+          "reasoningTokens": 320,
+          "totalTokens": 1840
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 9380
+    },
+    {
+      "id": "WO-09",
+      "input": "跑步30分钟，5公里，平均心率140，中等强度。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:14:13.356Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1384,
+        "cachedInputTokens": 1280,
+        "outputTokens": 426,
+        "reasoningTokens": 320,
+        "totalTokens": 1810
+      },
+      "estimatedCostUsd": 0.00091,
+      "rawSha256": "175714432e1071d840d2959cd64c3af43e9653e2864c818a1e194938526b7b07",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0901ce1decf97cba016abd193918a887d08d5a2e4b916f0037",
+        "requestId": "req_33fcd79cc8b549dc85ef6316630b96e4",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1384,
+          "cachedInputTokens": 1280,
+          "outputTokens": 426,
+          "reasoningTokens": 320,
+          "totalTokens": 1810
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 8719
+    },
+    {
+      "id": "WO-10",
+      "input": "卧推40kg，2组，每组8次；然后低强度单车20分钟。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:14:22.077Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1388,
+        "cachedInputTokens": 1280,
+        "outputTokens": 647,
+        "reasoningTokens": 512,
+        "totalTokens": 2035
+      },
+      "estimatedCostUsd": 0.001353,
+      "rawSha256": "c38625691fd14c3de2ef5ff0508d01a4f91aa8ea46c822c8a35ee0c3dfb71e1a",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_037395ed0feef3b8016abd19407d7887d08020b9ab492e8b97",
+        "requestId": "req_bba58e67f6ef4b0fbfd0490f0a0a2d0d",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1388,
+          "cachedInputTokens": 1280,
+          "outputTokens": 647,
+          "reasoningTokens": 512,
+          "totalTokens": 2035
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 9262
+    },
+    {
+      "id": "WO-11",
+      "input": "先低强度快走15分钟，再高强度跳绳5分钟。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:14:31.341Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1385,
+        "cachedInputTokens": 1280,
+        "outputTokens": 314,
+        "reasoningTokens": 192,
+        "totalTokens": 1699
+      },
+      "estimatedCostUsd": 0.00068625,
+      "rawSha256": "3b4be87f349d38068fe36cade965f9853bf3e240e1047b22c7be46a0b8a000ab",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0ad9839cf8bde4ff016abd19497a2487d09eea9769f0bb1db4",
+        "requestId": "req_6ca46893bbe34cc2b927309a873f4992",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1385,
+          "cachedInputTokens": 1280,
+          "outputTokens": 314,
+          "reasoningTokens": 192,
+          "totalTokens": 1699
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 6717
+    },
+    {
+      "id": "WO-12",
+      "input": "腿举100kg，做了1组12次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:14:38.059Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1379,
+        "cachedInputTokens": 1280,
+        "outputTokens": 312,
+        "reasoningTokens": 192,
+        "totalTokens": 1691
+      },
+      "estimatedCostUsd": 0.00068075,
+      "rawSha256": "cbe644a708d3e728efd3dc2070b9d298334eb5fbc6013f2947ec774008b1759d",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0e59459b7ab59e68016abd1950464087d081fa9cc093444002",
+        "requestId": "req_b34ed0c6b64e45f0ad02da408d299622",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1379,
+          "cachedInputTokens": 1280,
+          "outputTokens": 312,
+          "reasoningTokens": 192,
+          "totalTokens": 1691
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 9233
+    },
+    {
+      "id": "WO-13",
+      "input": "卧推做了4组，每组8次，重量忘记了。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:14:47.293Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1383,
+        "cachedInputTokens": 1280,
+        "outputTokens": 454,
+        "reasoningTokens": 192,
+        "totalTokens": 1837
+      },
+      "estimatedCostUsd": 0.00096575,
+      "rawSha256": "7be30d24db6a2aa8e7d65a0f0268ac5f15503e170c50418735dae6ebf2869299",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_054893c8ac516bce016abd1959722887d0818eed83cac2733a",
+        "requestId": "req_76a0659664274bffa9556d7461c2689e",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1383,
+          "cachedInputTokens": 1280,
+          "outputTokens": 454,
+          "reasoningTokens": 192,
+          "totalTokens": 1837
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": false,
+        "notes": []
+      },
+      "ms": 6867
+    },
+    {
+      "id": "WO-14",
+      "input": "卧推60kg，组数和次数我没有记。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:14:54.162Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1380,
+        "cachedInputTokens": 1280,
+        "outputTokens": 871,
+        "reasoningTokens": 768,
+        "totalTokens": 2251
+      },
+      "estimatedCostUsd": 0.001799,
+      "rawSha256": "f027eb239a4ee6ec20f2380f6badb2e76f3b1e299f56be4b45bfa13c5f0e0973",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0da5c3c34cd0b0ba016abd196065e887d09b29437a5937eefc",
+        "requestId": "req_4a71c22a3d76460cabe47e60564cf144",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1380,
+          "cachedInputTokens": 1280,
+          "outputTokens": 871,
+          "reasoningTokens": 768,
+          "totalTokens": 2251
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": false,
+        "notes": []
+      },
+      "ms": 10255
+    },
+    {
+      "id": "WO-15",
+      "input": "今天跑了一会儿，有点累。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:15:04.418Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1376,
+        "cachedInputTokens": 1280,
+        "outputTokens": 519,
+        "reasoningTokens": 384,
+        "totalTokens": 1895
+      },
+      "estimatedCostUsd": 0.001094,
+      "rawSha256": "94d046fa31f13ef73bfaba35e6ec592efa37b0fee05ff8481476e7a3c8807f23",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0d3e915d5d1c907b016abd196af85087d0bba28d1eb55f3c5c",
+        "requestId": "req_1695188278cf4432bb55422213a98a4e",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1376,
+          "cachedInputTokens": 1280,
+          "outputTokens": 519,
+          "reasoningTokens": 384,
+          "totalTokens": 1895
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": false,
+        "notes": []
+      },
+      "ms": 7596
+    },
+    {
+      "id": "WO-16",
+      "input": "今天休息，没有训练。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:15:12.015Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1373,
+        "cachedInputTokens": 1280,
+        "outputTokens": 99,
+        "reasoningTokens": 64,
+        "totalTokens": 1472
+      },
+      "estimatedCostUsd": 0.00025325,
+      "rawSha256": "979762a8851638aeeccc406354b2b432dff6a99f0d5d7c49e96ac7ca8cef6dba",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_024d0cab7fa5a8e0016abd19752f8087d0bbdddf258bdacfec",
+        "requestId": "req_65bb6e2346e34d4b97aa8daddfbc90d0",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1373,
+          "cachedInputTokens": 1280,
+          "outputTokens": 99,
+          "reasoningTokens": 64,
+          "totalTokens": 1472
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": false,
+        "notes": []
+      },
+      "ms": 6943
+    },
+    {
+      "id": "WO-17",
+      "input": "卧推60kg做了4组8次，不对，最后一组其实只做了6次。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:15:18.959Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1390,
+        "cachedInputTokens": 1280,
+        "outputTokens": 408,
+        "reasoningTokens": 256,
+        "totalTokens": 1798
+      },
+      "estimatedCostUsd": 0.0008755,
+      "rawSha256": "24f02c7b0053a37c82da8abba83ce0e7d01ba2f1fd448d00d4adb3ab0840c363",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_032f7d22a4dc9f3c016abd197b876087d0a63eec4e4a45b738",
+        "requestId": "req_a5b13d68b7b040b684220e00b197f658",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1390,
+          "cachedInputTokens": 1280,
+          "outputTokens": 408,
+          "reasoningTokens": 256,
+          "totalTokens": 1798
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": true,
+        "notes": []
+      },
+      "ms": 9820
+    },
+    {
+      "id": "WO-18",
+      "input": "平板支撑3组，每组30秒。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:15:28.780Z",
+      "status": 200,
+      "pass": false,
+      "usage": {
+        "inputTokens": 1378,
+        "cachedInputTokens": 1280,
+        "outputTokens": 398,
+        "reasoningTokens": 256,
+        "totalTokens": 1776
+      },
+      "estimatedCostUsd": 0.0008525,
+      "rawSha256": "32da4ecd098f0a04084039da9db7cb6debc0bb9472956eb32cec5bbdfcf372e0",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0e6830a0690c2e3f016abd198340a087d0801270dcc141021a",
+        "requestId": "req_681d3d9d8dc94afeb0446f1dc8fef611",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1378,
+          "cachedInputTokens": 1280,
+          "outputTokens": 398,
+          "reasoningTokens": 256,
+          "totalTokens": 1776
+        }
+      },
+      "score": {
+        "pass": false,
+        "saveAllowed": true,
+        "notes": [
+          "State 0/0",
+          "State 0/1",
+          "State 0/2",
+          "Should require correction or refuse empty save"
+        ]
+      },
+      "ms": 8082
+    },
+    {
+      "id": "WO-19",
+      "input": "卧推60做了4组8次，60的单位没有写。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:15:36.864Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1383,
+        "cachedInputTokens": 1280,
+        "outputTokens": 556,
+        "reasoningTokens": 256,
+        "totalTokens": 1939
+      },
+      "estimatedCostUsd": 0.00116975,
+      "rawSha256": "4b00e722f08623a28f2812b3d6706f60506ad06b692779ceb3cfe04faec8d501",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_038fe777aeee2985016abd198b6ea887d085db486ad08833d5",
+        "requestId": "req_71f73f6e21744fcca17cc428730fecd7",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1383,
+          "cachedInputTokens": 1280,
+          "outputTokens": 556,
+          "reasoningTokens": 256,
+          "totalTokens": 1939
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": false,
+        "notes": []
+      },
+      "ms": 8227
+    },
+    {
+      "id": "WO-20",
+      "input": "明天计划卧推60kg4组8次，今天还没有做。",
+      "attempt": 1,
+      "retry": false,
+      "startedAt": "2026-09-30T14:15:45.092Z",
+      "status": 200,
+      "pass": true,
+      "usage": {
+        "inputTokens": 1384,
+        "cachedInputTokens": 1280,
+        "outputTokens": 470,
+        "reasoningTokens": 320,
+        "totalTokens": 1854
+      },
+      "estimatedCostUsd": 0.000998,
+      "rawSha256": "d850a4dadfd12955e325b9e8181054e2c2d97e067b469b65039b8efb2fb1a96a",
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_05f81a3524b54e79016abd199412d087d0b099d0521d35b916",
+        "requestId": "req_f7d5b5f7d3e548258245638cf5b1a641",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1384,
+          "cachedInputTokens": 1280,
+          "outputTokens": 470,
+          "reasoningTokens": 320,
+          "totalTokens": 1854
+        }
+      },
+      "score": {
+        "pass": true,
+        "saveAllowed": false,
+        "notes": []
+      },
+      "ms": 8242
+    }
+  ],
+  "pricing": {
+    "input": 0.25,
+    "cached": 0.025,
+    "output": 2,
+    "per": 1000000,
+    "source": "https://developers.openai.com/api/docs/models/gpt-5-mini",
+    "checked": "2026-09-30"
+  },
+  "costWarning": "Estimated usage price, not invoice; failures without usage have unknown cost, never treated as free."
+}

@@ -1,0 +1,81 @@
+{
+  "evidence": "Isolated desktop Edge. Synthetic landmarks / blank generated streams only. No real camera, microphone, people or phone.",
+  "targets": {
+    "renderMedianFps": 30,
+    "poseMedianHz": 15,
+    "releaseMs": 1000,
+    "performanceWindowMs": 60000
+  },
+  "checks": [
+    {
+      "name": "Seven design PNGs and four textures retain source PNG bytes",
+      "pass": true,
+      "data": {
+        "originals": 7,
+        "textures": 4
+      }
+    },
+    {
+      "name": "Independent sides, closed cycle, bounded continuous arm motion",
+      "pass": true,
+      "data": {
+        "duration": 2400,
+        "maxStep": 9.131139073957973
+      }
+    },
+    {
+      "name": "Preset sides / pause / seek / reset / clear-pixel same pose / source / mobile",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(requests.every(url=>new URL(url).origin===base&&!new URL(url).pathname.startsWith('/api/')))\n\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:88:42\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:13:46)\n    at async scenario (file:///E:/gym/scripts/check-d-panda-stage1.mjs:78:3)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:99:2"
+    },
+    {
+      "name": "Camera failure NotAllowedError",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(requests.every(url=>new URL(url).origin===base&&!new URL(url).pathname.startsWith('/api/')))\n\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:88:42\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:13:46)\n    at async scenario (file:///E:/gym/scripts/check-d-panda-stage1.mjs:78:3)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:118:76"
+    },
+    {
+      "name": "Camera failure NotFoundError",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(requests.every(url=>new URL(url).origin===base&&!new URL(url).pathname.startsWith('/api/')))\n\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:88:42\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:13:46)\n    at async scenario (file:///E:/gym/scripts/check-d-panda-stage1.mjs:78:3)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:118:76"
+    },
+    {
+      "name": "Camera failure NotReadableError",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(requests.every(url=>new URL(url).origin===base&&!new URL(url).pathname.startsWith('/api/')))\n\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:88:42\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:13:46)\n    at async scenario (file:///E:/gym/scripts/check-d-panda-stage1.mjs:78:3)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:118:76"
+    },
+    {
+      "name": "Delayed permission released after switching to presets",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(requests.every(url=>new URL(url).origin===base&&!new URL(url).pathname.startsWith('/api/')))\n\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:88:42\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:13:46)\n    at async scenario (file:///E:/gym/scripts/check-d-panda-stage1.mjs:78:3)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:119:2"
+    },
+    {
+      "name": "Initialization failure stops generated track",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(requests.every(url=>new URL(url).origin===base&&!new URL(url).pathname.startsWith('/api/')))\n\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:88:42\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:13:46)\n    at async scenario (file:///E:/gym/scripts/check-d-panda-stage1.mjs:78:3)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:120:2"
+    },
+    {
+      "name": "Fixed landmarks drive independent paws / partial / loss / hidden / restart / switch",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(requests.every(url=>new URL(url).origin===base&&!new URL(url).pathname.startsWith('/api/')))\n\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:88:42\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:13:46)\n    at async scenario (file:///E:/gym/scripts/check-d-panda-stage1.mjs:78:3)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:121:2"
+    },
+    {
+      "name": "Renderer loss stops camera and recovery uses new canvases",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(requests.every(url=>new URL(url).origin===base&&!new URL(url).pathname.startsWith('/api/')))\n\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:88:42\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:13:46)\n    at async scenario (file:///E:/gym/scripts/check-d-panda-stage1.mjs:78:3)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:133:2"
+    },
+    {
+      "name": "Actual official model runs on synthetic blank frames only",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(requests.every(url=>new URL(url).origin===base&&!new URL(url).pathname.startsWith('/api/')))\n\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:88:42\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:13:46)\n    at async scenario (file:///E:/gym/scripts/check-d-panda-stage1.mjs:78:3)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:138:2"
+    }
+  ],
+  "sourceHashes": {
+    "src/companion/OriginalInteraction.tsx": "f3c194d6daf61817bc8761b9c815a3faa370e5332710e6fd265979b7b087e479",
+    "src/companion/interactionMotion.ts": "46dc70c3b255f2093b3dfca6977fa690dd1ca8a21af5204cabd67abfce5250d0",
+    "src/companion/OriginalIdleRenderer.ts": "6f309f2a4cf8e08e6a5e40ff9a11a5353301b49fcf32e12fcfe7db0cb9ebc686",
+    "src/companion/mirror/MirrorSession.ts": "fc7eb4a4eb40dcf1d64dec3fbf9b666d29366fc93e0fc5c9348e3519e46c945a",
+    "src/companion/mirror/mapping.ts": "80ab014dc175757d4ffca5a5291effac1abcce9b812a490d9e8b2c52392b3cc2",
+    "public/companion-assets/pose-worker.js": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+  },
+  "browser": "154.0.4258.62"
+}

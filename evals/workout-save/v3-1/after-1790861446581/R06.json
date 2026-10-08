@@ -1,0 +1,99 @@
+{
+  "id": "R06",
+  "name": "Network failure preserves invalid draft until corrected and saved",
+  "phase": "after",
+  "kind": "automated software test with fixed response, NOT human research",
+  "startedAt": "2026-10-01T13:30:53.552Z",
+  "modelCalls": 0,
+  "costUsd": 0,
+  "pass": true,
+  "ms": 761,
+  "dataAtEnd": {
+    "profile": {
+      "gender": "male",
+      "birthYear": 1997,
+      "height": 178,
+      "experience": "intermediate",
+      "goal": "bulk",
+      "targetWeight": 75,
+      "targetBodyFat": 15,
+      "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+      "trainingDaysPerWeek": 4,
+      "activityLevel": 3,
+      "waterTargetMl": 2400,
+      "checkInMode": "workout_and_meal"
+    },
+    "measurements": [
+      {
+        "date": "2026-07-05",
+        "weight": 69.8,
+        "bodyFat": 17.2,
+        "waist": 78,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-08-02",
+        "weight": 70.6,
+        "bodyFat": 16.8,
+        "waist": 77.5,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-09-01",
+        "weight": 71.4,
+        "bodyFat": 16.4,
+        "waist": 77,
+        "note": "合成演示数据"
+      }
+    ],
+    "plans": [],
+    "dayLogs": {
+      "2026-10-01": {
+        "date": "2026-10-01",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 50,
+                "weightState": "known",
+                "reps": 8,
+                "done": true
+              },
+              {
+                "weight": 50,
+                "weightState": "known",
+                "reps": 8,
+                "done": true
+              }
+            ],
+            "note": "合成测试",
+            "uncertain": [],
+            "id": "bacdfd6c-c621-4df1-9e62-7430dfadaa2b",
+            "estKcal": 40,
+            "source": "nl"
+          }
+        ],
+        "cardio": [
+          {
+            "type": "快走",
+            "done": true,
+            "minutes": 15,
+            "intensity": "mid",
+            "note": "",
+            "uncertain": [],
+            "id": "4eb4f6df-be3a-4a07-bdbe-a23ce2a1d437",
+            "estKcal": 80,
+            "source": "nl"
+          }
+        ],
+        "meals": [],
+        "water": 0
+      }
+    },
+    "exerciseVideos": {},
+    "lastFedDate": "2026-09-05"
+  },
+  "video": "E:\\gym\\evals\\workout-save\\v3-1\\after-1790861446581\\page@783c2ec7af04ee63040bfdb2afc8ca52.webm"
+}

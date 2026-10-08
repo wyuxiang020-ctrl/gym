@@ -1,0 +1,710 @@
+{
+  "version": "V4.2 lively panda",
+  "at": "2026-10-07T14:03:16.639Z",
+  "entry": "http://127.0.0.1:4175/?companion-lab=1",
+  "label": "灵动小熊猫 · V4.2",
+  "baseline": "evals/virtual-companion/v4-lively/baseline-1791379937674/manifest.json",
+  "comparison": [
+    {
+      "path": "src/companion/types.ts",
+      "before": "9e59bd2ab60d20a7b7cdf7fde467d792b6d71ac98d57cec6a284268e78884cce",
+      "after": "7367e112a2cfc9e9861f1c06a6702d003cd5cf68cc51ce17a74ac6f087e4c2ae",
+      "changed": true
+    },
+    {
+      "path": "src/companion/preset.ts",
+      "before": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556",
+      "after": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556",
+      "changed": false
+    },
+    {
+      "path": "src/companion/PandaStage.tsx",
+      "before": "d926e1beacee2b2d36ff2e2413f5ee49dbc0e93a30677ecac7f39ca501395c3b",
+      "after": "2722ed569c1914db9f353ac13b4730a9efaad57461b35adab51cdec37331bd36",
+      "changed": true
+    },
+    {
+      "path": "src/companion/pandaRig.ts",
+      "before": "91c7411f2baee1810ffbae187e5261a1279827ca97fdd5885937ce16d7ac6f70",
+      "after": "44e6dbf2e543471afe0a00c687e753250c244fb52dee503844541bc48cd584e3",
+      "changed": true
+    },
+    {
+      "path": "src/companion/mirror/protocol.ts",
+      "before": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094",
+      "after": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094",
+      "changed": false
+    },
+    {
+      "path": "src/companion/mirror/MirrorSession.ts",
+      "before": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+      "after": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+      "changed": false
+    },
+    {
+      "path": "src/companion/mirror/mapping.ts",
+      "before": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+      "after": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+      "changed": false
+    },
+    {
+      "path": "src/companion/CompanionLab.tsx",
+      "before": "8796abbebc2b54c1d3c8735c0ffb7b8cb9ea504aba9b12b26990a9bc03f4514f",
+      "after": "b7309505d994ec75d7f53147a0d8b00346f35ce69820eed0ba0257ba51bf9de8",
+      "changed": true
+    },
+    {
+      "path": "src/companion/companion.css",
+      "before": "a6830d357c6cf5c2343fa0a9c98a4ffcac1fef90096ccf4ab807c7502bf89577",
+      "after": "3dd7e752c129f6116859967b0c313f78771753e17850cb4db69812745ba73faa",
+      "changed": true
+    },
+    {
+      "path": "src/main.tsx",
+      "before": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e",
+      "after": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e",
+      "changed": false
+    },
+    {
+      "path": "src/EntryRouter.tsx",
+      "before": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f",
+      "after": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f",
+      "changed": false
+    },
+    {
+      "path": "src/EntryBoundary.tsx",
+      "before": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6",
+      "after": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6",
+      "changed": false
+    },
+    {
+      "path": "vite.config.ts",
+      "before": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0",
+      "after": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0",
+      "changed": false
+    },
+    {
+      "path": "package.json",
+      "before": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c",
+      "after": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c",
+      "changed": false
+    },
+    {
+      "path": "package-lock.json",
+      "before": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539",
+      "after": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539",
+      "changed": false
+    },
+    {
+      "path": "public/companion-assets/pose-worker.js",
+      "before": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d",
+      "after": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d",
+      "changed": false
+    }
+  ],
+  "expectedProductChanges": [
+    "src/companion/pandaRig.ts",
+    "src/companion/PandaStage.tsx",
+    "src/companion/CompanionLab.tsx",
+    "src/companion/companion.css",
+    "src/companion/types.ts"
+  ],
+  "addedProductFiles": [
+    "src/companion/characterMotion.ts"
+  ],
+  "historicalIntegrity": [
+    {
+      "name": "V4.1 builds",
+      "count": 25,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "V4.1 evidence",
+      "count": 147,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "V4.1 frozen delivery/media",
+      "count": 6,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "Phase 1 assets",
+      "count": 11,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "Phase 1 builds",
+      "count": 25,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "Phase 1 evidence",
+      "count": 201,
+      "failures": [],
+      "pass": true
+    }
+  ],
+  "source": {
+    "scripts/build-companion-lively-v4.mjs": {
+      "bytes": 812,
+      "sha256": "8240c821c179295ef1f055b71fe618b068c5dab43b4b4155b38bb4b04122c732"
+    },
+    "scripts/check-companion-lively-motion-v4.mjs": {
+      "bytes": 4800,
+      "sha256": "b425f15632330b35c0be1b8a6db6f2f99ead109c2cb8aef72dc141dac8b7fc8c"
+    },
+    "scripts/check-companion-lively-v4.mjs": {
+      "bytes": 10131,
+      "sha256": "7f8267a779d822cc2a45d1c8315759600cd4be721ecb3731497abe3e1e742a52"
+    },
+    "scripts/record-companion-lively-v4.mjs": {
+      "bytes": 3179,
+      "sha256": "531041dbdac897bbd2a2a9f90f9aa01a32e348fad53c447f8f64cb71c5215725"
+    },
+    "src/companion/CompanionLab.tsx": {
+      "bytes": 15544,
+      "sha256": "b7309505d994ec75d7f53147a0d8b00346f35ce69820eed0ba0257ba51bf9de8"
+    },
+    "src/companion/PandaStage.tsx": {
+      "bytes": 9705,
+      "sha256": "2722ed569c1914db9f353ac13b4730a9efaad57461b35adab51cdec37331bd36"
+    },
+    "src/companion/characterMotion.ts": {
+      "bytes": 5254,
+      "sha256": "8bec0fc73a112f62b4f7640fe7161b52593bb5e5f47a3402e1a470382dc9aa99"
+    },
+    "src/companion/companion.css": {
+      "bytes": 8142,
+      "sha256": "3dd7e752c129f6116859967b0c313f78771753e17850cb4db69812745ba73faa"
+    },
+    "src/companion/mirror/MirrorSession.ts": {
+      "bytes": 17067,
+      "sha256": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb"
+    },
+    "src/companion/mirror/mapping.ts": {
+      "bytes": 5313,
+      "sha256": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346"
+    },
+    "src/companion/mirror/protocol.ts": {
+      "bytes": 624,
+      "sha256": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094"
+    },
+    "src/companion/pandaRig.ts": {
+      "bytes": 15544,
+      "sha256": "44e6dbf2e543471afe0a00c687e753250c244fb52dee503844541bc48cd584e3"
+    },
+    "src/companion/preset.ts": {
+      "bytes": 736,
+      "sha256": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556"
+    },
+    "src/companion/types.ts": {
+      "bytes": 1198,
+      "sha256": "7367e112a2cfc9e9861f1c06a6702d003cd5cf68cc51ce17a74ac6f087e4c2ae"
+    }
+  },
+  "build": {
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/assets/App-tEfhX4c0.js": {
+      "bytes": 176054,
+      "sha256": "e189950aa9ef0606963077fff461202c2c0bfac565ce22ee6cb8f7645731d92c"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/assets/CompanionLab-CGgmk91N.css": {
+      "bytes": 7407,
+      "sha256": "37505c58227d887350034f77b184705e490fd863213b2474c81499e9fbc7a081"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/assets/companion-CompanionLab-Hr6wklnX.js": {
+      "bytes": 571745,
+      "sha256": "ed7e634b9315d8eddcbe8f9d2fcd7b7223bf8a3a3088961b37db24fe8b063cbd"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/assets/companion-MirrorSession-C2BlttjV.js": {
+      "bytes": 12367,
+      "sha256": "2b153881af42d011660c1076d3886254caa69556b7ab9c8ded07520abe383e28"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/assets/index-C4FLBXU8.css": {
+      "bytes": 33916,
+      "sha256": "336e555f1de76e3f6d227743846f1f69f1351446640a611cb95b658c8d6b4f4f"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/assets/index-Me1Y1BJ3.js": {
+      "bytes": 192873,
+      "sha256": "d2e34e4015f24043a976ea3f98aaa7e2a2a060a7c644e692c9f9ad57b9ef6463"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/MEDIAPIPE-LICENSE.txt": {
+      "bytes": 12331,
+      "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/THREE-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/pose-worker.js": {
+      "bytes": 5233,
+      "sha256": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/pose_landmarker_lite.task": {
+      "bytes": 5777746,
+      "sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/vision_bundle.js": {
+      "bytes": 156161,
+      "sha256": "022cbbfcdb74bae18e4bbc722e429e046d5fdd35f6183f1359c56b652b8b87f7"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/wasm/vision_wasm_internal.js": {
+      "bytes": 335393,
+      "sha256": "7c652617b5bef832f42878ce8c5f752b0724bca6054e4bc1013a37d4b1949723"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/wasm/vision_wasm_internal.wasm": {
+      "bytes": 12997248,
+      "sha256": "782eda3ec1f414fdb4f1d66a8b59093eb4d5ab437e06117796abf05962d68eef"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/wasm/vision_wasm_module_internal.js": {
+      "bytes": 335431,
+      "sha256": "70eff3956521b7de058d7173a4935c95e4a223c26ea624b9f5a936d3a043dcb0"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/wasm/vision_wasm_module_internal.wasm": {
+      "bytes": 12997272,
+      "sha256": "ee03b14a878e6c3c053a1bfa62e166dc45244be54dc0bbe61c578f710b771f6a"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/wasm/vision_wasm_nosimd_internal.js": {
+      "bytes": 335196,
+      "sha256": "510fc70a170eb8b46767a7abab2af89a7a8341fa5b3ebfb8a5de41a79b7fa9df"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/companion-assets/wasm/vision_wasm_nosimd_internal.wasm": {
+      "bytes": 12168316,
+      "sha256": "b802041d105876865d6a0806f2ff7c4419a7f1b80bc01340fe36e759c2030011"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/favicon.svg": {
+      "bytes": 9522,
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/icons.svg": {
+      "bytes": 5031,
+      "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/index.html": {
+      "bytes": 627,
+      "sha256": "a8a4e6904cc27c27d40f66fd7278314f7b0cd069554e46b4b21baa0d87577f24"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/manifest.webmanifest": {
+      "bytes": 443,
+      "sha256": "c07e491eaa3bd2cd85037aa38008527e850ce573d5baeb48f36305b7345d1826"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/pwa-icon.svg": {
+      "bytes": 9522,
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/registerSW.js": {
+      "bytes": 134,
+      "sha256": "9742073ef7fc795e7673d98f272992843298426a0ffd8cb3507784df5143608b"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/sw.js": {
+      "bytes": 1459,
+      "sha256": "fabc9bec229d7e13e8eb185fd466cddbf0e68d3dcf6c07378c23139bd70dd7a4"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/app/workbox-9c191d2f.js": {
+      "bytes": 15112,
+      "sha256": "04b086f1b2f4215ee4b659a7bc9c76162894abdb43fa876247bc7c0bd6fd1c37"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/result.json": {
+      "bytes": 153,
+      "sha256": "ec5995e73060bad11b2ea078d9acee301c7d683dddb4b0464eddf614e7503c1f"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/typecheck.json": {
+      "bytes": 49,
+      "sha256": "498cb7c1016153ed3ca49e0301270b01d83ac50735444be097bf125a26bd1ecb"
+    }
+  },
+  "evidence": {
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/manifest.json": {
+      "bytes": 2449,
+      "sha256": "e36e0ee553f662d220dcbefc9b42333331912353eda0d572c52db946788c8bc5"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/package-lock.json": {
+      "bytes": 469246,
+      "sha256": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/package.json": {
+      "bytes": 1921,
+      "sha256": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/public/companion-assets/pose-worker.js": {
+      "bytes": 5233,
+      "sha256": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/EntryBoundary.tsx": {
+      "bytes": 631,
+      "sha256": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/EntryRouter.tsx": {
+      "bytes": 500,
+      "sha256": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/companion/CompanionLab.tsx": {
+      "bytes": 13535,
+      "sha256": "8796abbebc2b54c1d3c8735c0ffb7b8cb9ea504aba9b12b26990a9bc03f4514f"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/companion/PandaStage.tsx": {
+      "bytes": 9427,
+      "sha256": "d926e1beacee2b2d36ff2e2413f5ee49dbc0e93a30677ecac7f39ca501395c3b"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/companion/companion.css": {
+      "bytes": 7486,
+      "sha256": "a6830d357c6cf5c2343fa0a9c98a4ffcac1fef90096ccf4ab807c7502bf89577"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/companion/mirror/MirrorSession.ts": {
+      "bytes": 17067,
+      "sha256": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/companion/mirror/mapping.ts": {
+      "bytes": 5313,
+      "sha256": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/companion/mirror/protocol.ts": {
+      "bytes": 624,
+      "sha256": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/companion/pandaRig.ts": {
+      "bytes": 14172,
+      "sha256": "91c7411f2baee1810ffbae187e5261a1279827ca97fdd5885937ce16d7ac6f70"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/companion/preset.ts": {
+      "bytes": 736,
+      "sha256": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/companion/types.ts": {
+      "bytes": 839,
+      "sha256": "9e59bd2ab60d20a7b7cdf7fde467d792b6d71ac98d57cec6a284268e78884cce"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/src/main.tsx": {
+      "bytes": 254,
+      "sha256": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e"
+    },
+    "evals/virtual-companion/v4-lively/baseline-1791379937674/source/vite.config.ts": {
+      "bytes": 2359,
+      "sha256": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/fold-clear.png": {
+      "bytes": 18229,
+      "sha256": "f5c0dd2db782b891634f3ce8dfe0e72d2b6f31f55f5127bbf5076c61a5174726"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/fold-quarter.png": {
+      "bytes": 18248,
+      "sha256": "07c3b7f7b94ad12c8682c188038bd57ddab7c1195ada3a386f09cb9e8f8b5627"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/fold-side.png": {
+      "bytes": 14759,
+      "sha256": "2caf8a962174ca8740aea0dc7bfa53f69d9b6a725a1c1787e435d30d7a567918"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/full-page.png": {
+      "bytes": 78106,
+      "sha256": "20e3be7907f9d785e72c457e73575b2a6a578c37cf0b8a30cef0168bfedd91cd"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/hop-clear.png": {
+      "bytes": 20273,
+      "sha256": "f7ce50bff62f620be30df0a5da7613e6f887491c736a28a614cad5d7b6b6da08"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/idle-clear.png": {
+      "bytes": 16970,
+      "sha256": "52dd1f8e380cc8edb8aa037eaebead30f0bdbc17bd56b5a007654493819e754e"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/results.json": {
+      "bytes": 4486,
+      "sha256": "72980e2be4ac78a8a538a09d52ea6894d439338ab43f73349423bf6c3baacc50"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/runner.mjs": {
+      "bytes": 9596,
+      "sha256": "3c5505762c38b4a41f0dd4649f5eb787d9c551fd221d197c8c8952e8dc2d4e52"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/shuffle-clear.png": {
+      "bytes": 17603,
+      "sha256": "b0cd3f4366133d01929b9ecb27bc5b6e04f31428b1f1a6c652fa773d451af6cc"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/stretch-clear.png": {
+      "bytes": 18419,
+      "sha256": "84bf0abfb19b4835e2cefff5c45d8b7791690e47c7fe7754e9b51c18f1010b57"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/wave-clear.png": {
+      "bytes": 18534,
+      "sha256": "59f7105139ebd9a991b46d6e4ffc22fa9857bbedab8bb4d7e2d556337c83dc9f"
+    },
+    "evals/virtual-companion/v4-lively/browser-390-1791380990800/wave-pixel.png": {
+      "bytes": 6085,
+      "sha256": "0509cf9e9f87a549b0f02bbad61f170ffecb99d40069daf934ce7310f03bd72e"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/fold-clear.png": {
+      "bytes": 24587,
+      "sha256": "d3cb8e934b12fbb20d151c0eabebf60f95141160941bb077f9830063a468e16e"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/fold-quarter.png": {
+      "bytes": 24700,
+      "sha256": "e24bc91e0ecdf2b12a7d8574958f2a9393586d1137b0a73cae32fc9d282ba070"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/fold-side.png": {
+      "bytes": 20003,
+      "sha256": "394df98d2c3bd31b6cc01a2bfcf7deecb1a1c0eaec93d3893aff616a51a6468f"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/full-page.png": {
+      "bytes": 91307,
+      "sha256": "18cfde9220de3351fc2d9214651d012b3c3bd9c03a30ddbe6e4827bafec86988"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/hop-clear.png": {
+      "bytes": 26740,
+      "sha256": "c8b1cd42b8126b9395a88078b54c0f6565706a831b83a61a7658ac14e4e58545"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/idle-clear.png": {
+      "bytes": 22533,
+      "sha256": "98778d261c4a197aeecf2abb5f20e01b2334d6e3f3296ec03a4a17f466c84777"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/results.json": {
+      "bytes": 4401,
+      "sha256": "80eea02fa0b3def2cbe63cedcea1f9b584c63b2b94fba8fb8fc08ea5861128f7"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/runner.mjs": {
+      "bytes": 8685,
+      "sha256": "bff2c72e11a9fd5a50b09500ee4e044fc99ded79151fb1076db3ec44cb906572"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/shuffle-clear.png": {
+      "bytes": 23562,
+      "sha256": "6139c43838c32eeab360c1e44405cc89094fd8fa2cccd96ecb9f07ccc0fcb9d3"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/stretch-clear.png": {
+      "bytes": 24681,
+      "sha256": "e69f56a44c03715e83709ea5ea946df3b216b68dc5f2779150a246191caf0b57"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/wave-clear.png": {
+      "bytes": 24959,
+      "sha256": "990b8b76d2b182141099dff7894fb643a19e62562581f49d4d4d0b366b3f4572"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380498074/wave-pixel.png": {
+      "bytes": 8302,
+      "sha256": "684b06f8ed49525c2c83c5767c258b226141f73ed6a1d03f24b8de2d96f825f7"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/fold-clear.png": {
+      "bytes": 22317,
+      "sha256": "94e39b48271069b956b3a33a550823020708fa0c61403e3800e5916584f32fd7"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/fold-quarter.png": {
+      "bytes": 22454,
+      "sha256": "27de9ffeb01ab86a188085bd0f8fbb80f350c5ed45fc150f0cba7f826a3f26db"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/fold-side.png": {
+      "bytes": 18036,
+      "sha256": "f6eacc0c3e927ed00abcf58892fd30f34f65fa2779b4eb2c93d926378008ee40"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/full-page.png": {
+      "bytes": 88629,
+      "sha256": "e72d865e1ed0cfe754a4681d349c7aa16653f76d535c531fc96fb626a586fd13"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/hop-clear.png": {
+      "bytes": 24837,
+      "sha256": "44545387c88068304f54936f810bc7e9d79b63b5d187d2b1775eaabf79c67708"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/idle-clear.png": {
+      "bytes": 20552,
+      "sha256": "c9a6b72a6eaebf83ac1e7ffe8e195186a8a8d4d1a8e67af55c76fc8ea83924f2"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/results.json": {
+      "bytes": 4486,
+      "sha256": "c6876ec5b98bccf2d827c3b6640110d19b4e798c19dc6d6df00a3851b0f29101"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/runner.mjs": {
+      "bytes": 9596,
+      "sha256": "3c5505762c38b4a41f0dd4649f5eb787d9c551fd221d197c8c8952e8dc2d4e52"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/shuffle-clear.png": {
+      "bytes": 21419,
+      "sha256": "eb02a084d17e09eea0f02e2a739c242ab504c5777da3a569f809b2b6afbb312e"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/stretch-clear.png": {
+      "bytes": 22406,
+      "sha256": "edda06dfd3e24ef7b716c1d2f5dd1592867bed60d7412f92eb8c5caf788ad9bb"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/wave-clear.png": {
+      "bytes": 22995,
+      "sha256": "56ba887e35c9c47ae3682ae0677ef3a4d5c1dbeb7656593bbed554cf6604b5b6"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791380987100/wave-pixel.png": {
+      "bytes": 7756,
+      "sha256": "cdec34bc01136c740e4565b143c5f44e15c08fd1dae73fccfdad2af487a547ea"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/fold-clear.png": {
+      "bytes": 22317,
+      "sha256": "94e39b48271069b956b3a33a550823020708fa0c61403e3800e5916584f32fd7"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/fold-quarter.png": {
+      "bytes": 22454,
+      "sha256": "27de9ffeb01ab86a188085bd0f8fbb80f350c5ed45fc150f0cba7f826a3f26db"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/fold-side.png": {
+      "bytes": 18036,
+      "sha256": "f6eacc0c3e927ed00abcf58892fd30f34f65fa2779b4eb2c93d926378008ee40"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/full-page.png": {
+      "bytes": 88114,
+      "sha256": "9d5d1554a5598dcb68cb7938c4ad4a77ec3d68e7a861d6dc4be32be7ca2a8709"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/hop-clear.png": {
+      "bytes": 24837,
+      "sha256": "44545387c88068304f54936f810bc7e9d79b63b5d187d2b1775eaabf79c67708"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/idle-clear.png": {
+      "bytes": 20552,
+      "sha256": "c9a6b72a6eaebf83ac1e7ffe8e195186a8a8d4d1a8e67af55c76fc8ea83924f2"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/results.json": {
+      "bytes": 4552,
+      "sha256": "3c57b893354c9017c557cbeca807ddbcdd423b07d57ffb142ee491185786b07d"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/runner.mjs": {
+      "bytes": 10131,
+      "sha256": "7f8267a779d822cc2a45d1c8315759600cd4be721ecb3731497abe3e1e742a52"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/shuffle-clear.png": {
+      "bytes": 21419,
+      "sha256": "eb02a084d17e09eea0f02e2a739c242ab504c5777da3a569f809b2b6afbb312e"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/stretch-clear.png": {
+      "bytes": 22406,
+      "sha256": "edda06dfd3e24ef7b716c1d2f5dd1592867bed60d7412f92eb8c5caf788ad9bb"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/wave-clear.png": {
+      "bytes": 22995,
+      "sha256": "56ba887e35c9c47ae3682ae0677ef3a4d5c1dbeb7656593bbed554cf6604b5b6"
+    },
+    "evals/virtual-companion/v4-lively/browser-820-1791381302010/wave-pixel.png": {
+      "bytes": 7756,
+      "sha256": "cdec34bc01136c740e4565b143c5f44e15c08fd1dae73fccfdad2af487a547ea"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381078302.log": {
+      "bytes": 2014,
+      "sha256": "fb4aeee74e28061044e2b081b761f364d1201e8a733392df927cc41356af6241"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381078780/result.json": {
+      "bytes": 153,
+      "sha256": "51938aa8d6ba251c6208df2750e7bd4cc40ec3ade327b806a3d9d411d1c5339b"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381078780/typecheck.json": {
+      "bytes": 49,
+      "sha256": "498cb7c1016153ed3ca49e0301270b01d83ac50735444be097bf125a26bd1ecb"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381324228.log": {
+      "bytes": 2409,
+      "sha256": "d828704c0a0838aa81552147dd9ac1c0462545272c2094e4547f6133b34c17b5"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/result.json": {
+      "bytes": 153,
+      "sha256": "ec5995e73060bad11b2ea078d9acee301c7d683dddb4b0464eddf614e7503c1f"
+    },
+    "evals/virtual-companion/v4-lively/build-1791381327024/typecheck.json": {
+      "bytes": 49,
+      "sha256": "498cb7c1016153ed3ca49e0301270b01d83ac50735444be097bf125a26bd1ecb"
+    },
+    "evals/virtual-companion/v4-lively/final-scoped-lint.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evals/virtual-companion/v4-lively/motion-1791380707748/results.json": {
+      "bytes": 2219,
+      "sha256": "a86b8959992d9114bd5adcfdc8d060b3bb14d77339b1d4d09e14d3d2d9e60fb9"
+    },
+    "evals/virtual-companion/v4-lively/motion-1791380794154/results.json": {
+      "bytes": 1870,
+      "sha256": "8bfa65887fa0229df5edda4ddf4b11bea3c12c70844acbcbeea868e200341cf7"
+    },
+    "evals/virtual-companion/v4-lively/motion-1791381314961/results.json": {
+      "bytes": 1869,
+      "sha256": "fae4fc55e4f032cb2cf8dd6ae4f0edf2efe3780bbe9126f919d161fbfc38ddad"
+    },
+    "evals/virtual-companion/v4-lively/recording-1791380998555/actual-character-motion.webm": {
+      "bytes": 3109945,
+      "sha256": "3b532253d9f8ac88baa1147e56cd6f3188563df09a1e910050914921b702d8ee"
+    },
+    "evals/virtual-companion/v4-lively/recording-1791380998555/page@96915e61da04ace5c79cc7187ab23392.webm": {
+      "bytes": 3109945,
+      "sha256": "3b532253d9f8ac88baa1147e56cd6f3188563df09a1e910050914921b702d8ee"
+    },
+    "evals/virtual-companion/v4-lively/recording-1791380998555/results.json": {
+      "bytes": 851,
+      "sha256": "9db980073974a2596c4f95b06c28021ee8101d4ed5a82b5cafb4e6c0ff1f8cb3"
+    },
+    "evals/virtual-companion/v4-lively/recording-1791381305108/actual-character-motion.webm": {
+      "bytes": 3050708,
+      "sha256": "22cf7fea42dd3ca104622b26810aeeb26b5a558cc36fb1c7904b7440196dbe95"
+    },
+    "evals/virtual-companion/v4-lively/recording-1791381305108/page@c9521d27564b9a434f286f9b366a63e8.webm": {
+      "bytes": 3050708,
+      "sha256": "22cf7fea42dd3ca104622b26810aeeb26b5a558cc36fb1c7904b7440196dbe95"
+    },
+    "evals/virtual-companion/v4-lively/recording-1791381305108/results.json": {
+      "bytes": 851,
+      "sha256": "31f716d8e1f5ed45907b669ca19747c695144b3341d47dba272ff6d23209da4a"
+    }
+  },
+  "documents": {
+    "docs/CHANGELOG.md": {
+      "bytes": 31612,
+      "sha256": "38afbf0d03efee291f66dc61c2484636c3069d49ded43e545e2f14e95ca82418"
+    },
+    "docs/DECISIONS.md": {
+      "bytes": 33663,
+      "sha256": "4b1006715fd5e6d114cbdc77d937553c7d6688ad3677ec9695fbb9a301ed11df"
+    },
+    "docs/PROJECT_CONTEXT.md": {
+      "bytes": 36811,
+      "sha256": "c9380a014df2190f1440f001048432691cc15f60d771f76af670143de1ae484c"
+    },
+    "docs/virtual-companion-v4/lively-revision/DELIVERY.md": {
+      "bytes": 4610,
+      "sha256": "263646f60a4a6e33b5fc794a48c4fed53586901f3f946dd24b0b9e6a993712a8"
+    },
+    "docs/virtual-companion-v4/lively-revision/actual-motion.webm": {
+      "bytes": 3050708,
+      "sha256": "22cf7fea42dd3ca104622b26810aeeb26b5a558cc36fb1c7904b7440196dbe95"
+    },
+    "docs/virtual-companion-v4/lively-revision/fold.png": {
+      "bytes": 22317,
+      "sha256": "94e39b48271069b956b3a33a550823020708fa0c61403e3800e5916584f32fd7"
+    },
+    "docs/virtual-companion-v4/lively-revision/hop.png": {
+      "bytes": 24837,
+      "sha256": "44545387c88068304f54936f810bc7e9d79b63b5d187d2b1775eaabf79c67708"
+    },
+    "docs/virtual-companion-v4/lively-revision/idle.png": {
+      "bytes": 20552,
+      "sha256": "c9a6b72a6eaebf83ac1e7ffe8e195186a8a8d4d1a8e67af55c76fc8ea83924f2"
+    },
+    "docs/virtual-companion-v4/lively-revision/user-reference.png": {
+      "bytes": 438699,
+      "sha256": "98125cc87002a77765fbd5b14569fa331107b47baec17ba537ad81e5560b8e70"
+    },
+    "docs/virtual-companion-v4/lively-revision/wave-pixel.png": {
+      "bytes": 7756,
+      "sha256": "cdec34bc01136c740e4565b143c5f44e15c08fd1dae73fccfdad2af487a547ea"
+    },
+    "docs/virtual-companion-v4/lively-revision/wave.png": {
+      "bytes": 22995,
+      "sha256": "56ba887e35c9c47ae3682ae0677ef3a4d5c1dbeb7656593bbed554cf6604b5b6"
+    }
+  },
+  "validation": {
+    "desktop": "14/14",
+    "narrowLayout": "13/13 before final action transition, layout unchanged",
+    "motion": "5/5",
+    "mirrorSoftware": "43/43",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "scopedLintExitCode": 0,
+    "realCameraCalls": 0,
+    "cloudModelCalls": 0
+  },
+  "limits": [
+    "Desktop browser only; no physical phone measurement",
+    "No real human mirror accuracy, frame rate or latency measurement",
+    "Sampled bounds and angles are not exhaustive collision proof",
+    "Appearance remains subject to user review"
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "at": "2026-10-07T17:32:34.315Z",
+  "kind": "D_PANDA_SOFTWARE_SYNTHETIC_ONLY",
+  "realCamera": "NOT_RUN",
+  "realPhone": "NOT_RUN",
+  "checks": [
+    {
+      "name": "idle: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "raise: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "hat: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "removeHat: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: removeHat: wrist snap 13.298995358532633 at 7458.333333333241\n    at file:///E:/gym/scripts/check-d-panda.mjs:33:12\n    at test (file:///E:/gym/scripts/check-d-panda.mjs:13:36)\n    at file:///E:/gym/scripts/check-d-panda.mjs:17:3"
+    },
+    {
+      "name": "wave: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "walk: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: walk: wrist snap 16.018909646411252 at 8908.333333333267\n    at file:///E:/gym/scripts/check-d-panda.mjs:33:12\n    at test (file:///E:/gym/scripts/check-d-panda.mjs:13:36)\n    at file:///E:/gym/scripts/check-d-panda.mjs:17:3"
+    },
+    {
+      "name": "look: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: look: wrist snap 69.89728588504727 at 2158.333333333328\n    at file:///E:/gym/scripts/check-d-panda.mjs:33:12\n    at test (file:///E:/gym/scripts/check-d-panda.mjs:13:36)\n    at file:///E:/gym/scripts/check-d-panda.mjs:17:3"
+    },
+    {
+      "name": "stretch: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "rest: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: rest: wrist snap 16.38070540335138 at 850.000000000001\n    at file:///E:/gym/scripts/check-d-panda.mjs:33:12\n    at test (file:///E:/gym/scripts/check-d-panda.mjs:13:36)\n    at file:///E:/gym/scripts/check-d-panda.mjs:17:3"
+    },
+    {
+      "name": "cheer: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "encourage: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "celebrate: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "rise: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "12 separately authored expressions",
+      "pass": true
+    },
+    {
+      "name": "single arm sample holds at mid and high, leaves opposite arm still",
+      "pass": true
+    },
+    {
+      "name": "walk support paw does not slide, lifted paw changes contact",
+      "pass": true
+    },
+    {
+      "name": "jump has anticipation, airtime, absorption and a stationary endpoint; reduced has no flight",
+      "pass": true
+    },
+    {
+      "name": "pause freezes every part; request airborne must land before switching",
+      "pass": true
+    },
+    {
+      "name": "seated end holds and requests stand up before another action",
+      "pass": true
+    },
+    {
+      "name": "loop boundaries, reduced motion request in flight, reset clears pending work",
+      "pass": true
+    },
+    {
+      "name": "mirror poses never trigger autonomous legs/body/props, and remain independent",
+      "pass": true
+    },
+    {
+      "name": "one missing chain holds, then rests slowly while valid arm keeps following; recovery uses current sample",
+      "pass": true
+    },
+    {
+      "name": "partial mapper reports the correct screen side and does not trust occluded placeholders",
+      "pass": true
+    }
+  ],
+  "motion": [
+    {
+      "id": "idle",
+      "maxWristPxPer120Hz": 0,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 0
+    },
+    {
+      "id": "raise",
+      "maxWristPxPer120Hz": 1.783000788787367,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 91.66666666666666
+    },
+    {
+      "id": "hat",
+      "maxWristPxPer120Hz": 7.641490462081256,
+      "maxPropPxPer120Hz": 6.895615105851214,
+      "maxAt": 4508.3333333333485
+    },
+    {
+      "id": "removeHat",
+      "maxWristPxPer120Hz": 13.298995358532633,
+      "maxPropPxPer120Hz": 6.333417101551544,
+      "maxAt": 7458.333333333241
+    },
+    {
+      "id": "wave",
+      "maxWristPxPer120Hz": 6.339135756507972,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 524.9999999999995
+    },
+    {
+      "id": "walk",
+      "maxWristPxPer120Hz": 16.018909646411252,
+      "maxPropPxPer120Hz": 6.895615105852653,
+      "maxAt": 8908.333333333267
+    },
+    {
+      "id": "look",
+      "maxWristPxPer120Hz": 69.89728588504727,
+      "maxPropPxPer120Hz": 6.357695861706448,
+      "maxAt": 2158.333333333328
+    },
+    {
+      "id": "stretch",
+      "maxWristPxPer120Hz": 2.459551917434943,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 983.333333333335
+    },
+    {
+      "id": "rest",
+      "maxWristPxPer120Hz": 16.38070540335138,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 850.000000000001
+    },
+    {
+      "id": "cheer",
+      "maxWristPxPer120Hz": 9.141880284450968,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 941.6666666666681
+    },
+    {
+      "id": "encourage",
+      "maxWristPxPer120Hz": 3.1341093396333886,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 399.9999999999998
+    },
+    {
+      "id": "celebrate",
+      "maxWristPxPer120Hz": 5.703222549612674,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 433.33333333333303
+    },
+    {
+      "id": "rise",
+      "maxWristPxPer120Hz": 3.590929679693567,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 1699.9999999999957
+    }
+  ],
+  "source": {
+    "src/companion/dpanda/model.ts": "89f2c924e44c7030afeb25bf6437bd442059c08e180a1717de8a01afd32e2487",
+    "src/companion/dpanda/asset.ts": "0f3203f4d1240e33f3b7dab56ebde2ea9ef7aed27b57462ecdca97b2a06c783a",
+    "src/companion/dpanda/expressions.ts": "c08848763ac350ce8264d4345c7d159ee5e9f7651d7f8225d9b191ad91061fed",
+    "src/companion/dpanda/layout.ts": "a84426a816c18448e218934e548403f678dde44e861295d51057b1f9ec8f9756",
+    "src/companion/dpanda/motion.ts": "e6825706244de3e9af746f3d93909df44dc60738b0a46482a41f9ea9d660f927",
+    "src/companion/dpanda/render.ts": "b14d2ba553790147b91de8aa9b09305e3443ef6986a96ee60795f8c9c76fb2e0",
+    "src/companion/dpanda/player.ts": "270cde8acdfde37419ca9e0eaed248d1d7277b9a66f14e7a560a4d204467fff3"
+  }
+}

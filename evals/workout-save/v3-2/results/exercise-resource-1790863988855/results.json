@@ -1,0 +1,50 @@
+{
+  "version": "exercise-resource-v3.2",
+  "evidenceType": "automated software tests; isolated synthetic data; no model calls or human participants",
+  "modelCalls": 0,
+  "modelCost": 0,
+  "results": [
+    {
+      "name": "01 ordinary HTTPS webpage with fragment",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 1
+    },
+    {
+      "name": "02 HTTP webpage allowed without fetching",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "03 legacy direct videos and signed queries",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "04 a webpage mentioning mp4 is not embedded",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "05 rejects scripts data file protocol-relative and malformed URLs",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "06 rejects credentials and control or whitespace characters",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "07 maximum length agrees with existing data validation",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    }
+  ]
+}

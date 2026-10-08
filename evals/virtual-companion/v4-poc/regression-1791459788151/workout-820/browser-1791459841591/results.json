@@ -1,0 +1,69 @@
+{
+  "version": "虚拟训练伙伴 V4 POC · 既有功能纯回放回归",
+  "api": "mocked fault injection, no model accuracy or human performance claims",
+  "results": [
+    {
+      "name": "01 input-edit-unit-bulk-undo-confirm-reopen",
+      "pass": true,
+      "ms": 2873,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791459788151/workout-820/browser-1791459841591/1.png",
+      "video": "E:\\gym\\evals\\virtual-companion\\v4-poc\\regression-1791459788151\\workout-820\\browser-1791459841591\\page@e854eaade1383fcaf0a11a87dd7f94d9.webm"
+    },
+    {
+      "name": "02 template-import-edit-complete-reopen-duplicate-skip-cancel",
+      "pass": true,
+      "ms": 1537,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791459788151/workout-820/browser-1791459841591/2.png",
+      "video": "E:\\gym\\evals\\virtual-companion\\v4-poc\\regression-1791459788151\\workout-820\\browser-1791459841591\\page@85257ec43bfee29cb9c34f0c3ac6d52e.webm"
+    },
+    {
+      "name": "03 network-failure-retry-cancel-preserves-edited-preview",
+      "pass": true,
+      "ms": 3947,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791459788151/workout-820/browser-1791459841591/3.png",
+      "video": "E:\\gym\\evals\\virtual-companion\\v4-poc\\regression-1791459788151\\workout-820\\browser-1791459841591\\page@647e769546060ef4a39f03fb58a6a176.webm"
+    },
+    {
+      "name": "04 future-strength-and-cardio-not-saved",
+      "pass": true,
+      "ms": 759,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791459788151/workout-820/browser-1791459841591/4.png",
+      "video": "E:\\gym\\evals\\virtual-companion\\v4-poc\\regression-1791459788151\\workout-820\\browser-1791459841591\\page@d558575fb00a6ec2de24e4798050174c.webm"
+    },
+    {
+      "name": "05 repeated-AI-import-requires-explicit-replace-and-cancel",
+      "pass": true,
+      "ms": 906,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791459788151/workout-820/browser-1791459841591/5.png",
+      "video": "E:\\gym\\evals\\virtual-companion\\v4-poc\\regression-1791459788151\\workout-820\\browser-1791459841591\\page@efeb87173e940e398f01f918c931746b.webm"
+    },
+    {
+      "name": "06 quota-failure-does-not-claim-save-or-clear-draft",
+      "pass": true,
+      "ms": 1179,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791459788151/workout-820/browser-1791459841591/6.png",
+      "video": "E:\\gym\\evals\\virtual-companion\\v4-poc\\regression-1791459788151\\workout-820\\browser-1791459841591\\page@36a09bc82ae9a145eaffe3016d28c40c.webm"
+    },
+    {
+      "name": "07 changed-original-input-invalidates-old-preview",
+      "pass": true,
+      "ms": 1142,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791459788151/workout-820/browser-1791459841591/7.png",
+      "video": "E:\\gym\\evals\\virtual-companion\\v4-poc\\regression-1791459788151\\workout-820\\browser-1791459841591\\page@b903c5563c857cb7600fd981eecdde05.webm"
+    },
+    {
+      "name": "08 replace-retains-two-new-cardio-sessions",
+      "pass": true,
+      "ms": 1319,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791459788151/workout-820/browser-1791459841591/8.png",
+      "video": "E:\\gym\\evals\\virtual-companion\\v4-poc\\regression-1791459788151\\workout-820\\browser-1791459841591\\page@c58a81f5792ce6d15e69062945d1c030.webm"
+    },
+    {
+      "name": "09 request-unmount-does-not-write-late-result",
+      "pass": true,
+      "ms": 2768,
+      "screenshot": "evals/virtual-companion/v4-poc/regression-1791459788151/workout-820/browser-1791459841591/9.png",
+      "video": "E:\\gym\\evals\\virtual-companion\\v4-poc\\regression-1791459788151\\workout-820\\browser-1791459841591\\page@9e9205799ded7e1f6d38dacfb2663221.webm"
+    }
+  ]
+}

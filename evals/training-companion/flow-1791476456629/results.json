@@ -1,0 +1,50 @@
+{
+  "kind": "isolated synthetic records and photo, fixed API responses, desktop Edge at mobile viewport sizes; no live model or camera",
+  "base": "http://127.0.0.1:4185",
+  "modelCalls": 0,
+  "date": "2026-10-09",
+  "results": [
+    {
+      "name": "F01 scan confirm add target companion rest and reload",
+      "width": 320,
+      "pass": true,
+      "identifyRequests": 1,
+      "errors": []
+    },
+    {
+      "name": "F02 scan confirm add target companion rest and reload",
+      "width": 390,
+      "pass": true,
+      "identifyRequests": 1,
+      "errors": []
+    },
+    {
+      "name": "F03 scan confirm add target companion rest and reload",
+      "width": 1100,
+      "pass": true,
+      "identifyRequests": 1,
+      "errors": []
+    },
+    {
+      "name": "F04 switch existing companion and reuse exercise without duplicate",
+      "width": 390,
+      "pass": true,
+      "identifyRequests": 0,
+      "errors": []
+    },
+    {
+      "name": "F05 failed save cannot expose companion handoff",
+      "width": 390,
+      "pass": true,
+      "identifyRequests": 0,
+      "errors": []
+    },
+    {
+      "name": "F06 removed target requires re-add before companion",
+      "width": 390,
+      "pass": true,
+      "identifyRequests": 0,
+      "errors": []
+    }
+  ]
+}

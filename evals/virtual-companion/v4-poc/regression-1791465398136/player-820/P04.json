@@ -1,0 +1,33 @@
+{
+  "id": "P04",
+  "name": "API initialization has a 15000ms total deadline; late callback stays inert",
+  "kind": "fixed-response browser test",
+  "attempt": 1,
+  "at": "2026-10-08T13:17:55.916Z",
+  "pass": true,
+  "clockMs": 15001,
+  "ms": 592,
+  "finalState": "error",
+  "networkRequests": [
+    {
+      "url": "https://www.youtube.com/iframe_api",
+      "at": "2026-10-08T13:17:56.496Z",
+      "kind": "script"
+    }
+  ],
+  "existingPageRequests": [
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+      "kind": "existing page font stylesheet",
+      "action": "blocked in isolated test"
+    }
+  ],
+  "blockedUnexpectedRequests": [],
+  "pageErrors": [],
+  "replay": {
+    "created": 0,
+    "destroyed": 0,
+    "calls": []
+  },
+  "screenshot": "evals/virtual-companion/v4-poc/regression-1791465398136/player-820/P04.png"
+}

@@ -1,0 +1,103 @@
+{
+  "kind": "isolated browser, synthetic photo and fixed responses; no live camera or model",
+  "modelCalls": 0,
+  "results": [
+    {
+      "name": "B01 entry and paused mirror load no camera or model",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B02 local preview then explicit one-shot upload and human confirm",
+      "width": 1100,
+      "pass": true,
+      "apiCalls": [
+        "/api/identify-equipment"
+      ],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B03 unknown rejected candidate and manual recovery",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [
+        "/api/identify-equipment"
+      ],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B04 error preserves photo and malformed result fails closed",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [
+        "/api/identify-equipment",
+        "/api/identify-equipment"
+      ],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B05 cancel ignores late result and does not retry",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [
+        "/api/identify-equipment"
+      ],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B06 manual confirmation saves empty exercise once and survives reload",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B07 invalid file never uploads",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B08 scan handoff to a confirmed set survives reload",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B09 offline service disables upload but keeps manual path",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B10 expired handoff is not treated as a confirmation",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [],
+      "poseRequests": [],
+      "errors": []
+    },
+    {
+      "name": "B11 storage failure preserves confirmed selection",
+      "width": 390,
+      "pass": true,
+      "apiCalls": [],
+      "poseRequests": [],
+      "errors": []
+    }
+  ]
+}

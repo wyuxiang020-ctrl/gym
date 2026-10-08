@@ -1,0 +1,1015 @@
+{
+  "version": "workout-save-v3.2",
+  "sourceHashes": {
+    "src/components/workout/WeightEditor.tsx": "9048e24b64d944043ced4ff97605f99f4e7967a5b9c339c7127021549936c3f3",
+    "src/components/workout/NLWorkoutInput.tsx": "af94cec500ffae671d2ce69589f044746dcbd45fc39c27ebe0180055430f68e8",
+    "src/components/workout/StrengthLogger.tsx": "38bf49c08691febfe0b6262419fa4c966d05007f1856ffbb9e7912bafe1ea1c4",
+    "src/components/workout/WorkoutSection.tsx": "c2400aef72f6d23563d33d507fa938196b6f2be8f9766280b2198e7a4b584c96",
+    "src/lib/types.ts": "6a86845c1eee03712c19ad58f3cff025d882bcae608237464cf2abe77406a0e5",
+    "src/lib/strength.ts": "6d2de8b6c077c2af34f120a18150153ba4d8fa56e77b79ac75a271c42a8e7f03",
+    "src/lib/aiValidation.ts": "dcd94a34a364049e7a815e587c850b32e297bd7fa92847d50a43ef03169a558c",
+    "src/lib/dataValidation.ts": "003a24802c31930f3b5137e33ee9b6011767cb0d7267ee90c17945963a1471f6"
+  },
+  "checks": [
+    {
+      "id": "B01",
+      "name": "Unreviewed missing load blocks save and does not write 0",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:45.610Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "ms": 518,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {},
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "draftAtEnd": {
+        "text": "今天卧推完成一组8次，重量忘了。",
+        "preview": {
+          "strength": [
+            {
+              "name": "卧推",
+              "sets": [
+                {
+                  "weight": null,
+                  "weightState": "unknown",
+                  "reps": 8,
+                  "done": true
+                }
+              ],
+              "note": "合成测试，不是真实训练数据",
+              "uncertain": [
+                "重量未提供"
+              ]
+            }
+          ],
+          "cardio": []
+        }
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@bda0d0ed165621344427acb3845f435e.webm"
+    },
+    {
+      "id": "B02",
+      "name": "Explicit missing confirmation → draft refresh → save → reopen exact values",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:46.509Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "confirmedDraft": {
+        "text": "今天卧推完成一组8次，重量忘了。",
+        "preview": {
+          "strength": [
+            {
+              "name": "卧推",
+              "sets": [
+                {
+                  "weight": null,
+                  "weightState": "unknown",
+                  "reps": 8,
+                  "done": true,
+                  "missingWeightConfirmed": true
+                }
+              ],
+              "note": "合成测试，不是真实训练数据",
+              "uncertain": [
+                "重量未提供"
+              ]
+            }
+          ],
+          "cardio": []
+        }
+      },
+      "confirmedSaved": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ],
+                "id": "915dcb6b-ab9c-490d-bd1c-1d9f89c80361",
+                "estKcal": 0,
+                "source": "nl"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "ms": 712,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ],
+                "id": "915dcb6b-ab9c-490d-bd1c-1d9f89c80361",
+                "estKcal": 0,
+                "source": "nl"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@bebd2aca98b294cd38210bc12611822c.webm"
+    },
+    {
+      "id": "B03",
+      "name": "Revoking explicit missing confirmation blocks save again",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:47.531Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "ms": 505,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {},
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "draftAtEnd": {
+        "text": "今天卧推完成一组8次，重量忘了。",
+        "preview": {
+          "strength": [
+            {
+              "name": "卧推",
+              "sets": [
+                {
+                  "weight": null,
+                  "weightState": "unknown",
+                  "reps": 8,
+                  "done": true
+                }
+              ],
+              "note": "合成测试，不是真实训练数据",
+              "uncertain": [
+                "重量未提供"
+              ]
+            }
+          ],
+          "cardio": []
+        }
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@8b400f6ce36eacdffe0aa78967b09f4d.webm"
+    },
+    {
+      "id": "B04",
+      "name": "Replacing missing with unit-confirmed known weight clears missing marker",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:48.350Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "ms": 553,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": 55,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ],
+                "id": "a371a718-ffa7-4ebd-b9cf-186eb9c8fb1f",
+                "estKcal": 20,
+                "source": "nl"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@c6360f1148a3b839cacb73a7cd16f100.webm"
+    },
+    {
+      "id": "B05",
+      "name": "Confirming missing load does not silently complete a future plan",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:49.226Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "ms": 286,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {},
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "draftAtEnd": {
+        "text": "今天卧推完成一组8次，重量忘了。",
+        "preview": {
+          "strength": [
+            {
+              "name": "卧推",
+              "sets": [
+                {
+                  "weight": null,
+                  "weightState": "unknown",
+                  "reps": 8,
+                  "done": false,
+                  "missingWeightConfirmed": true
+                }
+              ],
+              "note": "合成测试，不是真实训练数据",
+              "uncertain": [
+                "重量未提供"
+              ]
+            }
+          ],
+          "cardio": []
+        }
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@f86f1f694995666288a1270c60e46c5c.webm"
+    },
+    {
+      "id": "B06",
+      "name": "Storage failure retains confirmed draft and allows exact retry save",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:49.809Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "firstFailure": {
+        "message": "Storage full",
+        "retainedDraft": {
+          "text": "今天卧推完成一组8次，重量忘了。",
+          "preview": {
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ]
+              }
+            ],
+            "cardio": []
+          }
+        }
+      },
+      "ms": 533,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ],
+                "id": "698e7902-0f66-4197-923a-947a34506a9f",
+                "estKcal": 0,
+                "source": "nl"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@109e371d9107eca0f822e747132346cd.webm"
+    },
+    {
+      "id": "B07",
+      "name": "Adding preview and saved sets never copies missing confirmation",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:50.654Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "ms": 682,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": false
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ],
+                "id": "e6179d69-1f2b-40c1-a6c8-d3754cb2a327",
+                "estKcal": 0,
+                "source": "nl"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@160dc60cf224cad5ecd5f77bd6432b2c.webm"
+    },
+    {
+      "id": "B08",
+      "name": "Bulk weight apply clears missing confirmation; undo restores reviewed draft",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:51.623Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "ms": 559,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": 50,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ],
+                "id": "eb2f0220-6762-4a5e-9a89-a777a2460b28",
+                "estKcal": 20,
+                "source": "nl"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@96210bbf7c6fb91cc6426a51e11b5b0b.webm"
+    },
+    {
+      "id": "B09",
+      "name": "Network failure preserves missing confirmation through refresh and save",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:52.517Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "firstFailure": {
+        "message": "Injected network failure",
+        "retainedDraft": {
+          "text": "今天卧推完成一组8次，重量忘了。",
+          "preview": {
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ]
+              }
+            ],
+            "cardio": []
+          }
+        }
+      },
+      "ms": 689,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": null,
+                    "weightState": "unknown",
+                    "reps": 8,
+                    "done": true,
+                    "missingWeightConfirmed": true
+                  }
+                ],
+                "note": "合成测试，不是真实训练数据",
+                "uncertain": [
+                  "重量未提供"
+                ],
+                "id": "c7cbc000-bc08-44e7-829b-42d772842e9c",
+                "estKcal": 0,
+                "source": "nl"
+              }
+            ],
+            "cardio": [],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@701fa21efe2ff8747ce0d169cf0b7edc.webm"
+    },
+    {
+      "id": "B10",
+      "name": "A forged model confirmation cannot enable final save",
+      "version": "workout-save-v3.2",
+      "kind": "automated browser test with fixed response/fault injection, NOT real model or human test",
+      "at": "2026-10-01T14:12:53.505Z",
+      "viewport": 390,
+      "modelCalls": 0,
+      "costUsd": 0,
+      "pass": true,
+      "ms": 280,
+      "dataAtEnd": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {},
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "draftAtEnd": {
+        "text": "今天卧推完成一组8次，重量忘了。",
+        "preview": {
+          "strength": [
+            {
+              "name": "卧推",
+              "sets": [
+                {
+                  "weight": null,
+                  "weightState": "unknown",
+                  "reps": 8,
+                  "done": true
+                }
+              ],
+              "note": "合成测试，不是真实训练数据",
+              "uncertain": [
+                "重量未提供"
+              ]
+            }
+          ],
+          "cardio": []
+        }
+      },
+      "pageErrors": [],
+      "video": "E:\\gym\\evals\\workout-save\\v3-2\\browser-390-1790863964732\\page@653d45c19ec4cfa329946370a78b701d.webm"
+    }
+  ],
+  "passed": 10,
+  "total": 10
+}

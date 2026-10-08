@@ -1,0 +1,579 @@
+{
+  "version": "virtual-companion-v4-poc",
+  "startedAt": "2026-10-07T12:11:24.476Z",
+  "base": "http://127.0.0.1:4175",
+  "viewport": {
+    "width": 390,
+    "height": 1024,
+    "deviceScaleFactor": 1
+  },
+  "browser": "154.0.4258.62",
+  "channel": "msedge",
+  "browserArguments": [
+    "--enable-unsafe-swiftshader"
+  ],
+  "evidenceType": "isolated automated browser software checks; generated blank canvas streams and injected failures; real local worker only receives blank synthetic images; NO real camera, human tracking, mobile device or cloud model evidence",
+  "cloudModelCalls": 0,
+  "cloudModelCostUsd": 0,
+  "infrastructureCostUsd": null,
+  "cameraPolicy": "original getUserMedia is never invoked; only deterministic rejection or generated blank canvas captureStream",
+  "sourceHashes": {
+    "src/App.tsx": "63154cc983f85486e06a40edf5d97cfb91c31e9f12472a3a0e8fe0506333c8ba",
+    "src/companion/CompanionLab.tsx": "3af11a10ed667e68ff6296ff7d633923d4227f78a21a9b229765e598518a8b39",
+    "src/companion/PandaStage.tsx": "ec03d70ae4e406d33539bb384c090c346582dcf7d17bb86d55d784e2e72a6062",
+    "src/companion/pandaRig.ts": "a0efcd4c2e06a99092bfee3a93d19d3ae1c7545148a3f86b89c1d3ee18fff96a",
+    "src/companion/mirror/MirrorSession.ts": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+    "src/companion/mirror/mapping.ts": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+    "public/companion-assets/pose-worker.js": "d9e6c0acc96288c367445dd6ab2b37f36cebc18d5cb04c062c748cbeff7c4f9c",
+    "vite.config.ts": "ee94f42662b4a3da97be6fcffa558ca891e0b2a285d47d6a13482bcbf3cf1879",
+    "scripts/check-companion-integration-v4.mjs": "27b8c0b39405f2f823488181653a02c3bb73ab4bd53373902cb5263ba8b2be43"
+  },
+  "results": [
+    {
+      "id": "I02",
+      "name": "Blank-profile experiment requests no camera/model and writes no training data",
+      "evidenceType": "automated software with synthetic fixtures",
+      "attempt": 1,
+      "at": "2026-10-07T12:11:25.351Z",
+      "pass": true,
+      "render": {
+        "dataset": {
+          "engine": "three.js r186",
+          "displayMode": "clear",
+          "actualDisplay": "clear",
+          "pixelSize": "1",
+          "bufferSize": "352x360",
+          "dpr": "1",
+          "view": "front",
+          "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":0.1,\"elbow\":0}}",
+          "renderFrame": "150"
+        },
+        "width": 352,
+        "height": 360
+      },
+      "audit": {
+        "localStorage": {},
+        "sessionStorage": {},
+        "reads": [],
+        "writes": [],
+        "gum": [],
+        "activeTracks": 0,
+        "streams": [],
+        "workers": [],
+        "activeWorkers": 0,
+        "framePosts": 0,
+        "originalCameraCalls": 0
+      },
+      "ms": 1646,
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4175/?companion-lab=1",
+          "method": "GET",
+          "kind": "document"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@vite/client",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/main.tsx?t=1791375070056",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@react-refresh",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/vite/dist/client/env.mjs",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react.js?v=09a64117",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom_client.js?v=ba400185",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/index.css?t=1791375070056",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryRouter.tsx?t=1791374817848",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=09a64117",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/rolldown-runtime-BvCyGRYZ.js?v=ea53311d",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryBoundary.tsx",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom.js?v=09a64117",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "method": "GET",
+          "kind": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/CompanionLab.tsx?t=1791374817848",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/PandaStage.tsx?t=1791374817848",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/types.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/preset.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/companion.css",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/favicon.svg",
+          "method": "GET",
+          "kind": "other"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/three.js?v=1fc2a696",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/pandaRig.ts?t=1791374816197",
+          "method": "GET",
+          "kind": "script"
+        }
+      ],
+      "blockedExternalRequests": [
+        "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+      ],
+      "apiAttempts": [],
+      "pageErrors": [],
+      "screenshot": "evals/virtual-companion/v4-poc/integration-390-1791375084259/I02.png"
+    },
+    {
+      "id": "I03",
+      "name": "Preset pause, same-pose clear/pixel and three view comparison preserve storage",
+      "evidenceType": "automated software with synthetic fixtures",
+      "attempt": 1,
+      "at": "2026-10-07T12:11:27.219Z",
+      "pass": true,
+      "pausedPose": {
+        "left": {
+          "shoulder": 0.1,
+          "elbow": 0
+        },
+        "right": {
+          "shoulder": 0.8751953125,
+          "elbow": 0.094921875
+        }
+      },
+      "samePoseComparison": {
+        "clear": {
+          "dataset": {
+            "engine": "three.js r186",
+            "displayMode": "clear",
+            "actualDisplay": "clear",
+            "pixelSize": "1",
+            "bufferSize": "352x360",
+            "dpr": "1",
+            "view": "front",
+            "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":0.8751953125,\"elbow\":0.094921875}}",
+            "renderFrame": "400"
+          },
+          "rect": {
+            "width": 352,
+            "height": 360
+          }
+        },
+        "pixel": {
+          "dataset": {
+            "engine": "three.js r186",
+            "displayMode": "pixel",
+            "actualDisplay": "pixel",
+            "pixelSize": "4",
+            "bufferSize": "88x90",
+            "dpr": "1",
+            "view": "front",
+            "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":0.8751953125,\"elbow\":0.094921875}}",
+            "renderFrame": "444"
+          },
+          "rect": {
+            "width": 352,
+            "height": 360
+          }
+        },
+        "evidenceType": "actual continuous Three rendering of a preset, not a design image"
+      },
+      "topPose": {
+        "left": {
+          "shoulder": 2.5500000000000003,
+          "elbow": 0.3
+        },
+        "right": {
+          "shoulder": 2.5500000000000003,
+          "elbow": 0.3
+        }
+      },
+      "restartedPose": {
+        "left": {
+          "shoulder": 0.1,
+          "elbow": 0
+        },
+        "right": {
+          "shoulder": 0.1,
+          "elbow": 0
+        }
+      },
+      "audit": {
+        "localStorage": {
+          "gym-data-v1": "V4 SOFTWARE SENTINEL: deliberately not a body profile"
+        },
+        "sessionStorage": {
+          "gym-workout-draft-v3:2026-10-07": "V4 SOFTWARE DRAFT SENTINEL"
+        },
+        "reads": [],
+        "writes": [],
+        "gum": [],
+        "activeTracks": 0,
+        "streams": [],
+        "workers": [],
+        "activeWorkers": 0,
+        "framePosts": 0,
+        "originalCameraCalls": 0
+      },
+      "ms": 8391,
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4175/?companion-lab=1",
+          "method": "GET",
+          "kind": "document"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@vite/client",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/main.tsx?t=1791375070056",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@react-refresh",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react.js?v=09a64117",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom_client.js?v=ba400185",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/index.css?t=1791375070056",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryRouter.tsx?t=1791374817848",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=09a64117",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/vite/dist/client/env.mjs",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/rolldown-runtime-BvCyGRYZ.js?v=ea53311d",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryBoundary.tsx",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom.js?v=09a64117",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "method": "GET",
+          "kind": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/CompanionLab.tsx?t=1791374817848",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/PandaStage.tsx?t=1791374817848",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/types.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/preset.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/companion.css",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/favicon.svg",
+          "method": "GET",
+          "kind": "other"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/three.js?v=1fc2a696",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/pandaRig.ts?t=1791374816197",
+          "method": "GET",
+          "kind": "script"
+        }
+      ],
+      "blockedExternalRequests": [
+        "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+      ],
+      "apiAttempts": [],
+      "pageErrors": [],
+      "screenshot": "evals/virtual-companion/v4-poc/integration-390-1791375084259/I03.png"
+    },
+    {
+      "id": "I04",
+      "name": "Injected permission rejected is recoverable and never downloads a model",
+      "evidenceType": "automated software with synthetic fixtures",
+      "attempt": 1,
+      "at": "2026-10-07T12:11:35.824Z",
+      "pass": true,
+      "cameraControlBounds": {
+        "x": 41,
+        "y": 684.375,
+        "width": 308,
+        "height": 52
+      },
+      "audit": {
+        "localStorage": {
+          "gym-data-v1": "V4 SOFTWARE SENTINEL: deliberately not a body profile"
+        },
+        "sessionStorage": {
+          "gym-workout-draft-v3:2026-10-07": "V4 SOFTWARE DRAFT SENTINEL"
+        },
+        "reads": [],
+        "writes": [],
+        "gum": [
+          {
+            "constraints": {
+              "audio": false,
+              "video": {
+                "facingMode": "user",
+                "width": {
+                  "ideal": 640
+                },
+                "height": {
+                  "ideal": 480
+                },
+                "frameRate": {
+                  "ideal": 30,
+                  "max": 30
+                }
+              }
+            },
+            "at": 580.0999999977648
+          }
+        ],
+        "activeTracks": 0,
+        "streams": [],
+        "workers": [],
+        "activeWorkers": 0,
+        "framePosts": 0,
+        "originalCameraCalls": 0
+      },
+      "ms": 646,
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4175/?companion-lab=1",
+          "method": "GET",
+          "kind": "document"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@vite/client",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/main.tsx?t=1791375070056",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/@react-refresh",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react.js?v=09a64117",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom_client.js?v=ba400185",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/index.css?t=1791375070056",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryRouter.tsx?t=1791374817848",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=09a64117",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/vite/dist/client/env.mjs",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/rolldown-runtime-BvCyGRYZ.js?v=ea53311d",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/EntryBoundary.tsx",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom.js?v=09a64117",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "method": "GET",
+          "kind": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/CompanionLab.tsx?t=1791374817848",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/PandaStage.tsx?t=1791374817848",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/types.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/preset.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/companion.css",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/favicon.svg",
+          "method": "GET",
+          "kind": "other"
+        },
+        {
+          "url": "http://127.0.0.1:4175/node_modules/.vite/deps/three.js?v=1fc2a696",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/pandaRig.ts?t=1791374816197",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/mirror/MirrorSession.ts",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4175/src/companion/mirror/mapping.ts",
+          "method": "GET",
+          "kind": "script"
+        }
+      ],
+      "blockedExternalRequests": [
+        "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+      ],
+      "apiAttempts": [],
+      "pageErrors": [],
+      "screenshot": "evals/virtual-companion/v4-poc/integration-390-1791375084259/I04.png"
+    }
+  ]
+}

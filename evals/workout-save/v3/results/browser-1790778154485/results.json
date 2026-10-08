@@ -1,0 +1,13 @@
+{
+  "version": "save-v3",
+  "api": "mocked fault injection, no model accuracy or human performance claims",
+  "results": [
+    {
+      "name": "01 input-edit-unit-bulk-undo-confirm-reopen",
+      "pass": true,
+      "ms": 21154,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778154485/1.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778154485\\page@6d06781167d1eafa6dddb2702a116dea.webm"
+    }
+  ]
+}

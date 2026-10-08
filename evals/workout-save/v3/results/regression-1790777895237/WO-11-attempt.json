@@ -1,0 +1,38 @@
+{
+  "id": "WO-11",
+  "input": "先低强度快走15分钟，再高强度跳绳5分钟。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:19:37.973Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1529,
+    "cachedInputTokens": 1408,
+    "outputTokens": 472,
+    "reasoningTokens": 384,
+    "totalTokens": 2001
+  },
+  "estimatedCostUsd": 0.00100945,
+  "rawSha256": "4fc3e2e3c460c8b1c6c06a7e6d8eba83aa2b33926664452b9ae24b5b12922b03",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_02fa18f9e24f1815016abd1a7cca8087d0ae48e36132c2e325",
+    "requestId": "req_faab6a037d0a46a78b6b7738511e3255",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1529,
+      "cachedInputTokens": 1408,
+      "outputTokens": 472,
+      "reasoningTokens": 384,
+      "totalTokens": 2001
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 7975
+}

@@ -1,0 +1,30 @@
+{
+  "id": "P04",
+  "name": "API initialization has a 15000ms total deadline; late callback stays inert",
+  "kind": "fixed-response browser test",
+  "attempt": 1,
+  "at": "2026-10-01T15:26:59.124Z",
+  "pass": false,
+  "clockMs": 15001,
+  "error": "no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n",
+  "stack": "AssertionError [ERR_ASSERTION]: no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n\n    at scenario (file:///E:/gym/scripts/check-teaching-player-v33.mjs:158:12)\n    at async file:///E:/gym/scripts/check-teaching-player-v33.mjs:232:3",
+  "ms": 376,
+  "finalState": "error",
+  "networkRequests": [
+    {
+      "url": "https://www.youtube.com/iframe_api",
+      "at": "2026-10-01T15:26:59.484Z",
+      "kind": "script"
+    }
+  ],
+  "blockedUnexpectedRequests": [
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+  ],
+  "pageErrors": [],
+  "replay": {
+    "created": 0,
+    "destroyed": 0,
+    "calls": []
+  },
+  "screenshot": "evals/video-pilot/v3-3/player-390-1790868415837/P04.png"
+}

@@ -1,0 +1,334 @@
+import { useEffect, useRef, useState } from 'react'
+import {
+  parseWorkoutResponse,
+  type ConfirmedParsedWorkout,
+  type ParsedCardio,
+  type ParsedStrength,
+  type ParsedWorkout,
+  validateWorkoutForSave,
+} from '../../lib/aiValidation'
+import { postJson } from '../../lib/apiClient'
+import { CARDIO_TYPE_LABELS, type CardioActivity, type Intensity } from '../../lib/met'
+import { IntensityPicker } from './IntensityPicker'
+import { Stepper } from './Stepper'
+import { AiBadge } from '../AiBadge'
+import { WeightEditor } from './WeightEditor'
+import { applyFirstWeight, resolvedWeight } from '../../lib/strength'
+import { getWorkoutDraft, saveWorkoutDraft } from '../../lib/store'
+
+async function callParseWorkout(text: string, signal: AbortSignal): Promise<ParsedWorkout> {
+  const body = await postJson('/api/parse-workout', { text }, '训练解析失败,请稍后重试。', { signal })
+  return parseWorkoutResponse(body)
+}
+
+export function NLWorkoutInput({
+  date,
+  onConfirm,
+  resetToken,
+}: {
+  date: string
+  onConfirm: (result: ConfirmedParsedWorkout) => void
+  resetToken: number
+}) {
+  const [draft] = useState(() => getWorkoutDraft(date))
+  const [text, setText] = useState(draft.text)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [preview, setPreview] = useState<ParsedWorkout | null>(draft.preview)
+  const [draftError, setDraftError] = useState(false)
+  const [bulkUndo, setBulkUndo] = useState<ParsedWorkout | null>(null)
+  const request = useRef<AbortController | null>(null)
+  const lastReset = useRef(resetToken)
+
+  useEffect(() => () => { request.current?.abort(); request.current = null }, [])
+  useEffect(() => { setDraftError(!saveWorkoutDraft(date, text, preview)) }, [date, text, preview])
+
+  useEffect(() => {
+    if (lastReset.current === resetToken) return
+    lastReset.current = resetToken
+    setPreview(null)
+    setText('')
+    setError(null)
+    setBulkUndo(null)
+  }, [resetToken])
+
+  async function parse() {
+    if (!text.trim() || request.current) return
+    const controller = new AbortController()
+    request.current = controller
+    setLoading(true)
+    setError(null)
+    try {
+      const result = await callParseWorkout(text, controller.signal)
+      if (request.current === controller && !controller.signal.aborted) { setPreview(result); setBulkUndo(null) }
+    } catch (err) {
+      if (request.current === controller) setError(err instanceof Error ? err.message : '解析失败')
+    } finally {
+      if (request.current === controller) { request.current = null; setLoading(false) }
+    }
+  }
+
+  function updateStrength(i: number, patch: Partial<ParsedStrength>) {
+    setPreview((p) => (p ? { ...p, strength: p.strength.map((s, idx) => (idx === i ? { ...s, ...patch } : s)) } : p))
+  }
+
+  function removeStrength(i: number) {
+    setPreview((p) => (p ? { ...p, strength: p.strength.filter((_, idx) => idx !== i) } : p))
+  }
+
+  function updateCardio(i: number, patch: Partial<ParsedCardio>) {
+    setPreview((p) => (p ? { ...p, cardio: p.cardio.map((c, idx) => (idx === i ? { ...c, ...patch } : c)) } : p))
+  }
+
+  function removeCardio(i: number) {
+    setPreview((p) => (p ? { ...p, cardio: p.cardio.filter((_, idx) => idx !== i) } : p))
+  }
+
+  const hasIncompleteCardio =
+    preview?.cardio.some(
+      (entry) => entry.minutes === null || !Number.isFinite(entry.minutes) || entry.minutes < 1,
+    ) ?? false
+  const saveValidation = preview ? validateWorkoutForSave(preview) : null
+  const saveError = saveValidation && !saveValidation.ok ? saveValidation.error : null
+
+  return (
+    <div className="space-y-3 rounded-lg border border-neutral-300 bg-card p-3">
+      <label className="flex flex-col gap-1 text-xs text-neutral-600">
+        自然语言记录训练(文字或语音转写)
+        <textarea
+          maxLength={2000}
+          className="rounded-md bg-neutral-100 border border-neutral-300 px-3 py-2 text-sm text-neutral-900"
+          rows={2}
+          placeholder="今天卧推 60 公斤做了 4 组,前三组 8 次最后一组 6 次,然后深蹲 80 公斤三组 10 次,最后跑步机走了 20 分钟"
+          value={text}
+          disabled={loading}
+          onChange={(e) => { setText(e.target.value); setPreview(null); setBulkUndo(null) }}
+        />
+      </label>
+
+      <button
+        className="min-h-11 rounded-md bg-primary hover:bg-primary-dark disabled:opacity-50 px-4 py-2 text-sm font-medium text-white"
+        disabled={loading || !text.trim()}
+        onClick={parse}
+      >
+        {loading ? '解析中…' : '解析'}
+      </button>
+      {loading && <button className="min-h-11 rounded border px-3 text-sm" onClick={() => request.current?.abort()}>取消等待</button>}
+      <p className="text-xs text-neutral-500">最多等待 120 秒，不自动重试。当前标签页刷新可恢复文字与已确认的预览编辑；关闭标签页后不保证恢复。草稿不计入记录。</p>
+      {draftError && <p role="alert" className="text-xs text-red-600">草稿保存失败，请先复制原文；刷新可能丢失编辑。</p>}
+      <p className="text-xs text-neutral-400">
+        点击解析后，输入文字会发送给 OpenAI；识别结果只会在你核对并确认后写入本地。
+      </p>
+
+      {error && (
+        <p className="text-xs text-red-500">
+          {error}
+          {!preview && '(原始文字已保留,可以直接手动记录或重试)'}
+        </p>
+      )}
+
+      {preview && (
+        <fieldset disabled={loading} className="space-y-3 border-t border-neutral-300 pt-3 disabled:opacity-60">
+          <p className="text-xs text-neutral-600">未保存预览 · {date} · 请核对每组重量状态和完成情况</p>
+          {preview.strength.map((s, i) => (
+            <div
+              key={i}
+              className={`space-y-2 rounded-md border px-3 py-2 ${
+                s.uncertain?.length ? 'border-amber-300 bg-amber-50' : 'border-neutral-300 bg-neutral-100'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <AiBadge />
+                <input
+                  className="flex-1 bg-transparent text-sm text-neutral-900 outline-none"
+                  value={s.name}
+                  onChange={(e) => updateStrength(i, { name: e.target.value })}
+                />
+                <button className="text-xs text-neutral-400 hover:text-red-500" onClick={() => removeStrength(i)}>
+                  删除
+                </button>
+              </div>
+              <div className="space-y-1">
+                {s.sets.map((set, si) => (
+                  <div key={si} className="flex flex-wrap items-center gap-2">
+                    <span className="w-5 text-xs text-neutral-400">{si + 1}</span>
+                    <select
+                      aria-label={`第 ${si + 1} 组记录方式`}
+                      className="rounded-md border border-neutral-300 bg-card px-2 py-1 text-xs text-neutral-700"
+                      value={set.durationSeconds !== undefined ? 'duration' : 'reps'}
+                      onChange={(event) =>
+                        updateStrength(i, {
+                          sets: s.sets.map((item, index) =>
+                            index !== si
+                              ? item
+                              : event.target.value === 'duration'
+                                ? { ...item, reps: undefined, durationSeconds: item.durationSeconds ?? 30 }
+                                : { ...item, durationSeconds: undefined, reps: item.reps ?? 8 },
+                          ),
+                        })
+                      }
+                    >
+                      <option value="reps">次数</option>
+                      <option value="duration">计时</option>
+                    </select>
+                    <WeightEditor set={set} onChange={(patch) => updateStrength(i, { sets: s.sets.map((x, xi) => xi === si ? { ...x, ...patch } : x) })} />
+                    <label className="text-xs"><input type="checkbox" checked={set.done} onChange={(e) => updateStrength(i, { sets: s.sets.map((x, xi) => xi === si ? { ...x, done: e.target.checked } : x) })} />已完成</label>
+                    <span className="text-xs text-neutral-400">×</span>
+                    {set.durationSeconds !== undefined ? (
+                      <Stepper
+                        value={set.durationSeconds}
+                        step={5}
+                        min={1}
+                        max={86400}
+                        suffix="秒"
+                        onChange={(v) =>
+                          updateStrength(i, {
+                            sets: s.sets.map((x, xi) => (xi === si ? { ...x, durationSeconds: v } : x)),
+                          })
+                        }
+                      />
+                    ) : (
+                      <Stepper
+                        value={set.reps ?? 0}
+                        step={1}
+                        min={1}
+                        max={1000}
+                        onChange={(v) =>
+                          updateStrength(i, { sets: s.sets.map((x, xi) => (xi === si ? { ...x, reps: v } : x)) })
+                        }
+                      />
+                    )}
+                    <button
+                      className="text-xs text-neutral-400 hover:text-red-500"
+                      onClick={() => updateStrength(i, { sets: s.sets.filter((_, xi) => xi !== si) })}
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <button
+                className="text-xs text-neutral-600 hover:text-neutral-800"
+                disabled={s.sets.length >= 50}
+                onClick={() => {
+                  const last = s.sets.at(-1)
+                  const nextSet = last ? { ...last } : { weight: null, weightState: 'unknown' as const, reps: 8, done: false }
+                  updateStrength(i, { sets: [...s.sets, nextSet] })
+                }}
+              >
+                {s.sets.length >= 50 ? '已达到 50 组上限' : '+ 添加一组'}
+              </button>
+              {s.sets.length > 1 && <button className="ml-3 min-h-9 rounded border px-2 text-xs disabled:opacity-40" disabled={!resolvedWeight(s.sets[0])} onClick={() => {
+                setBulkUndo(structuredClone(preview)); updateStrength(i, { sets: applyFirstWeight(s.sets) })
+              }}>第一组重量应用到本动作全部组</button>}
+              {s.uncertain?.length ? (
+                <p className="text-xs text-amber-700">没把握:{s.uncertain.join('; ')}</p>
+              ) : null}
+              {s.note && <p className="text-xs text-neutral-500">未识别:{s.note}</p>}
+            </div>
+          ))}
+
+          {preview.cardio.map((c, i) => (
+            <div
+              key={i}
+              className={`space-y-2 rounded-md border px-3 py-2 ${
+                c.uncertain?.length ? 'border-amber-300 bg-amber-50' : 'border-neutral-300 bg-neutral-100'
+              }`}
+            >
+              <div className="flex flex-wrap items-center gap-2">
+                <AiBadge />
+                <label className="text-xs"><input type="checkbox" checked={c.done === true} onChange={(e) => updateCardio(i, { done: e.target.checked })} />已完成</label>
+                <select
+                  className="rounded-md bg-card border border-neutral-300 px-2 py-1 text-sm text-neutral-900"
+                  value={c.type}
+                  onChange={(e) => updateCardio(i, { type: e.target.value })}
+                >
+                  {(Object.keys(CARDIO_TYPE_LABELS) as CardioActivity[])
+                    .filter((k): k is Exclude<CardioActivity, 'strength'> => k !== 'strength')
+                    .map((key) => (
+                      <option key={key} value={CARDIO_TYPE_LABELS[key]}>
+                        {CARDIO_TYPE_LABELS[key]}
+                      </option>
+                    ))}
+                </select>
+                <input
+                  type="number"
+                  min={1}
+                  className={`w-20 rounded-md bg-card border px-2 py-1 text-sm text-neutral-900 ${
+                    c.minutes === null || !Number.isFinite(c.minutes) || c.minutes < 1
+                      ? 'border-amber-400'
+                      : 'border-neutral-300'
+                  }`}
+                  value={c.minutes ?? ''}
+                  placeholder="必填"
+                  onChange={(e) =>
+                    updateCardio(i, { minutes: e.target.value === '' ? null : Number(e.target.value) })
+                  }
+                />
+                <span className="text-xs text-neutral-500">分钟</span>
+                <input
+                  type="number"
+                  min={0}
+                  max={1000}
+                  step="0.1"
+                  className="w-24 rounded-md border border-neutral-300 bg-card px-2 py-1 text-sm text-neutral-900"
+                  value={c.distance ?? ''}
+                  placeholder="距离 km"
+                  aria-label="距离（公里，可选）"
+                  onChange={(e) => updateCardio(i, { distance: e.target.value === '' ? undefined : Number(e.target.value) })}
+                />
+                <input
+                  type="number"
+                  min={1}
+                  max={250}
+                  className="w-24 rounded-md border border-neutral-300 bg-card px-2 py-1 text-sm text-neutral-900"
+                  value={c.avgHr ?? ''}
+                  placeholder="平均心率"
+                  aria-label="平均心率（可选）"
+                  onChange={(e) => updateCardio(i, { avgHr: e.target.value === '' ? undefined : Number(e.target.value) })}
+                />
+                <IntensityPicker value={c.intensity as Intensity} onChange={(v) => updateCardio(i, { intensity: v })} />
+                <button className="ml-auto text-xs text-neutral-400 hover:text-red-500" onClick={() => removeCardio(i)}>
+                  删除
+                </button>
+              </div>
+              {c.uncertain?.length ? (
+                <p className="text-xs text-amber-700">没把握:{c.uncertain.join('; ')}</p>
+              ) : null}
+              {c.note && <p className="text-xs text-neutral-500">未识别:{c.note}</p>}
+            </div>
+          ))}
+
+          {preview.strength.length === 0 && preview.cardio.length === 0 && (
+            <p className="text-xs text-neutral-500">没有识别出训练内容。</p>
+          )}
+
+          {saveError && <p className="text-xs text-amber-700">{saveError}</p>}
+          {bulkUndo && <button className="min-h-9 rounded border px-2 text-xs" onClick={() => { setPreview(bulkUndo); setBulkUndo(null) }}>撤销批量操作（恢复操作前整份预览）</button>}
+
+          <div className="flex gap-2 pt-1">
+            <button
+              className="min-h-11 rounded-md bg-primary hover:bg-primary-dark disabled:opacity-50 px-4 py-2 text-sm font-medium text-white"
+              disabled={loading || !saveValidation?.ok}
+              onClick={() => {
+                const validation = validateWorkoutForSave(preview)
+                if (!validation.ok) return
+                onConfirm(validation.value)
+              }}
+            >
+              {hasIncompleteCardio ? '请先补全时长' : saveValidation?.ok ? '确认写入' : '请先检查内容'}
+            </button>
+            <button
+              className="rounded-md border border-neutral-400 hover:border-neutral-500 px-4 py-2 text-sm text-neutral-800"
+              onClick={parse}
+              disabled={loading}
+            >
+              重新解析
+            </button>
+            <button className="rounded border px-3 text-sm" onClick={() => { setPreview(null); setBulkUndo(null) }}>取消预览</button>
+          </div>
+        </fieldset>
+      )}
+    </div>
+  )
+}

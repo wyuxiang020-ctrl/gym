@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "output": "evals/virtual-companion/d-panda/actions-check-1791450021185",
+  "checks": [
+    {
+      "name": "新增素材仅遮罩选择原画像素，内嵌原 PNG 与交付包字节一致",
+      "result": "PASS"
+    },
+    {
+      "name": "点头鼓励：足底固定、小幅俯仰且无侧移或抬爪、起止复位、无网格翻折与位置跳变",
+      "smallestArea": 27.302134181474514,
+      "largestStepPer20ms": 0.5335460879631029,
+      "largestFaceDistanceChange": 0.023366722287126773,
+      "result": "PASS"
+    },
+    {
+      "name": "扶帽致意：足底固定、五官距离不变、起止复位、无网格翻折与位置跳变",
+      "smallestArea": 16.43146705045497,
+      "largestStepPer20ms": 1.0907620236665898,
+      "largestFaceDistanceChange": 6.661338147750939e-16,
+      "result": "PASS"
+    },
+    {
+      "name": "轻轻伸展：足底固定、五官距离不变、起止复位、无网格翻折与位置跳变",
+      "smallestArea": 17.049398939890217,
+      "largestStepPer20ms": 0.6787719511951232,
+      "largestFaceDistanceChange": 4.440892098500626e-16,
+      "result": "PASS"
+    },
+    {
+      "name": "点头只出现一次主下点，保持睁眼，去掉第二次回弹",
+      "result": "PASS"
+    },
+    {
+      "name": "点头鼓励：原画不透明像素一致，实际起止与足底画面一致；逐帧、暂停、原图对照通过",
+      "opaque": 106208,
+      "changed": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "扶帽致意：原画不透明像素一致，实际起止与足底画面一致；逐帧、暂停、原图对照通过",
+      "opaque": 119804,
+      "changed": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "轻轻伸展：原画不透明像素一致，实际起止与足底画面一致；逐帧、暂停、原图对照通过",
+      "opaque": 59888,
+      "changed": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "播放中切换先完成当前动作；下一段静止等待播放；可取消切换",
+      "result": "PASS"
+    },
+    {
+      "name": "隐藏暂停；减少动态偏好下默认静止；390 宽度无溢出；无相机、存储写入、旧角色加载或脚本错误",
+      "result": "PASS"
+    },
+    {
+      "name": "WebGL 中断与素材失败有提示，并阻止空白播放",
+      "result": "PASS"
+    },
+    {
+      "name": "三个动作均按正常速度播放到结束，保存实际页面录像",
+      "result": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "P13",
+  "name": "API network failure is visible; manual retry loads a fresh request",
+  "kind": "fixed-response browser test",
+  "attempt": 1,
+  "at": "2026-10-01T15:29:20.247Z",
+  "pass": true,
+  "ms": 396,
+  "finalState": "ready",
+  "networkRequests": [
+    {
+      "url": "https://www.youtube.com/iframe_api",
+      "at": "2026-10-01T15:29:20.601Z",
+      "kind": "script"
+    },
+    {
+      "url": "https://www.youtube.com/iframe_api",
+      "at": "2026-10-01T15:29:20.622Z",
+      "kind": "script"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4174&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+      "at": "2026-10-01T15:29:20.633Z",
+      "kind": "document"
+    }
+  ],
+  "existingPageRequests": [
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+      "kind": "existing page font stylesheet",
+      "action": "blocked in isolated test"
+    }
+  ],
+  "blockedUnexpectedRequests": [],
+  "pageErrors": [],
+  "replay": {
+    "created": 1,
+    "destroyed": 0,
+    "calls": [
+      {
+        "type": "construct",
+        "index": 0
+      },
+      {
+        "type": "event",
+        "index": 0,
+        "event": "onReady"
+      }
+    ]
+  },
+  "screenshot": "evals/video-pilot/v3-3/player-820-1790868551931/P13.png"
+}

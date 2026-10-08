@@ -1,0 +1,31 @@
+{
+  "method": "Unchanged original PNG bytes; source-pixel alpha selection only. No new painting or hidden-region fill.",
+  "selections": [
+    {
+      "id": "hat",
+      "file": "D2-character-accessories.png",
+      "crop": [
+        530,
+        135,
+        420,
+        480
+      ],
+      "shadowStart": 450,
+      "sha256": "213e4988d57259b0efa4a60c907e098eefc42dc5d1c86b59f4c8ce3bc01f6ff4",
+      "opaquePixels": 119804
+    },
+    {
+      "id": "stretch",
+      "file": "D2-key-poses.png",
+      "crop": [
+        405,
+        540,
+        355,
+        345
+      ],
+      "shadowStart": 314,
+      "sha256": "78a74016129385c86aef030d305da73215b82161f225e812dc3f653b14a48b15",
+      "opaquePixels": 59888
+    }
+  ]
+}

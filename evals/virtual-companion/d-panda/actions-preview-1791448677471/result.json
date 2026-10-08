@@ -1,0 +1,18 @@
+{
+  "output": "evals/virtual-companion/d-panda/actions-preview-1791448677471",
+  "errors": [],
+  "geometry": [
+    {
+      "id": "encourage",
+      "minArea": 6.584565240233424
+    },
+    {
+      "id": "hat",
+      "minArea": 16.686722399892748
+    },
+    {
+      "id": "stretch",
+      "minArea": -24.365823689133045
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "policy": "No physical camera, external network or unmocked API; explicit fixed playback/API routes remain local fulfillments",
+  "blocked": []
+}

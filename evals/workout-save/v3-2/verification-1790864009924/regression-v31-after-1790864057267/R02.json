@@ -1,0 +1,100 @@
+{
+  "id": "R02",
+  "name": "Unfinished blank name survives refresh with original text and other edits",
+  "phase": "after",
+  "kind": "automated software test with fixed response, NOT human research",
+  "startedAt": "2026-10-01T14:14:19.465Z",
+  "modelCalls": 0,
+  "costUsd": 0,
+  "pass": true,
+  "recoveredText": "今天卧推50公斤完成两组，每组8次，然后快走15分钟。",
+  "ms": 671,
+  "dataAtEnd": {
+    "profile": {
+      "gender": "male",
+      "birthYear": 1997,
+      "height": 178,
+      "experience": "intermediate",
+      "goal": "bulk",
+      "targetWeight": 75,
+      "targetBodyFat": 15,
+      "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+      "trainingDaysPerWeek": 4,
+      "activityLevel": 3,
+      "waterTargetMl": 2400,
+      "checkInMode": "workout_and_meal"
+    },
+    "measurements": [
+      {
+        "date": "2026-07-05",
+        "weight": 69.8,
+        "bodyFat": 17.2,
+        "waist": 78,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-08-02",
+        "weight": 70.6,
+        "bodyFat": 16.8,
+        "waist": 77.5,
+        "note": "合成演示数据"
+      },
+      {
+        "date": "2026-09-01",
+        "weight": 71.4,
+        "bodyFat": 16.4,
+        "waist": 77,
+        "note": "合成演示数据"
+      }
+    ],
+    "plans": [],
+    "dayLogs": {
+      "2026-10-01": {
+        "date": "2026-10-01",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 50,
+                "weightState": "known",
+                "reps": 8,
+                "done": true
+              },
+              {
+                "weight": 50,
+                "weightState": "known",
+                "reps": 8,
+                "done": true
+              }
+            ],
+            "note": "合成测试",
+            "uncertain": [],
+            "id": "6b6509e0-8842-45d3-b763-0f6aeffa1680",
+            "estKcal": 40,
+            "source": "nl"
+          }
+        ],
+        "cardio": [
+          {
+            "type": "快走",
+            "done": true,
+            "minutes": 18,
+            "intensity": "mid",
+            "note": "",
+            "uncertain": [],
+            "id": "f95b0067-1173-4130-bd9a-a7ea8d4a643e",
+            "estKcal": 90,
+            "source": "nl"
+          }
+        ],
+        "meals": [],
+        "water": 0
+      }
+    },
+    "exerciseVideos": {},
+    "lastFedDate": "2026-09-05"
+  },
+  "video": "E:\\gym\\evals\\workout-save\\v3-2\\verification-1790864009924\\regression-v31-after-1790864057267\\page@4c81331421456bddacf8e1fa4468be51.webm"
+}

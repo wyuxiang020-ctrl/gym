@@ -1,0 +1,511 @@
+{
+  "sourceRun": "evals/workout-save/v3/results/holdout-1790778147007",
+  "results": [
+    {
+      "id": "H01",
+      "pass": true,
+      "source": "E:\\gym\\evals\\workout-save\\v3\\results\\holdout-1790778147007\\H01-response.json",
+      "kind": "real API response replay, scripted synthetic corrections, NOT human data",
+      "corrections": [],
+      "confirmed": {
+        "strength": [
+          {
+            "name": "坐姿划船",
+            "sets": [
+              {
+                "weight": 42.5,
+                "weightState": "known",
+                "reps": 11,
+                "done": true
+              },
+              {
+                "weight": 42.5,
+                "weightState": "known",
+                "reps": 9,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": []
+          }
+        ],
+        "cardio": []
+      },
+      "persisted": {
+        "date": "2026-09-30",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "坐姿划船",
+            "sets": [
+              {
+                "weight": 42.5,
+                "weightState": "known",
+                "reps": 11,
+                "done": true
+              },
+              {
+                "weight": 42.5,
+                "weightState": "known",
+                "reps": 9,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": [],
+            "id": "2bd09527-a38b-4740-941e-f11541c89774",
+            "estKcal": 40,
+            "source": "nl"
+          }
+        ],
+        "cardio": [],
+        "meals": [],
+        "water": 0
+      },
+      "outcome": "confirmed values equal stored and reopened values"
+    },
+    {
+      "id": "H02",
+      "pass": true,
+      "source": "E:\\gym\\evals\\workout-save\\v3\\results\\holdout-1790778147007\\H02-response.json",
+      "kind": "real API response replay, scripted synthetic corrections, NOT human data",
+      "corrections": [],
+      "confirmed": {
+        "strength": [
+          {
+            "name": "深蹲",
+            "sets": [
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "reps": 17,
+                "done": true
+              },
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "reps": 17,
+                "done": true
+              },
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "reps": 17,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": []
+          }
+        ],
+        "cardio": []
+      },
+      "persisted": {
+        "date": "2026-09-30",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "深蹲",
+            "sets": [
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "reps": 17,
+                "done": true
+              },
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "reps": 17,
+                "done": true
+              },
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "reps": 17,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": [],
+            "id": "e14032a5-409f-4168-b644-4e22fc1b1077",
+            "estKcal": 50,
+            "source": "nl"
+          }
+        ],
+        "cardio": [],
+        "meals": [],
+        "water": 0
+      },
+      "outcome": "confirmed values equal stored and reopened values"
+    },
+    {
+      "id": "H03",
+      "pass": true,
+      "source": "E:\\gym\\evals\\workout-save\\v3\\results\\holdout-1790778147007\\H03-response.json",
+      "kind": "real API response replay, scripted synthetic corrections, NOT human data",
+      "corrections": [
+        {
+          "set": 0,
+          "field": "weight",
+          "kg": 40,
+          "provenance": "predeclared software-test correction, not recovered user fact"
+        },
+        {
+          "set": 1,
+          "field": "weight",
+          "kg": 41,
+          "provenance": "predeclared software-test correction, not recovered user fact"
+        }
+      ],
+      "confirmed": {
+        "strength": [
+          {
+            "name": "高位下拉",
+            "sets": [
+              {
+                "weight": 40,
+                "weightState": "known",
+                "reps": 13,
+                "done": true
+              },
+              {
+                "weight": 41,
+                "weightState": "known",
+                "reps": 13,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": [
+              "忘了多少重量，需补充使用的重量及单位"
+            ]
+          }
+        ],
+        "cardio": []
+      },
+      "persisted": {
+        "date": "2026-09-30",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "高位下拉",
+            "sets": [
+              {
+                "weight": 40,
+                "weightState": "known",
+                "reps": 13,
+                "done": true
+              },
+              {
+                "weight": 41,
+                "weightState": "known",
+                "reps": 13,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": [
+              "忘了多少重量，需补充使用的重量及单位"
+            ],
+            "id": "549d9e94-e745-42ee-84a7-30fcc0e8a4ca",
+            "estKcal": 40,
+            "source": "nl"
+          }
+        ],
+        "cardio": [],
+        "meals": [],
+        "water": 0
+      },
+      "outcome": "confirmed values equal stored and reopened values"
+    },
+    {
+      "id": "H04",
+      "pass": true,
+      "source": "E:\\gym\\evals\\workout-save\\v3\\results\\holdout-1790778147007\\H04-response.json",
+      "kind": "real API response replay, scripted synthetic corrections, NOT human data",
+      "corrections": [
+        {
+          "set": 0,
+          "field": "weight",
+          "kg": 40,
+          "provenance": "predeclared software-test correction, not recovered user fact"
+        },
+        {
+          "set": 1,
+          "field": "weight",
+          "kg": 41,
+          "provenance": "predeclared software-test correction, not recovered user fact"
+        },
+        {
+          "set": 2,
+          "field": "weight",
+          "kg": 42,
+          "provenance": "predeclared software-test correction, not recovered user fact"
+        }
+      ],
+      "confirmed": {
+        "strength": [
+          {
+            "name": "腿举",
+            "sets": [
+              {
+                "weight": 40,
+                "weightState": "known",
+                "reps": 9,
+                "done": true
+              },
+              {
+                "weight": 41,
+                "weightState": "known",
+                "reps": 9,
+                "done": true
+              },
+              {
+                "weight": 42,
+                "weightState": "known",
+                "reps": 9,
+                "done": true
+              }
+            ],
+            "note": "单位没记",
+            "uncertain": [
+              "重量单位未记录，需补充75的单位（例如kg/斤/磅）以便转换"
+            ]
+          }
+        ],
+        "cardio": []
+      },
+      "persisted": {
+        "date": "2026-09-30",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "腿举",
+            "sets": [
+              {
+                "weight": 40,
+                "weightState": "known",
+                "reps": 9,
+                "done": true
+              },
+              {
+                "weight": 41,
+                "weightState": "known",
+                "reps": 9,
+                "done": true
+              },
+              {
+                "weight": 42,
+                "weightState": "known",
+                "reps": 9,
+                "done": true
+              }
+            ],
+            "note": "单位没记",
+            "uncertain": [
+              "重量单位未记录，需补充75的单位（例如kg/斤/磅）以便转换"
+            ],
+            "id": "a66cb2d1-2cbb-47d8-9da2-c337fe65c148",
+            "estKcal": 50,
+            "source": "nl"
+          }
+        ],
+        "cardio": [],
+        "meals": [],
+        "water": 0
+      },
+      "outcome": "confirmed values equal stored and reopened values"
+    },
+    {
+      "id": "H05",
+      "pass": true,
+      "source": "E:\\gym\\evals\\workout-save\\v3\\results\\holdout-1790778147007\\H05-response.json",
+      "kind": "real API response replay, scripted synthetic corrections, NOT human data",
+      "outcome": "future remains unsaved"
+    },
+    {
+      "id": "H06",
+      "pass": true,
+      "source": "E:\\gym\\evals\\workout-save\\v3\\results\\holdout-1790778147007\\H06-response.json",
+      "kind": "real API response replay, scripted synthetic corrections, NOT human data",
+      "corrections": [],
+      "confirmed": {
+        "strength": [
+          {
+            "name": "平板支撑",
+            "sets": [
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "durationSeconds": 55,
+                "done": true
+              },
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "durationSeconds": 55,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": []
+          }
+        ],
+        "cardio": []
+      },
+      "persisted": {
+        "date": "2026-09-30",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "平板支撑",
+            "sets": [
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "durationSeconds": 55,
+                "done": true
+              },
+              {
+                "weight": null,
+                "weightState": "bodyweight",
+                "durationSeconds": 55,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": [],
+            "id": "756a2d37-2bf2-47e7-af31-f893a76e84a0",
+            "estKcal": 40,
+            "source": "nl"
+          }
+        ],
+        "cardio": [],
+        "meals": [],
+        "water": 0
+      },
+      "outcome": "confirmed values equal stored and reopened values"
+    },
+    {
+      "id": "H07",
+      "pass": true,
+      "source": "E:\\gym\\evals\\workout-save\\v3\\results\\holdout-1790778147007\\H07-response.json",
+      "kind": "real API response replay, scripted synthetic corrections, NOT human data",
+      "corrections": [],
+      "confirmed": {
+        "strength": [
+          {
+            "name": "弹力带肩外旋",
+            "sets": [
+              {
+                "weight": null,
+                "weightState": "not_applicable",
+                "reps": 16,
+                "done": true
+              },
+              {
+                "weight": null,
+                "weightState": "not_applicable",
+                "reps": 16,
+                "done": true
+              }
+            ],
+            "note": "用黄色带子，不适用公斤记录",
+            "uncertain": [
+              "未说明是否每侧/每臂各做相同组数与次数"
+            ]
+          }
+        ],
+        "cardio": []
+      },
+      "persisted": {
+        "date": "2026-09-30",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "弹力带肩外旋",
+            "sets": [
+              {
+                "weight": null,
+                "weightState": "not_applicable",
+                "reps": 16,
+                "done": true
+              },
+              {
+                "weight": null,
+                "weightState": "not_applicable",
+                "reps": 16,
+                "done": true
+              }
+            ],
+            "note": "用黄色带子，不适用公斤记录",
+            "uncertain": [
+              "未说明是否每侧/每臂各做相同组数与次数"
+            ],
+            "id": "c8088ff3-6d84-4045-a98f-4ed44f3ec2d1",
+            "estKcal": 40,
+            "source": "nl"
+          }
+        ],
+        "cardio": [],
+        "meals": [],
+        "water": 0
+      },
+      "outcome": "confirmed values equal stored and reopened values"
+    },
+    {
+      "id": "H08",
+      "pass": true,
+      "source": "E:\\gym\\evals\\workout-save\\v3\\results\\holdout-1790778147007\\H08-response.json",
+      "kind": "real API response replay, scripted synthetic corrections, NOT human data",
+      "corrections": [],
+      "confirmed": {
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 40.824,
+                "weightState": "known",
+                "reps": 7,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": []
+          }
+        ],
+        "cardio": []
+      },
+      "persisted": {
+        "date": "2026-09-30",
+        "checkedIn": false,
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 40.824,
+                "weightState": "known",
+                "reps": 7,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": [],
+            "id": "e4e8111e-ac38-453b-85df-4d4845c808a5",
+            "estKcal": 20,
+            "source": "nl"
+          }
+        ],
+        "cardio": [],
+        "meals": [],
+        "water": 0
+      },
+      "outcome": "confirmed values equal stored and reopened values"
+    }
+  ],
+  "passed": 8,
+  "total": 8
+}

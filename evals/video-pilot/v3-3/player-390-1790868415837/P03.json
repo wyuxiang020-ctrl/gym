@@ -1,0 +1,44 @@
+{
+  "id": "P03",
+  "name": "Cancel API loading; late API callback cannot resurrect iframe; explicit retry works",
+  "kind": "fixed-response browser test",
+  "attempt": 1,
+  "at": "2026-10-01T15:26:58.463Z",
+  "pass": false,
+  "error": "no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n",
+  "stack": "AssertionError [ERR_ASSERTION]: no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n\n    at scenario (file:///E:/gym/scripts/check-teaching-player-v33.mjs:158:12)\n    at async file:///E:/gym/scripts/check-teaching-player-v33.mjs:220:3",
+  "ms": 416,
+  "finalState": "ready",
+  "networkRequests": [
+    {
+      "url": "https://www.youtube.com/iframe_api",
+      "at": "2026-10-01T15:26:58.809Z",
+      "kind": "script"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4174&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+      "at": "2026-10-01T15:26:58.864Z",
+      "kind": "document"
+    }
+  ],
+  "blockedUnexpectedRequests": [
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+  ],
+  "pageErrors": [],
+  "replay": {
+    "created": 1,
+    "destroyed": 0,
+    "calls": [
+      {
+        "type": "construct",
+        "index": 0
+      },
+      {
+        "type": "event",
+        "index": 0,
+        "event": "onReady"
+      }
+    ]
+  },
+  "screenshot": "evals/video-pilot/v3-3/player-390-1790868415837/P03.png"
+}

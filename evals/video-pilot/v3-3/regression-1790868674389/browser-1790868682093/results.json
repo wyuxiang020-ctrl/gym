@@ -1,0 +1,69 @@
+{
+  "version": "训练示范 V3.3 · 2026-10-01",
+  "api": "mocked fault injection, no model accuracy or human performance claims",
+  "results": [
+    {
+      "name": "01 input-edit-unit-bulk-undo-confirm-reopen",
+      "pass": true,
+      "ms": 1751,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/browser-1790868682093/1.png",
+      "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\browser-1790868682093\\page@ec63ae24c5d7c5ed06534ce5f639b5c8.webm"
+    },
+    {
+      "name": "02 template-import-edit-complete-reopen-duplicate-skip-cancel",
+      "pass": true,
+      "ms": 934,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/browser-1790868682093/2.png",
+      "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\browser-1790868682093\\page@041952c5bcb307babcc66adc85ba7698.webm"
+    },
+    {
+      "name": "03 network-failure-retry-cancel-preserves-edited-preview",
+      "pass": true,
+      "ms": 3217,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/browser-1790868682093/3.png",
+      "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\browser-1790868682093\\page@aeb39b8ece2651399861a30f3eb3564b.webm"
+    },
+    {
+      "name": "04 future-strength-and-cardio-not-saved",
+      "pass": true,
+      "ms": 463,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/browser-1790868682093/4.png",
+      "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\browser-1790868682093\\page@d769db3abc902404b3c5d71ba71c3c33.webm"
+    },
+    {
+      "name": "05 repeated-AI-import-requires-explicit-replace-and-cancel",
+      "pass": true,
+      "ms": 652,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/browser-1790868682093/5.png",
+      "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\browser-1790868682093\\page@5db13afbf57928cc8cc80aeaeb2d921c.webm"
+    },
+    {
+      "name": "06 quota-failure-does-not-claim-save-or-clear-draft",
+      "pass": true,
+      "ms": 651,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/browser-1790868682093/6.png",
+      "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\browser-1790868682093\\page@4dd5496f258dd23fe49a421213f4f50b.webm"
+    },
+    {
+      "name": "07 changed-original-input-invalidates-old-preview",
+      "pass": true,
+      "ms": 575,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/browser-1790868682093/7.png",
+      "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\browser-1790868682093\\page@e90d66cd784ca05345146e2006dbfe4c.webm"
+    },
+    {
+      "name": "08 replace-retains-two-new-cardio-sessions",
+      "pass": true,
+      "ms": 675,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/browser-1790868682093/8.png",
+      "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\browser-1790868682093\\page@9ff14f06e9622fb61b26bf0849535c82.webm"
+    },
+    {
+      "name": "09 request-unmount-does-not-write-late-result",
+      "pass": true,
+      "ms": 2462,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/browser-1790868682093/9.png",
+      "video": "E:\\gym\\evals\\video-pilot\\v3-3\\regression-1790868674389\\browser-1790868682093\\page@43bab108926ace5730b93a07ec31bb93.webm"
+    }
+  ]
+}

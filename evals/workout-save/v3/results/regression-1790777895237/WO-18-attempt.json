@@ -1,0 +1,38 @@
+{
+  "id": "WO-18",
+  "input": "平板支撑3组，每组30秒。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:20:38.769Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1522,
+    "cachedInputTokens": 1408,
+    "outputTokens": 621,
+    "reasoningTokens": 448,
+    "totalTokens": 2143
+  },
+  "estimatedCostUsd": 0.0013057000000000001,
+  "rawSha256": "3ae4f76e9326f2f565b2f22eed916f4904d2f76fceb464f9ce7093ebbd7e2321",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0c420ad0a0eb2bf7016abd1ab98a0887d0be0c97c14e925f2b",
+    "requestId": "req_48368d9dd814487b91a05e5b585521b1",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1522,
+      "cachedInputTokens": 1408,
+      "outputTokens": 621,
+      "reasoningTokens": 448,
+      "totalTokens": 2143
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 8253
+}

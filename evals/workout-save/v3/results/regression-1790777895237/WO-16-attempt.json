@@ -1,0 +1,38 @@
+{
+  "id": "WO-16",
+  "input": "今天休息，没有训练。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:20:25.709Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1517,
+    "cachedInputTokens": 1408,
+    "outputTokens": 75,
+    "reasoningTokens": 0,
+    "totalTokens": 1592
+  },
+  "estimatedCostUsd": 0.00021245,
+  "rawSha256": "ad3a09fad0450450b48ee03f75c19906d817cd112c546917a1e6911fc3283b05",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0fe33b19efce4e2d016abd1aae934887d0a41d6b394c6b72ff",
+    "requestId": "req_9b62fb85a4d5436099f0fa1f8a15aece",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1517,
+      "cachedInputTokens": 1408,
+      "outputTokens": 75,
+      "reasoningTokens": 0,
+      "totalTokens": 1592
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 6301
+}

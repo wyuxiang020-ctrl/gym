@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app",
+    "kind": "read-only anonymous browser availability",
+    "authenticated": false,
+    "error": "page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app/\nCall log:\n\u001b[2m  - navigating to \"https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "ms": 51
+  },
+  {
+    "url": "https://gym-iota-self.vercel.app",
+    "kind": "read-only anonymous browser availability",
+    "authenticated": false,
+    "error": "page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://gym-iota-self.vercel.app/\nCall log:\n\u001b[2m  - navigating to \"https://gym-iota-self.vercel.app/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+    "ms": 43
+  }
+]

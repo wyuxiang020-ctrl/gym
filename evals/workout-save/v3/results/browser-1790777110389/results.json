@@ -1,0 +1,55 @@
+{
+  "version": "save-v3",
+  "api": "mocked fault injection, no model accuracy or human performance claims",
+  "results": [
+    {
+      "name": "01 input-edit-unit-bulk-undo-confirm-reopen",
+      "pass": true,
+      "ms": 1486,
+      "screenshot": "evals/workout-save/v3/results/browser-1790777110389/1.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790777110389\\page@03284100a847791cc5d5c5bc03c0f154.webm"
+    },
+    {
+      "name": "02 template-import-edit-complete-reopen-duplicate-skip-cancel",
+      "pass": true,
+      "ms": 906,
+      "screenshot": "evals/workout-save/v3/results/browser-1790777110389/2.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790777110389\\page@948b24fe0f83dbe04f5e6c9c8b81faf8.webm"
+    },
+    {
+      "name": "03 network-failure-retry-cancel-preserves-edited-preview",
+      "pass": true,
+      "ms": 967,
+      "screenshot": "evals/workout-save/v3/results/browser-1790777110389/3.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790777110389\\page@ed1643124feee35cac0f73ce041a19c3.webm"
+    },
+    {
+      "name": "04 future-strength-and-cardio-not-saved",
+      "pass": true,
+      "ms": 454,
+      "screenshot": "evals/workout-save/v3/results/browser-1790777110389/4.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790777110389\\page@7d7e3c6d4963d0114cfb1e305e77c1f5.webm"
+    },
+    {
+      "name": "05 repeated-AI-import-requires-explicit-replace-and-cancel",
+      "pass": true,
+      "ms": 658,
+      "screenshot": "evals/workout-save/v3/results/browser-1790777110389/5.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790777110389\\page@df0d99d9ccc51977d04a25b7b61b629b.webm"
+    },
+    {
+      "name": "06 quota-failure-does-not-claim-save-or-clear-draft",
+      "pass": true,
+      "ms": 614,
+      "screenshot": "evals/workout-save/v3/results/browser-1790777110389/6.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790777110389\\page@6d437ff43227dea227079cafc7018cce.webm"
+    },
+    {
+      "name": "07 changed-original-input-invalidates-old-preview",
+      "pass": true,
+      "ms": 598,
+      "screenshot": "evals/workout-save/v3/results/browser-1790777110389/7.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790777110389\\page@44360f33904ed3bceef736398baa839e.webm"
+    }
+  ]
+}

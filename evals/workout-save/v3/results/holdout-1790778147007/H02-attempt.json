@@ -1,0 +1,38 @@
+{
+  "id": "H02",
+  "input": "刚刚做了3组自重深蹲，每组17次，没有额外负重。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:22:37.385Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1532,
+    "cachedInputTokens": 1408,
+    "outputTokens": 312,
+    "reasoningTokens": 192,
+    "totalTokens": 1844
+  },
+  "estimatedCostUsd": 0.0006902000000000001,
+  "rawSha256": "0ede71faeb84e2fcd60c36c7c23e6a7fdfae97debc033edf2c23efbd34161e23",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0d785bb7af9dab68016abd1b3281c487d097db2e0395627857",
+    "requestId": "req_fdd0850a977341d4b828b7cd5aae3b52",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1532,
+      "cachedInputTokens": 1408,
+      "outputTokens": 312,
+      "reasoningTokens": 192,
+      "totalTokens": 1844
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 8969
+}

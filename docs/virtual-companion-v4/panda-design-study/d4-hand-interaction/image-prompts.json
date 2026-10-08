@@ -1,0 +1,37 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-07",
+  "status": "interaction design storyboard, not runtime or animation",
+  "references": [
+    {
+      "path": "../d-refinement/D2-character-accessories.png",
+      "role": "character and props"
+    },
+    {
+      "path": "../d3-expression-motion/D3-movement.png",
+      "role": "accepted acting style"
+    }
+  ],
+  "generations": [
+    {
+      "file": "D4-before-wrist-fix.png",
+      "prompt": "Use case: identity-preserve.\nAsset type: illustrated interaction-design storyboard for the approved original panda D, showing hand-raising and waving interaction. STILL CONCEPT ART, not an implemented camera demo.\nInput image 1 is the canonical D2 body, face, green left-wrist tie, straw hat and bamboo. Input image 2 defines the approved D3 appealing expressiveness. Preserve this exact panda identity, compact short-paw anatomy, cream cheeks/forelock/belly, charcoal nose and limbs, round ears, eye patches and warm clean cartoon linework. Do not redesign, make the panda tall, elongate its paws or add glossy fur. Bring life through readable gaze, eyebrows and smile while accurately showing the requested hand positions.\nCreate a clean LANDSCAPE 3-column by 2-row storyboard with SIX generously spaced panels on warm ivory. Each panel contains:\n- a SMALL muted sage, faceless, simple HUMAN UPPER-BODY LINE ICON at the upper-left of that panel, purely to show the user's arm position;\n- one LARGE full-body panda to the right/below, responding with the SAME SCREEN-SIDE arm configuration as that icon. This is screen-direction illustration, not a diagram of anatomical left/right.\nALL panda bodies face mostly FRONT. Use the panda's OWN LEFT paw on the VIEWER'S RIGHT side for every single-arm gesture, with its green wrist tie on that raised paw. The opposite paw stays relaxed. Feet remain planted throughout; NO jumps, no automatic torso lean, no dancing, no imaginary extra gestures.\nThe straw hat and bamboo are PUT ASIDE in this following mode; show them together on the floor only in a tiny separate prop vignette at the bottom outside the panels, not held or worn by any panda in the six panels. No props obscuring arms or eyes.\nTitle exact: \"D 互动设计 · 你抬手，它跟上\"\nSubtitle exact: \"同侧跟随 · 停住就保持 · 放下就回落\"\nSix panels, reading order:\n1 label \"准备\": human icon arms down; panda both forepaws down slightly clear of belly, alert friendly gaze toward viewer, small inviting smile.\n2 label \"抬到一半\": icon's SCREEN-RIGHT arm raised diagonally outward around shoulder height, other arm down; panda's green-tied SCREEN-RIGHT paw also extended diagonally up/out with elbow naturally bent and visible negative space from head and torso; eyes glance toward that paw, brow subtly lifted, small smile. Its paw is lower than in panel 3.\n3 label \"举高保持\": icon's SCREEN-RIGHT arm above head, opposite down; panda same SCREEN-RIGHT paw raised as high as its SHORT rounded anatomy comfortably permits, outside/above its ear with a natural curved arm; body stable, paw motionless in this key pose, friendly confident smile, NOT waving. No movement lines.\n4 label \"慢慢放下\": icon's SCREEN-RIGHT arm lowered diagonally toward hip, opposite down; panda's same paw partway lowering beside waist, clearly lower than panels 2 and 3; relaxed smile. Do not invent a celebratory motion.\n5 label \"双手举高\": icon's two arms in a wide high V; panda two short forepaws high and OUTSIDE the face in a broad V, paws distinct from ears, broad warm delighted smile but planted feet, body not jumping.\n6 label \"轻轻挥手\": icon's SCREEN-RIGHT hand raised beside head with two small lateral curved strokes indicating a wave; panda same green-tied SCREEN-RIGHT paw high beside head, palm facing outward with TWO small lateral wave marks at paw only, friendly open smile and attentive eyes. The other paw remains down. Do not add full-body waving or motion streaks.\nAll six human icons and panda pairs must match screen-side exactly. Same character scale and head/body mass across panels; natural shoulder-to-paw curves, no mechanical joints. Readable change from low to mid to high, distinct single-arm vs double-arm. No photo, camera window, interface buttons, fake metrics, skeleton overlays or tracking claims.\nBottom small accessory vignette: ONE matching straw hat and ONE bamboo resting neatly together, label exact \"互动时先放下道具\".\nFooter exact: \"互动分镜草案 · 不是实时识别或动画演示\"\nUse crisp highly legible Chinese type. Keep every character, icon, foot and label fully inside frame."
+    },
+    {
+      "file": "D4-hand-interaction.png",
+      "editTarget": "D4-before-wrist-fix.png",
+      "prompt": "Use case: precise-object-edit.\nSurgically correct ONLY one small accessory error in this panda interaction storyboard. In panel 5, bottom middle labelled \"5. 双手举高\", the panda accidentally has GREEN WRIST TIES ON BOTH WRISTS. The canonical D has ONLY ONE green tie, on the panda's anatomical LEFT wrist, which is on VIEWER RIGHT in this front view.\nREMOVE the entire green band, knot and dangling leaves from the VIEWER-LEFT raised wrist in that panel only. Restore that wrist/forearm as continuous charcoal black panda fur with matching shading. KEEP the green wrist tie on VIEWER RIGHT exactly unchanged.\nPreserve all six poses, all human icons, facial expressions, body shapes, hand positions, every Chinese label, title, footer, background, colors, other accessories and layout EXACTLY. Do not flip the picture. Do not modify any other panel. No added props or marks."
+    }
+  ],
+  "review": {
+    "visualInspected": true,
+    "fix": "Removed duplicate wrist tie from viewer-left paw in double-arm panel.",
+    "notVerified": [
+      "camera input",
+      "motion tracking",
+      "continuous animation",
+      "hand/finger detection",
+      "latency"
+    ]
+  }
+}

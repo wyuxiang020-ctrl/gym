@@ -1,0 +1,38 @@
+{
+  "id": "WO-12",
+  "input": "腿举100kg，做了1组12次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:14:38.059Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1379,
+    "cachedInputTokens": 1280,
+    "outputTokens": 312,
+    "reasoningTokens": 192,
+    "totalTokens": 1691
+  },
+  "estimatedCostUsd": 0.00068075,
+  "rawSha256": "cbe644a708d3e728efd3dc2070b9d298334eb5fbc6013f2947ec774008b1759d",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0e59459b7ab59e68016abd1950464087d081fa9cc093444002",
+    "requestId": "req_b34ed0c6b64e45f0ad02da408d299622",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1379,
+      "cachedInputTokens": 1280,
+      "outputTokens": 312,
+      "reasoningTokens": 192,
+      "totalTokens": 1691
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 9233
+}

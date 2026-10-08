@@ -1,0 +1,177 @@
+{
+  "version": "virtual-companion-v4-poc",
+  "at": "2026-10-07T12:05:26.669Z",
+  "evidenceType": "DETERMINISTIC_SOFTWARE_FIXED_LANDMARK_REPLAY_AND_LIFECYCLE_FAULT_INJECTION",
+  "realCamera": "NOT_RUN",
+  "realModel": "NOT_RUN",
+  "realPhone": "NOT_RUN",
+  "cloudModelCalls": 0,
+  "environment": {
+    "node": "v24.16.0",
+    "platform": "win32",
+    "architecture": "x64"
+  },
+  "files": {
+    "src/companion/mirror/MirrorSession.ts": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+    "src/companion/mirror/mapping.ts": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+    "src/companion/mirror/protocol.ts": "450b3f671865e0d6eb676839c62e3c79ff678da38c2c12617191458e75658576",
+    "public/companion-assets/pose-worker.js": "d9e6c0acc96288c367445dd6ab2b37f36cebc18d5cb04c062c748cbeff7c4f9c",
+    "scripts/check-companion-mirror-v4.mjs": "aa2a4a8019d7d03543d4d0bcb80d5e0ff7fa2adc9c3c172b1df76c4c503493c2"
+  },
+  "checks": [
+    {
+      "name": "fixed replay: anatomical left maps to panda right, with no second screen flip",
+      "pass": true
+    },
+    {
+      "name": "fixed replay: anatomical right maps to panda left independently",
+      "pass": true
+    },
+    {
+      "name": "fixed replay: both arms and lowered arms preserve independent joints",
+      "pass": true
+    },
+    {
+      "name": "non-square frame coordinates are corrected in pixels before angular mapping",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 11 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 13 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 15 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 12 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 14 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 16 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "absent/multiple people, missing joints and unknown visibility are rejected",
+      "pass": true
+    },
+    {
+      "name": "stale, future, NaN and zero-size frames cannot become trusted",
+      "pass": true
+    },
+    {
+      "name": "cross-body, elbow reverse bend and rig overflow are rejected rather than trusted clamping",
+      "pass": true
+    },
+    {
+      "name": "side/back orientation and depth foreshortening produce explicit unsupported states",
+      "pass": true
+    },
+    {
+      "name": "smoothing limits initial and post-loss jumps while preserving valid rest bounds",
+      "pass": true
+    },
+    {
+      "name": "no secure context and unsupported workers do not request camera or model",
+      "pass": true
+    },
+    {
+      "name": "NotAllowedError: explicit failure with no model worker and no active media",
+      "pass": true
+    },
+    {
+      "name": "NotFoundError: explicit failure with no model worker and no active media",
+      "pass": true
+    },
+    {
+      "name": "NotReadableError: explicit failure with no model worker and no active media",
+      "pass": true
+    },
+    {
+      "name": "late permission after exit stops every returned track without creating a worker",
+      "pass": true
+    },
+    {
+      "name": "rapid start-start ignores an older permission grant without stopping the new session",
+      "pass": true
+    },
+    {
+      "name": "restarting an active session stops old media and worker before opening replacements",
+      "pass": true
+    },
+    {
+      "name": "permission deadline then late grant also closes the late stream",
+      "pass": true
+    },
+    {
+      "name": "exit during model initialization terminates worker and ignores its late ready",
+      "pass": true
+    },
+    {
+      "name": "model initialization timeout stops camera and worker",
+      "pass": true
+    },
+    {
+      "name": "model initialization and worker transport errors release resources",
+      "pass": true
+    },
+    {
+      "name": "late video play completion cannot revive a stopped session",
+      "pass": true
+    },
+    {
+      "name": "two trustworthy samples required; occlusion freezes output and recovery eases in",
+      "pass": true
+    },
+    {
+      "name": "stale result is rejected and cannot output a pose",
+      "pass": true
+    },
+    {
+      "name": "at most one frame remains in flight; duplicate frames are not resent",
+      "pass": true
+    },
+    {
+      "name": "unresponsive inference times out with camera stop, no unbounded queue",
+      "pass": true
+    },
+    {
+      "name": "camera producing no decoded frames has a finite startup deadline",
+      "pass": true
+    },
+    {
+      "name": "late bitmap after exit is closed rather than delivered to a worker",
+      "pass": true
+    },
+    {
+      "name": "a pending bitmap capture cannot hold the camera open indefinitely",
+      "pass": true
+    },
+    {
+      "name": "hide stops tracks synchronously and returning never restarts camera",
+      "pass": true
+    },
+    {
+      "name": "late result after stop and repeated disposal cannot resume pose output",
+      "pass": true
+    },
+    {
+      "name": "device removal exits instead of retaining an apparently live camera",
+      "pass": true
+    },
+    {
+      "name": "same-origin worker source declares no outbound inference or persistence",
+      "pass": true
+    }
+  ],
+  "passed": 38,
+  "total": 38
+}

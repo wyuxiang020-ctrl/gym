@@ -1,0 +1,260 @@
+{
+  "at": "2026-10-01T15:31:34.531Z",
+  "kind": "real anonymous external metadata and media requests, automated isolated Edge; not human/model evaluation",
+  "modelCalls": 0,
+  "modelCostUsd": 0,
+  "infrastructureCost": "not measured",
+  "results": [
+    {
+      "name": "杠铃深蹲",
+      "videoId": "QmZAiBqPvZw",
+      "sourceUrl": "https://www.crossfit.com/essentials/the-back-squat",
+      "kind": "real YouTube oEmbed metadata, NOT playback",
+      "pass": false,
+      "error": "fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT",
+      "ms": 10761
+    },
+    {
+      "name": "杠铃卧推",
+      "videoId": "CayG6UYqL8g",
+      "sourceUrl": "https://www.nasm.org/resource-center/exercise-library/barbell-bench-press",
+      "kind": "real YouTube oEmbed metadata, NOT playback",
+      "pass": false,
+      "error": "fetch failed",
+      "cause": "ECONNRESET",
+      "ms": 76
+    },
+    {
+      "name": "杠铃划船",
+      "videoId": "Ho7xUiDkJcg",
+      "sourceUrl": "https://www.youtube.com/watch?v=Ho7xUiDkJcg",
+      "kind": "real YouTube oEmbed metadata, NOT playback",
+      "pass": false,
+      "error": "fetch failed",
+      "cause": "ECONNRESET",
+      "ms": 68
+    },
+    {
+      "name": "平板支撑",
+      "videoId": "mwlp75MS6Rg",
+      "sourceUrl": "https://www.nasm.org/resource-center/exercise-library/plank",
+      "kind": "real YouTube oEmbed metadata, NOT playback",
+      "pass": false,
+      "error": "fetch failed",
+      "cause": "UND_ERR_CONNECT_TIMEOUT",
+      "ms": 10608
+    },
+    {
+      "name": "杠铃深蹲",
+      "videoId": "QmZAiBqPvZw",
+      "kind": "actual in-app external playback attempt; no mocked responses",
+      "pass": true,
+      "stateBeforePlay": "ready",
+      "iframeSources": [
+        "https://www.youtube-nocookie.com/embed/QmZAiBqPvZw?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4174&playsinline=1&controls=1&autoplay=0&hl=zh-CN"
+      ],
+      "observedPlaying": true,
+      "firstMediaState": {
+        "currentTime": 0.267929,
+        "paused": false,
+        "readyState": 4
+      },
+      "secondMediaState": {
+        "currentTime": 3.789673,
+        "paused": false,
+        "readyState": 4
+      },
+      "storageUnchanged": true,
+      "visibleState": "playing",
+      "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n返回当前记录\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。",
+      "failedRequests": [
+        {
+          "host": "yt3.ggpht.com",
+          "path": "/4QtK9nNsqwIfMXU17I5qvq4ogBPEZfw2VWw5zuRHUcPz51SeduIr6LZziX6FwoNcHONuLE9b=s68-c-k-c0x00ffffff-no-rj",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/qoe",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/playback",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/ptracking",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "ms": 15102
+    },
+    {
+      "name": "杠铃卧推",
+      "videoId": "CayG6UYqL8g",
+      "kind": "actual in-app external playback attempt; no mocked responses",
+      "pass": true,
+      "stateBeforePlay": "ready",
+      "iframeSources": [
+        "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4174&playsinline=1&controls=1&autoplay=0&hl=zh-CN"
+      ],
+      "observedPlaying": true,
+      "firstMediaState": {
+        "currentTime": 0.357641,
+        "paused": false,
+        "readyState": 4
+      },
+      "secondMediaState": {
+        "currentTime": 3.86954,
+        "paused": false,
+        "readyState": 4
+      },
+      "storageUnchanged": true,
+      "visibleState": "playing",
+      "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n返回当前记录\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。",
+      "failedRequests": [
+        {
+          "host": "yt3.ggpht.com",
+          "path": "/IVqvEl9HUXRQVv8PBlhductxqoK1RaILIpQNfGzgz6AOIes7A8weax4VcwbV54IFn1CHlc70Mg=s68-c-k-c0x00ffffff-no-rj",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/qoe",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "i.ytimg.com",
+          "path": "/vi_webp/_RlRDWO2jfg/default.webp",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/playback",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/ptracking",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "ms": 14709
+    },
+    {
+      "name": "杠铃划船",
+      "videoId": "Ho7xUiDkJcg",
+      "kind": "actual in-app external playback attempt; no mocked responses",
+      "pass": true,
+      "stateBeforePlay": "ready",
+      "iframeSources": [
+        "https://www.youtube-nocookie.com/embed/Ho7xUiDkJcg?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4174&playsinline=1&controls=1&autoplay=0&hl=zh-CN"
+      ],
+      "observedPlaying": true,
+      "firstMediaState": {
+        "currentTime": 0.164597,
+        "paused": false,
+        "readyState": 4
+      },
+      "secondMediaState": {
+        "currentTime": 3.673434,
+        "paused": false,
+        "readyState": 4
+      },
+      "storageUnchanged": true,
+      "visibleState": "playing",
+      "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n返回当前记录\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。",
+      "failedRequests": [
+        {
+          "host": "yt3.ggpht.com",
+          "path": "/4QtK9nNsqwIfMXU17I5qvq4ogBPEZfw2VWw5zuRHUcPz51SeduIr6LZziX6FwoNcHONuLE9b=s68-c-k-c0x00ffffff-no-rj",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/qoe",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/playback",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/ptracking",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "ms": 17251
+    },
+    {
+      "name": "平板支撑",
+      "videoId": "mwlp75MS6Rg",
+      "kind": "actual in-app external playback attempt; no mocked responses",
+      "pass": true,
+      "stateBeforePlay": "ready",
+      "iframeSources": [
+        "https://www.youtube-nocookie.com/embed/mwlp75MS6Rg?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4174&playsinline=1&controls=1&autoplay=0&hl=zh-CN"
+      ],
+      "observedPlaying": true,
+      "firstMediaState": {
+        "currentTime": 0.455787,
+        "paused": false,
+        "readyState": 4
+      },
+      "secondMediaState": {
+        "currentTime": 3.965786,
+        "paused": false,
+        "readyState": 4
+      },
+      "storageUnchanged": true,
+      "visibleState": "playing",
+      "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n返回当前记录\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。",
+      "failedRequests": [
+        {
+          "host": "yt3.ggpht.com",
+          "path": "/IVqvEl9HUXRQVv8PBlhductxqoK1RaILIpQNfGzgz6AOIes7A8weax4VcwbV54IFn1CHlc70Mg=s68-c-k-c0x00ffffff-no-rj",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/qoe",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/playback",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/ptracking",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "ms": 14913
+    },
+    {
+      "kind": "read-only anonymous public availability; no deployment",
+      "url": "https://gym-iota-self.vercel.app",
+      "status": 200,
+      "finalOrigin": "https://gym-iota-self.vercel.app",
+      "finalPath": "/",
+      "bodyExcerpt": "先建立身体档案\n性别\n男\n女\n出生年份\n身高 (cm)\n训练经验\n新手\n进阶\n资深\n目标\n减脂\n增肌\n维持\n每周训练天数\n2 天\n3 天\n4 天\n5 天\n6 天\n日常活动量(不含训练)\n1 · 久坐(几乎不运动)\n2 · 轻度活动(每周 1-3 次)\n3 · 中度活动(每周 3-5 次)\n4 · 高度活动(每周 6-7 次)\n5 · 极高活动(体力劳动 + 高强度训练)\n目标体重 (kg,可选)\n目标体脂率 (%,可选)\n不知道\n期望身材描述(可选)\n打卡定义\n打开 App 就算\n记录了训练才算\n记录了训练和饮食才算\n保存档案",
+      "ms": 1770
+    },
+    {
+      "kind": "read-only anonymous public availability; no deployment",
+      "url": "https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app",
+      "status": 200,
+      "finalOrigin": "https://vercel.com",
+      "finalPath": "/login",
+      "bodyExcerpt": "Skip to content",
+      "ms": 4125
+    }
+  ]
+}

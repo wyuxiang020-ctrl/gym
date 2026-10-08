@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "output": "evals/virtual-companion/d-panda/originals-check-1791452134162",
+  "checks": [
+    {
+      "name": "交付包原文件完整性",
+      "files": 21,
+      "result": "PASS"
+    },
+    {
+      "name": "七张运行原图与交付包逐字节一致",
+      "result": "PASS"
+    },
+    {
+      "name": "原尺寸像素核对 · 日常 · 空手",
+      "differentPixels": 0,
+      "pixels": 185250,
+      "result": "PASS"
+    },
+    {
+      "name": "原尺寸像素核对 · 招呼 · 戴帽",
+      "differentPixels": 0,
+      "pixels": 201600,
+      "result": "PASS"
+    },
+    {
+      "name": "原尺寸像素核对 · 同行 · 持竹",
+      "differentPixels": 0,
+      "pixels": 218400,
+      "result": "PASS"
+    },
+    {
+      "name": "原尺寸像素核对 · 准备",
+      "differentPixels": 0,
+      "pixels": 170720,
+      "result": "PASS"
+    },
+    {
+      "name": "原尺寸像素核对 · 抬到一半",
+      "differentPixels": 0,
+      "pixels": 170720,
+      "result": "PASS"
+    },
+    {
+      "name": "原尺寸像素核对 · 举高保持",
+      "differentPixels": 0,
+      "pixels": 170368,
+      "result": "PASS"
+    },
+    {
+      "name": "原尺寸像素核对 · 慢慢放下",
+      "differentPixels": 0,
+      "pixels": 169750,
+      "result": "PASS"
+    },
+    {
+      "name": "原尺寸像素核对 · 双手举高",
+      "differentPixels": 0,
+      "pixels": 169750,
+      "result": "PASS"
+    },
+    {
+      "name": "原尺寸像素核对 · 轻轻挥手",
+      "differentPixels": 0,
+      "pixels": 169400,
+      "result": "PASS"
+    },
+    {
+      "name": "全部七张设计板可切换，HTTP 图片响应保持原字节",
+      "result": "PASS"
+    },
+    {
+      "name": "手机宽度无横向溢出；旧绘制、镜像与相机未加载；无存储写入或脚本错误",
+      "result": "PASS"
+    },
+    {
+      "name": "原图加载失败明确提示",
+      "result": "PASS"
+    }
+  ]
+}

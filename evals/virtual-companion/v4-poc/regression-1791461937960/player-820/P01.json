@@ -1,0 +1,23 @@
+{
+  "id": "P01",
+  "name": "No YouTube or media requests before explicit loading; source remains accessible",
+  "kind": "fixed-response browser test",
+  "attempt": 1,
+  "at": "2026-10-08T12:20:02.070Z",
+  "pass": true,
+  "sourceUrl": "https://www.nasm.org/resource-center/exercise-library/barbell-bench-press",
+  "ms": 968,
+  "finalState": "idle",
+  "networkRequests": [],
+  "existingPageRequests": [
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+      "kind": "existing page font stylesheet",
+      "action": "blocked in isolated test"
+    }
+  ],
+  "blockedUnexpectedRequests": [],
+  "pageErrors": [],
+  "replay": null,
+  "screenshot": "evals/virtual-companion/v4-poc/regression-1791461937960/player-820/P01.png"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "H08",
+  "input": "卧推完成一组7次，负重90磅。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:23:22.513Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1525,
+    "cachedInputTokens": 1408,
+    "outputTokens": 274,
+    "reasoningTokens": 192,
+    "totalTokens": 1799
+  },
+  "estimatedCostUsd": 0.0006124500000000001,
+  "rawSha256": "4b34620a84497848990977f711b91f1efc27ff691bc6611b5faaafc9f3a5cbc4",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0a689a3496b11fbe016abd1b5c90f887d0944b5d9fbde4c30c",
+    "requestId": "req_9205156763d14cbfa133fc065753369d",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1525,
+      "cachedInputTokens": 1408,
+      "outputTokens": 274,
+      "reasoningTokens": 192,
+      "totalTokens": 1799
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 7740
+}

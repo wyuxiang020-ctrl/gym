@@ -1,0 +1,21 @@
+{
+  "source": "public/companion-assets/d-panda/design/D2-character-accessories.png",
+  "sourceSha256": "213e4988d57259b0efa4a60c907e098eefc42dc5d1c86b59f4c8ce3bc01f6ff4",
+  "crop": {
+    "left": 50,
+    "top": 140,
+    "width": 390,
+    "height": 475
+  },
+  "method": "Unmodified PNG embedded in SVG; alpha selection only. No generated artwork, source RGB edits, recoloring, deformation or hidden-pixel reconstruction.",
+  "width": 390,
+  "height": 475,
+  "opaquePixels": 106208,
+  "edgePixels": 1124,
+  "pivot": [
+    205,
+    455
+  ],
+  "durationMs": 4800,
+  "maximumRotationDegrees": 1.2
+}

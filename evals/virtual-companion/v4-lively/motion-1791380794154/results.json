@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-07T13:46:35.423Z",
+  "sourceHash": "70378e7ccd0a73fa7f85a30df28863fc1ab229ee25e612587683e9660d1cf9e3",
+  "tests": [
+    {
+      "name": "No human leg mesh, visible shoulder cap, or sleeve band",
+      "pass": true
+    },
+    {
+      "name": "All six performances stay finite, use safe arm angles, and fit the camera throughout",
+      "pass": true
+    },
+    {
+      "name": "Preset secondary transforms fully reset when a mirror pose arrives",
+      "pass": true
+    },
+    {
+      "name": "Idle loops continuously; each action includes a distinct secondary movement",
+      "pass": true
+    },
+    {
+      "name": "Invalid optional motion values cannot corrupt scene transforms",
+      "pass": true
+    }
+  ],
+  "bounds": {
+    "idle": {
+      "minX": -0.5400824442398404,
+      "maxX": 0.5858450532723154,
+      "minY": -0.7862489718789454,
+      "maxY": 0.6649801341176492
+    },
+    "wave": {
+      "minX": -0.7525996579203396,
+      "maxX": 0.588772170381303,
+      "minY": -0.796233050126587,
+      "maxY": 0.6621950726338642
+    },
+    "fold": {
+      "minX": -0.571287387996007,
+      "maxX": 0.6532841369828194,
+      "minY": -0.7965728099164545,
+      "maxY": 0.6642021295116739
+    },
+    "hop": {
+      "minX": -0.6579932902227903,
+      "maxX": 0.7159630604540284,
+      "minY": -0.7862489718789454,
+      "maxY": 0.9449828268196206
+    },
+    "shuffle": {
+      "minX": -0.7913979806951673,
+      "maxX": 0.8313423535389113,
+      "minY": -0.7905697799782637,
+      "maxY": 0.6741710578286674
+    },
+    "stretch": {
+      "minX": -0.7679573067179951,
+      "maxX": 0.8141333000492225,
+      "minY": -0.7992121253563733,
+      "maxY": 0.6971001605817335
+    }
+  },
+  "samples": "161 frames per action; every third visible vertex; engineering framing and finite-value check, not exhaustive collision proof",
+  "passed": 5,
+  "total": 5
+}

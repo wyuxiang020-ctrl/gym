@@ -1,5 +1,61 @@
 # AI_FEATURES.md
 
+## 2026-10-09 配置状态与实际限流条件对齐
+
+`GET /api/equipment-status` 现在同时检查本机内存限流是否被禁用、Redis 是否只有部分配置，以及公开环境的访问码和审计条件；配置组合与实际授权入口采用相同取值规则。先前这些本机无效配置可能误报 available=true，现返回 false 并保留手动选择。此检查仍不发起网络探测，不能证明 Redis/OpenAI 连通性、余额或识别质量。识别 prompt、模型与输入输出格式未改。
+
+## 2026-10-08 器械接口本地联通与就绪状态
+
+新增 `GET /api/equipment-status`：输出 `{ available, accessRequired, message }`，仅检查服务端配置，不调用 OpenAI、不披露环境值、不保证账户余额或识别准确率。前端据此禁用未配置/无法连接时的上传，仍允许手动流程。正式识别仍复用 `/api/identify-equipment` 原合同、同一固定模型与 prompt，无新增重试。
+
+本机 4177 启动时读取既有 `.env.local` 到服务端进程，再使用现有授权/预算保护；4175 只代理这两个端点，Vite 环境文件仍关闭。本机 HTTP 适配限制体积、Host/Origin，不将密钥注入前端，也不打印环境值。`npm run dev:equipment` 为统一启动入口。当前已通过真实本机 GET 与图像校验拒绝测试，真实上游调用数为 0；之前「4175 无器械接口」的限制已解除，质量验证仍未完成。
+
+## 2026-10-08 静态器械候选识别（首轮开发）
+
+人体姿态检测按用户反馈暂缓：活动 `review=mirror` 已改为说明页。以下新增能力识别器械照片，不识别人或人体动作。
+
+- 接口：`POST /api/identify-equipment`，输入 `{ imageBase64, mediaType }`。输入、解码、尺寸和体积限制复用 `api/_lib/request.ts`；规范为 1024 像素以内 JPEG，并去除元数据。客户端先预览，用户点击才上传；相册与系统拍照输入不建立持续视频流。
+- 模型：复用 `askOpenAIForJson` 的现有 `gpt-5-mini-2025-08-07`，Responses API 图片输入、strict JSON schema、`store:false`，SDK 重试 0。费用统计沿用现有方式，未新增价格假设。`store:false` 不等于服务商零保留承诺。
+- 输出：`{ result: { equipmentId: 'seated_chest_press' | 'unknown', confidence: 'high' | 'mid' | 'low', evidence: string[], uncertain: string }, meta }`。最多 3 条证据、每条最多 160 字，不确定说明 1–300 字；unknown 必须 low，候选必须有证据。前后端都校验；失败返回明确错误和原始模型文字，前端不当成候选使用。
+- 完整提示词与 schema 单一来源：[`api/_lib/equipment.ts`](../api/_lib/equipment.ts)。固定输出器械 ID，排除推肩/蝴蝶机/划船/史密斯及多功能站；模糊、多主体、缺少证据、相似器械无法排除时拒识。图中文字不作为指令执行，不猜型号，不生成教学、数值或链接。
+- 复用访问保护、共享限流、日请求上限、预算预留与 finalize 审计。审计不保存图片。前端取消/离开会中止等待并忽略旧回复，不承诺撤销已开始的服务端计费，不自动重试。
+- 人工确认后只能选择既有「固定器械推胸」；显式添加时写空组动作。识别结果和照片不自动写入训练档案。
+- 验证：固定返回合同和合成图片解码、浏览器操作，不包含真实模型或准确率评估。首版仅前端，后续同日已接入本机 4177 器械 API，当前统一使用 `npm run dev:equipment`；也可运行 `vercel dev` 或既有完整部署环境。未改密钥配置，未部署。
+
+官方资料核对（2026-10-08）：[Images and vision](https://developers.openai.com/api/docs/guides/images-vision)、[Structured outputs](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses)。
+
+## 2026-10-07 V4 本机姿态实验
+
+新增模型能力仅用于独立伙伴实验，不调用既有云端 API，也不改变 Prompt、训练处方、存储或预算保护。固定 `@mediapipe/tasks-vision@1.1.0`，官方 Pose Landmarker Lite float16 第 1 版，CPU delegate；模型、WASM 与 JS 文件均由本地站点提供，来源、许可及 SHA256 另存 V4 证据目录。
+
+用户点击开启并授权 video（audio=false）后，才启动相机并加载本机模型。同步 `detectForVideo` 运行在 classic worker 内，每次最多一帧在途，取帧上限 20Hz，过期 350ms 的结果不驱动角色。模型配置最多返回两人，仅用于拒绝多人画面，实际能力仍限单人。
+
+真实空白输入检查发现 SDK 初始化还尝试发送 Google 日志请求。已在 vendor 执行前锁定 worker 网络接口，只允许八个同源静态文件的 GET/HEAD，并拒绝重定向、上传和其他网络通道；本地开发/preview 同时设置 worker CSP。首次失败保留，未用测试路由拦截的最终复核另存，详见 V4 实现说明。相机未参与这些测试。
+
+人体左肩/肘/腕驱动正面画面左侧的熊猫右臂；预览水平翻转一次。映射使用经过宽高比例修正的二维方向，深度只辅助拒绝明显向镜头伸手，不宣称完整三维动作捕捉。可信输入至少连续两帧后恢复；低可信、遮挡、出画面或超过可表达范围时暂停，保留最后可信姿势，不播放预设动画冒充跟随。
+
+不上传、保存人体画面或可回放的原始关键点轨迹；退出、页面隐藏、失败及卸载释放相机与工作线程，重新可见后需主动开启。软件测试使用固定关键点、故障注入和空白画面；这些不代替真实人体镜像质量。云模型调用为 0，不等于所有基础设施成本为 0。详见[阶段 1 交付](virtual-companion-v4/STAGE-1-DELIVERY.md)。
+
+## 2026-10-01 缺失确认 V3.2
+
+API、Prompt、JSON Schema、模型及预算保护未变；本轮没有真实模型请求。改变的是前端人工确认与最终保存规则：`missingWeightConfirmed: true` 仅允许 unknown/null，必须来自用户明确操作。即使模型响应带此字段，`parseWorkoutResponse` 也不会采纳；`parseWorkoutDraft` 则保留合法本地确认，以支持刷新继续编辑。
+
+重量未记录但已完成的组可经确认保存，未确认 unknown 仍阻止保存；不计入重量容量及当前热量估算。模型自报 uncertain 不等于准确率，原解析提示保留供核对。新证据属于固定响应软件回归，并非新的独立模型测试，见 [V3.2 交付](missing-weight-v3-2/DELIVERY.md) 与 [新评分口径](../evals/workout-save/v3-2/RUBRIC.md)。
+
+## 2026-10-01 保存恢复 V3.1
+
+本轮未改变模型、Prompt、Schema、接口或调用预算，只修复预览编辑与草稿恢复。草稿可保留尚未满足保存条件的字段，模型响应和最终确认写入仍严格校验；重量临时输入须确认或取消后才能提交整份 AI 预览。
+
+新增一次真实 Preview 请求与本地界面联调，保留原始响应、usage、确认值和重开数据；其余定向流程检查使用固定响应。不是新一轮模型基准，旧 20 题与冻结留出成绩仍是历史数据，详见 [V3.1 交付报告](save-recovery-v3-1/DELIVERY.md)。真人与真实照片测试没有新增结果。
+
+## 2026-09-30 保存流程 V3
+
+模型快照、输出 token 上限、SDK 重试与服务端预算保护未改。训练接口新增每组必填 `weightState`，非 known 的 weight 必须 null；服务端拒绝 known/0。缺单位或未明确负重情况须保留已知组次并标 unknown。前端按四态编辑，确认与真正写入前各校验一次。新增有氧必填 done，未来内容不能写成已完成。
+
+前端所有 JSON AI 请求设置 120 秒总等待；训练解析支持主动取消、卸载时取消、同标签页刷新恢复原文与预览、失败保留已有编辑，无自动重试。输入原文改变使旧预览失效。Strict JSON Schema 仅约束结构，不保证模型理解正确（[官方说明](https://developers.openai.com/api/docs/guides/structured-outputs)）；本轮真实回归发现过模型自行推断自重，失败记录与规则修订分开保存，见 `evals/workout-save/v3`。
+
+下文的 V1/V2 评测成绩都是历史 parse-only 成绩，不能代表 V3 保存流程或真实用户结果。本轮规则及范围见 [V3 评分标准](../evals/workout-save/v3/RUBRIC.md)；Prompt 的权威执行版本为 `api/parse-workout.ts`，以下新增规则应与其一同维护。
+
 本项目目前有 4 个 AI 接口，全部位于 `api/`，由 Vercel Serverless Functions 调用 OpenAI Responses API。前端从不持有 API key；用户主动发起解析、识别或重算后，相应文字、餐食数据或压缩图片才会发送给 OpenAI。
 
 ## 1. 模型与公共调用配置
@@ -23,7 +79,7 @@
 
 4 个接口收到 `output_text` 后仍执行 `JSON.parse()`，并由 `api/_lib/validate.ts` 校验结构、枚举和数值边界；前端 `src/lib/aiValidation.ts` 在渲染或写入前再次校验。不合法结果不会静默进入本地记录，错误中会尽可能保留 `rawText`，原输入也会保留供用户修改或手动记录。
 
-训练解析 V2 的关键约束：
+训练解析延续 V2 的约束，另叠加上述 V3 重量与保存规则：
 
 - 次数型力量组使用整数 `reps`，计时型力量组使用整数 `durationSeconds`；严格 Schema 用嵌套 `anyOf` 把 set 拆成两个精确键分支，两字段都必须存在，但必须一项为正整数、另一项严格为 `null`。服务端运行时校验与 Schema 的根级、条目级和 set 级精确键集合对齐；前端确认后再转成可选字段，本地备份校验也拒绝小数次数/秒数。
 - `minutes` 在 AI 预览阶段允许为 `null`。例如只说“跑了一会儿”时，界面要求补充 1–1440 分钟，未补充前不能写入。
@@ -50,7 +106,7 @@ JSON 格式:
   "strength": [
     {
       "name": "动作名称",
-      "sets": [{ "weight": 数字, "reps": 数字或null, "durationSeconds": 数字或null, "done": true }],
+      "sets": [{ "weight": 数字或null, "weightState": "known/bodyweight/unknown/not_applicable", "reps": 数字或null, "durationSeconds": 数字或null, "done": true }],
       "note": "识别不出的原文片段,没有则为空字符串",
       "uncertain": ["描述没把握的地方,没有则为空数组"]
     }
@@ -58,6 +114,7 @@ JSON 格式:
   "cardio": [
     {
       "type": "跑步/单车/椭圆机/游泳/跳绳/划船机/快走",
+      "done": true或false,
       "minutes": 数字或null,
       "distance": 数字或null,
       "avgHr": 数字或null,
@@ -76,6 +133,10 @@ JSON 格式:
 - done 必须反映原文是否已经完成:用户明确描述已完成的训练时填 true;未来计划、准备做、尚未完成或明确说没做时填 false。若原文明确表示今天休息或没有训练,优先返回空数组,绝不能把计划冒充为已完成记录。
 - intensity 没有明确提到时,默认 "mid"。
 - 有氧时长没有明确数字(例如"跑了一会儿")时,minutes 必须填 null,并在 uncertain 里提示用户补充具体分钟数;绝不能用 1 分钟等占位数字冒充事实。
+- 每组必须明确 weightState：重量与单位都明确且大于0为 known，weight 换算成 kg；明确自重且无额外负重为 bodyweight；明确不以公斤计量的阻力等为 not_applicable；重量缺失、忘记、仅有数字缺少单位或任何歧义为 unknown。除 known 外 weight 必须为 null，绝不能用0作占位。不能仅凭动作名称推断自重。
+- 如果组数和次数/时长明确但重量未知，保留并展开已知组，weightState=unknown、weight=null，保留 done，在 uncertain 中说明需补重量或单位。
+- 有氧也必须返回 done：未来计划、准备做或没做为 false，已完成才为 true。
+- 重量状态必须依赖文字证据，不使用健身常识补全。bodyweight 只用于原文明说“自重/徒手/没有额外负重”的对应动作；俯卧撑、引体向上、平板支撑都可能额外负重，仅有动作名不够。例：“平板支撑3组，每组30秒”→3组，weightState=unknown、weight=null、durationSeconds=30，并提示负重情况未说明；“自重平板支撑3组，每组30秒，无额外负重”→bodyweight、weight=null。其他动作遵守同样的证据规则。
 - 如果动作明确但组数或次数/时长缺失,保留该动作并让 sets 为空数组,在该条目的 note 和 uncertain 中说明具体缺失字段;绝不能创建 reps 与 durationSeconds 同时为 null 的空壳 set,也不要猜默认组数或次数。
 - 遇到不确定的地方(比如重量、次数、强度是靠推测得出的),在该条目的 uncertain 数组里写清楚是什么不确定,不要静默地编造数字。
 - 完全无法归类到某个动作/项目的原文片段,放进对应条目最相关的 note 字段;如果整体都无法识别,返回 { "strength": [], "cardio": [] }。
@@ -198,7 +259,7 @@ JSON 格式:
 
 4 个接口对已经取得可核实模型 Response 的失败使用可审计的 422：`output_text` 为空或 JSON 解析失败时返回 `code: 'MODEL_OUTPUT_PARSE_FAILED'`，JSON 可解析但运行时结构校验失败时返回 `code: 'MODEL_OUTPUT_VALIDATION_FAILED'`；两类都带可获得的 `rawText` 与 `meta`（Response ID、usage 等）。只有在尚未取得可核实 Response 时发生的网络、鉴权、额度或其他供应商异常才返回 500，此时不保证有 `meta`。前端仍会把未配置密钥、无额度、纯 Vite 未启动 `/api` 等常见情况转换成中文提示，不会把失败结果写入本地。
 
-本地完整联调用 `vercel dev`；只运行 `npm run dev` 不会提供 `/api`。Vercel CLI 未注入 Development Secret 时，服务端才会从受 Git 忽略的 `.env.local` 读取 `OPENAI_API_KEY`。如果 Node 直连 OpenAI 超时，可仅在需要的环境里设置 `OPENAI_PROXY_URL`；代码也支持标准 `HTTPS_PROXY` / `HTTP_PROXY`，没有把本机代理地址写死。
+原有食物/文字接口的本地完整联调用 `vercel dev`；只运行 `npm run dev` 不会启动这些后端。器械接口另有 `npm run dev:equipment` 的本机适配与代理。Vercel CLI 未注入 Development Secret 时，服务端才会从受 Git 忽略的 `.env.local` 读取 `OPENAI_API_KEY`。如果 Node 直连 OpenAI 超时，可仅在需要的环境里设置 `OPENAI_PROXY_URL`；代码也支持标准 `HTTPS_PROXY` / `HTTP_PROXY`，没有把本机代理地址写死。
 
 ## 5. Gym 20 条正式评测
 

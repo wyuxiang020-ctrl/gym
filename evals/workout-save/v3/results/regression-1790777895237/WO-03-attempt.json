@@ -1,0 +1,38 @@
+{
+  "id": "WO-03",
+  "input": "杠铃深蹲80千克3组每组10次；杠铃卧推50千克2组每组8次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:18:34.618Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1542,
+    "cachedInputTokens": 1408,
+    "outputTokens": 419,
+    "reasoningTokens": 192,
+    "totalTokens": 1961
+  },
+  "estimatedCostUsd": 0.0009067000000000001,
+  "rawSha256": "f6c596459c84997a82a3f817042e0a14639e4bee4844ab3e0fbfd00170e67dfb",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_03737f617b3d3f6a016abd1a3d3bf487d08bd39f16f232e0a1",
+    "requestId": "req_a7c230830495493f88e0e1899da9e7ac",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1542,
+      "cachedInputTokens": 1408,
+      "outputTokens": 419,
+      "reasoningTokens": 192,
+      "totalTokens": 1961
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 6456
+}

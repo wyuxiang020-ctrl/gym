@@ -1,0 +1,40 @@
+{
+  "evidence": "Isolated desktop Edge. Synthetic landmarks / blank generated streams only. No real camera, microphone, people or phone.",
+  "targets": {
+    "renderMedianFps": 30,
+    "poseMedianHz": 15,
+    "releaseMs": 1000,
+    "performanceWindowMs": 60000
+  },
+  "checks": [
+    {
+      "name": "Seven design PNGs and four textures retain source PNG bytes",
+      "pass": true,
+      "data": {
+        "originals": 7,
+        "textures": 4
+      }
+    },
+    {
+      "name": "Independent sides, closed cycle, bounded continuous arm motion",
+      "pass": true,
+      "data": {
+        "duration": 2400,
+        "maxStep": 8.710282173489562
+      }
+    },
+    {
+      "name": "Visible arm mesh does not fold across accepted shoulder/elbow range",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: left folded mesh: -0.8020249175943731 at {\"x\":231.7924528301887,\"y\":74.27419354838709,\"shoulder\":1.207,\"elbow\":1.25}\n    at file:///E:/gym/scripts/check-d-panda-stage1.mjs:56:10\n    at async check (file:///E:/gym/scripts/check-d-panda-stage1.mjs:14:46)\n    at async file:///E:/gym/scripts/check-d-panda-stage1.mjs:38:1"
+    }
+  ],
+  "sourceHashes": {
+    "src/companion/OriginalInteraction.tsx": "e56d72c7d54b13a5ddfdaf1cd4774dfa0b3e1cc87a39322ccedd4b4ddd4dfc43",
+    "src/companion/interactionMotion.ts": "23a33911274623c436d80ce96fadb037a7342e9805caf57c7c6c3afcaa1b4d1d",
+    "src/companion/OriginalIdleRenderer.ts": "6f309f2a4cf8e08e6a5e40ff9a11a5353301b49fcf32e12fcfe7db0cb9ebc686",
+    "src/companion/mirror/MirrorSession.ts": "fc7eb4a4eb40dcf1d64dec3fbf9b666d29366fc93e0fc5c9348e3519e46c945a",
+    "src/companion/mirror/mapping.ts": "80ab014dc175757d4ffca5a5291effac1abcce9b812a490d9e8b2c52392b3cc2",
+    "public/companion-assets/pose-worker.js": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+  }
+}

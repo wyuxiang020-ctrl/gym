@@ -1,0 +1,26 @@
+{
+  "version": "virtual-companion-v4-poc",
+  "evidenceType": "local isolated production preview lifecycle",
+  "previewCommand": "node --input-type=module with vite.preview({envDir:false,build:{outDir:'evals/virtual-companion/v4-poc/build'},preview:{host:'127.0.0.1',port:4176,strictPort:true}})",
+  "previewPid": 11588,
+  "previewProcessStart": "2026-10-07T20:25:47.7397319+08:00",
+  "resultFile": "results.json",
+  "cases": [
+    "I02",
+    "W02"
+  ],
+  "temporaryHarnessRemoved": true,
+  "stopMethod": "PTY Ctrl-C did not close listener; verified 4176 listener PID and node process start, then Stop-Process -Id 11588",
+  "finalPortObservations": [
+    {
+      "port": 4176,
+      "error": "ECONNREFUSED"
+    },
+    {
+      "port": 4175,
+      "status": 200
+    }
+  ],
+  "realCameraCalls": 0,
+  "deployed": false
+}

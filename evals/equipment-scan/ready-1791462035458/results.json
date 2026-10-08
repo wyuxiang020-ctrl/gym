@@ -1,0 +1,22 @@
+{
+  "status": {
+    "available": true,
+    "accessRequired": false,
+    "message": "识别接口已连接。上传后才发起识别，实际结果以本次响应为准。"
+  },
+  "invalidStatus": 400,
+  "views": [
+    {
+      "width": 390,
+      "uploads": 0,
+      "errors": []
+    },
+    {
+      "width": 1100,
+      "uploads": 0,
+      "errors": []
+    }
+  ],
+  "cloudModelCalls": 0,
+  "note": "Real local proxy and configuration, not upstream quality or billing verification"
+}

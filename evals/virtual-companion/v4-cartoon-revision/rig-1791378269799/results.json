@@ -1,0 +1,230 @@
+{
+  "version": "v4-cartoon-revision",
+  "createdAt": "2026-10-07T13:04:32.697Z",
+  "sourceHashes": {
+    "src/companion/pandaRig.ts": "0970e613feaecbf82d9cd64d6eaf3e2a8dce270ba1b88d13cb2bd6b0b05be04a",
+    "src/companion/types.ts": "9e59bd2ab60d20a7b7cdf7fde467d792b6d71ac98d57cec6a284268e78884cce",
+    "scripts/check-companion-cartoon-rig-v4.mjs": "b1bd2543a00aba26aad6589757864d26a61c124d398af5aadb9181ab29aa02d5"
+  },
+  "evidenceType": "Deterministic independent geometry checks. No browser, camera or pose-model use. Face clearance samples arm vertices on a 0.05-radian pose grid against the intended pear surface; this is not an exhaustive continuous triangle-intersection proof.",
+  "passed": 9,
+  "total": 9,
+  "checks": [
+    {
+      "name": "Internal shoulder, elbow and hand hierarchy with continuous surface meshes",
+      "status": "PASS"
+    },
+    {
+      "name": "Shoulder propagation moves elbow and hand while the other arm and root stay fixed",
+      "status": "PASS"
+    },
+    {
+      "name": "Elbow motion changes continuous geometry and moves only the distal pivot",
+      "status": "PASS"
+    },
+    {
+      "name": "Finite input constraints preserve shoulder, elbow and combined bounds",
+      "status": "PASS"
+    },
+    {
+      "name": "Continuous arms, hand pivots and paw pads mirror around X=0",
+      "status": "PASS"
+    },
+    {
+      "name": "All deformed vertices and normals stay finite over the supported 0.05 radian grid",
+      "status": "PASS"
+    },
+    {
+      "name": "Soft arms, outlines, paw details and armband stay outside the new pear-shaped face",
+      "status": "PASS"
+    },
+    {
+      "name": "All static and animated geometry indices are valid and positions are finite",
+      "status": "PASS"
+    },
+    {
+      "name": "Allocated geometry, material and texture resources dispose exactly once",
+      "status": "PASS"
+    }
+  ],
+  "metrics": {
+    "symmetryVertices": 43904,
+    "finiteGrid": {
+      "shoulderStep": 0.05,
+      "elbowStep": 0.05,
+      "samples": 1378,
+      "values": 28102932
+    },
+    "headClearance": {
+      "shape": "pear sphere: x/(rx*(1-0.10*y/ry)), y/ry, z/rz",
+      "examined": 26966082,
+      "penetrations": 0,
+      "minima": {
+        "left-paw-pad": {
+          "normalizedDistanceSquared": 1.695152849739191,
+          "shoulder": 2.6,
+          "requestedElbow": 0.4,
+          "appliedElbow": 0.3500000000000001,
+          "vertex": 563,
+          "pointInHeadSpace": [
+            1.0701209505668519,
+            0.12793251481076515,
+            -0.10000000000000003
+          ]
+        },
+        "left-paw-dot--1": {
+          "normalizedDistanceSquared": 1.9350598310732006,
+          "shoulder": 2.6,
+          "requestedElbow": 0.4,
+          "appliedElbow": 0.3500000000000001,
+          "vertex": 562,
+          "pointInHeadSpace": [
+            1.1779951039759198,
+            -0.0009397564167250416,
+            -0.11450352028012281
+          ]
+        },
+        "left-paw-dot-0": {
+          "normalizedDistanceSquared": 1.666468688431965,
+          "shoulder": 2.6,
+          "requestedElbow": 0.4,
+          "appliedElbow": 0.3500000000000001,
+          "vertex": 562,
+          "pointInHeadSpace": [
+            1.089921095252,
+            0.0018831830617056667,
+            -0.11450352028012281
+          ]
+        },
+        "left-paw-dot-1": {
+          "normalizedDistanceSquared": 1.4470589131020606,
+          "shoulder": 2.6,
+          "requestedElbow": 0.4,
+          "appliedElbow": 0.3500000000000001,
+          "vertex": 562,
+          "pointInHeadSpace": [
+            1.0071789206541888,
+            0.032193784224093594,
+            -0.11450352028012281
+          ]
+        },
+        "left-soft-arm": {
+          "normalizedDistanceSquared": 1.1836740299906954,
+          "shoulder": 2.6,
+          "requestedElbow": 0.35000000000000003,
+          "appliedElbow": 0.35000000000000003,
+          "vertex": 564,
+          "pointInHeadSpace": [
+            0.7901057925923017,
+            -0.3443283640702232,
+            -0.1769748237729073
+          ]
+        },
+        "left-soft-arm-outline": {
+          "normalizedDistanceSquared": 1.1730053553405204,
+          "shoulder": 2.6,
+          "requestedElbow": 0.35000000000000003,
+          "appliedElbow": 0.35000000000000003,
+          "vertex": 564,
+          "pointInHeadSpace": [
+            0.7893573794811863,
+            -0.3397432895312766,
+            -0.17520444612950092
+          ]
+        },
+        "left-sleeve-band": {
+          "normalizedDistanceSquared": 1.2874181450520388,
+          "shoulder": 2.6,
+          "requestedElbow": 0.35000000000000003,
+          "appliedElbow": 0.35000000000000003,
+          "vertex": 3,
+          "pointInHeadSpace": [
+            0.9157755608199402,
+            -0.11136799464798885,
+            -0.18918609440326695
+          ]
+        },
+        "right-paw-pad": {
+          "normalizedDistanceSquared": 1.695152849739191,
+          "shoulder": 2.6,
+          "requestedElbow": 0.4,
+          "appliedElbow": 0.3500000000000001,
+          "vertex": 539,
+          "pointInHeadSpace": [
+            -1.0701209505668519,
+            0.12793251481076515,
+            -0.10000000000000003
+          ]
+        },
+        "right-paw-dot--1": {
+          "normalizedDistanceSquared": 1.4470589131020606,
+          "shoulder": 2.6,
+          "requestedElbow": 0.4,
+          "appliedElbow": 0.3500000000000001,
+          "vertex": 540,
+          "pointInHeadSpace": [
+            -1.0071789206541888,
+            0.032193784224093594,
+            -0.11450352028012281
+          ]
+        },
+        "right-paw-dot-0": {
+          "normalizedDistanceSquared": 1.666468688431965,
+          "shoulder": 2.6,
+          "requestedElbow": 0.4,
+          "appliedElbow": 0.3500000000000001,
+          "vertex": 540,
+          "pointInHeadSpace": [
+            -1.089921095252,
+            0.0018831830617056667,
+            -0.11450352028012281
+          ]
+        },
+        "right-paw-dot-1": {
+          "normalizedDistanceSquared": 1.9350598310732006,
+          "shoulder": 2.6,
+          "requestedElbow": 0.4,
+          "appliedElbow": 0.3500000000000001,
+          "vertex": 540,
+          "pointInHeadSpace": [
+            -1.1779951039759198,
+            -0.0009397564167250416,
+            -0.11450352028012281
+          ]
+        },
+        "right-soft-arm": {
+          "normalizedDistanceSquared": 1.1836740299906954,
+          "shoulder": 2.6,
+          "requestedElbow": 0.35000000000000003,
+          "appliedElbow": 0.35000000000000003,
+          "vertex": 574,
+          "pointInHeadSpace": [
+            -0.7901057925923017,
+            -0.3443283640702232,
+            -0.1769748237729073
+          ]
+        },
+        "right-soft-arm-outline": {
+          "normalizedDistanceSquared": 1.1730053553405204,
+          "shoulder": 2.6,
+          "requestedElbow": 0.35000000000000003,
+          "appliedElbow": 0.35000000000000003,
+          "vertex": 574,
+          "pointInHeadSpace": [
+            -0.7893573794811863,
+            -0.3397432895312766,
+            -0.17520444612950092
+          ]
+        }
+      }
+    },
+    "allocatedGeometries": 26,
+    "disposal": {
+      "geometries": 26,
+      "materials": 8,
+      "textures": 1,
+      "total": 35,
+      "repeatedDisposeCalls": 2
+    }
+  }
+}

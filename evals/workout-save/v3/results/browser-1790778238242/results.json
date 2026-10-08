@@ -1,0 +1,69 @@
+{
+  "version": "save-v3",
+  "api": "mocked fault injection, no model accuracy or human performance claims",
+  "results": [
+    {
+      "name": "01 input-edit-unit-bulk-undo-confirm-reopen",
+      "pass": true,
+      "ms": 1451,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778238242/1.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778238242\\page@03b977f9ccceb13afccf33ccb27c9458.webm"
+    },
+    {
+      "name": "02 template-import-edit-complete-reopen-duplicate-skip-cancel",
+      "pass": true,
+      "ms": 858,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778238242/2.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778238242\\page@50cec76d0a8ed273d089f53cfb0bfac7.webm"
+    },
+    {
+      "name": "03 network-failure-retry-cancel-preserves-edited-preview",
+      "pass": true,
+      "ms": 3122,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778238242/3.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778238242\\page@6fba1f6dba791e4f3ef29f7b0eccb160.webm"
+    },
+    {
+      "name": "04 future-strength-and-cardio-not-saved",
+      "pass": true,
+      "ms": 447,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778238242/4.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778238242\\page@ddcfd1b14d3475c7e9b0e10fb4e66eb6.webm"
+    },
+    {
+      "name": "05 repeated-AI-import-requires-explicit-replace-and-cancel",
+      "pass": true,
+      "ms": 622,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778238242/5.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778238242\\page@5724bffa6577ca7aff2f129dfb7eee05.webm"
+    },
+    {
+      "name": "06 quota-failure-does-not-claim-save-or-clear-draft",
+      "pass": true,
+      "ms": 601,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778238242/6.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778238242\\page@492b0604034b366e7dfa1f4bf0c21113.webm"
+    },
+    {
+      "name": "07 changed-original-input-invalidates-old-preview",
+      "pass": true,
+      "ms": 570,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778238242/7.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778238242\\page@70b8a8c95fcc438fff375d9bd947847c.webm"
+    },
+    {
+      "name": "08 replace-retains-two-new-cardio-sessions",
+      "pass": true,
+      "ms": 672,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778238242/8.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778238242\\page@19c2f14249b58382d491ad3a805ccb68.webm"
+    },
+    {
+      "name": "09 request-unmount-does-not-write-late-result",
+      "pass": true,
+      "ms": 2450,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778238242/9.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778238242\\page@f8deae4958a59a635ade5fff036be6af.webm"
+    }
+  ]
+}

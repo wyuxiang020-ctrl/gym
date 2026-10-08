@@ -1,0 +1,14 @@
+{
+  "id": "SMOKE-01",
+  "input": "刚完成负重登阶22公斤一组5次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:10:46.112Z",
+  "status": 401,
+  "pass": false,
+  "usage": null,
+  "estimatedCostUsd": null,
+  "rawSha256": "976285451c0bd15fcc89ab89fbc5a679a6539d9aac84ba8d5c05346b14094265",
+  "error": "请输入有效的演示访问码后重试。",
+  "ms": 1029
+}

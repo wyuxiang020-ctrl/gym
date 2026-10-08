@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "gender": "male",
+    "birthYear": 1997,
+    "height": 178,
+    "experience": "intermediate",
+    "goal": "bulk",
+    "targetWeight": 75,
+    "targetBodyFat": 15,
+    "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+    "trainingDaysPerWeek": 4,
+    "activityLevel": 3,
+    "waterTargetMl": 2400,
+    "checkInMode": "workout_and_meal"
+  },
+  "measurements": [
+    { "date": "2026-07-05", "weight": 69.8, "bodyFat": 17.2, "waist": 78, "note": "合成演示数据" },
+    { "date": "2026-08-02", "weight": 70.6, "bodyFat": 16.8, "waist": 77.5, "note": "合成演示数据" },
+    { "date": "2026-09-01", "weight": 71.4, "bodyFat": 16.4, "waist": 77, "note": "合成演示数据" }
+  ],
+  "plans": [
+    {
+      "id": "synthetic-plan-upper-lower",
+      "createdAt": "2026-08-01T08:00:00.000Z",
+      "name": "四分化 · 上肢/下肢",
+      "isActive": true,
+      "days": [
+        {
+          "label": "Day 1 · 上肢力量",
+          "exercises": [
+            { "name": "杠铃卧推", "sets": 4, "repRange": "6-8", "note": "保留 1-2 次余力" },
+            { "name": "杠铃划船", "sets": 4, "repRange": "6-8" },
+            { "name": "站姿杠铃推举", "sets": 3, "repRange": "8-10" }
+          ],
+          "cardio": { "type": "快走", "minutes": 15, "note": "低强度收尾" }
+        },
+        {
+          "label": "Day 2 · 下肢力量",
+          "exercises": [
+            { "name": "杠铃深蹲", "sets": 4, "repRange": "6-8" },
+            { "name": "罗马尼亚硬拉", "sets": 3, "repRange": "8-10" },
+            { "name": "腿举", "sets": 3, "repRange": "10-12" }
+          ]
+        },
+        {
+          "label": "Day 3 · 上肢容量",
+          "exercises": [
+            { "name": "上斜哑铃卧推", "sets": 3, "repRange": "10-12" },
+            { "name": "高位下拉", "sets": 3, "repRange": "10-12" },
+            { "name": "哑铃侧平举", "sets": 3, "repRange": "12-15" }
+          ]
+        },
+        {
+          "label": "Day 4 · 下肢容量",
+          "exercises": [
+            { "name": "箭步蹲", "sets": 3, "repRange": "10-12" },
+            { "name": "腿弯举", "sets": 3, "repRange": "12-15" },
+            { "name": "平板支撑", "sets": 3, "repRange": "30秒" }
+          ]
+        }
+      ]
+    }
+  ],
+  "dayLogs": {
+    "2026-08-25": { "date": "2026-08-25", "checkedIn": true, "strength": [], "cardio": [], "meals": [], "water": 2200 },
+    "2026-08-27": { "date": "2026-08-27", "checkedIn": true, "strength": [], "cardio": [], "meals": [], "water": 2400 },
+    "2026-08-29": { "date": "2026-08-29", "checkedIn": true, "strength": [], "cardio": [], "meals": [], "water": 2100 },
+    "2026-09-01": {
+      "date": "2026-09-01", "checkedIn": true,
+      "strength": [{ "id": "s-0901", "name": "杠铃深蹲", "sets": [{ "weight": 80, "reps": 8, "done": true }, { "weight": 80, "reps": 8, "done": true }, { "weight": 80, "reps": 8, "done": true }], "intensity": "high", "estKcal": 105, "source": "manual" }],
+      "cardio": [], "meals": [], "water": 2400
+    },
+    "2026-09-02": { "date": "2026-09-02", "checkedIn": true, "strength": [], "cardio": [{ "id": "c-0902", "type": "快走", "minutes": 35, "distance": 3.2, "intensity": "low", "done": true, "estKcal": 145, "source": "manual" }], "meals": [], "water": 2300 },
+    "2026-09-03": {
+      "date": "2026-09-03", "checkedIn": true,
+      "strength": [{ "id": "s-0903", "name": "杠铃卧推", "sets": [{ "weight": 60, "reps": 8, "done": true }, { "weight": 60, "reps": 8, "done": true }, { "weight": 60, "reps": 7, "done": true }], "intensity": "mid", "estKcal": 86, "source": "nl" }],
+      "cardio": [], "meals": [], "water": 2500
+    },
+    "2026-09-04": { "date": "2026-09-04", "checkedIn": true, "strength": [], "cardio": [], "meals": [{ "id": "m-0904", "slot": "dinner", "rawText": "鸡胸肉和米饭", "items": [{ "name": "鸡胸肉", "grams": 150, "kcal": 248, "protein": 46.5, "carbs": 0, "fat": 5.4, "confidence": "high" }, { "name": "米饭", "grams": 200, "kcal": 232, "protein": 5.2, "carbs": 51.8, "fat": 0.6, "confidence": "mid" }], "confirmed": true }], "water": 2400 },
+    "2026-09-05": {
+      "date": "2026-09-05", "checkedIn": true,
+      "strength": [{ "id": "s-0905", "name": "杠铃划船", "sets": [{ "weight": 55, "reps": 10, "done": true }, { "weight": 55, "reps": 10, "done": true }, { "weight": 55, "reps": 9, "done": true }], "intensity": "mid", "estKcal": 88, "source": "manual" }],
+      "cardio": [], "meals": [], "water": 2600
+    },
+    "2026-09-06": {
+      "date": "2026-09-06", "checkedIn": true,
+      "strength": [
+        { "id": "s-today-bench", "name": "杠铃卧推", "sets": [{ "weight": 62.5, "reps": 8, "done": true }, { "weight": 62.5, "reps": 8, "done": true }, { "weight": 62.5, "reps": 8, "done": false }, { "weight": 62.5, "reps": 8, "done": false }], "intensity": "high", "estKcal": 72, "source": "mixed", "note": "计划导入后已完成前两组" },
+        { "id": "s-today-row", "name": "杠铃划船", "sets": [{ "weight": 55, "reps": 8, "done": false }, { "weight": 55, "reps": 8, "done": false }, { "weight": 55, "reps": 8, "done": false }, { "weight": 55, "reps": 8, "done": false }], "intensity": "mid", "estKcal": 0, "source": "manual" }
+      ],
+      "cardio": [{ "id": "c-today", "type": "快走", "minutes": 15, "intensity": "low", "done": false, "estKcal": 0, "source": "manual", "note": "计划来源:快走 15分钟；低强度收尾" }],
+      "meals": [
+        { "id": "m-breakfast", "slot": "breakfast", "rawText": "燕麦50克、牛奶250毫升和香蕉", "items": [{ "name": "燕麦", "grams": 50, "kcal": 190, "protein": 6.5, "carbs": 33.5, "fat": 3.5, "confidence": "high" }, { "name": "牛奶", "grams": 250, "kcal": 150, "protein": 8, "carbs": 12, "fat": 8, "confidence": "high" }, { "name": "香蕉", "grams": 120, "kcal": 107, "protein": 1.3, "carbs": 27.4, "fat": 0.4, "confidence": "mid" }], "confirmed": true },
+        { "id": "m-lunch", "slot": "lunch", "rawText": "一盘炒饭", "items": [{ "name": "炒饭", "grams": 350, "kcal": 630, "protein": 17, "carbs": 95, "fat": 20, "confidence": "low" }], "note": "份量待核对", "confirmed": false }
+      ],
+      "water": 1800,
+      "mood": 3,
+      "bodyNote": "合成演示：状态良好"
+    }
+  },
+  "exerciseVideos": {},
+  "lastFedDate": "2026-09-05"
+}

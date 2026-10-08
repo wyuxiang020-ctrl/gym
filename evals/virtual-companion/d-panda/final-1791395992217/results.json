@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-07T18:00:02.148Z",
+  "checks": [
+    "All 21 manifest-listed package files are unchanged (manifest is file 22)",
+    "All seven imported design originals are byte-identical",
+    "10 baseline files outside companion are unchanged, including App/store/types/router/dependencies/worker",
+    "Old three render/motion sources removed from active source and preserved in the baseline",
+    "Actual recorded asset/renderer/motion source hashes match final sources",
+    "Both new normal-speed WebM recordings decode at 640 × 680 with correct durations"
+  ],
+  "video": [
+    {
+      "name": "samples",
+      "width": 640,
+      "height": 680,
+      "duration": 19.470523
+    },
+    {
+      "name": "library",
+      "width": 640,
+      "height": 680,
+      "duration": 50.639648
+    }
+  ],
+  "packageFiles": 22,
+  "boardBytes": 11278536,
+  "noRealCamera": true,
+  "noRealPhone": true
+}

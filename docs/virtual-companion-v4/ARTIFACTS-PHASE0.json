@@ -1,0 +1,62 @@
+{
+  "version": "virtual-companion-v4-phase0",
+  "at": "2026-10-07T06:46:10.597Z",
+  "status": "PHASE_0_COMPLETE_WITH_PUBLIC_ACCESS_UNVERIFIED",
+  "phase1": "NOT_STARTED_AWAITING_JOINT_CHARACTER_DESIGN_AND_CONFIRMATION",
+  "deployed": false,
+  "servicesStarted": false,
+  "dependenciesInstalled": false,
+  "cameraEnabled": false,
+  "cloudModelCalls": 0,
+  "modelCostUsd": 0,
+  "infrastructureCostUsd": null,
+  "evidenceRoot": "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z",
+  "report": "docs/virtual-companion-v4/STAGE-0-REPORT.md",
+  "checks": {
+    "typescript": "PASS",
+    "lint": "PASS_SCOPED",
+    "contractFixtures": "18/18",
+    "storageFixtures": "18/18",
+    "isolatedBuild": "PASS",
+    "firstRunFailuresRetained": true,
+    "publicDeployment": "UNVERIFIED_CONNECTION_TIMEOUT",
+    "realCamera": "NOT_RUN",
+    "realPhone": "NOT_RUN",
+    "humanTasks": "NOT_RUN"
+  },
+  "files": {
+    "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/baseline.json": {
+      "sha256": "51f867c8c30c9fb25baec1d9684788a60bafe8d829b6547609daa5ea5710176b"
+    },
+    "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/environment.json": {
+      "sha256": "5f9c16ba243b23c2e1ca80bcc021d9132784142bfd54eae06f0f7fe3cfcaefa9"
+    },
+    "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/inspection-notes.json": {
+      "sha256": "43152f719aba76b0dee2ace6faccc51f3cd67ce0f0472a297698a6cfd927ae53"
+    },
+    "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/integrity.json": {
+      "sha256": "527e225876139f9bfdf556adca14de083817fe43ccfe7aafe50f0fd3282e5159"
+    },
+    "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/network-public.json": {
+      "sha256": "03dcc57466da8e78b693b49f718f678501d3e896a8bab48fe0ca4646e468671a"
+    },
+    "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks/results.json": {
+      "sha256": "00647ec325fa545d1734624ae2a464a4c99a50b3b77e12716156d88bb4942690"
+    },
+    "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/results.json": {
+      "sha256": "d13a15855e0090d1046da0b66b638be82f69e9c9a95226886097ceb3e83e0ba6"
+    },
+    "evals/virtual-companion/v4-phase0/run-2026-10-07T06-13-18-159Z/checks-retry-1791353737648/storage/flow-1791353738245.json": {
+      "sha256": "be9a71844aa76ff1b8fb448ff1b00aa292bffeadccdfaa6340178bcecc446ac0"
+    },
+    "docs/virtual-companion-v4/STAGE-0-REPORT.md": {
+      "sha256": "d933b043f96bcc5264a2c80e11449c43e98625c522b582cb031cedf0b90f2571"
+    },
+    "evals/virtual-companion/v4-phase0/prepare-baseline.mjs": {
+      "sha256": "e3a097d061b30968729dd857efaf02a893470836ecd87f739057fe6bef1c8326"
+    },
+    "evals/virtual-companion/v4-phase0/run-checks.mjs": {
+      "sha256": "ef64d9dce463bc3e16fff7590dc3f313b0ff09f723ed0f0bb678e3a9b9606ded"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "H05",
+  "input": "准备后天做杠铃弯举15kg两组各14次，今天没做。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:23:03.165Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1533,
+    "cachedInputTokens": 1408,
+    "outputTokens": 355,
+    "reasoningTokens": 256,
+    "totalTokens": 1888
+  },
+  "estimatedCostUsd": 0.00077645,
+  "rawSha256": "cba79d8b123a8ce19e419e1a9f36d557949aa4d59403d08a7554af9a50e400a3",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0c297ea108cd54d3016abd1b49744487d0965074562b3f9bab",
+    "requestId": "req_d8713bcfe3fb47ff8b7e2a9d3197488f",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1533,
+      "cachedInputTokens": 1408,
+      "outputTokens": 355,
+      "reasoningTokens": 256,
+      "totalTokens": 1888
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 5535
+}

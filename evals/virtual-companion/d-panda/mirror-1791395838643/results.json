@@ -1,0 +1,209 @@
+{
+  "version": "D-panda-2026-10-08",
+  "at": "2026-10-07T17:57:18.644Z",
+  "evidenceType": "DETERMINISTIC_SOFTWARE_FIXED_LANDMARK_REPLAY_AND_LIFECYCLE_FAULT_INJECTION",
+  "realCamera": "NOT_RUN",
+  "realModel": "NOT_RUN",
+  "realPhone": "NOT_RUN",
+  "cloudModelCalls": 0,
+  "environment": {
+    "node": "v24.16.0",
+    "platform": "win32",
+    "architecture": "x64"
+  },
+  "files": {
+    "src/companion/mirror/MirrorSession.ts": "fc7eb4a4eb40dcf1d64dec3fbf9b666d29366fc93e0fc5c9348e3519e46c945a",
+    "src/companion/mirror/mapping.ts": "80ab014dc175757d4ffca5a5291effac1abcce9b812a490d9e8b2c52392b3cc2",
+    "src/companion/mirror/protocol.ts": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094",
+    "public/companion-assets/pose-worker.js": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d",
+    "scripts/check-d-panda-mirror.mjs": "e3085b8073a2145eafb81e9a679b3432e71fd9a4661e8329347438dba092b630"
+  },
+  "checks": [
+    {
+      "name": "fixed replay: anatomical left maps to panda right, with no second screen flip",
+      "pass": true
+    },
+    {
+      "name": "fixed replay: anatomical right maps to panda left independently",
+      "pass": true
+    },
+    {
+      "name": "fixed replay: both arms and lowered arms preserve independent joints",
+      "pass": true
+    },
+    {
+      "name": "non-square frame coordinates are corrected in pixels before angular mapping",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 11 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 13 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 15 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 12 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 14 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "occluded joint 16 rejects the entire pose without inferred continuation",
+      "pass": true
+    },
+    {
+      "name": "absent/multiple people, missing joints and unknown visibility are rejected",
+      "pass": true
+    },
+    {
+      "name": "stale, future, NaN and zero-size frames cannot become trusted",
+      "pass": true
+    },
+    {
+      "name": "cross-body, elbow reverse bend and rig overflow are rejected rather than trusted clamping",
+      "pass": true
+    },
+    {
+      "name": "side/back orientation and depth foreshortening produce explicit unsupported states",
+      "pass": true
+    },
+    {
+      "name": "smoothing limits initial and post-loss jumps while preserving valid rest bounds",
+      "pass": true
+    },
+    {
+      "name": "no secure context and unsupported workers do not request camera or model",
+      "pass": true
+    },
+    {
+      "name": "NotAllowedError: explicit failure with no model worker and no active media",
+      "pass": true
+    },
+    {
+      "name": "NotFoundError: explicit failure with no model worker and no active media",
+      "pass": true
+    },
+    {
+      "name": "NotReadableError: explicit failure with no model worker and no active media",
+      "pass": true
+    },
+    {
+      "name": "late permission after exit stops every returned track without creating a worker",
+      "pass": true
+    },
+    {
+      "name": "rapid start-start ignores an older permission grant without stopping the new session",
+      "pass": true
+    },
+    {
+      "name": "restarting an active session stops old media and worker before opening replacements",
+      "pass": true
+    },
+    {
+      "name": "permission deadline then late grant also closes the late stream",
+      "pass": true
+    },
+    {
+      "name": "exit during model initialization terminates worker and ignores its late ready",
+      "pass": true
+    },
+    {
+      "name": "model initialization timeout stops camera and worker",
+      "pass": true
+    },
+    {
+      "name": "model initialization and worker transport errors release resources",
+      "pass": true
+    },
+    {
+      "name": "late video play completion cannot revive a stopped session",
+      "pass": true
+    },
+    {
+      "name": "two trustworthy samples required; occlusion freezes output and recovery eases in",
+      "pass": true
+    },
+    {
+      "name": "stale result is rejected and cannot output a pose",
+      "pass": true
+    },
+    {
+      "name": "at most one frame remains in flight; duplicate frames are not resent",
+      "pass": true
+    },
+    {
+      "name": "unresponsive inference times out with camera stop, no unbounded queue",
+      "pass": true
+    },
+    {
+      "name": "camera producing no decoded frames has a finite startup deadline",
+      "pass": true
+    },
+    {
+      "name": "late bitmap after exit is closed rather than delivered to a worker",
+      "pass": true
+    },
+    {
+      "name": "a pending bitmap capture cannot hold the camera open indefinitely",
+      "pass": true
+    },
+    {
+      "name": "hide stops tracks synchronously and returning never restarts camera",
+      "pass": true
+    },
+    {
+      "name": "late result after stop and repeated disposal cannot resume pose output",
+      "pass": true
+    },
+    {
+      "name": "device removal exits instead of retaining an apparently live camera",
+      "pass": true
+    },
+    {
+      "name": "same-origin worker source declares no outbound inference or persistence",
+      "pass": true
+    },
+    {
+      "name": "worker blocks SDK telemetry before any native network request",
+      "pass": true
+    },
+    {
+      "name": "worker permits exact static GET only and forces no redirects or credentials",
+      "pass": true
+    },
+    {
+      "name": "worker rejects same-origin uploads, API, unknown assets and query channels",
+      "pass": true
+    },
+    {
+      "name": "worker blocks XHR and alternate transports without initiating native I/O",
+      "pass": true
+    },
+    {
+      "name": "worker script loading only allows the versioned local runtime resources",
+      "pass": true
+    },
+    {
+      "name": "D partial occlusion: reliable arm continues, recovered arm requires two fresh samples",
+      "pass": true
+    },
+    {
+      "name": "D long loss: visibly rest after grace period; stale results never replay a gesture",
+      "pass": true
+    },
+    {
+      "name": "D partial tracking releases camera and worker when hidden",
+      "pass": true
+    }
+  ],
+  "passed": 46,
+  "total": 46
+}

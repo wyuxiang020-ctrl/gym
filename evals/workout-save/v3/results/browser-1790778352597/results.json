@@ -1,0 +1,13 @@
+{
+  "version": "save-v3",
+  "api": "mocked fault injection, no model accuracy or human performance claims",
+  "results": [
+    {
+      "name": "02 template-import-edit-complete-reopen-duplicate-skip-cancel",
+      "pass": true,
+      "ms": 9591,
+      "screenshot": "evals/workout-save/v3/results/browser-1790778352597/1.png",
+      "video": "E:\\gym\\evals\\workout-save\\v3\\results\\browser-1790778352597\\page@a33366c9852a49fb2927f45b1cead51e.webm"
+    }
+  ]
+}

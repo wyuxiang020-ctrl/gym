@@ -1,0 +1,38 @@
+{
+  "id": "H07",
+  "input": "弹力带肩外旋做完2组，每组16次，用黄色带子，不适用公斤记录。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:23:14.402Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1535,
+    "cachedInputTokens": 1408,
+    "outputTokens": 532,
+    "reasoningTokens": 320,
+    "totalTokens": 2067
+  },
+  "estimatedCostUsd": 0.0011309500000000001,
+  "rawSha256": "31047e958f5b1965df06b765afae07920f02763e6f1da956af7053fe06e70f9d",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0da2cd6f7e88567e016abd1b55061887d0867ce3e3680b1b34",
+    "requestId": "req_087b83ddde574c29a119137ae360f6ee",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1535,
+      "cachedInputTokens": 1408,
+      "outputTokens": 532,
+      "reasoningTokens": 320,
+      "totalTokens": 2067
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 8110
+}

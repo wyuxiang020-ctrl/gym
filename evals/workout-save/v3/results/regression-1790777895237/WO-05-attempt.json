@@ -1,0 +1,38 @@
+{
+  "id": "WO-05",
+  "input": "杠铃卧推第一组40kg10次，第二组50kg8次，第三组60kg6次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:18:49.971Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1537,
+    "cachedInputTokens": 1408,
+    "outputTokens": 411,
+    "reasoningTokens": 256,
+    "totalTokens": 1948
+  },
+  "estimatedCostUsd": 0.0008894500000000001,
+  "rawSha256": "844e1013ce95eaa1ea236f3d4f7398da8b617791806313850cf2a918ca112888",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0d3703516f679936016abd1a4c18d487d09d48ca3fdcb39ebd",
+    "requestId": "req_0457d7b939c84c24857c7a4d6a6130de",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1537,
+      "cachedInputTokens": 1408,
+      "outputTokens": 411,
+      "reasoningTokens": 256,
+      "totalTokens": 1948
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 8563
+}

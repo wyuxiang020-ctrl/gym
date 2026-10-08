@@ -1,0 +1,33 @@
+{
+  "kind": "loopback HTTP, synthetic image, fixed upstream; no real cloud calls",
+  "results": [
+    {
+      "name": "configuration status never calls the model or discloses keys",
+      "pass": true
+    },
+    {
+      "name": "host and browser origin checks precede model calls",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n200 !== 403\n"
+    },
+    {
+      "name": "HTTP malformed JSON and bounded bodies",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n1 !== 0\n"
+    },
+    {
+      "name": "real HTTP adapter to guarded handler with fixed upstream",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n2 !== 1\n"
+    },
+    {
+      "name": "access code guard applies through HTTP",
+      "pass": false,
+      "error": "Expected values to be strictly equal:\n\n3 !== 2\n"
+    },
+    {
+      "name": "handoff is bounded, expiring and excludes photos",
+      "pass": true
+    }
+  ]
+}

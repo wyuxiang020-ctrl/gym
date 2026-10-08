@@ -1,0 +1,38 @@
+{
+  "id": "WO-02",
+  "input": "卧推60公斤4组，前三组8次，最后一组6次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:13:13.137Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1385,
+    "cachedInputTokens": 1280,
+    "outputTokens": 468,
+    "reasoningTokens": 320,
+    "totalTokens": 1853
+  },
+  "estimatedCostUsd": 0.00099425,
+  "rawSha256": "cf5c19dcfe19b2f3e37e4393bfcdcdeebdeed2390b88435f424b3b9ae0e76ff4",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0456ce8d1dabb6a0016abd18fcb41887d0aeac9e16f907ab6f",
+    "requestId": "req_9885b831ccf74f7d85ce2833e1d7ed93",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1385,
+      "cachedInputTokens": 1280,
+      "outputTokens": 468,
+      "reasoningTokens": 320,
+      "totalTokens": 1853
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 9535
+}

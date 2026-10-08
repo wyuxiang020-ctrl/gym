@@ -1,0 +1,42 @@
+{
+  "standingSource": "D2-character-accessories.png",
+  "standingSha256": "213e4988d57259b0efa4a60c907e098eefc42dc5d1c86b59f4c8ce3bc01f6ff4",
+  "eyeSource": "D2-expressions.png",
+  "eyeSourceSha256": "904b4fb2cc40d37b8ca178c63d8167ee7c7e188363023a84339c7df876329880",
+  "eyeRegion": "D2 六种表情右下角：放松",
+  "eyes": [
+    {
+      "id": "left",
+      "target": [
+        126,
+        78,
+        72,
+        64
+      ],
+      "source": [
+        1187,
+        657,
+        77,
+        65
+      ]
+    },
+    {
+      "id": "right",
+      "target": [
+        241,
+        92,
+        56,
+        68
+      ],
+      "source": [
+        1315,
+        672,
+        62,
+        64
+      ]
+    }
+  ],
+  "method": "Existing source-image regions and masks only; closed eyes reused from the approved expression board. Body stays on one continuous textured mesh with regional motion weights; no hidden-region painting.",
+  "newPaintedRegions": [],
+  "durationMs": 6000
+}

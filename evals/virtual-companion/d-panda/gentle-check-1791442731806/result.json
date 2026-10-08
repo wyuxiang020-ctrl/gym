@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "output": "evals/virtual-companion/d-panda/gentle-check-1791442731806",
+  "checks": [
+    {
+      "name": "透明素材只添加遮罩，内嵌 PNG 与确认原图逐字节一致",
+      "result": "PASS"
+    },
+    {
+      "name": "浏览器解码后，不透明角色像素 RGB 与原图一致；存在真实透明背景",
+      "opaque": 106578,
+      "changed": 0,
+      "transparent": 77131,
+      "partial": 1541,
+      "result": "PASS"
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(Math.abs(Number(await page.locator('.gentle-timeline input').inputValue()) - Number(paused) - 1000 / 30) < 0.02)\n"
+}

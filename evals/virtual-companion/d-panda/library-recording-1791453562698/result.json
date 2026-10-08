@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "output": "evals/virtual-companion/d-panda/library-recording-1791453562698",
+  "recordings": [
+    "actions-normal-speed.webm",
+    "expressions-normal-speed.webm"
+  ],
+  "note": "Real-time browser recordings. Scene selection is a clip switch, not a continuous character pose transition."
+}

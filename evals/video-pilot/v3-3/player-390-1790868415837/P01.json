@@ -1,0 +1,20 @@
+{
+  "id": "P01",
+  "name": "No third-party requests before explicit loading; source remains accessible",
+  "kind": "fixed-response browser test",
+  "attempt": 1,
+  "at": "2026-10-01T15:26:56.597Z",
+  "pass": false,
+  "sourceUrl": "https://www.nasm.org/resource-center/exercise-library/barbell-bench-press",
+  "error": "no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n",
+  "stack": "AssertionError [ERR_ASSERTION]: no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n\n    at scenario (file:///E:/gym/scripts/check-teaching-player-v33.mjs:158:12)\n    at async file:///E:/gym/scripts/check-teaching-player-v33.mjs:185:3",
+  "ms": 924,
+  "finalState": "idle",
+  "networkRequests": [],
+  "blockedUnexpectedRequests": [
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+  ],
+  "pageErrors": [],
+  "replay": null,
+  "screenshot": "evals/video-pilot/v3-3/player-390-1790868415837/P01.png"
+}

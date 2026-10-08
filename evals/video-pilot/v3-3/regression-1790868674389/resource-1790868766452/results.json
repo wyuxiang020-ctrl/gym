@@ -1,0 +1,90 @@
+{
+  "version": "exercise-resource-v3.2",
+  "evidenceType": "automated software tests; isolated synthetic data; no model calls or human participants",
+  "modelCalls": 0,
+  "modelCost": 0,
+  "results": [
+    {
+      "name": "01 ordinary HTTPS webpage with fragment",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 1
+    },
+    {
+      "name": "02 HTTP webpage allowed without fetching",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "03 legacy direct videos and signed queries",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "04 a webpage mentioning mp4 is not embedded",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "05 rejects scripts data file protocol-relative and malformed URLs",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "06 rejects credentials and control or whitespace characters",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "07 maximum length agrees with existing data validation",
+      "kind": "pure-function",
+      "pass": true,
+      "ms": 1
+    },
+    {
+      "name": "08 webpage save reopen and user-initiated external opening",
+      "kind": "browser-fault-injection",
+      "viewportWidth": 820,
+      "pass": true,
+      "ms": 1136,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/resource-1790868766452/08.png"
+    },
+    {
+      "name": "09 legacy mp4 preserved with playback failure fallback",
+      "kind": "browser-fault-injection",
+      "viewportWidth": 820,
+      "pass": true,
+      "ms": 478,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/resource-1790868766452/09.png"
+    },
+    {
+      "name": "10 invalid and credential links never saved or activated",
+      "kind": "browser-fault-injection",
+      "viewportWidth": 820,
+      "pass": true,
+      "ms": 518,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/resource-1790868766452/10.png"
+    },
+    {
+      "name": "11 failed save retains old URL and draft then retry succeeds",
+      "kind": "browser-fault-injection",
+      "viewportWidth": 820,
+      "pass": true,
+      "ms": 684,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/resource-1790868766452/11.png"
+    },
+    {
+      "name": "12 cancel and failed delete preserve existing URL",
+      "kind": "browser-fault-injection",
+      "viewportWidth": 820,
+      "pass": true,
+      "ms": 583,
+      "screenshot": "evals/video-pilot/v3-3/regression-1790868674389/resource-1790868766452/12.png"
+    }
+  ]
+}

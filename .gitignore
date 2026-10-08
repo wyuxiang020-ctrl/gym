@@ -27,3 +27,9 @@ dist-ssr
 .vercel
 .env*
 !.env.example
+
+# Reproducible build copies inside local evaluation evidence.
+# Keep reports/screenshots/source assets; do not commit repeated runtime bundles.
+/evals/**/build*/app/
+/evals/**/build*/assets/
+/evals/**/build*/companion-assets/

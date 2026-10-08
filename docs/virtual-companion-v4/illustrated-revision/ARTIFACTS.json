@@ -1,0 +1,858 @@
+{
+  "version": "V4.3 illustrated kung-fu panda",
+  "at": "2026-10-07T14:34:21.485Z",
+  "entry": "http://127.0.0.1:4175/?companion-lab=1",
+  "renderer": "Canvas 2D articulated paths, not the prior Three.js model",
+  "baseline": "evals/virtual-companion/v4-illustrated/baseline-1791382356859/manifest.json",
+  "comparison": [
+    {
+      "path": "src/companion/characterMotion.ts",
+      "before": "8bec0fc73a112f62b4f7640fe7161b52593bb5e5f47a3402e1a470382dc9aa99",
+      "after": "b412e563e65d22c63bd0ca5e0bb21b13c073b50e1c6f67f15f9393ecf748235b",
+      "changed": true
+    },
+    {
+      "path": "src/companion/companion.css",
+      "before": "3dd7e752c129f6116859967b0c313f78771753e17850cb4db69812745ba73faa",
+      "after": "3dd7e752c129f6116859967b0c313f78771753e17850cb4db69812745ba73faa",
+      "changed": false
+    },
+    {
+      "path": "src/companion/CompanionLab.tsx",
+      "before": "b7309505d994ec75d7f53147a0d8b00346f35ce69820eed0ba0257ba51bf9de8",
+      "after": "e8639eae9d41be99ee8c4e671f7590b255ff6a01eb59df9b40e86fa6fb81b786",
+      "changed": true
+    },
+    {
+      "path": "src/companion/mirror/mapping.ts",
+      "before": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+      "after": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+      "changed": false
+    },
+    {
+      "path": "src/companion/mirror/MirrorSession.ts",
+      "before": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+      "after": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+      "changed": false
+    },
+    {
+      "path": "src/companion/mirror/protocol.ts",
+      "before": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094",
+      "after": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094",
+      "changed": false
+    },
+    {
+      "path": "src/companion/pandaRig.ts",
+      "before": "44e6dbf2e543471afe0a00c687e753250c244fb52dee503844541bc48cd584e3",
+      "after": "44e6dbf2e543471afe0a00c687e753250c244fb52dee503844541bc48cd584e3",
+      "changed": false
+    },
+    {
+      "path": "src/companion/PandaStage.tsx",
+      "before": "2722ed569c1914db9f353ac13b4730a9efaad57461b35adab51cdec37331bd36",
+      "after": "82b0313fe7dc97dd65e004a8de73800a2d231aecc3066d12a76d9eb8488588af",
+      "changed": true
+    },
+    {
+      "path": "src/companion/preset.ts",
+      "before": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556",
+      "after": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556",
+      "changed": false
+    },
+    {
+      "path": "src/companion/types.ts",
+      "before": "7367e112a2cfc9e9861f1c06a6702d003cd5cf68cc51ce17a74ac6f087e4c2ae",
+      "after": "4c6caf37b0890b6adbf1a99ff4a433ad3892e2af172afedae8d58f42a41de9b4",
+      "changed": true
+    },
+    {
+      "path": "src/main.tsx",
+      "before": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e",
+      "after": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e",
+      "changed": false
+    },
+    {
+      "path": "src/EntryRouter.tsx",
+      "before": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f",
+      "after": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f",
+      "changed": false
+    },
+    {
+      "path": "src/EntryBoundary.tsx",
+      "before": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6",
+      "after": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6",
+      "changed": false
+    },
+    {
+      "path": "vite.config.ts",
+      "before": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0",
+      "after": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0",
+      "changed": false
+    },
+    {
+      "path": "package.json",
+      "before": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c",
+      "after": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c",
+      "changed": false
+    },
+    {
+      "path": "package-lock.json",
+      "before": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539",
+      "after": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539",
+      "changed": false
+    },
+    {
+      "path": "public/companion-assets/pose-worker.js",
+      "before": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d",
+      "after": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d",
+      "changed": false
+    }
+  ],
+  "addedProductFiles": [
+    "src/companion/illustratedPanda.ts"
+  ],
+  "historicalIntegrity": [
+    {
+      "name": "lively-revision build",
+      "count": 27,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "lively-revision evidence",
+      "count": 81,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "lively-revision frozen documents/media",
+      "count": 8,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "cartoon-revision build",
+      "count": 25,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "cartoon-revision evidence",
+      "count": 147,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "cartoon-revision frozen documents/media",
+      "count": 6,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "Phase 1 assetHashes",
+      "count": 11,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "Phase 1 buildHashes",
+      "count": 25,
+      "failures": [],
+      "pass": true
+    },
+    {
+      "name": "Phase 1 evidenceHashes",
+      "count": 201,
+      "failures": [],
+      "pass": true
+    }
+  ],
+  "source": {
+    "scripts/build-companion-illustrated-v4.mjs": {
+      "bytes": 817,
+      "sha256": "d9c72dcbd7403f9643fe02da3de6bdb0e0c1ab5e6c536d78caf8077414b16095"
+    },
+    "scripts/check-companion-illustrated-motion-v4.mjs": {
+      "bytes": 4368,
+      "sha256": "a61bf20e3e3db286c3d63eb3e7f87e0b061222cc9ab0dc8dab1eb59c36eb0587"
+    },
+    "scripts/check-companion-illustrated-v4.mjs": {
+      "bytes": 11748,
+      "sha256": "9bbce2805fbb6a052d1549316d388fa00b43588796108f4682c04eaefc96b8a5"
+    },
+    "scripts/record-companion-illustrated-v4.mjs": {
+      "bytes": 3195,
+      "sha256": "87afa93c4d7bbec8661d258ce4a6394403a12509a3bcdb8a722dd745dac09570"
+    },
+    "scripts/render-companion-illustrated-sheet-v4.mjs": {
+      "bytes": 2102,
+      "sha256": "095127835359d7213071c3fee2b481f421cd7c977f9695473803e63231436dba"
+    },
+    "src/companion/CompanionLab.tsx": {
+      "bytes": 15978,
+      "sha256": "e8639eae9d41be99ee8c4e671f7590b255ff6a01eb59df9b40e86fa6fb81b786"
+    },
+    "src/companion/PandaStage.tsx": {
+      "bytes": 4897,
+      "sha256": "82b0313fe7dc97dd65e004a8de73800a2d231aecc3066d12a76d9eb8488588af"
+    },
+    "src/companion/characterMotion.ts": {
+      "bytes": 6348,
+      "sha256": "b412e563e65d22c63bd0ca5e0bb21b13c073b50e1c6f67f15f9393ecf748235b"
+    },
+    "src/companion/companion.css": {
+      "bytes": 8142,
+      "sha256": "3dd7e752c129f6116859967b0c313f78771753e17850cb4db69812745ba73faa"
+    },
+    "src/companion/illustratedPanda.ts": {
+      "bytes": 10396,
+      "sha256": "1d6da89bf2a6c033f03afbdb7af527dd5b2bfbf3cf00a333ccf3d43bfcd607fd"
+    },
+    "src/companion/mirror/MirrorSession.ts": {
+      "bytes": 17067,
+      "sha256": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb"
+    },
+    "src/companion/mirror/mapping.ts": {
+      "bytes": 5313,
+      "sha256": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346"
+    },
+    "src/companion/mirror/protocol.ts": {
+      "bytes": 624,
+      "sha256": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094"
+    },
+    "src/companion/pandaRig.ts": {
+      "bytes": 15544,
+      "sha256": "44e6dbf2e543471afe0a00c687e753250c244fb52dee503844541bc48cd584e3"
+    },
+    "src/companion/preset.ts": {
+      "bytes": 736,
+      "sha256": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556"
+    },
+    "src/companion/types.ts": {
+      "bytes": 1280,
+      "sha256": "4c6caf37b0890b6adbf1a99ff4a433ad3892e2af172afedae8d58f42a41de9b4"
+    }
+  },
+  "build": {
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/assets/App-B3UEs79i.js": {
+      "bytes": 176054,
+      "sha256": "5e652397aa8d8172872237baed0d6ba4b2ba349258ff567b9510487f946e81bf"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/assets/CompanionLab-CGgmk91N.css": {
+      "bytes": 7407,
+      "sha256": "37505c58227d887350034f77b184705e490fd863213b2474c81499e9fbc7a081"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/assets/companion-CompanionLab-BcXIiyhD.js": {
+      "bytes": 25384,
+      "sha256": "0b1cbe4c5b821823472f457fa4a7f79c5950ad28bdb82b97ca05ba7138d1307d"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/assets/companion-MirrorSession-CjfYJsWr.js": {
+      "bytes": 12367,
+      "sha256": "f97090db43a5765f5a307c75cbd925ef4e0d9f2d838ace19142c3dbce4939773"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/assets/index-BK_5l7B7.js": {
+      "bytes": 192873,
+      "sha256": "c0c070e3739d4c57c97961b1142be44e92ef8de46127f0de79df746193accfaa"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/assets/index-C4FLBXU8.css": {
+      "bytes": 33916,
+      "sha256": "336e555f1de76e3f6d227743846f1f69f1351446640a611cb95b658c8d6b4f4f"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/MEDIAPIPE-LICENSE.txt": {
+      "bytes": 12331,
+      "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/THREE-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/pose-worker.js": {
+      "bytes": 5233,
+      "sha256": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/pose_landmarker_lite.task": {
+      "bytes": 5777746,
+      "sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/vision_bundle.js": {
+      "bytes": 156161,
+      "sha256": "022cbbfcdb74bae18e4bbc722e429e046d5fdd35f6183f1359c56b652b8b87f7"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/wasm/vision_wasm_internal.js": {
+      "bytes": 335393,
+      "sha256": "7c652617b5bef832f42878ce8c5f752b0724bca6054e4bc1013a37d4b1949723"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/wasm/vision_wasm_internal.wasm": {
+      "bytes": 12997248,
+      "sha256": "782eda3ec1f414fdb4f1d66a8b59093eb4d5ab437e06117796abf05962d68eef"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/wasm/vision_wasm_module_internal.js": {
+      "bytes": 335431,
+      "sha256": "70eff3956521b7de058d7173a4935c95e4a223c26ea624b9f5a936d3a043dcb0"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/wasm/vision_wasm_module_internal.wasm": {
+      "bytes": 12997272,
+      "sha256": "ee03b14a878e6c3c053a1bfa62e166dc45244be54dc0bbe61c578f710b771f6a"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/wasm/vision_wasm_nosimd_internal.js": {
+      "bytes": 335196,
+      "sha256": "510fc70a170eb8b46767a7abab2af89a7a8341fa5b3ebfb8a5de41a79b7fa9df"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/companion-assets/wasm/vision_wasm_nosimd_internal.wasm": {
+      "bytes": 12168316,
+      "sha256": "b802041d105876865d6a0806f2ff7c4419a7f1b80bc01340fe36e759c2030011"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/favicon.svg": {
+      "bytes": 9522,
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/icons.svg": {
+      "bytes": 5031,
+      "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/index.html": {
+      "bytes": 627,
+      "sha256": "d7ca680b9936d5b165e6361b391e6a64170795de5b93da3331478c7361f7bad1"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/manifest.webmanifest": {
+      "bytes": 443,
+      "sha256": "c07e491eaa3bd2cd85037aa38008527e850ce573d5baeb48f36305b7345d1826"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/pwa-icon.svg": {
+      "bytes": 9522,
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/registerSW.js": {
+      "bytes": 134,
+      "sha256": "9742073ef7fc795e7673d98f272992843298426a0ffd8cb3507784df5143608b"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/sw.js": {
+      "bytes": 1459,
+      "sha256": "3ab31d4771460a986f2f3dac7a976c10678e4bbef3a55e02d6e12b6dfdcdb0a1"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/app/workbox-9c191d2f.js": {
+      "bytes": 15112,
+      "sha256": "04b086f1b2f4215ee4b659a7bc9c76162894abdb43fa876247bc7c0bd6fd1c37"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/result.json": {
+      "bytes": 158,
+      "sha256": "d60096c51b2419f1ff1cd940cf268d811182353e48b2d2dbeb09ad1df5a79ead"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/typecheck.json": {
+      "bytes": 49,
+      "sha256": "498cb7c1016153ed3ca49e0301270b01d83ac50735444be097bf125a26bd1ecb"
+    }
+  },
+  "evidence": {
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/manifest.json": {
+      "bytes": 2413,
+      "sha256": "657120bdcadddfd43de92fa12b697c3094ec86f40ebc3ba60d287ff8b446986c"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/package-lock.json": {
+      "bytes": 469246,
+      "sha256": "e38f7524088a37f9d5fb3b4751a337b129fc0aa35491a591d6251403e2a17539"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/package.json": {
+      "bytes": 1921,
+      "sha256": "17986f03fb7cf411e57f00c79bb45646a8800f3ec9bc51bdc88a05032132927c"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/public/companion-assets/pose-worker.js": {
+      "bytes": 5233,
+      "sha256": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/EntryBoundary.tsx": {
+      "bytes": 631,
+      "sha256": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/EntryRouter.tsx": {
+      "bytes": 500,
+      "sha256": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/CompanionLab.tsx": {
+      "bytes": 15544,
+      "sha256": "b7309505d994ec75d7f53147a0d8b00346f35ce69820eed0ba0257ba51bf9de8"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/PandaStage.tsx": {
+      "bytes": 9705,
+      "sha256": "2722ed569c1914db9f353ac13b4730a9efaad57461b35adab51cdec37331bd36"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/characterMotion.ts": {
+      "bytes": 5254,
+      "sha256": "8bec0fc73a112f62b4f7640fe7161b52593bb5e5f47a3402e1a470382dc9aa99"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/companion.css": {
+      "bytes": 8142,
+      "sha256": "3dd7e752c129f6116859967b0c313f78771753e17850cb4db69812745ba73faa"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/mirror/MirrorSession.ts": {
+      "bytes": 17067,
+      "sha256": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/mirror/mapping.ts": {
+      "bytes": 5313,
+      "sha256": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/mirror/protocol.ts": {
+      "bytes": 624,
+      "sha256": "2ef0cdfeb8618fcea679b7a7edcb02bda75022f424c8cd40445ae508ea798094"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/pandaRig.ts": {
+      "bytes": 15544,
+      "sha256": "44e6dbf2e543471afe0a00c687e753250c244fb52dee503844541bc48cd584e3"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/preset.ts": {
+      "bytes": 736,
+      "sha256": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/companion/types.ts": {
+      "bytes": 1198,
+      "sha256": "7367e112a2cfc9e9861f1c06a6702d003cd5cf68cc51ce17a74ac6f087e4c2ae"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/src/main.tsx": {
+      "bytes": 254,
+      "sha256": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e"
+    },
+    "evals/virtual-companion/v4-illustrated/baseline-1791382356859/source/vite.config.ts": {
+      "bytes": 2359,
+      "sha256": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/fold-clear.png": {
+      "bytes": 18301,
+      "sha256": "e25668945a4cc708f685492db6c50d59ea186ec7a413117965ab9557dd8dc107"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/fold-quarter.png": {
+      "bytes": 18301,
+      "sha256": "e25668945a4cc708f685492db6c50d59ea186ec7a413117965ab9557dd8dc107"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/fold-side.png": {
+      "bytes": 17714,
+      "sha256": "f86cc1e7d7a3dd5fb1f27f43bbdd43661c27e3fd64f713c7105e147b14f1a359"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/full-page.png": {
+      "bytes": 78557,
+      "sha256": "3e854f39472b6ec61d4de4a91197182db4ceb049406b62e544ddfe4c5925a5f9"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/hop-clear.png": {
+      "bytes": 21226,
+      "sha256": "608dd7bd04639cdcd5343e720d6e2147888ee28017f773356f20e784a7eb4b99"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/idle-clear.png": {
+      "bytes": 19213,
+      "sha256": "5bf67384557ba9260097265ced4848c1a167adb34d8e62f393016729e2f3f7f7"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/no-hat-front.png": {
+      "bytes": 14252,
+      "sha256": "dbc4cec4014e048dc8f65d8000647e14e5279847ae31fe5bd081d648b4a52643"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/no-hat-quarter.png": {
+      "bytes": 14196,
+      "sha256": "8e917a42a060dd215511bfa72716d221dbffda7a4b24dd9cb39ae7ee49653f09"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/results.json": {
+      "bytes": 4602,
+      "sha256": "29a452b8b1ae941f5bcec57b0df362cd0ba7b4a8abc0681ed191a8169f5ddf6b"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/runner.mjs": {
+      "bytes": 11014,
+      "sha256": "c0dec7f6fe78aa85de5fd3f435ebfd68022d4110cd0f7ecb143deceb7377ce22"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/shuffle-clear.png": {
+      "bytes": 18517,
+      "sha256": "8d20227e86225e8bd8ddc30aa207dac275e06f95ae77707a6ea8f12aa827b3e4"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/stretch-clear.png": {
+      "bytes": 18697,
+      "sha256": "3a72152147b1758659e55c63c48bc30362b651f9884e52152bdafc548abe1254"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/wave-clear.png": {
+      "bytes": 19490,
+      "sha256": "34bb8cd53cb6a647faed426f4ac180aa9ca1c7f84e549027a399b66d4c0be333"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383168394/wave-pixel.png": {
+      "bytes": 6610,
+      "sha256": "27407a2321478a0e70282b88dd99c316c4d2910419e01fad4e0262317f9b4759"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/fold-clear.png": {
+      "bytes": 18301,
+      "sha256": "e25668945a4cc708f685492db6c50d59ea186ec7a413117965ab9557dd8dc107"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/fold-quarter.png": {
+      "bytes": 18301,
+      "sha256": "e25668945a4cc708f685492db6c50d59ea186ec7a413117965ab9557dd8dc107"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/fold-side.png": {
+      "bytes": 17714,
+      "sha256": "f86cc1e7d7a3dd5fb1f27f43bbdd43661c27e3fd64f713c7105e147b14f1a359"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/full-page.png": {
+      "bytes": 78557,
+      "sha256": "3e854f39472b6ec61d4de4a91197182db4ceb049406b62e544ddfe4c5925a5f9"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/hop-clear.png": {
+      "bytes": 21226,
+      "sha256": "608dd7bd04639cdcd5343e720d6e2147888ee28017f773356f20e784a7eb4b99"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/idle-clear.png": {
+      "bytes": 19213,
+      "sha256": "5bf67384557ba9260097265ced4848c1a167adb34d8e62f393016729e2f3f7f7"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/no-hat-front.png": {
+      "bytes": 14252,
+      "sha256": "dbc4cec4014e048dc8f65d8000647e14e5279847ae31fe5bd081d648b4a52643"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/no-hat-quarter.png": {
+      "bytes": 14196,
+      "sha256": "8e917a42a060dd215511bfa72716d221dbffda7a4b24dd9cb39ae7ee49653f09"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/results.json": {
+      "bytes": 8599,
+      "sha256": "22232442194c566e40a002a0fe2a8fd3d87ea270ac8f96bd6f443d11c13919f1"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/runner.mjs": {
+      "bytes": 11748,
+      "sha256": "9bbce2805fbb6a052d1549316d388fa00b43588796108f4682c04eaefc96b8a5"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/shuffle-clear.png": {
+      "bytes": 18517,
+      "sha256": "8d20227e86225e8bd8ddc30aa207dac275e06f95ae77707a6ea8f12aa827b3e4"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/stretch-clear.png": {
+      "bytes": 18697,
+      "sha256": "3a72152147b1758659e55c63c48bc30362b651f9884e52152bdafc548abe1254"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/wave-clear.png": {
+      "bytes": 19490,
+      "sha256": "34bb8cd53cb6a647faed426f4ac180aa9ca1c7f84e549027a399b66d4c0be333"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-390-1791383387374/wave-pixel.png": {
+      "bytes": 6610,
+      "sha256": "27407a2321478a0e70282b88dd99c316c4d2910419e01fad4e0262317f9b4759"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/fold-clear.png": {
+      "bytes": 22167,
+      "sha256": "e129e790b990c852a8834afc08b7e82f4568c6e7f10c74f79c988c734e004ab6"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/fold-quarter.png": {
+      "bytes": 22167,
+      "sha256": "e129e790b990c852a8834afc08b7e82f4568c6e7f10c74f79c988c734e004ab6"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/fold-side.png": {
+      "bytes": 21294,
+      "sha256": "db6b979f075622da62cfc19512a49d784dba4e7d03a2886244d0ab5677e1ce14"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/full-page.png": {
+      "bytes": 88862,
+      "sha256": "60c8926291d08f69ac560e07f80b9e2782618e8efcaaa46e72577cff196f03bd"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/hop-clear.png": {
+      "bytes": 24624,
+      "sha256": "df67650c8b067af10653fc0dc7950e8c4e4004635398ca75b049b031acf735e1"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/idle-clear.png": {
+      "bytes": 23209,
+      "sha256": "9d793a255fa4e292d32d3eefd7a50295516bf2a6186c65ab3617a9cf56fe20ab"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/results.json": {
+      "bytes": 7392,
+      "sha256": "96fa6d662bbeac1dacedd0a7060b1cc318743c4ccde98c249cdf368ccc00be36"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/runner.mjs": {
+      "bytes": 10165,
+      "sha256": "7e1696e7920a81d8c4d03519af95c20561a2e417cc3c3b13ed928811281c3ac1"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/shuffle-clear.png": {
+      "bytes": 22413,
+      "sha256": "a022e01569d74e5b56e72fd0dbe6e988be9611ccd5f70e9984f5891956885f78"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/stretch-clear.png": {
+      "bytes": 22740,
+      "sha256": "8174e2e1a6f866baa504c48f01f535172c72e40ab13b7c1eb6cabe9386aeca7f"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/wave-clear.png": {
+      "bytes": 24059,
+      "sha256": "c7a9c815f80b8e999fdabafddc9e06240e177ed00235af3e0a389c68f6699758"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382783871/wave-pixel.png": {
+      "bytes": 8480,
+      "sha256": "1a0a896ad76a4bfed63a741097bbff92b2c995588fbab83decada7534149a108"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/fold-clear.png": {
+      "bytes": 21840,
+      "sha256": "70b4729df899255f432a082815762c1909984b2ea98048728c97c497fb171460"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/fold-quarter.png": {
+      "bytes": 21840,
+      "sha256": "70b4729df899255f432a082815762c1909984b2ea98048728c97c497fb171460"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/fold-side.png": {
+      "bytes": 21042,
+      "sha256": "bf7c224d55e28fe03fdb21a918cee9fb920a4a3e1f0dd08f6f9d347bc7d613d3"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/full-page.png": {
+      "bytes": 88636,
+      "sha256": "ec9f199cc5e9732488eb72c6580c4a32f1f66f2caf0d9b96a8a985331692a460"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/hop-clear.png": {
+      "bytes": 25030,
+      "sha256": "2bf1a1a691707b884c86768cad7b2569f21ce4e9ad961ac6739212c07e9441db"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/idle-clear.png": {
+      "bytes": 22678,
+      "sha256": "1b4a460bc846548cc3739d66cea19fcb616408578d042fceccbe580eb13f69a5"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/results.json": {
+      "bytes": 7408,
+      "sha256": "3cb34dd25aeb78c3c723695e5af86dcd7c5d9021f00d110cc9bcf65d03e71a3a"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/runner.mjs": {
+      "bytes": 10165,
+      "sha256": "7e1696e7920a81d8c4d03519af95c20561a2e417cc3c3b13ed928811281c3ac1"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/shuffle-clear.png": {
+      "bytes": 21769,
+      "sha256": "40a484c36f9a4c2ff8dd3b140580bae48e3e4f2297f43c662273372db67e94aa"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/stretch-clear.png": {
+      "bytes": 22053,
+      "sha256": "ea7e792945e37365f46746cbdf825efa926e90d613da5c2b414c689eca5ad4fc"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/wave-clear.png": {
+      "bytes": 23124,
+      "sha256": "f9ea531847d9d434c79a60abfd51d9c3fb8a919b06210c3e00f2e8fc009016e4"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791382919168/wave-pixel.png": {
+      "bytes": 8314,
+      "sha256": "486910c33044672e20d891ee2fb50055a44551d0b6d002a4f8f13acaea3b5c4d"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/fold-clear.png": {
+      "bytes": 21682,
+      "sha256": "96490cc7270b0b1c9688364dd29fc3f1f2fcffa074a92713f90d77026a308940"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/fold-quarter.png": {
+      "bytes": 21682,
+      "sha256": "96490cc7270b0b1c9688364dd29fc3f1f2fcffa074a92713f90d77026a308940"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/fold-side.png": {
+      "bytes": 21029,
+      "sha256": "05ce669c6fd7f69c44746d01f498897e949ee06139749c779ed932037198d709"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/full-page.png": {
+      "bytes": 88673,
+      "sha256": "bc52d1ab39fc38363e62541d94e46535c7bc94a26319975395ee9b7fcc000d03"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/hop-clear.png": {
+      "bytes": 24934,
+      "sha256": "d58f497cf3ccefb5e20e69cd32d497f491d99124a4e08c29edc9c194641b34f6"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/idle-clear.png": {
+      "bytes": 22563,
+      "sha256": "6f2d2f51725ddfbb83bd7209059162f08981a20285381dc456da8bd294161f1c"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/no-hat-front.png": {
+      "bytes": 16672,
+      "sha256": "66e913432140c17ae6af19f03f2a9a2b7ce51d9b11afd7056706c6acdd7e2f19"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/no-hat-quarter.png": {
+      "bytes": 16663,
+      "sha256": "720b00a88d5ea745b9e3cd91acdf67e9c2d63bdc6616c5cb26c5ed7a130d1b2c"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/results.json": {
+      "bytes": 7986,
+      "sha256": "2c95d3686c3fb2c226868f6376bfd2f435a07924a49b6dc4d53eebe1dc3e0b11"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/runner.mjs": {
+      "bytes": 11014,
+      "sha256": "c0dec7f6fe78aa85de5fd3f435ebfd68022d4110cd0f7ecb143deceb7377ce22"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/shuffle-clear.png": {
+      "bytes": 21734,
+      "sha256": "3611734a533ee7110f4e1e893643e40e121eb6ef3ecfbf1673389cad865a6214"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/stretch-clear.png": {
+      "bytes": 21834,
+      "sha256": "cffb0c3300ce7bb880b991194e62cbcce17081913e01ba1ec96f82e65f690b39"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/wave-clear.png": {
+      "bytes": 22990,
+      "sha256": "1cda4648ddd36948aa15aed6438bd3bc77d3c2c6d2252e235cb476aafc924ba8"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383081387/wave-pixel.png": {
+      "bytes": 8316,
+      "sha256": "de73f8177806615f209be732e23e05538307eeb44ea4959e2aa80c881caffd72"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/fold-clear.png": {
+      "bytes": 21682,
+      "sha256": "96490cc7270b0b1c9688364dd29fc3f1f2fcffa074a92713f90d77026a308940"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/fold-quarter.png": {
+      "bytes": 21682,
+      "sha256": "96490cc7270b0b1c9688364dd29fc3f1f2fcffa074a92713f90d77026a308940"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/fold-side.png": {
+      "bytes": 21029,
+      "sha256": "05ce669c6fd7f69c44746d01f498897e949ee06139749c779ed932037198d709"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/full-page.png": {
+      "bytes": 88676,
+      "sha256": "16abf5736bc5f01c8f6cf66ea76ca0c0da4be19e5246dcd10ddf68ec0f6a9eb2"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/hop-clear.png": {
+      "bytes": 24934,
+      "sha256": "d58f497cf3ccefb5e20e69cd32d497f491d99124a4e08c29edc9c194641b34f6"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/idle-clear.png": {
+      "bytes": 22563,
+      "sha256": "6f2d2f51725ddfbb83bd7209059162f08981a20285381dc456da8bd294161f1c"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/no-hat-front.png": {
+      "bytes": 16672,
+      "sha256": "66e913432140c17ae6af19f03f2a9a2b7ce51d9b11afd7056706c6acdd7e2f19"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/no-hat-quarter.png": {
+      "bytes": 16663,
+      "sha256": "720b00a88d5ea745b9e3cd91acdf67e9c2d63bdc6616c5cb26c5ed7a130d1b2c"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/results.json": {
+      "bytes": 8496,
+      "sha256": "3c98c48d4e2fb49c1e77149e844798684067e55d87d565dce126b973271a59b0"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/runner.mjs": {
+      "bytes": 11748,
+      "sha256": "9bbce2805fbb6a052d1549316d388fa00b43588796108f4682c04eaefc96b8a5"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/shuffle-clear.png": {
+      "bytes": 21734,
+      "sha256": "3611734a533ee7110f4e1e893643e40e121eb6ef3ecfbf1673389cad865a6214"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/stretch-clear.png": {
+      "bytes": 21834,
+      "sha256": "cffb0c3300ce7bb880b991194e62cbcce17081913e01ba1ec96f82e65f690b39"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/wave-clear.png": {
+      "bytes": 22990,
+      "sha256": "1cda4648ddd36948aa15aed6438bd3bc77d3c2c6d2252e235cb476aafc924ba8"
+    },
+    "evals/virtual-companion/v4-illustrated/browser-820-1791383384620/wave-pixel.png": {
+      "bytes": 8316,
+      "sha256": "de73f8177806615f209be732e23e05538307eeb44ea4959e2aa80c881caffd72"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383241176/result.json": {
+      "bytes": 158,
+      "sha256": "52d93707cf06f4c571af53ea61e398b4ee1d26cd326f05965f41b7c1320bf6c3"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383241176/typecheck.json": {
+      "bytes": 49,
+      "sha256": "498cb7c1016153ed3ca49e0301270b01d83ac50735444be097bf125a26bd1ecb"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/result.json": {
+      "bytes": 158,
+      "sha256": "d60096c51b2419f1ff1cd940cf268d811182353e48b2d2dbeb09ad1df5a79ead"
+    },
+    "evals/virtual-companion/v4-illustrated/build-1791383388055/typecheck.json": {
+      "bytes": 49,
+      "sha256": "498cb7c1016153ed3ca49e0301270b01d83ac50735444be097bf125a26bd1ecb"
+    },
+    "evals/virtual-companion/v4-illustrated/final-scoped-lint.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evals/virtual-companion/v4-illustrated/motion-1791383167072/results.json": {
+      "bytes": 1396,
+      "sha256": "02dbfdc9a9bc088aa48ef2b3f3b20db263a09e693efed50d551b32d45387d1ea"
+    },
+    "evals/virtual-companion/v4-illustrated/pose-sheet-1791383385943/actual-poses.png": {
+      "bytes": 148578,
+      "sha256": "3ca153ceedeacd622d9a5833837b927b10b6f50a479a1de07d3b3b8b6fe33aff"
+    },
+    "evals/virtual-companion/v4-illustrated/recording-1791383169868/actual-character-motion.webm": {
+      "bytes": 2726238,
+      "sha256": "f539773864b45811f9a8112a7320e937e1cee477e6fa70f5ed0655c2904120ba"
+    },
+    "evals/virtual-companion/v4-illustrated/recording-1791383169868/page@2799bf5900546e0cde6c2ec54cb806b8.webm": {
+      "bytes": 2726238,
+      "sha256": "f539773864b45811f9a8112a7320e937e1cee477e6fa70f5ed0655c2904120ba"
+    },
+    "evals/virtual-companion/v4-illustrated/recording-1791383169868/results.json": {
+      "bytes": 869,
+      "sha256": "6b9f7bc1c7a964f8b6af65f3a6d48f3fa317a72529bbbc219a9125e4d4accbb6"
+    },
+    "evals/virtual-companion/v4-illustrated/recording-1791383549173/actual-character-motion.webm": {
+      "bytes": 2809246,
+      "sha256": "207a27599c208d4ab20f04f69e7c8f6e59ceb64b7b65a95f80d6372223567ca9"
+    },
+    "evals/virtual-companion/v4-illustrated/recording-1791383549173/page@d02c1f3c69c70a8bd296371265434c20.webm": {
+      "bytes": 2809246,
+      "sha256": "207a27599c208d4ab20f04f69e7c8f6e59ceb64b7b65a95f80d6372223567ca9"
+    },
+    "evals/virtual-companion/v4-illustrated/recording-1791383549173/results.json": {
+      "bytes": 869,
+      "sha256": "9b10ee5cd24228db6e86af87b4b37b6f34cab084011e32c4df13c00e31fe48cd"
+    }
+  },
+  "documents": {
+    "docs/CHANGELOG.md": {
+      "bytes": 32506,
+      "sha256": "91fc96993b1a6180d03fd308fb97c8f32bd844eb4f95b03159ed84bf66f602d3"
+    },
+    "docs/DECISIONS.md": {
+      "bytes": 34888,
+      "sha256": "f2ba5ce88fa03998a69bffd8717d8dccede6eef39ed8d3c37d2c5afc1efff5bc"
+    },
+    "docs/PROJECT_CONTEXT.md": {
+      "bytes": 38003,
+      "sha256": "cd0461f37baf92750fceccea08667e7cecd9d8daf485704387525caa2a4c60dd"
+    },
+    "docs/virtual-companion-v4/illustrated-revision/DELIVERY.md": {
+      "bytes": 4300,
+      "sha256": "cdeca04ef0c3fbbc8cfdc038510a35b08ce4b45d96b56af0da7fb81e3e6e1e83"
+    },
+    "docs/virtual-companion-v4/illustrated-revision/actual-motion.webm": {
+      "bytes": 2809246,
+      "sha256": "207a27599c208d4ab20f04f69e7c8f6e59ceb64b7b65a95f80d6372223567ca9"
+    },
+    "docs/virtual-companion-v4/illustrated-revision/actual-poses.png": {
+      "bytes": 148578,
+      "sha256": "3ca153ceedeacd622d9a5833837b927b10b6f50a479a1de07d3b3b8b6fe33aff"
+    },
+    "docs/virtual-companion-v4/illustrated-revision/idle.png": {
+      "bytes": 22563,
+      "sha256": "6f2d2f51725ddfbb83bd7209059162f08981a20285381dc456da8bd294161f1c"
+    },
+    "docs/virtual-companion-v4/illustrated-revision/kick.png": {
+      "bytes": 24934,
+      "sha256": "d58f497cf3ccefb5e20e69cd32d497f491d99124a4e08c29edc9c194641b34f6"
+    },
+    "docs/virtual-companion-v4/illustrated-revision/no-hat.png": {
+      "bytes": 16663,
+      "sha256": "720b00a88d5ea745b9e3cd91acdf67e9c2d63bdc6616c5cb26c5ed7a130d1b2c"
+    },
+    "docs/virtual-companion-v4/illustrated-revision/pixel.png": {
+      "bytes": 8316,
+      "sha256": "de73f8177806615f209be732e23e05538307eeb44ea4959e2aa80c881caffd72"
+    },
+    "docs/virtual-companion-v4/illustrated-revision/user-reference.png": {
+      "bytes": 438699,
+      "sha256": "98125cc87002a77765fbd5b14569fa331107b47baec17ba537ad81e5560b8e70"
+    },
+    "docs/virtual-companion-v4/illustrated-revision/wave.png": {
+      "bytes": 22990,
+      "sha256": "1cda4648ddd36948aa15aed6438bd3bc77d3c2c6d2252e235cb476aafc924ba8"
+    }
+  },
+  "validation": {
+    "desktop": "17/17",
+    "narrowViewport": "17/17",
+    "rasterSamples": 1458,
+    "mirrorSoftware": "43/43",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "scopedLintExitCode": 0,
+    "cameraCalls": 0,
+    "cloudModelCalls": 0
+  },
+  "limits": [
+    "Three discrete drawn orientations, not arbitrary 3D camera views",
+    "Appearance is subject to user assessment",
+    "No physical phone performance or real human mirror measurement"
+  ]
+}

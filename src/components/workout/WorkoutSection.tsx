@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import * as store from '../../lib/store'
 import type { ConfirmedParsedWorkout } from '../../lib/aiValidation'
+import { validateWorkoutForSave } from '../../lib/aiValidation'
+import { validCompletedSet, validEstimatedSet } from '../../lib/strength'
 import { hasCompletedWorkout } from '../../lib/checkIn'
 import { calcCardioKcal, calcStrengthKcal, type CardioActivity } from '../../lib/met'
 import type { CardioEntry, DayLog, Plan, PlanDay, StrengthEntry } from '../../lib/types'
@@ -9,6 +11,10 @@ import { quoteForDate } from '../../lib/motivationalQuotes'
 import { StrengthLogger } from './StrengthLogger'
 import { CardioLogger } from './CardioLogger'
 import { NLWorkoutInput } from './NLWorkoutInput'
+import type { CompletionEvent } from '../../companion/WorkoutCompanion'
+
+const EquipmentScanner = lazy(() => import('../../equipment/EquipmentScanner'))
+const WorkoutCompanion = lazy(() => import('../../companion/WorkoutCompanion'))
 
 // 有氧类型中文标签 -> met.ts 的 key,用于换算强度对应的 kcal
 const LABEL_TO_ACTIVITY: Record<string, CardioActivity> = {
@@ -42,8 +48,8 @@ function parseDurationSecondsFromRange(repRange: string): number | null | undefi
   return Number.isFinite(rounded) && rounded >= 1 ? rounded : null
 }
 
-function completedSetCount(sets: StrengthEntry['sets']): number {
-  return sets.filter((set) => set.done).length
+function estimatedSetCount(sets: StrengthEntry['sets']): number {
+  return sets.filter(validEstimatedSet).length
 }
 
 function planCardioIntensity(note?: string): CardioEntry['intensity'] {
@@ -73,6 +79,10 @@ export function WorkoutSection({
   const [pendingImport, setPendingImport] = useState<PlanDay | null>(null)
   const [pendingParsed, setPendingParsed] = useState<ConfirmedParsedWorkout | null>(null)
   const [parsedResetToken, setParsedResetToken] = useState(0)
+  const [equipmentOpen, setEquipmentOpen] = useState(new URLSearchParams(window.location.search).get('equipment-training') === '1')
+  const [companionOpen, setCompanionOpen] = useState(new URLSearchParams(window.location.search).get('training-companion') === '1')
+  const [completion, setCompletion] = useState<CompletionEvent | null>(null)
+  const [companionLaunch, setCompanionLaunch] = useState<{ entryId: string; sequence: number } | null>(null)
   const activePlan = plans.find((p) => p.isActive) ?? null
   const { showToast } = useToast()
 
@@ -81,12 +91,7 @@ export function WorkoutSection({
     dayLog.strength.every(
       (entry) =>
         entry.sets.length > 0 &&
-        entry.sets.every(
-          (set) =>
-            set.done &&
-            ((Number.isInteger(set.reps) && (set.reps ?? 0) >= 1) ||
-              (Number.isInteger(set.durationSeconds) && (set.durationSeconds ?? 0) >= 1)),
-        ),
+        entry.sets.every(validCompletedSet),
     ) &&
     dayLog.cardio.every((entry) => entry.done !== false)
 
@@ -94,10 +99,14 @@ export function WorkoutSection({
     setDayLog(store.getDayLog(date))
   }
 
+  function safeEdit(action: () => void) {
+    try { action(); return true } catch (error) { showToast(error instanceof Error ? error.message : '保存失败，请保留原始记录后重试。'); return false }
+  }
+
   function saveWholeDay(nextDayLog: DayLog): boolean {
     try {
       store.replaceDayLog(date, nextDayLog)
-      setDayLog(nextDayLog)
+      refresh()
       return true
     } catch (error) {
       showToast(error instanceof Error ? error.message : '写入失败，请检查记录后重试。')
@@ -106,7 +115,7 @@ export function WorkoutSection({
   }
 
   function addExercise(name: string) {
-    if (dayLog.strength.length >= 200) {
+    if (store.getDayLog(date).strength.length >= 200) {
       showToast('今天最多记录 200 个力量动作')
       return
     }
@@ -121,6 +130,7 @@ export function WorkoutSection({
   }
 
   function performPlanImport(day: PlanDay, includeDuplicates: boolean) {
+    const dayLog = store.getDayLog(date)
     const existingNames = new Set(dayLog.strength.map((entry) => entry.name.trim().toLowerCase()))
     const exercises = includeDuplicates
       ? day.exercises
@@ -128,19 +138,20 @@ export function WorkoutSection({
 
     const importedStrength = exercises.map((ex): StrengthEntry => {
       const last = store.getLastStrengthEntry(ex.name, date)
-      const lastSet = last?.sets.findLast((set) => set.done)
+      const lastSet = last?.sets.findLast(validCompletedSet)
       const durationSeconds = parseDurationSecondsFromRange(ex.repRange)
       const reps = durationSeconds === undefined ? parseRepsFromRange(ex.repRange) : null
-      const timedExercise = durationSeconds !== undefined
-      const weight = lastSet?.weight ?? (timedExercise ? 0 : 20)
+      // Historical weights are suggestions, not confirmation of today's actual load.
+      const weight = null
+      const weightState = 'unknown' as const
       const setCount = Math.min(20, Math.max(1, ex.sets))
       const sets: StrengthEntry['sets'] =
         durationSeconds === null || (durationSeconds === undefined && reps === null)
           ? []
           : Array.from({ length: setCount }, () =>
               durationSeconds !== undefined
-                ? { weight, durationSeconds, done: false }
-                : { weight, reps: reps as number, done: false },
+                ? { weight, weightState, durationSeconds, done: false }
+                : { weight, weightState, reps: reps as number, done: false },
             )
       return {
         id: crypto.randomUUID(),
@@ -158,6 +169,7 @@ export function WorkoutSection({
                   ? `目标次数无法读取:${ex.repRange}`
                   : undefined,
             ex.note,
+            lastSet ? `上次重量状态:${lastSet.weightState}${lastSet.weight === null ? '' : ` ${lastSet.weight}kg`}；本次仍需确认` : '本次重量待确认',
           ]
             .filter(Boolean)
             .join('；') || undefined,
@@ -231,13 +243,13 @@ export function WorkoutSection({
     }
     const last = entry.sets[entry.sets.length - 1]
     const defaultSet = DEFAULT_TIMED_EXERCISES.has(entry.name.trim())
-      ? { weight: 0, durationSeconds: 30, done: false }
-      : { weight: 20, reps: 8, done: false }
-    const newSets = [...entry.sets, last ? { ...last, done: false } : defaultSet]
+      ? { weight: null, weightState: 'unknown' as const, durationSeconds: 30, done: false }
+      : { weight: null, weightState: 'unknown' as const, reps: 8, done: false }
+    const newSets = [...entry.sets, last ? { ...last, done: false, missingWeightConfirmed: undefined } : defaultSet]
     store.updateStrengthEntry(date, entryId, {
       sets: newSets,
       estKcal: weightKg
-        ? calcStrengthKcal(completedSetCount(newSets), weightKg, entry.intensity ?? 'mid')
+        ? calcStrengthKcal(estimatedSetCount(newSets), weightKg, entry.intensity ?? 'mid')
         : entry.estKcal,
     })
     refresh()
@@ -250,10 +262,13 @@ export function WorkoutSection({
     store.updateStrengthEntry(date, entryId, {
       sets: newSets,
       estKcal: weightKg
-        ? calcStrengthKcal(completedSetCount(newSets), weightKg, entry.intensity ?? 'mid')
+        ? calcStrengthKcal(estimatedSetCount(newSets), weightKg, entry.intensity ?? 'mid')
         : entry.estKcal,
     })
     refresh()
+    if (patch.done === true && entry.sets[setIndex] && !validCompletedSet(entry.sets[setIndex]) && validCompletedSet(newSets[setIndex])) {
+      setCompletion(previous => ({ sequence: (previous?.sequence ?? 0) + 1, entryId }))
+    }
   }
 
   function removeSet(entryId: string, setIndex: number) {
@@ -263,7 +278,7 @@ export function WorkoutSection({
     store.updateStrengthEntry(date, entryId, {
       sets: newSets,
       estKcal: weightKg
-        ? calcStrengthKcal(completedSetCount(newSets), weightKg, entry.intensity ?? 'mid')
+        ? calcStrengthKcal(estimatedSetCount(newSets), weightKg, entry.intensity ?? 'mid')
         : entry.estKcal,
     })
     refresh()
@@ -314,6 +329,9 @@ export function WorkoutSection({
   }
 
   function persistParsedWorkout(parsed: ConfirmedParsedWorkout, conflictMode: 'append' | 'replace') {
+    const validation = validateWorkoutForSave(parsed)
+    if (!validation.ok) { showToast(validation.error); return }
+    const dayLog = store.getDayLog(date)
     const workingStrength = dayLog.strength.map((entry) => ({ ...entry, sets: [...entry.sets] }))
     const workingCardio = [...dayLog.cardio]
     const parsedStrength = parsed.strength.reduce<ConfirmedParsedWorkout['strength']>((entries, item) => {
@@ -330,13 +348,19 @@ export function WorkoutSection({
       return entries
     }, [])
 
+    if (conflictMode === 'replace') {
+      const names = new Set(parsedStrength.map((s) => s.name.trim().toLowerCase()))
+      for (let i = workingStrength.length - 1; i >= 0; i--) if (names.has(workingStrength[i].name.trim().toLowerCase())) workingStrength.splice(i, 1)
+      const types = new Set(parsed.cardio.map((c) => c.type))
+      for (let i = workingCardio.length - 1; i >= 0; i--) if (types.has(workingCardio[i].type)) workingCardio.splice(i, 1)
+    }
     for (const s of parsedStrength) {
       const normalizedName = s.name.trim().toLowerCase()
       const existing = workingStrength.find((entry) => entry.name.trim().toLowerCase() === normalizedName)
       if (existing) {
         const nextSets = conflictMode === 'replace' ? [...s.sets] : [...existing.sets, ...s.sets]
         const estKcal = weightKg
-          ? calcStrengthKcal(completedSetCount(nextSets), weightKg, s.intensity ?? existing.intensity ?? 'mid')
+          ? calcStrengthKcal(estimatedSetCount(nextSets), weightKg, s.intensity ?? existing.intensity ?? 'mid')
           : existing.estKcal
         existing.sets = nextSets
         existing.estKcal = estKcal
@@ -351,7 +375,7 @@ export function WorkoutSection({
               : existing.source
       } else {
         const estKcal = weightKg
-          ? calcStrengthKcal(completedSetCount(s.sets), weightKg, s.intensity ?? 'mid')
+          ? calcStrengthKcal(estimatedSetCount(s.sets), weightKg, s.intensity ?? 'mid')
           : 0
         const added: StrengthEntry = { ...s, id: crypto.randomUUID(), estKcal, source: 'nl' }
         workingStrength.push(added)
@@ -380,8 +404,9 @@ export function WorkoutSection({
   }
 
   function requestParsedWorkout(parsed: ConfirmedParsedWorkout) {
+    const dayLog = store.getDayLog(date)
     const existingNames = new Set(dayLog.strength.map((entry) => entry.name.trim().toLowerCase()))
-    const hasConflict = parsed.strength.some((entry) => existingNames.has(entry.name.trim().toLowerCase()))
+    const hasConflict = parsed.strength.some((entry) => existingNames.has(entry.name.trim().toLowerCase())) || parsed.cardio.some((entry) => dayLog.cardio.some((existing) => existing.type === entry.type))
     if (hasConflict) {
       setPendingParsed(parsed)
       return
@@ -442,10 +467,31 @@ export function WorkoutSection({
             </div>
           )}
           <p className="text-xs text-neutral-400">导入后力量组和有氧均为待完成，实际做完后再勾选「完成」。</p>
+          <p className="text-xs text-neutral-500">真人示范试点覆盖「全身训练 · 新手三日」的 Day 1 四个动作。导入后点「视频与要领」，看完返回当前记录；其余动作暂未覆盖。模板未新增专业审校，不代表个性化训练处方。</p>
         </div>
       )}
 
-      <NLWorkoutInput onConfirm={requestParsedWorkout} resetToken={parsedResetToken} />
+      <NLWorkoutInput key={date} date={date} onConfirm={requestParsedWorkout} resetToken={parsedResetToken} />
+
+      {companionOpen ? <Suspense fallback={<p>正在加载熊猫陪练…</p>}><WorkoutCompanion key={`${date}:${companionLaunch?.sequence ?? 0}`} date={date} entries={dayLog.strength} initialEntryId={companionLaunch?.entryId} focusOnOpen={Boolean(companionLaunch)} completion={completion} onClose={() => setCompanionOpen(false)} /></Suspense> : <button className="min-h-11 rounded-lg border border-neutral-300 px-4 text-sm text-neutral-800" onClick={() => { setCompanionLaunch(null); setCompanionOpen(true) }}>开启熊猫陪练</button>}
+
+      <section>
+        <button className="min-h-11 rounded-lg border border-neutral-300 px-4 text-sm text-neutral-800" aria-expanded={equipmentOpen} onClick={() => setEquipmentOpen(value => !value)}>{equipmentOpen ? '收起器械扫描' : '扫描静态器械'}</button>
+        {equipmentOpen && <div className="equipment-embedded"><Suspense fallback={<p>正在加载器械扫描…</p>}><EquipmentScanner key={date} date={date} onStartCompanion={name => {
+          const current = store.getDayLog(date)
+          const entry = current.strength.find(item => item.name === name)
+          if (!entry) return false
+          setDayLog(current)
+          setCompanionLaunch(previous => ({ entryId: entry.id, sequence: (previous?.sequence ?? 0) + 1 }))
+          setCompanionOpen(true); setEquipmentOpen(false)
+          return true
+        }} onContinueTraining={() => { setEquipmentOpen(false); requestAnimationFrame(() => document.getElementById('equipment-strength-records')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })) }} onAddExercise={name => {
+          const current = store.getDayLog(date)
+          if (current.strength.some(entry => entry.name === name)) { setDayLog(current); showToast('当前记录已有这个动作，请在下方继续填写。'); return true }
+          if (current.strength.length >= 200) { showToast('今天最多记录 200 个力量动作'); return false }
+          return safeEdit(() => addExercise(name))
+        }} /></Suspense></div>}
+      </section>
 
       {pendingParsed && (
         <div
@@ -456,7 +502,7 @@ export function WorkoutSection({
         >
           <div className="w-full max-w-md space-y-3 rounded-lg border border-amber-300 bg-amber-50 p-4 shadow-xl">
             <p id="parsed-conflict-title" className="text-sm font-medium text-amber-900">
-              AI 结果里有今天已经存在的同名动作
+              AI 结果里有今天已经存在的同名动作或有氧项目
             </p>
             <p className="text-xs text-amber-700">
               请选择把新识别的组数追加到原动作，或用新组数替换今天的同名动作；确认前不会写入任何内容。
@@ -486,16 +532,16 @@ export function WorkoutSection({
       )}
 
       <div>
-        <h3 className="mb-3 text-sm font-medium text-neutral-400">力量训练</h3>
+        <h3 id="equipment-strength-records" className="mb-3 text-sm font-medium text-neutral-400">力量训练</h3>
         <StrengthLogger
           date={date}
           entries={dayLog.strength}
-          onAddExercise={addExercise}
-          onAddSet={addSet}
-          onUpdateSet={updateSet}
-          onClearNotice={clearStrengthNotice}
-          onRemoveSet={removeSet}
-          onRemoveEntry={removeExercise}
+          onAddExercise={(...args) => safeEdit(() => addExercise(...args))}
+          onAddSet={(...args) => safeEdit(() => addSet(...args))}
+          onUpdateSet={(...args) => safeEdit(() => updateSet(...args))}
+          onClearNotice={(...args) => safeEdit(() => clearStrengthNotice(...args))}
+          onRemoveSet={(...args) => safeEdit(() => removeSet(...args))}
+          onRemoveEntry={(...args) => safeEdit(() => removeExercise(...args))}
         />
       </div>
 
@@ -504,10 +550,10 @@ export function WorkoutSection({
         <CardioLogger
           entries={dayLog.cardio}
           weightKg={weightKg}
-          onAdd={addCardio}
-          onUpdate={updateCardio}
-          onClearNotice={clearCardioNotice}
-          onRemove={removeCardio}
+          onAdd={(...args) => safeEdit(() => addCardio(...args))}
+          onUpdate={(...args) => safeEdit(() => updateCardio(...args))}
+          onClearNotice={(...args) => safeEdit(() => clearCardioNotice(...args))}
+          onRemove={(...args) => safeEdit(() => removeCardio(...args))}
         />
       </div>
 

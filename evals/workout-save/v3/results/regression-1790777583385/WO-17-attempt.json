@@ -1,0 +1,38 @@
+{
+  "id": "WO-17",
+  "input": "卧推60kg做了4组8次，不对，最后一组其实只做了6次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:15:18.959Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1390,
+    "cachedInputTokens": 1280,
+    "outputTokens": 408,
+    "reasoningTokens": 256,
+    "totalTokens": 1798
+  },
+  "estimatedCostUsd": 0.0008755,
+  "rawSha256": "24f02c7b0053a37c82da8abba83ce0e7d01ba2f1fd448d00d4adb3ab0840c363",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_032f7d22a4dc9f3c016abd197b876087d0a63eec4e4a45b738",
+    "requestId": "req_a5b13d68b7b040b684220e00b197f658",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1390,
+      "cachedInputTokens": 1280,
+      "outputTokens": 408,
+      "reasoningTokens": 256,
+      "totalTokens": 1798
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 9820
+}

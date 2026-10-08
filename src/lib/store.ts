@@ -11,6 +11,57 @@ import type {
 } from './types'
 import { todayStr } from './date'
 import { parseGymData } from './dataValidation'
+import { validCompletedSet } from './strength'
+import { parseWorkoutDraft, type ParsedWorkout } from './aiValidation'
+
+type EquipmentHandoff = { equipmentId: 'seated_chest_press'; confirmedAt: number; modelMatched: boolean }
+const EQUIPMENT_HANDOFF_KEY = 'gym-equipment-handoff-v1'
+
+export function getEquipmentHandoff(): EquipmentHandoff | null {
+  try {
+    const raw = sessionStorage.getItem(EQUIPMENT_HANDOFF_KEY)
+    if (!raw || raw.length > 500) return null
+    const value = JSON.parse(raw)
+    if (value.equipmentId !== 'seated_chest_press' || typeof value.confirmedAt !== 'number' || !Number.isFinite(value.confirmedAt) || typeof value.modelMatched !== 'boolean') return null
+    const age = Date.now() - value.confirmedAt
+    if (age < 0 || age > 30 * 60 * 1000) return null
+    return { equipmentId: value.equipmentId, confirmedAt: value.confirmedAt, modelMatched: value.modelMatched }
+  } catch { return null }
+}
+
+export function saveEquipmentHandoff(modelMatched: boolean): boolean {
+  try {
+    sessionStorage.setItem(EQUIPMENT_HANDOFF_KEY, JSON.stringify({ equipmentId: 'seated_chest_press', confirmedAt: Date.now(), modelMatched }))
+    return true
+  } catch { return false }
+}
+
+export function clearEquipmentHandoff(): void {
+  try { sessionStorage.removeItem(EQUIPMENT_HANDOFF_KEY) } catch { /* Optional navigation draft; training records are unaffected. */ }
+}
+
+export function getWorkoutDraft(date: string): { text: string; preview: ParsedWorkout | null; notice?: string } {
+  try {
+    const raw = sessionStorage.getItem(`gym-workout-draft-v3:${date}`)
+    if (!raw) return { text: '', preview: null }
+    if (raw.length > 2_000_000) throw new Error('Oversized draft')
+    const draft = JSON.parse(raw)
+    if (!draft || typeof draft.text !== 'string' || draft.text.length > 2000) throw new Error('Invalid draft')
+    try {
+      return { text: draft.text, preview: draft.preview ? parseWorkoutDraft(draft.preview) : null }
+    } catch {
+      return { text: draft.text, preview: null, notice: '草稿预览损坏，原始文字已恢复；可以重新解析或手动记录。' }
+    }
+  } catch { return { text: '', preview: null, notice: '草稿无法恢复，未覆盖原草稿；已保存的训练记录不受影响。' } }
+}
+
+export function saveWorkoutDraft(date: string, text: string, preview: ParsedWorkout | null): boolean {
+  try {
+    if (!text && !preview) sessionStorage.removeItem(`gym-workout-draft-v3:${date}`)
+    else sessionStorage.setItem(`gym-workout-draft-v3:${date}`, JSON.stringify({ text, preview }))
+    return true
+  } catch { return false }
+}
 
 const STORAGE_KEY = 'gym-data-v1'
 
@@ -233,7 +284,7 @@ export function getLastStrengthEntry(name: string, excludeDate?: string): Streng
 
   for (const date of dates) {
     const match = data.dayLogs[date].strength.find(
-      (entry) => entry.name.trim().toLowerCase() === normalized && entry.sets.some((set) => set.done),
+      (entry) => entry.name.trim().toLowerCase() === normalized && entry.sets.some(validCompletedSet),
     )
     if (match) return match
   }

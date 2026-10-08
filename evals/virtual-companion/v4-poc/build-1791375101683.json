@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-07T12:11:46.705Z",
+  "command": "node scripts/build-companion-v4.mjs",
+  "exitCode": 0,
+  "stdout": "vite v8.2.0 building client environment for production...\n\u001b[2K\rtransforming...✓ 97 modules transformed.\nrendering chunks...\ncomputing gzip size...\nevals/virtual-companion/v4-poc/build/registerSW.js                                 0.13 kB\nevals/virtual-companion/v4-poc/build/manifest.webmanifest                          0.44 kB\nevals/virtual-companion/v4-poc/build/index.html                                    0.62 kB │ gzip:   0.36 kB\nevals/virtual-companion/v4-poc/build/assets/CompanionLab-C3ZH-Ly4.css              6.80 kB │ gzip:   1.99 kB\nevals/virtual-companion/v4-poc/build/assets/index-CxaQaX9n.css                    33.01 kB │ gzip:   6.98 kB\nevals/virtual-companion/v4-poc/build/assets/companion-MirrorSession-BHyu9Adn.js   12.36 kB │ gzip:   4.99 kB\nevals/virtual-companion/v4-poc/build/assets/App-BsxGiU_R.js                      176.05 kB │ gzip:  51.23 kB\nevals/virtual-companion/v4-poc/build/assets/index-DgRxM-pW.js                    192.87 kB │ gzip:  61.25 kB\nevals/virtual-companion/v4-poc/build/assets/companion-CompanionLab-DAnbN3xA.js   564.83 kB │ gzip: 143.56 kB\n\n✓ built in 920ms\n\nPWA v1.3.0\nmode      generateSW\nprecache  11 entries (416.78 KiB)\nfiles generated\n  evals/virtual-companion/v4-poc/build/sw.js\n  evals/virtual-companion/v4-poc/build/workbox-9c191d2f.js\n",
+  "stderr": "[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n",
+  "envFilesRead": false,
+  "originalDistReplaced": false
+}

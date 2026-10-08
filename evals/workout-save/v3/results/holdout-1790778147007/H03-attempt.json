@@ -1,0 +1,38 @@
+{
+  "id": "H03",
+  "input": "高位下拉两组各13次已完成，忘了多少重量。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:22:46.356Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1528,
+    "cachedInputTokens": 1408,
+    "outputTokens": 510,
+    "reasoningTokens": 384,
+    "totalTokens": 2038
+  },
+  "estimatedCostUsd": 0.0010852000000000001,
+  "rawSha256": "953fac2f9c5b96c6b6baea9358535c67c646ba318531bec345e4a392e6507dab",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0fbe33fc6934073c016abd1b393a7887d0a753d85a59ce3bc6",
+    "requestId": "req_f6ca4a7e5cc14d0fb1ade0a12fc08f27",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1528,
+      "cachedInputTokens": 1408,
+      "outputTokens": 510,
+      "reasoningTokens": 384,
+      "totalTokens": 2038
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 8409
+}

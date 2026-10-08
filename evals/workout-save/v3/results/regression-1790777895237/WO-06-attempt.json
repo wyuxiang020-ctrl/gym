@@ -1,0 +1,38 @@
+{
+  "id": "WO-06",
+  "input": "杠铃划船50KG，2组，每组10次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:18:58.535Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1526,
+    "cachedInputTokens": 1408,
+    "outputTokens": 394,
+    "reasoningTokens": 256,
+    "totalTokens": 1920
+  },
+  "estimatedCostUsd": 0.0008527000000000001,
+  "rawSha256": "7eed83de2e94c37f765fd397b1d6c71ff933ac0b94bfc3fe2f8ec67899ebf505",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0cd19c6dfe728ec2016abd1a54b61c87d0bfad918c1b4883e1",
+    "requestId": "req_5680d4d1a4cb43febd6797c15e3a362f",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1526,
+      "cachedInputTokens": 1408,
+      "outputTokens": 394,
+      "reasoningTokens": 256,
+      "totalTokens": 1920
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 7153
+}

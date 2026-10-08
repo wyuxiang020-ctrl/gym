@@ -1,0 +1,38 @@
+{
+  "id": "H06",
+  "input": "已经完成两组平板支撑，每组55秒，自重无额外负重。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:23:08.701Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1531,
+    "cachedInputTokens": 1408,
+    "outputTokens": 312,
+    "reasoningTokens": 192,
+    "totalTokens": 1843
+  },
+  "estimatedCostUsd": 0.00068995,
+  "rawSha256": "7c4c6d104262a84a367a11ba436a7dfc42c8c48aec183de1ae3970a486757555",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_08f3c118a2b604f2016abd1b4f5bc887d085daaf8dfeb783d0",
+    "requestId": "req_34a662b1c4174b1291c71dc365aca30e",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1531,
+      "cachedInputTokens": 1408,
+      "outputTokens": 312,
+      "reasoningTokens": 192,
+      "totalTokens": 1843
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 5699
+}

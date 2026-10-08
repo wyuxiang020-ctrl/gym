@@ -1,0 +1,103 @@
+{
+  "version": "训练示范 V3.3 · 2026-10-01",
+  "kind": "deterministic synthetic software tests, NOT human tests",
+  "time": "2026-10-01T15:31:21.398Z",
+  "holdoutSha256": "a5dda8426f31344f64d58e9bade3ede7f18fd93d4fd22529e326afe20f75cbfe",
+  "beforeAfter": {
+    "baseline": "e96c5b2",
+    "scenario": "Unknown legacy weight=0, 8 reps, marked done",
+    "before": {
+      "saveAllowed": true,
+      "completed": true,
+      "kcal": 18
+    },
+    "after": {
+      "saveAllowed": false,
+      "completed": false,
+      "kcal": 0,
+      "storedSet": {
+        "weight": null,
+        "reps": 8,
+        "done": true,
+        "weightState": "unknown",
+        "legacyWeight": 0
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "before/after: unknown zero no longer passes completed/save",
+      "pass": true
+    },
+    {
+      "name": "known: storage roundtrip and statistics",
+      "pass": true
+    },
+    {
+      "name": "bodyweight: storage roundtrip and statistics",
+      "pass": true
+    },
+    {
+      "name": "not_applicable: storage roundtrip and statistics",
+      "pass": true
+    },
+    {
+      "name": "unknown: storage roundtrip and statistics",
+      "pass": true
+    },
+    {
+      "name": "legacy source stays intact on read; zero retained for audit",
+      "pass": true
+    },
+    {
+      "name": "legacy positive number with missing-unit notice is unresolved",
+      "pass": true
+    },
+    {
+      "name": "legacy positive known weight remains compatible",
+      "pass": true
+    },
+    {
+      "name": "known zero rejected by server and save boundary",
+      "pass": true
+    },
+    {
+      "name": "missing unit unknown passes parse only, not completed save",
+      "pass": true
+    },
+    {
+      "name": "future strength and cardio blocked until explicitly marked completed",
+      "pass": true
+    },
+    {
+      "name": "bulk edit preserves reps, duration and done; undo uses snapshot",
+      "pass": true
+    },
+    {
+      "name": "draft per date roundtrip does not persist workout",
+      "pass": true
+    },
+    {
+      "name": "storage quota failure retains previous whole record",
+      "pass": true
+    },
+    {
+      "name": "invalid existing backup not overwritten",
+      "pass": true
+    },
+    {
+      "name": "network error surfaced without automatic retry",
+      "pass": true
+    },
+    {
+      "name": "deadline abort bounds total request wait",
+      "pass": true
+    },
+    {
+      "name": "caller cancel works with no automatic retry",
+      "pass": true
+    }
+  ],
+  "passed": 18,
+  "total": 18
+}

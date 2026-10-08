@@ -1,0 +1,29 @@
+{
+  "packageDir": "E:\\gym\\docs\\virtual-companion-v4\\panda-ip-handoff-2026-10-08",
+  "filesIncludingManifest": 22,
+  "selectedDesignBoards": 7,
+  "localMarkdownLinksChecked": 30,
+  "jsonParsed": true,
+  "render": [
+    {
+      "width": 1440,
+      "height": 1100,
+      "title": "D 熊猫 IP 完整设计交付包",
+      "images": 13,
+      "allImagesLoaded": true,
+      "bodyWidth": 1440,
+      "viewportWidth": 1440,
+      "sections": 6
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "title": "D 熊猫 IP 完整设计交付包",
+      "images": 13,
+      "allImagesLoaded": true,
+      "bodyWidth": 390,
+      "viewportWidth": 390,
+      "sections": 6
+    }
+  ]
+}

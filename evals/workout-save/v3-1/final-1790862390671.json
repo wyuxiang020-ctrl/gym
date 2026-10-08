@@ -1,0 +1,54 @@
+{
+  "version": "save-recovery-v3.1",
+  "finalizedAt": "2026-10-01T13:46:30.610Z",
+  "sourceChangedSinceVerification": [],
+  "historicalFilesChanged": [],
+  "firstFailuresPreserved": [
+    {
+      "id": "R01",
+      "ms": 3088
+    },
+    {
+      "id": "R02",
+      "ms": 499
+    },
+    {
+      "id": "R03",
+      "ms": 494
+    }
+  ],
+  "apiChangesFromBaseline": [],
+  "realModel": {
+    "attempts": 1,
+    "pass": true,
+    "usage": {
+      "inputTokens": 1529,
+      "cachedInputTokens": 0,
+      "outputTokens": 626,
+      "reasoningTokens": 384,
+      "totalTokens": 2155
+    },
+    "estimatedCostUsd": 0.00163425,
+    "requestMs": 14008,
+    "flowMs": 22690
+  },
+  "humanTaskStatus": "NOT_MEASURED",
+  "authorSelfTestStatus": "NOT_RUN",
+  "realFoodStatus": "NOT_MEASURED",
+  "deployment": {
+    "preview": "https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app",
+    "productionUpdated": false,
+    "anonymousPreview": "Vercel login required",
+    "frontendBundleMatchesLocal": true
+  },
+  "suspectFiles": [],
+  "artifacts": {
+    "docs/save-recovery-v3-1/DELIVERY.md": "b016f6617d088871048966cdadcfdb357fb8f19234a3db5d96005d5939d3b5bd",
+    "docs/save-recovery-v3-1/Gym-V3.1-live-preview-save-reopen.webm": "faf37ae8f15d744898d790e442c49fe6996947b97893b98d111ace8372317e97",
+    "docs/save-recovery-v3-1/Gym-V3.1-network-recovery-fixed-response.webm": "a0833142bfab116796a34511b164a782f0a4a2f4914cebf25f32faae6d93a564",
+    "docs/save-recovery-v3-1/Gym-V3.1-normal-fixed-response.webm": "04f7728cd5d26697f90ed266a886b5a1f50c5a8fb279898ba86239fbeff877c0",
+    "docs/save-recovery-v3-1/live-frame.png": "3a0986afc036bfcb13a7e1ee940bdf046bb5109268a790517c50a7db51922c18",
+    "docs/save-recovery-v3-1/normal-frame.png": "dd2744aa779dd3a8873c7ae3bd966e7eacc3315c7c0488c9f9e506e5d4b83fb4",
+    "docs/save-recovery-v3-1/recovery-frame.png": "e754d4271a8b81dde88cdf8846393a4335772880497358e344da2be18c01d01d"
+  }
+}

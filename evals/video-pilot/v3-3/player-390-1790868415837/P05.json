@@ -1,0 +1,54 @@
+{
+  "id": "P05",
+  "name": "Iframe load without API ready does not escape the shared initialization deadline",
+  "kind": "fixed-response browser test",
+  "attempt": 1,
+  "at": "2026-10-01T15:26:59.749Z",
+  "pass": false,
+  "clockMs": 15001,
+  "error": "no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n",
+  "stack": "AssertionError [ERR_ASSERTION]: no unexpected third-party requests\n+ actual - expected\n\n+ [\n+   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap'\n+ ]\n- []\n\n    at scenario (file:///E:/gym/scripts/check-teaching-player-v33.mjs:158:12)\n    at async file:///E:/gym/scripts/check-teaching-player-v33.mjs:247:3",
+  "ms": 391,
+  "finalState": "error",
+  "networkRequests": [
+    {
+      "url": "https://www.youtube.com/iframe_api",
+      "at": "2026-10-01T15:27:00.113Z",
+      "kind": "script"
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/embed/CayG6UYqL8g?enablejsapi=1&origin=http%3A%2F%2F127.0.0.1%3A4174&playsinline=1&controls=1&autoplay=0&hl=zh-CN",
+      "at": "2026-10-01T15:27:00.121Z",
+      "kind": "document"
+    }
+  ],
+  "blockedUnexpectedRequests": [
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+  ],
+  "pageErrors": [],
+  "replay": {
+    "created": 1,
+    "destroyed": 1,
+    "calls": [
+      {
+        "type": "construct",
+        "index": 0
+      },
+      {
+        "type": "destroy"
+      },
+      {
+        "type": "event",
+        "index": 0,
+        "event": "onReady"
+      },
+      {
+        "type": "event",
+        "index": 0,
+        "event": "onStateChange",
+        "data": 1
+      }
+    ]
+  },
+  "screenshot": "evals/video-pilot/v3-3/player-390-1790868415837/P05.png"
+}

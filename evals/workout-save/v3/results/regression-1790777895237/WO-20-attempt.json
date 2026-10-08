@@ -1,0 +1,38 @@
+{
+  "id": "WO-20",
+  "input": "明天计划卧推60kg4组8次，今天还没有做。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:20:55.295Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1528,
+    "cachedInputTokens": 1408,
+    "outputTokens": 401,
+    "reasoningTokens": 256,
+    "totalTokens": 1929
+  },
+  "estimatedCostUsd": 0.0008672,
+  "rawSha256": "06560bd62ede5d9684ab50b21a5bc26aab223711e029847c7b96ca7f6d9f0e72",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_099152534a53c61a016abd1ac9ee4487d082a21a1cb3839f6f",
+    "requestId": "req_0b5b85177c6e413fa7cdd12620f39570",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1528,
+      "cachedInputTokens": 1408,
+      "outputTokens": 401,
+      "reasoningTokens": 256,
+      "totalTokens": 1929
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": false,
+    "notes": []
+  },
+  "ms": 6442
+}

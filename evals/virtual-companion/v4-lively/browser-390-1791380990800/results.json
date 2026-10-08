@@ -1,0 +1,133 @@
+{
+  "at": "2026-10-07T13:49:55.484Z",
+  "version": "V4.2",
+  "width": 390,
+  "browser": "154.0.4258.62",
+  "checks": [
+    "Idle begins automatically and secondary motion changes; no camera",
+    "idle: selected and full character pose freezes on seek",
+    "wave: selected and full character pose freezes on seek",
+    "Clear/pixel share the entire arm/body/head/face state",
+    "fold: selected and full character pose freezes on seek",
+    "hop: selected and full character pose freezes on seek",
+    "shuffle: selected and full character pose freezes on seek",
+    "stretch: selected and full character pose freezes on seek",
+    "Three camera views and responsive layout",
+    "Non-loop playback stops; loop playback wraps",
+    "Entering mirror clears all preset secondary motion without opening camera",
+    "No native camera, model, API, storage write, or page exception",
+    "Reduced-motion preference suppresses automatic idle animation"
+  ],
+  "errors": [],
+  "blocked": [
+    "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:4175/?companion-lab=1",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/@vite/client",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/main.tsx?t=1791380972760",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/@react-refresh",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react.js?v=6e117f3e",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom_client.js?v=07c36818",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/index.css?t=1791380972760",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/EntryRouter.tsx?t=1791380894660",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=6e117f3e",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/node_modules/vite/dist/client/env.mjs",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/node_modules/.vite/deps/rolldown-runtime-BvCyGRYZ.js?v=863dcaf6",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/EntryBoundary.tsx",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/node_modules/.vite/deps/react-dom.js?v=6e117f3e",
+      "method": "GET"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/companion/CompanionLab.tsx?t=1791380894660",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/companion/PandaStage.tsx?t=1791380894660",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/companion/types.ts?t=1791379940223",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/companion/preset.ts?t=1791379940223",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/companion/characterMotion.ts?t=1791380735914",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/companion/companion.css?t=1791380362859",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/favicon.svg",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/node_modules/.vite/deps/three.js?v=cc8da93f",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4175/src/companion/pandaRig.ts?t=1791380894660",
+      "method": "GET"
+    }
+  ],
+  "source": {
+    "pandaRig.ts": "44e6dbf2e543471afe0a00c687e753250c244fb52dee503844541bc48cd584e3",
+    "PandaStage.tsx": "2722ed569c1914db9f353ac13b4730a9efaad57461b35adab51cdec37331bd36",
+    "CompanionLab.tsx": "f46f7c71c7dea62385ce498cebfea05c8c9f0041b616ca88a6ef6dc378bc2df0",
+    "characterMotion.ts": "25e37e3594475e9bcf56a77cc1f6a5d271c09ee67214d4de9dd4ebab6f88cc2b",
+    "types.ts": "7367e112a2cfc9e9861f1c06a6702d003cd5cf68cc51ce17a74ac6f087e4c2ae",
+    "companion.css": "3dd7e752c129f6116859967b0c313f78771753e17850cb4db69812745ba73faa"
+  },
+  "kind": "isolated desktop browser and actual WebGL presets; no camera or human tracking",
+  "result": "PASS",
+  "audit": {
+    "camera": 0,
+    "writes": []
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "method": "Unchanged original PNG bytes; source-pixel alpha selection only. No new painting or hidden-region fill.",
+  "selections": [
+    {
+      "id": "bow",
+      "file": "D2-key-poses.png",
+      "crop": [
+        1185,
+        145,
+        305,
+        352
+      ],
+      "shadowStart": 336,
+      "sha256": "78a74016129385c86aef030d305da73215b82161f225e812dc3f653b14a48b15",
+      "opaquePixels": 63923
+    },
+    {
+      "id": "wave",
+      "file": "D3-movement.png",
+      "crop": [
+        54,
+        537,
+        422,
+        368
+      ],
+      "shadowStart": 347,
+      "sha256": "9d6ca03e8156baf8720f00b383be3e7c4b5f6a8910eae83dab639dd120dfbd9b",
+      "opaquePixels": 77635
+    },
+    {
+      "id": "walk",
+      "file": "D3-movement.png",
+      "crop": [
+        542,
+        542,
+        438,
+        365
+      ],
+      "shadowStart": 347,
+      "sha256": "9d6ca03e8156baf8720f00b383be3e7c4b5f6a8910eae83dab639dd120dfbd9b",
+      "opaquePixels": 76241
+    },
+    {
+      "id": "lookback",
+      "file": "D3-movement.png",
+      "crop": [
+        1100,
+        535,
+        386,
+        371
+      ],
+      "shadowStart": 351,
+      "sha256": "9d6ca03e8156baf8720f00b383be3e7c4b5f6a8910eae83dab639dd120dfbd9b",
+      "opaquePixels": 72857
+    },
+    {
+      "id": "celebrate",
+      "file": "D2-key-poses.png",
+      "crop": [
+        808,
+        548,
+        310,
+        331
+      ],
+      "shadowStart": 313,
+      "sha256": "78a74016129385c86aef030d305da73215b82161f225e812dc3f653b14a48b15",
+      "opaquePixels": 53417
+    },
+    {
+      "id": "rest",
+      "file": "D2-key-poses.png",
+      "crop": [
+        1070,
+        600,
+        452,
+        284
+      ],
+      "shadowStart": 273,
+      "sha256": "78a74016129385c86aef030d305da73215b82161f225e812dc3f653b14a48b15",
+      "opaquePixels": 49444
+    },
+    {
+      "id": "jump",
+      "file": "D3-movement.png",
+      "crop": [
+        580,
+        132,
+        408,
+        370
+      ],
+      "shadowStart": 337,
+      "groundSource": {
+        "crop": [
+          571,
+          151,
+          408,
+          370
+        ],
+        "region": [
+          59,
+          322,
+          290,
+          24
+        ]
+      },
+      "sha256": "9d6ca03e8156baf8720f00b383be3e7c4b5f6a8910eae83dab639dd120dfbd9b",
+      "opaquePixels": 73280
+    },
+    {
+      "id": "expression-1",
+      "file": "D2-expressions.png",
+      "crop": [
+        50,
+        125,
+        450,
+        356
+      ],
+      "shadowStart": 356,
+      "sha256": "904b4fb2cc40d37b8ca178c63d8167ee7c7e188363023a84339c7df876329880",
+      "opaquePixels": 80194
+    },
+    {
+      "id": "expression-2",
+      "file": "D2-expressions.png",
+      "crop": [
+        550,
+        125,
+        450,
+        356
+      ],
+      "shadowStart": 356,
+      "sha256": "904b4fb2cc40d37b8ca178c63d8167ee7c7e188363023a84339c7df876329880",
+      "opaquePixels": 78519
+    },
+    {
+      "id": "expression-3",
+      "file": "D2-expressions.png",
+      "crop": [
+        1070,
+        125,
+        450,
+        356
+      ],
+      "shadowStart": 356,
+      "sha256": "904b4fb2cc40d37b8ca178c63d8167ee7c7e188363023a84339c7df876329880",
+      "opaquePixels": 89082
+    },
+    {
+      "id": "expression-4",
+      "file": "D2-expressions.png",
+      "crop": [
+        50,
+        545,
+        450,
+        346
+      ],
+      "shadowStart": 346,
+      "sha256": "904b4fb2cc40d37b8ca178c63d8167ee7c7e188363023a84339c7df876329880",
+      "opaquePixels": 90609
+    },
+    {
+      "id": "expression-5",
+      "file": "D2-expressions.png",
+      "crop": [
+        550,
+        545,
+        450,
+        346
+      ],
+      "shadowStart": 346,
+      "sha256": "904b4fb2cc40d37b8ca178c63d8167ee7c7e188363023a84339c7df876329880",
+      "opaquePixels": 80115
+    },
+    {
+      "id": "expression-6",
+      "file": "D2-expressions.png",
+      "crop": [
+        1070,
+        545,
+        450,
+        346
+      ],
+      "shadowStart": 346,
+      "sha256": "904b4fb2cc40d37b8ca178c63d8167ee7c7e188363023a84339c7df876329880",
+      "opaquePixels": 77628
+    },
+    {
+      "id": "expression-7",
+      "file": "D3-expressions.png",
+      "crop": [
+        20,
+        125,
+        465,
+        356
+      ],
+      "shadowStart": 356,
+      "sha256": "5855774b0c89793789aa16113db1dedb7752a106ed3bbd99c0e60ccdfa68bc52",
+      "opaquePixels": 99156
+    },
+    {
+      "id": "expression-8",
+      "file": "D3-expressions.png",
+      "crop": [
+        540,
+        125,
+        465,
+        356
+      ],
+      "shadowStart": 356,
+      "sha256": "5855774b0c89793789aa16113db1dedb7752a106ed3bbd99c0e60ccdfa68bc52",
+      "opaquePixels": 91094
+    },
+    {
+      "id": "expression-9",
+      "file": "D3-expressions.png",
+      "crop": [
+        1035,
+        125,
+        465,
+        356
+      ],
+      "shadowStart": 356,
+      "sha256": "5855774b0c89793789aa16113db1dedb7752a106ed3bbd99c0e60ccdfa68bc52",
+      "opaquePixels": 98390
+    },
+    {
+      "id": "expression-10",
+      "file": "D3-expressions.png",
+      "crop": [
+        20,
+        538,
+        465,
+        353
+      ],
+      "shadowStart": 353,
+      "sha256": "5855774b0c89793789aa16113db1dedb7752a106ed3bbd99c0e60ccdfa68bc52",
+      "opaquePixels": 102212
+    },
+    {
+      "id": "expression-11",
+      "file": "D3-expressions.png",
+      "crop": [
+        540,
+        538,
+        465,
+        353
+      ],
+      "shadowStart": 353,
+      "sha256": "5855774b0c89793789aa16113db1dedb7752a106ed3bbd99c0e60ccdfa68bc52",
+      "opaquePixels": 92343
+    },
+    {
+      "id": "expression-12",
+      "file": "D3-expressions.png",
+      "crop": [
+        1035,
+        538,
+        465,
+        353
+      ],
+      "shadowStart": 353,
+      "sha256": "5855774b0c89793789aa16113db1dedb7752a106ed3bbd99c0e60ccdfa68bc52",
+      "opaquePixels": 87049
+    }
+  ]
+}

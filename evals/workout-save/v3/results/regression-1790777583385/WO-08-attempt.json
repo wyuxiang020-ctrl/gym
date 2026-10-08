@@ -1,0 +1,38 @@
+{
+  "id": "WO-08",
+  "input": "杠铃卧推100磅，2组，每组6次。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:14:03.975Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1383,
+    "cachedInputTokens": 1280,
+    "outputTokens": 457,
+    "reasoningTokens": 320,
+    "totalTokens": 1840
+  },
+  "estimatedCostUsd": 0.00097175,
+  "rawSha256": "49258ca892d56dbc61f8c36f6fcf94223a741c4bda28e05941fed5e8d5ce7233",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_025ab807e8a41d76016abd192e1abc87d08bebab43734368b7",
+    "requestId": "req_3596fab909384239b72e615a1ba5461e",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1383,
+      "cachedInputTokens": 1280,
+      "outputTokens": 457,
+      "reasoningTokens": 320,
+      "totalTokens": 1840
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 9380
+}

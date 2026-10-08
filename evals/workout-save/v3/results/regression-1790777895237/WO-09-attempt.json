@@ -1,0 +1,38 @@
+{
+  "id": "WO-09",
+  "input": "跑步30分钟，5公里，平均心率140，中等强度。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:19:23.164Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1528,
+    "cachedInputTokens": 1408,
+    "outputTokens": 221,
+    "reasoningTokens": 128,
+    "totalTokens": 1749
+  },
+  "estimatedCostUsd": 0.0005072,
+  "rawSha256": "830e4a0af8dfc1f7fc6640a3c2702916844b8b21eced6d2e45bbcb4bf562ba92",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_03260b269632f437016abd1a6e7df487d09b711fe62411ce23",
+    "requestId": "req_4c4ffc5b94e546b08be59f4e934fa013",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1528,
+      "cachedInputTokens": 1408,
+      "outputTokens": 221,
+      "reasoningTokens": 128,
+      "totalTokens": 1749
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 5608
+}

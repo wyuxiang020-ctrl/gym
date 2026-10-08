@@ -1,0 +1,8 @@
+{
+  "cause": "Missing closing brace for fixture loop in new test harness",
+  "pass": false,
+  "repair": "Added missing closing brace; no production change",
+  "productFailure": false,
+  "error": "SyntaxError: Unexpected end of input at check-companion-mirror-v4.mjs:409",
+  "evidenceType": "TEST_HARNESS_COMPILATION"
+}

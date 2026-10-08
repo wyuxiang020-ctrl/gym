@@ -1,0 +1,388 @@
+{
+  "deployment": "https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app",
+  "at": "2026-10-01T13:42:27.429Z",
+  "records": [
+    {
+      "kind": "read-only deployment inspection",
+      "url": "https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app",
+      "ms": 3461,
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "Vercel CLI 59.11.2 (Node.js 24.16.0)\nFetching deployment \"gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app\" in yuxiang-wang-s-projects\n> Fetched deployment \"gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app\" in yuxiang-wang-s-projects [589ms]\n\n  General\n\n    id\t\tdpl_FDPstyqExqsfSogrw9B8LqPpcfGm\n    name\tgym\n    target\tpreview\n    status\t● Ready\n    url\t\thttps://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app\n    created\tThu Oct 01 2026 21:33:58 GMT+0800 (中国标准时间) [8m ago]\n\n\n  Builds\n\n    ┌ .        [0ms]\n    ├── λ api/analyze-photo (9.28MB) [iad1]\n    ├── λ api/parse-meal (9.28MB) [iad1]\n    ├── λ api/parse-workout (9.29MB) [iad1]\n    └── λ api/recalc-meal (9.28MB) [iad1]\n    \n\n"
+    },
+    {
+      "kind": "read-only deployment inspection",
+      "url": "https://gym-iota-self.vercel.app",
+      "ms": 4199,
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "Vercel CLI 59.11.2 (Node.js 24.16.0)\nFetching deployment \"gym-iota-self.vercel.app\" in yuxiang-wang-s-projects\n> Fetched deployment \"gym-dsm00ka9i-yuxiang-wang-s-projects.vercel.app\" in yuxiang-wang-s-projects [594ms]\n\n  General\n\n    id\t\tdpl_6BTsEx9PeSe3G9b1YQkvDiiw2hi2\n    name\tgym\n    target\tproduction\n    status\t● Ready\n    url\t\thttps://gym-dsm00ka9i-yuxiang-wang-s-projects.vercel.app\n    created\tMon Aug 10 2026 07:40:59 GMT+0800 (中国标准时间) [53d ago]\n\n\n  Aliases\n\n    ╶ https://gym-iota-self.vercel.app\n    ╶ https://gym-yuxiang-wang-s-projects.vercel.app\n    ╶ https://gym-wyuxiang020-ctrl-yuxiang-wang-s-projects.vercel.app\n    \n\n  Builds\n\n    ┌ .        [0ms]\n    ├── λ api/analyze-photo (396.67KB) [iad1]\n    ├── λ api/parse-meal (396.29KB) [iad1]\n    ├── λ api/parse-workout (397.45KB) [iad1]\n    └── λ api/recalc-meal (396.33KB) [iad1]\n    \n\n"
+    },
+    {
+      "path": "/",
+      "method": "GET",
+      "authenticated": false,
+      "configuredProxy": true,
+      "ms": 5205,
+      "status": 200,
+      "cliExit": 0,
+      "rateHeaders": {},
+      "stderr": "Vercel CLI 59.11.2 (Node.js 24.16.0) | curl is in beta — https://vercel.com/feedback\n",
+      "responseSha256": "de904ad2802b27410a4387759a5c7a2fb62be7cd8108ab9f8ffa69640882bcad",
+      "kind": "protected static build verification",
+      "pass": true
+    },
+    {
+      "path": "/assets/index-AnbBt3I4.js",
+      "method": "GET",
+      "authenticated": false,
+      "configuredProxy": true,
+      "ms": 5786,
+      "status": 200,
+      "cliExit": 0,
+      "rateHeaders": {},
+      "stderr": "Vercel CLI 59.11.2 (Node.js 24.16.0) | curl is in beta — https://vercel.com/feedback\n",
+      "responseSha256": "c560c4fbc10277c93cd7c56fc1a4edc1945cd98f56c2d722314413e0fb608868",
+      "kind": "protected static bundle verification",
+      "matchesLocalBuild": true,
+      "hasVersion": true,
+      "pass": true
+    },
+    {
+      "path": "/api/parse-workout",
+      "method": "POST",
+      "authenticated": false,
+      "configuredProxy": true,
+      "ms": 7778,
+      "status": 401,
+      "cliExit": 0,
+      "rateHeaders": {
+        "x-ratelimit-limit": "30",
+        "x-ratelimit-remaining": "29",
+        "x-ratelimit-reset": "1790862173"
+      },
+      "stderr": "Vercel CLI 59.11.2 (Node.js 24.16.0) | curl is in beta — https://vercel.com/feedback\n",
+      "responseSha256": "976285451c0bd15fcc89ab89fbc5a679a6539d9aac84ba8d5c05346b14094265",
+      "kind": "access guard, no model expected",
+      "pass": true,
+      "body": "{\"error\":\"请输入有效的演示访问码后重试。\",\"code\":\"DEMO_ACCESS_REQUIRED\"}"
+    },
+    {
+      "kind": "anonymous browser availability",
+      "url": "https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app",
+      "authenticated": false,
+      "status": 200,
+      "finalOrigin": "https://vercel.com",
+      "finalPath": "/login",
+      "title": "Login – Vercel",
+      "visibleText": "Skip to content\n\nSign Up\n\nLog in to Vercel\nContinue with Email\nContinue with Google\nContinue with GitHub\nContinue with ChatGPT\nContinue with SAML SSO\nContinue with Passkey\nShow other options\n\nDon't have an account? Sign Up\n\nTerms\nPrivacy Policy",
+      "ms": 6202
+    },
+    {
+      "kind": "anonymous browser availability",
+      "url": "https://gym-iota-self.vercel.app",
+      "authenticated": false,
+      "status": 200,
+      "finalOrigin": "https://gym-iota-self.vercel.app",
+      "finalPath": "/",
+      "title": "Gym",
+      "visibleText": "先建立身体档案\n性别\n男\n女\n出生年份\n身高 (cm)\n训练经验\n新手\n进阶\n资深\n目标\n减脂\n增肌\n维持\n每周训练天数\n2 天\n3 天\n4 天\n5 天\n6 天\n日常活动量(不含训练)\n1 · 久坐(几乎不运动)\n2 · 轻度活动(每周 1-3 次)\n3 · 中度活动(每周 3-5 次)\n4 · 高度活动(每周 6-7 次)\n5 · 极高活动(体力劳动 + 高强度训练)\n目标体重 (kg,可选)\n目标体脂率 (%,可选)\n不知道\n期望身材描述(可选)\n打卡定义\n打开 App 就算\n记录了训练才算\n记录了训练和饮食才算\n保存档案",
+      "ms": 3752
+    },
+    {
+      "kind": "automated live-model smoke with synthetic input; local production-equivalent UI, authenticated CLI transport to deployed Preview; NOT human test",
+      "input": "今天卧推50公斤完成两组，每组8次，然后快走15分钟。",
+      "modelAttempts": 1,
+      "pass": true,
+      "request": {
+        "path": "/api/parse-workout",
+        "method": "POST",
+        "authenticated": true,
+        "configuredProxy": true,
+        "ms": 14008,
+        "status": 200,
+        "cliExit": 0,
+        "rateHeaders": {
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "28",
+          "x-ratelimit-reset": "1790862173"
+        },
+        "stderr": "Vercel CLI 59.11.2 (Node.js 24.16.0) | curl is in beta — https://vercel.com/feedback\nError: Failed to get package info: Error: Failed to fetch dist-tags from npm\n    at process.<anonymous> (E:\\gym\\node_modules\\vercel\\dist\\get-latest-worker.cjs:124:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n",
+        "responseSha256": "636081f8160a277e5362d11843e49f2ee04f38788ac2a81aca1568d759870d6d",
+        "kind": "real model request attempt"
+      },
+      "meta": {
+        "model": "gpt-5-mini-2025-08-07",
+        "responseId": "resp_0c0d9c7f1a27af7d016abe6338448487d2a152f1cf89db503a",
+        "requestId": "req_1b1e86c2b9cf401caaea9e05181e0358",
+        "sdkMaxRetries": 0,
+        "timeoutMs": 110000,
+        "usage": {
+          "inputTokens": 1529,
+          "cachedInputTokens": 0,
+          "outputTokens": 626,
+          "reasoningTokens": 384,
+          "totalTokens": 2155
+        }
+      },
+      "usage": {
+        "inputTokens": 1529,
+        "cachedInputTokens": 0,
+        "outputTokens": 626,
+        "reasoningTokens": 384,
+        "totalTokens": 2155
+      },
+      "estimatedCostUsd": 0.00163425,
+      "pricing": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5-mini",
+        "checked": "2026-10-01",
+        "input": 0.25,
+        "cached": 0.025,
+        "output": 2,
+        "per": 1000000,
+        "warning": "estimate, not invoice; absent usage means unknown cost"
+      },
+      "firstPreview": {
+        "strength": [
+          {
+            "name": "卧推",
+            "sets": [
+              {
+                "weight": 50,
+                "weightState": "known",
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              },
+              {
+                "weight": 50,
+                "weightState": "known",
+                "reps": 8,
+                "durationSeconds": null,
+                "done": true
+              }
+            ],
+            "note": "",
+            "uncertain": []
+          }
+        ],
+        "cardio": [
+          {
+            "type": "快走",
+            "done": true,
+            "minutes": 15,
+            "distance": null,
+            "avgHr": null,
+            "intensity": "mid",
+            "note": "",
+            "uncertain": []
+          }
+        ]
+      },
+      "confirmedByScript": {
+        "weights": [
+          55,
+          50
+        ],
+        "reps": [
+          8,
+          8
+        ],
+        "minutes": 18
+      },
+      "saved": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": 55,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 50,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "note": "",
+                "uncertain": [],
+                "id": "d92e7957-5d85-4329-9f8b-57469fd30b5a",
+                "estKcal": 40,
+                "source": "nl"
+              }
+            ],
+            "cardio": [
+              {
+                "type": "快走",
+                "done": true,
+                "minutes": 18,
+                "intensity": "mid",
+                "note": "",
+                "uncertain": [],
+                "id": "5b57a42d-d067-4a2d-8e14-054dc92a9df4",
+                "estKcal": 90,
+                "source": "nl"
+              }
+            ],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "reopened": {
+        "profile": {
+          "gender": "male",
+          "birthYear": 1997,
+          "height": 178,
+          "experience": "intermediate",
+          "goal": "bulk",
+          "targetWeight": 75,
+          "targetBodyFat": 15,
+          "targetNote": "提升力量与上肢围度，同时保持稳定训练节奏",
+          "trainingDaysPerWeek": 4,
+          "activityLevel": 3,
+          "waterTargetMl": 2400,
+          "checkInMode": "workout_and_meal"
+        },
+        "measurements": [
+          {
+            "date": "2026-07-05",
+            "weight": 69.8,
+            "bodyFat": 17.2,
+            "waist": 78,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-08-02",
+            "weight": 70.6,
+            "bodyFat": 16.8,
+            "waist": 77.5,
+            "note": "合成演示数据"
+          },
+          {
+            "date": "2026-09-01",
+            "weight": 71.4,
+            "bodyFat": 16.4,
+            "waist": 77,
+            "note": "合成演示数据"
+          }
+        ],
+        "plans": [],
+        "dayLogs": {
+          "2026-10-01": {
+            "date": "2026-10-01",
+            "checkedIn": false,
+            "strength": [
+              {
+                "name": "卧推",
+                "sets": [
+                  {
+                    "weight": 55,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  },
+                  {
+                    "weight": 50,
+                    "weightState": "known",
+                    "reps": 8,
+                    "done": true
+                  }
+                ],
+                "note": "",
+                "uncertain": [],
+                "id": "d92e7957-5d85-4329-9f8b-57469fd30b5a",
+                "estKcal": 40,
+                "source": "nl"
+              }
+            ],
+            "cardio": [
+              {
+                "type": "快走",
+                "done": true,
+                "minutes": 18,
+                "intensity": "mid",
+                "note": "",
+                "uncertain": [],
+                "id": "5b57a42d-d067-4a2d-8e14-054dc92a9df4",
+                "estKcal": 90,
+                "source": "nl"
+              }
+            ],
+            "meals": [],
+            "water": 0
+          }
+        },
+        "exerciseVideos": {},
+        "lastFedDate": "2026-09-05"
+      },
+      "ms": 22690,
+      "video": "E:\\gym\\evals\\workout-save\\v3-1\\preview-1790862086675\\page@1d256a400706979fea4fbb935186b2af.webm"
+    },
+    {
+      "path": "/api/parse-workout",
+      "method": "POST",
+      "authenticated": true,
+      "configuredProxy": true,
+      "ms": 14008,
+      "status": 200,
+      "cliExit": 0,
+      "rateHeaders": {
+        "x-ratelimit-limit": "30",
+        "x-ratelimit-remaining": "28",
+        "x-ratelimit-reset": "1790862173"
+      },
+      "stderr": "Vercel CLI 59.11.2 (Node.js 24.16.0) | curl is in beta — https://vercel.com/feedback\nError: Failed to get package info: Error: Failed to fetch dist-tags from npm\n    at process.<anonymous> (E:\\gym\\node_modules\\vercel\\dist\\get-latest-worker.cjs:124:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n",
+      "responseSha256": "636081f8160a277e5362d11843e49f2ee04f38788ac2a81aca1568d759870d6d",
+      "kind": "real model request attempt"
+    }
+  ]
+}

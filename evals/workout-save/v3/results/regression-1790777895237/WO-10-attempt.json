@@ -1,0 +1,38 @@
+{
+  "id": "WO-10",
+  "input": "卧推40kg，2组，每组8次；然后低强度单车20分钟。",
+  "attempt": 1,
+  "retry": false,
+  "startedAt": "2026-09-30T14:19:28.774Z",
+  "status": 200,
+  "pass": true,
+  "usage": {
+    "inputTokens": 1532,
+    "cachedInputTokens": 1408,
+    "outputTokens": 751,
+    "reasoningTokens": 512,
+    "totalTokens": 2283
+  },
+  "estimatedCostUsd": 0.0015682,
+  "rawSha256": "d9b19d1f55322b38b5f72868129adf4daddcd34e221a80aed54c18fdf86e4891",
+  "meta": {
+    "model": "gpt-5-mini-2025-08-07",
+    "responseId": "resp_0fe795f1a707a1fe016abd1a73124087d0ad2ecc25628fcd20",
+    "requestId": "req_ec3904c16e304770a213c7d02854e498",
+    "sdkMaxRetries": 0,
+    "timeoutMs": 110000,
+    "usage": {
+      "inputTokens": 1532,
+      "cachedInputTokens": 1408,
+      "outputTokens": 751,
+      "reasoningTokens": 512,
+      "totalTokens": 2283
+    }
+  },
+  "score": {
+    "pass": true,
+    "saveAllowed": true,
+    "notes": []
+  },
+  "ms": 9198
+}

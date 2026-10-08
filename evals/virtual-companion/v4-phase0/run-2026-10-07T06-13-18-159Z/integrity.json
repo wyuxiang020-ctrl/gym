@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-07T06:46:10.499Z",
+  "sourceChecked": 125,
+  "sourceChanged": [],
+  "existingBuildChecked": 10,
+  "existingBuildChanged": [],
+  "historicalChecked": 1134,
+  "historicalChanged": [
+    "docs/CHANGELOG.md"
+  ],
+  "allowedMaintainedDocs": [
+    "docs/CHANGELOG.md"
+  ],
+  "unexpectedHistoricalChanged": [],
+  "snapshotChecked": 142,
+  "snapshotChanged": []
+}

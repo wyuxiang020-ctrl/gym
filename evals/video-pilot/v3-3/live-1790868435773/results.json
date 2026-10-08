@@ -1,0 +1,153 @@
+{
+  "at": "2026-10-01T15:27:15.775Z",
+  "kind": "real anonymous external metadata and media requests, automated isolated Edge; not human/model evaluation",
+  "modelCalls": 0,
+  "modelCostUsd": 0,
+  "infrastructureCost": "not measured",
+  "results": [
+    {
+      "name": "杠铃深蹲",
+      "videoId": "QmZAiBqPvZw",
+      "sourceUrl": "https://www.crossfit.com/essentials/the-back-squat",
+      "kind": "real YouTube oEmbed metadata, NOT playback",
+      "pass": false,
+      "error": "fetch failed",
+      "cause": "EACCES",
+      "ms": 60
+    },
+    {
+      "name": "杠铃卧推",
+      "videoId": "CayG6UYqL8g",
+      "sourceUrl": "https://www.nasm.org/resource-center/exercise-library/barbell-bench-press",
+      "kind": "real YouTube oEmbed metadata, NOT playback",
+      "pass": false,
+      "error": "fetch failed",
+      "cause": "EACCES",
+      "ms": 2
+    },
+    {
+      "name": "杠铃划船",
+      "videoId": "Ho7xUiDkJcg",
+      "sourceUrl": "https://www.youtube.com/watch?v=Ho7xUiDkJcg",
+      "kind": "real YouTube oEmbed metadata, NOT playback",
+      "pass": false,
+      "error": "fetch failed",
+      "cause": "EACCES",
+      "ms": 1
+    },
+    {
+      "name": "平板支撑",
+      "videoId": "mwlp75MS6Rg",
+      "sourceUrl": "https://www.nasm.org/resource-center/exercise-library/plank",
+      "kind": "real YouTube oEmbed metadata, NOT playback",
+      "pass": false,
+      "error": "fetch failed",
+      "cause": "EACCES",
+      "ms": 2
+    },
+    {
+      "name": "杠铃深蹲",
+      "videoId": "QmZAiBqPvZw",
+      "kind": "actual in-app external playback attempt; no mocked responses",
+      "pass": false,
+      "stateBeforePlay": "error",
+      "error": "视频服务连接失败，可能是网络或浏览器限制。可以重试或打开来源。",
+      "visibleState": "error",
+      "message": "视频服务连接失败，可能是网络或浏览器限制。可以重试或打开来源。\n\n重试加载视频\n打开视频来源 ↗\n返回当前记录\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。",
+      "failedRequests": [
+        {
+          "host": "fonts.googleapis.com",
+          "path": "/css2",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "host": "www.youtube.com",
+          "path": "/iframe_api",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "ms": 1040
+    },
+    {
+      "name": "杠铃卧推",
+      "videoId": "CayG6UYqL8g",
+      "kind": "actual in-app external playback attempt; no mocked responses",
+      "pass": false,
+      "stateBeforePlay": "error",
+      "error": "视频服务连接失败，可能是网络或浏览器限制。可以重试或打开来源。",
+      "visibleState": "error",
+      "message": "视频服务连接失败，可能是网络或浏览器限制。可以重试或打开来源。\n\n重试加载视频\n打开视频来源 ↗\n返回当前记录\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。",
+      "failedRequests": [
+        {
+          "host": "fonts.googleapis.com",
+          "path": "/css2",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "host": "www.youtube.com",
+          "path": "/iframe_api",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "ms": 759
+    },
+    {
+      "name": "杠铃划船",
+      "videoId": "Ho7xUiDkJcg",
+      "kind": "actual in-app external playback attempt; no mocked responses",
+      "pass": false,
+      "stateBeforePlay": "error",
+      "error": "视频服务连接失败，可能是网络或浏览器限制。可以重试或打开来源。",
+      "visibleState": "error",
+      "message": "视频服务连接失败，可能是网络或浏览器限制。可以重试或打开来源。\n\n重试加载视频\n打开视频来源 ↗\n返回当前记录\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。",
+      "failedRequests": [
+        {
+          "host": "fonts.googleapis.com",
+          "path": "/css2",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "host": "www.youtube.com",
+          "path": "/iframe_api",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "ms": 758
+    },
+    {
+      "name": "平板支撑",
+      "videoId": "mwlp75MS6Rg",
+      "kind": "actual in-app external playback attempt; no mocked responses",
+      "pass": false,
+      "stateBeforePlay": "error",
+      "error": "视频服务连接失败，可能是网络或浏览器限制。可以重试或打开来源。",
+      "visibleState": "error",
+      "message": "视频服务连接失败，可能是网络或浏览器限制。可以重试或打开来源。\n\n重试加载视频\n打开视频来源 ↗\n返回当前记录\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。",
+      "failedRequests": [
+        {
+          "host": "fonts.googleapis.com",
+          "path": "/css2",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "host": "www.youtube.com",
+          "path": "/iframe_api",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "ms": 809
+    },
+    {
+      "kind": "read-only anonymous public availability; no deployment",
+      "url": "https://gym-iota-self.vercel.app",
+      "error": "page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://gym-iota-self.vercel.app/\nCall log:\n\u001b[2m  - navigating to \"https://gym-iota-self.vercel.app/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+      "ms": 51
+    },
+    {
+      "kind": "read-only anonymous public availability; no deployment",
+      "url": "https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app",
+      "error": "page.goto: net::ERR_NETWORK_ACCESS_DENIED at https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app/\nCall log:\n\u001b[2m  - navigating to \"https://gym-hdfd4x6o6-yuxiang-wang-s-projects.vercel.app/\", waiting until \"domcontentloaded\"\u001b[22m\n",
+      "ms": 43
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+.idle-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;max-width:none}
+.idle-checkpoints{margin-top:23px}.idle-checkpoints>div{display:flex;gap:6px;flex-wrap:wrap}.idle-checkpoints button{font-size:12px;padding:6px 10px}
+.idle-lab .gentle-background-controls{margin-top:22px}.idle-lab .gentle-note{margin-top:18px;padding-top:18px}.idle-lab .gentle-note p{font-size:12px}
+.idle-plane{isolation:isolate}.idle-lab .gentle-loading{z-index:2}.idle-lab .gentle-loading p{margin:0 0 10px}
+@media(max-width:760px){.idle-lab .original-stage-heading h2{font-size:14px}.idle-lab .original-stage-heading span{white-space:nowrap}}

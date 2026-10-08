@@ -1,0 +1,462 @@
+{
+  "version": "virtual-companion-v4-poc",
+  "startedAt": "2026-10-07T12:26:52.120Z",
+  "base": "http://127.0.0.1:4176",
+  "viewport": {
+    "width": 820,
+    "height": 1024,
+    "deviceScaleFactor": 1
+  },
+  "browser": "154.0.4258.62",
+  "channel": "msedge",
+  "browserArguments": [
+    "--enable-unsafe-swiftshader"
+  ],
+  "evidenceType": "isolated automated browser software checks; generated blank canvas streams and injected failures; real local worker only receives blank synthetic images; NO real camera, human tracking, mobile device or cloud model evidence",
+  "cloudModelCalls": 0,
+  "cloudModelCostUsd": 0,
+  "infrastructureCostUsd": null,
+  "cameraPolicy": "original getUserMedia is never invoked; only deterministic rejection or generated blank canvas captureStream",
+  "sourceHashes": {
+    "src/main.tsx": "4ade26933ebdd80ed89c56707e70711218bed8e20ab011173ce2d6c6ae617a1e",
+    "src/EntryRouter.tsx": "d26bf3b6e5ae21c3966684886e1619e2f774d36b7a3b910639afd4cb020a470f",
+    "src/EntryBoundary.tsx": "56e7c657ce1465fe63415a095264c94c34cdb36fbe59524ed8cbfa345e27dbd6",
+    "src/App.tsx": "63154cc983f85486e06a40edf5d97cfb91c31e9f12472a3a0e8fe0506333c8ba",
+    "src/companion/CompanionLab.tsx": "3af11a10ed667e68ff6296ff7d633923d4227f78a21a9b229765e598518a8b39",
+    "src/companion/companion.css": "a6830d357c6cf5c2343fa0a9c98a4ffcac1fef90096ccf4ab807c7502bf89577",
+    "src/companion/preset.ts": "b15703702bcc85ae14f0e1b3444d6a2acfbcb7d5579fa8ec930c43863eb03556",
+    "src/companion/PandaStage.tsx": "ec03d70ae4e406d33539bb384c090c346582dcf7d17bb86d55d784e2e72a6062",
+    "src/companion/pandaRig.ts": "a0efcd4c2e06a99092bfee3a93d19d3ae1c7545148a3f86b89c1d3ee18fff96a",
+    "src/companion/mirror/MirrorSession.ts": "0c7a18286dd37f6e671443a59f760837db918e558c3dd36c4ce9a24a6e3cf0eb",
+    "src/companion/mirror/mapping.ts": "b7ab5dd368e1924d66283af0ea2f402c8dcd7daec1458b29c84d8c223983a346",
+    "public/companion-assets/pose-worker.js": "358bc2fbe4e84ed0eba0bbbb3b9209ead387379b0c869d92dd4d681a0a30741d",
+    "vite.config.ts": "c8d0dc523c3df633bfa79ea6f47cf5b9af42085022b951d9b09d8c1d37ac7aa0",
+    "scripts/check-companion-integration-v4.mjs": "4c485608c3ea4c7ad801359fc615b878aa4c5a4cc86921bb6a10e7c64688645f"
+  },
+  "temporaryHarnessFiles": [
+    {
+      "path": "E:\\gym\\evals\\virtual-companion\\v4-poc\\build\\software-cache-1791376014798.html",
+      "removed": true
+    }
+  ],
+  "results": [
+    {
+      "id": "I02",
+      "name": "Blank-profile experiment requests no camera/model and writes no training data",
+      "evidenceType": "automated software with synthetic fixtures",
+      "attempt": 1,
+      "at": "2026-10-07T12:26:53.319Z",
+      "pass": true,
+      "render": {
+        "dataset": {
+          "engine": "three.js r186",
+          "displayMode": "clear",
+          "actualDisplay": "clear",
+          "pixelSize": "1",
+          "bufferSize": "426x420",
+          "dpr": "1",
+          "view": "front",
+          "pose": "{\"left\":{\"shoulder\":0.1,\"elbow\":0},\"right\":{\"shoulder\":0.1,\"elbow\":0}}",
+          "renderFrame": "152"
+        },
+        "width": 426,
+        "height": 420
+      },
+      "audit": {
+        "localStorage": {},
+        "sessionStorage": {},
+        "reads": [],
+        "writes": [],
+        "gum": [],
+        "activeTracks": 0,
+        "streams": [],
+        "workers": [],
+        "activeWorkers": 0,
+        "framePosts": 0,
+        "originalCameraCalls": 0
+      },
+      "ms": 1225,
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4176/?companion-lab=1",
+          "method": "GET",
+          "kind": "document"
+        },
+        {
+          "url": "http://127.0.0.1:4176/assets/index-DgRxM-pW.js",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4176/assets/index-CxaQaX9n.css",
+          "method": "GET",
+          "kind": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:4176/registerSW.js",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap",
+          "method": "GET",
+          "kind": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:4176/assets/companion-CompanionLab-DAnbN3xA.js",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4176/assets/CompanionLab-C3ZH-Ly4.css",
+          "method": "GET",
+          "kind": "stylesheet"
+        },
+        {
+          "url": "http://127.0.0.1:4176/favicon.svg",
+          "method": "GET",
+          "kind": "other"
+        }
+      ],
+      "blockedExternalRequests": [
+        "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+      ],
+      "apiAttempts": [],
+      "pageErrors": [],
+      "screenshot": "evals/virtual-companion/v4-poc/integration-820-1791376011888/I02.png"
+    },
+    {
+      "id": "W02",
+      "name": "First and repeated real worker initialization in a cache-enabled blank test page",
+      "evidenceType": "same-origin local worker; browser HTTP cache enabled; generated blank image only; NO application, camera or human mirror",
+      "attempt": 1,
+      "at": "2026-10-07T12:26:54.797Z",
+      "pass": true,
+      "cacheRuns": [
+        {
+          "attempt": 1,
+          "initWallMs": 472.1000000014901,
+          "resourceLoadMs": 242.19999999925494,
+          "initializationMs": 219.39999999850988,
+          "blockedNetworkRequests": 0,
+          "observationMs": 12000,
+          "blockedNetworkRequestsAfterObservation": 0,
+          "resources": [
+            {
+              "name": "http://127.0.0.1:4176/companion-assets/vision_bundle.js",
+              "initiatorType": "other",
+              "duration": 10.800000000745058,
+              "transferSize": 45662,
+              "encodedBodySize": 45362,
+              "decodedBodySize": 156161,
+              "responseStatus": 200
+            },
+            {
+              "name": "http://127.0.0.1:4176/companion-assets/pose_landmarker_lite.task",
+              "initiatorType": "fetch",
+              "duration": 212.69999999925494,
+              "transferSize": 4971796,
+              "encodedBodySize": 4971496,
+              "decodedBodySize": 5777746,
+              "responseStatus": 200
+            },
+            {
+              "name": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.js",
+              "initiatorType": "other",
+              "duration": 13,
+              "transferSize": 81783,
+              "encodedBodySize": 81483,
+              "decodedBodySize": 335393,
+              "responseStatus": 200
+            },
+            {
+              "name": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.wasm",
+              "initiatorType": "fetch",
+              "duration": 55.399999998509884,
+              "transferSize": 12997548,
+              "encodedBodySize": 12997248,
+              "decodedBodySize": 12997248,
+              "responseStatus": 200
+            }
+          ],
+          "blankResult": {
+            "detectedBodies": 0,
+            "inferenceMs": 143.10000000149012
+          }
+        },
+        {
+          "attempt": 2,
+          "initWallMs": 266.8999999985099,
+          "resourceLoadMs": 40.19999999925494,
+          "initializationMs": 214.90000000223517,
+          "blockedNetworkRequests": 0,
+          "observationMs": 12000,
+          "blockedNetworkRequestsAfterObservation": 0,
+          "resources": [
+            {
+              "name": "http://127.0.0.1:4176/companion-assets/vision_bundle.js",
+              "initiatorType": "other",
+              "duration": 2.900000002235174,
+              "transferSize": 300,
+              "encodedBodySize": 45362,
+              "decodedBodySize": 156161,
+              "responseStatus": 200
+            },
+            {
+              "name": "http://127.0.0.1:4176/companion-assets/pose_landmarker_lite.task",
+              "initiatorType": "fetch",
+              "duration": 20.399999998509884,
+              "transferSize": 300,
+              "encodedBodySize": 4971496,
+              "decodedBodySize": 5777746,
+              "responseStatus": 200
+            },
+            {
+              "name": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.js",
+              "initiatorType": "other",
+              "duration": 4.100000001490116,
+              "transferSize": 300,
+              "encodedBodySize": 81483,
+              "decodedBodySize": 335393,
+              "responseStatus": 200
+            },
+            {
+              "name": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.wasm",
+              "initiatorType": "fetch",
+              "duration": 56.79999999701977,
+              "transferSize": 12997548,
+              "encodedBodySize": 12997248,
+              "decodedBodySize": 12997248,
+              "responseStatus": 200
+            }
+          ],
+          "blankResult": {
+            "detectedBodies": 0,
+            "inferenceMs": 154.60000000149012
+          }
+        }
+      ],
+      "observedCachedBodies": [],
+      "observedRevalidatedBodies": [
+        {
+          "name": "http://127.0.0.1:4176/companion-assets/vision_bundle.js",
+          "initiatorType": "other",
+          "duration": 2.900000002235174,
+          "transferSize": 300,
+          "encodedBodySize": 45362,
+          "decodedBodySize": 156161,
+          "responseStatus": 200
+        },
+        {
+          "name": "http://127.0.0.1:4176/companion-assets/pose_landmarker_lite.task",
+          "initiatorType": "fetch",
+          "duration": 20.399999998509884,
+          "transferSize": 300,
+          "encodedBodySize": 4971496,
+          "decodedBodySize": 5777746,
+          "responseStatus": 200
+        },
+        {
+          "name": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.js",
+          "initiatorType": "other",
+          "duration": 4.100000001490116,
+          "transferSize": 300,
+          "encodedBodySize": 81483,
+          "decodedBodySize": 335393,
+          "responseStatus": 200
+        }
+      ],
+      "cacheEvidence": "cache body reuse evidenced by same-origin ResourceTiming transfer bytes; raw response headers are retained",
+      "measurementBoundary": "fresh isolated browser context then second new worker in same context; no Playwright routes or service workers; local server asset access and model reinitialization only; not WAN download latency or human tracking",
+      "observedWorkerCsp": "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self'",
+      "audit": {
+        "localStorage": {},
+        "sessionStorage": {},
+        "reads": [],
+        "writes": [],
+        "gum": [],
+        "activeTracks": 0,
+        "streams": [],
+        "workers": [],
+        "activeWorkers": 0,
+        "framePosts": 0,
+        "originalCameraCalls": 0
+      },
+      "ms": 26130,
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4176/software-cache-1791376014798.html",
+          "method": "GET",
+          "kind": "document"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/pose-worker.js",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/vision_bundle.js",
+          "method": "GET",
+          "kind": "other"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/pose_landmarker_lite.task",
+          "method": "GET",
+          "kind": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.js",
+          "method": "GET",
+          "kind": "other"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.wasm",
+          "method": "GET",
+          "kind": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/pose-worker.js",
+          "method": "GET",
+          "kind": "script"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/vision_bundle.js",
+          "method": "GET",
+          "kind": "other"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/pose_landmarker_lite.task",
+          "method": "GET",
+          "kind": "fetch"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.js",
+          "method": "GET",
+          "kind": "other"
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.wasm",
+          "method": "GET",
+          "kind": "fetch"
+        }
+      ],
+      "blockedExternalRequests": [],
+      "apiAttempts": [],
+      "pageErrors": [],
+      "assetResponses": [
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/pose-worker.js",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {
+            "cache-control": "no-cache",
+            "etag": "W/\"5233-1791375528601\"",
+            "last-modified": "Wed, 07 Oct 2026 12:18:48 GMT",
+            "content-security-policy": "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self'"
+          },
+          "conditionalRequest": {}
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/vision_bundle.js",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {
+            "cache-control": "no-cache",
+            "etag": "W/\"156161-1791373877140\"",
+            "last-modified": "Wed, 07 Oct 2026 11:51:17 GMT"
+          },
+          "conditionalRequest": {}
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/pose_landmarker_lite.task",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {
+            "cache-control": "no-cache",
+            "etag": "W/\"5777746-1791374307665\"",
+            "last-modified": "Wed, 07 Oct 2026 11:58:27 GMT"
+          },
+          "conditionalRequest": {}
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.js",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {
+            "cache-control": "no-cache",
+            "etag": "W/\"335393-1791373877351\"",
+            "last-modified": "Wed, 07 Oct 2026 11:51:17 GMT"
+          },
+          "conditionalRequest": {}
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.wasm",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {
+            "cache-control": "no-cache",
+            "etag": "W/\"12997248-1791373878510\"",
+            "last-modified": "Wed, 07 Oct 2026 11:51:18 GMT",
+            "content-length": "12997248"
+          },
+          "conditionalRequest": {}
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/pose-worker.js",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {
+            "content-security-policy": "default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self'"
+          },
+          "conditionalRequest": {
+            "if-none-match": "W/\"5233-1791375528601\"",
+            "if-modified-since": "Wed, 07 Oct 2026 12:18:48 GMT"
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/vision_bundle.js",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {},
+          "conditionalRequest": {
+            "if-none-match": "W/\"156161-1791373877140\"",
+            "if-modified-since": "Wed, 07 Oct 2026 11:51:17 GMT"
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/pose_landmarker_lite.task",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {},
+          "conditionalRequest": {
+            "if-none-match": "W/\"5777746-1791374307665\"",
+            "if-modified-since": "Wed, 07 Oct 2026 11:58:27 GMT"
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.js",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {},
+          "conditionalRequest": {
+            "if-none-match": "W/\"335393-1791373877351\"",
+            "if-modified-since": "Wed, 07 Oct 2026 11:51:17 GMT"
+          }
+        },
+        {
+          "url": "http://127.0.0.1:4176/companion-assets/wasm/vision_wasm_internal.wasm",
+          "status": 200,
+          "fromServiceWorker": false,
+          "headers": {
+            "cache-control": "no-cache",
+            "etag": "W/\"12997248-1791373878510\"",
+            "last-modified": "Wed, 07 Oct 2026 11:51:18 GMT",
+            "content-length": "12997248"
+          },
+          "conditionalRequest": {}
+        }
+      ],
+      "screenshot": "evals/virtual-companion/v4-poc/integration-820-1791376011888/W02.png"
+    }
+  ]
+}

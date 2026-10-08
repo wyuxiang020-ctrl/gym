@@ -1,0 +1,16 @@
+{
+  "status": "FAIL",
+  "output": "evals/virtual-companion/d-panda/originals-check-1791399256791",
+  "checks": [
+    {
+      "name": "交付包原文件完整性",
+      "files": 21,
+      "result": "PASS"
+    },
+    {
+      "name": "七张运行原图与交付包逐字节一致",
+      "result": "PASS"
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n476 !== 475\n"
+}

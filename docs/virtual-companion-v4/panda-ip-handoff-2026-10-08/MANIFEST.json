@@ -1,0 +1,134 @@
+{
+  "package": "D Panda IP Design Handoff",
+  "date": "2026-10-08",
+  "timezone": "Asia/Shanghai",
+  "state": "Design boards and motion specifications; no finished animation or camera validation",
+  "selected_design_boards": 7,
+  "hash_algorithm": "SHA-256",
+  "excluded": [
+    "MANIFEST.json"
+  ],
+  "files": [
+    {
+      "path": "INTERACTION-SPEC.md",
+      "bytes": 5846,
+      "sha256": "7c64bdc5caf3c65f2704b1eb4fb73809444394d2406274d41b054550ff83b9ed"
+    },
+    {
+      "path": "IP-SPEC.md",
+      "bytes": 6403,
+      "sha256": "93ff5cec25834e76f3d915182bc5c8d12e5b536fe6bfc2668442a47c00eac502"
+    },
+    {
+      "path": "MOTION-SPEC.md",
+      "bytes": 23739,
+      "sha256": "e7761370574ada3421ded23e947dae5011bafb0a6d4d1bd0d2a5d5424419dfac"
+    },
+    {
+      "path": "PRODUCTION-AND-ACCEPTANCE.md",
+      "bytes": 6853,
+      "sha256": "77785d3f8e797b922ba0fc04ab17d69fb1e95d957f51b9e28fd1c50e3d5a9afe"
+    },
+    {
+      "path": "PROJECT-PROMPT.md",
+      "bytes": 6432,
+      "sha256": "be5dbaf9faac54f2f6d2f25ed84c64e4a6c0b6297a73962a18a4e0255f350a61"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4002,
+      "sha256": "fa42b52bea5af1cbc91efbe62a018e50f4f89d9cf286c179473ebe3981747aba"
+    },
+    {
+      "path": "START-HERE.html",
+      "bytes": 68446,
+      "sha256": "584ac32ba8bba0dc599135b5e0c94a82e5df40834206b37da0d70ebc9182ba84"
+    },
+    {
+      "path": "assets/D1-character-turnaround.png",
+      "bytes": 1452971,
+      "sha256": "e3121ec114d1169478f125f9c1ac69dc89cef2215db0679ad5d5d5a6d8dba808",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "assets/D2-character-accessories.png",
+      "bytes": 1557501,
+      "sha256": "213e4988d57259b0efa4a60c907e098eefc42dc5d1c86b59f4c8ce3bc01f6ff4",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "assets/D2-expressions.png",
+      "bytes": 1624064,
+      "sha256": "904b4fb2cc40d37b8ca178c63d8167ee7c7e188363023a84339c7df876329880",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "assets/D2-key-poses.png",
+      "bytes": 1680452,
+      "sha256": "78a74016129385c86aef030d305da73215b82161f225e812dc3f653b14a48b15",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "assets/D3-expressions.png",
+      "bytes": 1635048,
+      "sha256": "5855774b0c89793789aa16113db1dedb7752a106ed3bbd99c0e60ccdfa68bc52",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "assets/D3-movement.png",
+      "bytes": 1622848,
+      "sha256": "9d6ca03e8156baf8720f00b383be3e7c4b5f6a8910eae83dab639dd120dfbd9b",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "assets/D4-hand-interaction.png",
+      "bytes": 1705652,
+      "sha256": "372e8a2021c38799dc2c06387af145f87c5e6ac8e48eda062e4c8443c194c6e3",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "path": "provenance/D1-image-prompts.json",
+      "bytes": 8653,
+      "sha256": "0e7b8c808c398e0829289cff4122a9fe9f10d13379776db26206818e916a8844"
+    },
+    {
+      "path": "provenance/D2-image-prompts.json",
+      "bytes": 11567,
+      "sha256": "d3dc56347b1f691c0955c14209adda8780f468dbc47c6c28c4156ae06b732b54"
+    },
+    {
+      "path": "provenance/D3-image-prompts.json",
+      "bytes": 10353,
+      "sha256": "4574182d5286f93d2b210153aa96c1f4ee4e25d2b7300b0fc06b361d9d2909e9"
+    },
+    {
+      "path": "provenance/D4-image-prompts.json",
+      "bytes": 5964,
+      "sha256": "e053cf18d960d441aa0229cc0f2fdc83abfe2936229b963eb8668f5def520bc3"
+    },
+    {
+      "path": "provenance/README.md",
+      "bytes": 2208,
+      "sha256": "768604ff73b7f85e40a93f0a8aee240bb8b4d427fb8592e398b583e7cc5abbf2"
+    },
+    {
+      "path": "references/RESEARCH-LINKS.md",
+      "bytes": 3559,
+      "sha256": "118c8caa81987cce5a516b0697175ded0aa66c19dad5fc2550c8b4a38e9628d4"
+    },
+    {
+      "path": "references/user-prop-reference.png",
+      "bytes": 439335,
+      "sha256": "455019c577bccad7754acfdcfdb729bb5651691d485ba5cc92408b03fe26bb8b",
+      "width": 800,
+      "height": 753
+    }
+  ]
+}

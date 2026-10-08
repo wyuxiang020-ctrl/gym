@@ -1,0 +1,189 @@
+{
+  "at": "2026-10-07T17:34:29.228Z",
+  "kind": "D_PANDA_SOFTWARE_SYNTHETIC_ONLY",
+  "realCamera": "NOT_RUN",
+  "realPhone": "NOT_RUN",
+  "checks": [
+    {
+      "name": "idle: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "raise: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "hat: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "removeHat: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "wave: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "walk: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "look: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "stretch: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "rest: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "cheer: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "encourage: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "celebrate: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "rise: finite frames, reachable stage bounds, prop grip, continuous wrists at 120 Hz",
+      "pass": true
+    },
+    {
+      "name": "12 separately authored expressions",
+      "pass": true
+    },
+    {
+      "name": "single arm sample holds at mid and high, leaves opposite arm still",
+      "pass": true
+    },
+    {
+      "name": "walk support paw does not slide, lifted paw changes contact",
+      "pass": true
+    },
+    {
+      "name": "jump has anticipation, airtime, absorption and a stationary endpoint; reduced has no flight",
+      "pass": true
+    },
+    {
+      "name": "pause freezes every part; request airborne must land before switching",
+      "pass": true
+    },
+    {
+      "name": "seated end holds and requests stand up before another action",
+      "pass": true
+    },
+    {
+      "name": "loop boundaries, reduced motion request in flight, reset clears pending work",
+      "pass": true
+    },
+    {
+      "name": "mirror poses never trigger autonomous legs/body/props, and remain independent",
+      "pass": true
+    },
+    {
+      "name": "one missing chain holds, then rests slowly while valid arm keeps following; recovery uses current sample",
+      "pass": true
+    },
+    {
+      "name": "partial mapper reports the correct screen side and does not trust occluded placeholders",
+      "pass": true
+    }
+  ],
+  "motion": [
+    {
+      "id": "idle",
+      "maxWristPxPer120Hz": 0,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 0
+    },
+    {
+      "id": "raise",
+      "maxWristPxPer120Hz": 1.783000788787367,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 91.66666666666666
+    },
+    {
+      "id": "hat",
+      "maxWristPxPer120Hz": 7.641490462081256,
+      "maxPropPxPer120Hz": 6.895615105851214,
+      "maxAt": 4508.3333333333485
+    },
+    {
+      "id": "removeHat",
+      "maxWristPxPer120Hz": 10.184065351509902,
+      "maxPropPxPer120Hz": 6.317263326562098,
+      "maxAt": 1649.9999999999961
+    },
+    {
+      "id": "wave",
+      "maxWristPxPer120Hz": 6.339135756507972,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 524.9999999999995
+    },
+    {
+      "id": "walk",
+      "maxWristPxPer120Hz": 9.004261349883242,
+      "maxPropPxPer120Hz": 6.895615105851242,
+      "maxAt": 1566.6666666666636
+    },
+    {
+      "id": "look",
+      "maxWristPxPer120Hz": 10.164945613466053,
+      "maxPropPxPer120Hz": 6.317263326562098,
+      "maxAt": 1649.9999999999961
+    },
+    {
+      "id": "stretch",
+      "maxWristPxPer120Hz": 2.459551917434943,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 983.333333333335
+    },
+    {
+      "id": "rest",
+      "maxWristPxPer120Hz": 0.8777792381004019,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 549.9999999999997
+    },
+    {
+      "id": "cheer",
+      "maxWristPxPer120Hz": 9.141880284450968,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 941.6666666666681
+    },
+    {
+      "id": "encourage",
+      "maxWristPxPer120Hz": 3.1341093396333886,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 399.9999999999998
+    },
+    {
+      "id": "celebrate",
+      "maxWristPxPer120Hz": 5.703222549612674,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 433.33333333333303
+    },
+    {
+      "id": "rise",
+      "maxWristPxPer120Hz": 0.7296114988836802,
+      "maxPropPxPer120Hz": 0,
+      "maxAt": 1558.3333333333303
+    }
+  ],
+  "source": {
+    "src/companion/dpanda/model.ts": "779947adb59976ae686f3355ced90ac0c9ec25170998c0ab55939373383cf438",
+    "src/companion/dpanda/asset.ts": "0f3203f4d1240e33f3b7dab56ebde2ea9ef7aed27b57462ecdca97b2a06c783a",
+    "src/companion/dpanda/expressions.ts": "c08848763ac350ce8264d4345c7d159ee5e9f7651d7f8225d9b191ad91061fed",
+    "src/companion/dpanda/layout.ts": "8b342b19b71c49733fa411fe31d320d7b1cfc641db2b9980eb0bb0dbd43edd47",
+    "src/companion/dpanda/motion.ts": "0eb641846b1228427fe0ed1b4eac12d8f89a3f05cc4e1d6acef1bcaac1c5e96e",
+    "src/companion/dpanda/render.ts": "b14d2ba553790147b91de8aa9b09305e3443ef6986a96ee60795f8c9c76fb2e0",
+    "src/companion/dpanda/player.ts": "270cde8acdfde37419ca9e0eaed248d1d7277b9a66f14e7a560a4d204467fff3"
+  }
+}
