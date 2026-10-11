@@ -26,6 +26,17 @@ async function launch() {
   await ctx.addInitScript(() => { navigator.mediaDevices.getUserMedia = async () => { throw new Error('No camera in software checks') } })
   return ctx
 }
+async function waitForActivatedWorker(page) {
+  return page.evaluate(async () => {
+    const deadline = Date.now() + 30000
+    while (Date.now() < deadline) {
+      const r = await navigator.serviceWorker.getRegistration()
+      if (r?.active?.state === 'activated' && !r.installing && !r.waiting) return true
+      await new Promise(resolve => setTimeout(resolve, 100))
+    }
+    throw new Error('Service worker activation timed out')
+  })
+}
 const data = page => page.evaluate(() => localStorage.getItem('gym-data-v1'))
 try {
   context = await launch()
@@ -36,16 +47,17 @@ try {
   await page.getByRole('heading', { name: '先核对动作与记录', exact: true }).waitFor()
   const versionRegion = page.getByRole('region', { name: '应用版本', exact: true })
   if (prepare) {
-    await page.waitForFunction(async () => (await navigator.serviceWorker.getRegistration())?.active?.state === 'activated')
+    await waitForActivatedWorker(page)
     const state = { base, version: await versionRegion.innerText(), data: await data(page), preparedAt: new Date().toISOString() }
     writeFileSync(statePath, JSON.stringify(state, null, 2))
     report.checks.push({ name: 'pre-release persistent profile captured', version: state.version })
   } else {
     assert.ok(existsSync(statePath), 'Run --prepare before production deployment')
     const before = JSON.parse(readFileSync(statePath, 'utf8')); assert.equal(before.base, base)
+    await waitForActivatedWorker(page)
     await page.getByRole('button', { name: '检查更新', exact: true }).click()
     await page.getByRole('button', { name: '刷新页面', exact: true }).waitFor()
-    await page.waitForFunction(async () => { const r = await navigator.serviceWorker.getRegistration(); return r?.active?.state === 'activated' && !r.installing && !r.waiting })
+    await waitForActivatedWorker(page)
     await page.getByRole('button', { name: '刷新页面', exact: true }).click()
     await versionRegion.getByText(releaseLabel, { exact: true }).waitFor()
     assert.equal(await data(page), before.data)
@@ -87,7 +99,7 @@ try {
     await page.goto(base + '/?training-companion=1', { waitUntil: 'domcontentloaded' })
     await page.getByRole('heading', { name: '先核对动作与记录', exact: true }).waitFor()
     assert.equal(await data(page), saved)
-    report.checks.push({ name: 'full isolated Edge process restart preserves saved data; active rest does not auto-resume' })
+    report.checks.push({ name: 'full isolated Edge process restart preserves saved data and opens companion ready' })
     await page.goto(base, { waitUntil: 'domcontentloaded' })
     await page.locator('.training-hero').waitFor()
     await context.setOffline(true)
@@ -99,5 +111,5 @@ try {
     await context.setOffline(false)
   }
   report.pass = true
-} catch (error) { report.error = error.message; process.exitCode = 1 }
+} catch (error) { report.error = error.message; process.exitCode = 1; const p = context?.pages()[0]; if (p) { report.visibleFailure = (await p.locator('body').innerText().catch(() => '')).slice(-1800); await p.screenshot({ path: `${out}/failure-${Date.now()}.png` }).catch(() => {}) } }
 finally { await context?.close(); writeFileSync(`${out}/${prepare ? 'prepare' : 'results'}.json`, JSON.stringify(report, null, 2)); console.log(JSON.stringify(report, null, 2)) }

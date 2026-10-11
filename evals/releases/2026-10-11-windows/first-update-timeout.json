@@ -1,0 +1,7 @@
+{
+  "base": "https://gym-iota-self.vercel.app",
+  "kind": "Windows Edge isolated persistent profile; synthetic data; no personal installed app, real camera, paid AI or human task timing",
+  "checks": [],
+  "pass": false,
+  "error": "locator.waitFor: Timeout 25000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '刷新页面', exact: true }) to be visible\u001b[22m\n"
+}

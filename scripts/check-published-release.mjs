@@ -32,10 +32,16 @@ try {
   }
   await page.goto(base + '/?equipment-scan=1', { waitUntil: 'domcontentloaded' })
   const before = await page.evaluate(() => localStorage.getItem('gym-data-v1'))
-  await page.waitForFunction(async () => (await navigator.serviceWorker.getRegistration())?.active?.state === 'activated', null, { timeout: 20000 })
   const registration = await page.evaluate(async () => {
-    const reg = await Promise.race([navigator.serviceWorker.ready, new Promise((_, reject) => setTimeout(() => reject(new Error('service worker timeout')), 20000))])
-    return { scope: reg.scope, active: reg.active?.state, script: reg.active?.scriptURL }
+    const deadline = Date.now() + 30000
+    while (Date.now() < deadline) {
+      const reg = await navigator.serviceWorker.getRegistration()
+      if (reg?.active?.state === 'activated' && !reg.installing && !reg.waiting) {
+        return { scope: reg.scope, active: reg.active.state, script: reg.active.scriptURL }
+      }
+      await new Promise(resolve => setTimeout(resolve, 100))
+    }
+    throw new Error('Service worker did not reach a stable activated state')
   })
   assert.equal(registration.active, 'activated')
   await page.getByRole('button', { name: '检查更新', exact: true }).click()

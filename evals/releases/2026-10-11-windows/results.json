@@ -1,0 +1,41 @@
+{
+  "base": "https://gym-iota-self.vercel.app",
+  "kind": "Windows Edge isolated persistent profile; synthetic data; no personal installed app, real camera, paid AI or human task timing",
+  "checks": [
+    {
+      "name": "explicit update preserves pre-release records",
+      "from": "器械与熊猫陪练 · 2026-10-09 · 检查更新",
+      "to": "统一试用版 · 2026-10-11",
+      "observedOldToNew": true
+    },
+    {
+      "name": "window widths and keyboard tab activation",
+      "width": 1280,
+      "tabs": 5
+    },
+    {
+      "name": "window widths and keyboard tab activation",
+      "width": 1920,
+      "tabs": 5
+    },
+    {
+      "name": "window widths and keyboard tab activation",
+      "width": 820,
+      "tabs": 5
+    },
+    {
+      "name": "keyboard confirmation saves one group and ending companion adds none"
+    },
+    {
+      "name": "export matches saved records; cancelling import preserves them"
+    },
+    {
+      "name": "full isolated Edge process restart preserves saved data; active rest does not auto-resume"
+    },
+    {
+      "name": "offline cached home and data survive restart"
+    }
+  ],
+  "pass": true,
+  "interpretation": "The companion was explicitly ended before process restart. This restart check does not test interruption during an active rest timer. Its label is broader than the observed condition; use this interpretation."
+}
