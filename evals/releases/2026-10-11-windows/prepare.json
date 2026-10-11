@@ -1,0 +1,11 @@
+{
+  "base": "https://gym-iota-self.vercel.app",
+  "kind": "Windows Edge isolated persistent profile; synthetic data; no personal installed app, real camera, paid AI or human task timing",
+  "checks": [
+    {
+      "name": "pre-release persistent profile captured",
+      "version": "器械与熊猫陪练 · 2026-10-09 · 检查更新"
+    }
+  ],
+  "pass": true
+}

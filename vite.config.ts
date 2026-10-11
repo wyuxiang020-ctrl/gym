@@ -48,8 +48,8 @@ export default defineConfig({
         name: 'Gym',
         short_name: 'Gym',
         description: '训练与饮食记录',
-        theme_color: '#0a0a0a',
-        background_color: '#0a0a0a',
+        theme_color: '#101214',
+        background_color: '#101214',
         display: 'standalone',
         start_url: '/',
         shortcuts: [
@@ -79,7 +79,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,webp,ico}'],
         // An ordinary Gym visit must not preload experimental renderers or pose models.
         globIgnores: ['**/companion-assets/**', '**/companion-*.js', '**/CompanionLab-*.css'],
       },
