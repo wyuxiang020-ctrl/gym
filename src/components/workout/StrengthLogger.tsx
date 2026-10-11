@@ -52,7 +52,7 @@ export function StrengthLogger({
 
   return (
     <div className="space-y-4">
-      <ExercisePicker onSelect={onAddExercise} />
+      {entries.length === 0 && <ExercisePicker onSelect={onAddExercise} />}
 
       <div className="space-y-3">
         {entries.map((entry) => {
@@ -62,7 +62,7 @@ export function StrengthLogger({
           const missingCount = entry.sets.filter(set => validCompletedSet(set) && confirmedMissingWeight(set)).length
           const estimatedCount = entry.sets.filter(validEstimatedSet).length
           return (
-            <div key={entry.id} id={`strength-entry-${entry.id}`} role="group" aria-label={`${entry.name}训练记录`} className="animate-fade-in rounded-lg border border-neutral-300 bg-card p-3 space-y-2">
+            <div key={entry.id} id={`strength-entry-${entry.id}`} role="group" aria-label={`${entry.name}训练记录`} className="strength-entry rounded-lg border border-neutral-300 bg-card p-3 space-y-2">
               <div className="flex items-center justify-between gap-2">
                 <div>
                   <div className="flex items-center gap-1.5">
@@ -112,8 +112,8 @@ export function StrengthLogger({
 
               <div className="space-y-1.5">
                 {entry.sets.map((set, i) => (
-                  <div key={`${i}:${entry.sets.length}`} className="animate-fade-in flex flex-wrap items-center gap-x-2 gap-y-2 rounded-md bg-neutral-100 border border-neutral-300 px-2 py-1.5">
-                    <span className="w-5 text-xs text-neutral-400">{i + 1}</span>
+                  <div key={`${i}:${entry.sets.length}`} data-current={i === entry.sets.findIndex(item => !validCompletedSet(item))} data-complete={validCompletedSet(set)} className="training-set flex flex-wrap items-center rounded-md bg-neutral-100 border border-neutral-300">
+                    <span className="set-number">第 {String(i + 1).padStart(2, '0')} 组</span>
                     <select
                       aria-label={`第 ${i + 1} 组记录方式`}
                       className="rounded-md border border-neutral-300 bg-card px-2 py-1 text-xs text-neutral-700"
@@ -135,7 +135,7 @@ export function StrengthLogger({
                       <option value="duration">计时</option>
                     </select>
                     <WeightEditor set={set} onChange={(patch) => onUpdateSet(entry.id, i, patch)} />
-                    <span className="text-xs text-neutral-400">×</span>
+                    <span className="set-multiply">×</span>
                     {set.durationSeconds !== undefined ? (
                       <Stepper
                         value={set.durationSeconds}
@@ -151,19 +151,22 @@ export function StrengthLogger({
                         step={1}
                         min={1}
                         max={1000}
+                        suffix="次"
                         onChange={(v) => onUpdateSet(entry.id, i, { reps: v })}
                       />
                     )}
-                    <label className="ml-auto flex items-center gap-1 text-xs text-neutral-600">
+                    <label className="set-complete">
                       <input
+                        aria-label="完成"
                         type="checkbox"
                         checked={set.done}
                         disabled={!resolvedWeight(set) && !confirmedMissingWeight(set) && !set.done}
                         onChange={(e) => onUpdateSet(entry.id, i, { done: e.target.checked })}
                       />
-                      完成
+                      {set.done ? '已完成' : '完成本组'}
                     </label>
                     <button
+                      aria-label={`删除第 ${i + 1} 组`}
                       className="text-xs text-neutral-400 hover:text-red-500"
                       onClick={() => onRemoveSet(entry.id, i)}
                     >
@@ -184,6 +187,7 @@ export function StrengthLogger({
         })}
       </div>
 
+      {entries.length > 0 && <section aria-label="添加下一个动作"><h3 className="mb-3 text-sm text-neutral-500">添加下一个动作</h3><ExercisePicker onSelect={onAddExercise} /></section>}
       {detailFor && <ExerciseDetailSheet name={detailFor} onClose={() => setDetailFor(null)} returnLabel="返回当前记录" />}
     </div>
   )

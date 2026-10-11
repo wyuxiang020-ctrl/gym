@@ -29,6 +29,7 @@ function MeasurementTrend({ measurements }: { measurements: Measurement[] }) {
         {TREND_FIELDS.map((f) => (
           <button
             key={f.key}
+            aria-pressed={field === f.key}
             onClick={() => setField(f.key)}
             className={`rounded-md border px-2.5 py-1 text-xs ${
               field === f.key ? 'border-primary text-primary' : 'border-neutral-300 text-neutral-600'
@@ -38,7 +39,7 @@ function MeasurementTrend({ measurements }: { measurements: Measurement[] }) {
           </button>
         ))}
       </div>
-      <MeasurementChart measurements={measurements} field={current.key} label={current.label} unit={current.unit} />
+      <MeasurementChart key={current.key} measurements={measurements} field={current.key} label={current.label} unit={current.unit} />
     </div>
   )
 }
@@ -57,7 +58,8 @@ export function BodyTab({
   onDeleteMeasurementAt: (index: number) => void
 }) {
   return (
-    <div className="space-y-8">
+    <div className="body-page space-y-8">
+      <header className="page-heading"><p className="eyebrow">看见真实变化</p><h2>记录身体的节奏。</h2><p>每次测量，留下可以回看的变化。</p></header>
       <div className="flex items-center justify-between">
         <h2 className="font-heading text-lg font-semibold text-neutral-900">身体档案</h2>
         <button className="text-sm text-primary" onClick={onEditProfile}>

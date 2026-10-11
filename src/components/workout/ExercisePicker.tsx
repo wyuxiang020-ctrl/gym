@@ -2,15 +2,6 @@ import { useState } from 'react'
 import { EXERCISE_LIBRARY } from '../../lib/exerciseLibrary'
 import { ExerciseDetailSheet } from './ExerciseDetailSheet'
 
-const CATEGORY_ACTIVE_STYLE: Record<string, string> = {
-  胸: 'border-plate-red text-plate-red bg-plate-red/10',
-  背: 'border-plate-blue text-plate-blue bg-plate-blue/10',
-  肩: 'border-plate-yellow text-plate-yellow bg-plate-yellow/10',
-  手臂: 'border-plate-green text-plate-green bg-plate-green/10',
-  腿: 'border-plate-gray text-plate-gray bg-plate-gray/10',
-  核心: 'border-primary text-primary bg-primary/10',
-}
-
 export function ExercisePicker({
   onSelect,
   addLabel = '添加',
@@ -30,11 +21,12 @@ export function ExercisePicker({
         {EXERCISE_LIBRARY.map((c) => (
           <button
             key={c.category}
+            aria-pressed={category === c.category}
             type="button"
             onClick={() => setCategory(c.category)}
             className={`shrink-0 rounded-md border px-2.5 py-1 text-xs font-medium ${
               category === c.category
-                ? (CATEGORY_ACTIVE_STYLE[c.category] ?? 'border-primary text-primary bg-primary/10')
+                ? 'border-primary text-primary bg-primary/10'
                 : 'border-neutral-300 text-neutral-600'
             }`}
           >
@@ -56,7 +48,7 @@ export function ExercisePicker({
             <button
               type="button"
               onClick={() => setDetailFor(name)}
-              className="border-l border-neutral-300 bg-card px-2 text-xs text-neutral-400"
+              className="min-w-11 border-l border-neutral-300 bg-card px-2 text-xs text-neutral-400"
               title="查看动作要领"
             >
               ⓘ

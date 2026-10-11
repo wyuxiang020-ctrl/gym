@@ -9,7 +9,8 @@ interface PendingImport {
   json: string
 }
 
-export function RecordsTab({ onImportSuccess }: { onImportSuccess?: () => void }) {
+export function RecordsTab({ onImportSuccess, initialDate }: { onImportSuccess?: () => void; initialDate?: string }) {
+  const [selectedDate, setSelectedDate] = useState(initialDate)
   const [dayLogs, setDayLogs] = useState<Record<string, DayLog>>(() => store.getDayLogsMap())
   const [importMsg, setImportMsg] = useState<string | null>(null)
   const [pendingImport, setPendingImport] = useState<PendingImport | null>(null)
@@ -56,9 +57,11 @@ export function RecordsTab({ onImportSuccess }: { onImportSuccess?: () => void }
   }
 
   return (
-    <div className="space-y-6">
-      <section className="space-y-2">
-        <h2 className="font-heading text-lg font-semibold text-neutral-900">数据备份</h2>
+    <div className="records-page space-y-6">
+      <header className="page-heading"><p className="eyebrow">记录进步</p><h2>每一组，都算数。</h2><p>查看实际保存的训练与饮食记录。</p></header>
+      {selectedDate && <section className="selected-record" aria-label="所选日期记录"><div className="section-heading"><h3>{selectedDate}</h3><button onClick={() => setSelectedDate(undefined)}>查看全部日期</button></div><p>{dayLogs[selectedDate] ? `力量 ${dayLogs[selectedDate].strength.length} 项 · 有氧 ${dayLogs[selectedDate].cardio.length} 项 · 已完成力量 ${dayLogs[selectedDate].strength.flatMap(entry => entry.sets).filter(validCompletedSet).length} 组` : '这天还没有记录。完成训练后，记录会出现在这里。'}</p></section>}
+      <details className="backup-panel space-y-2" open>
+        <summary>数据备份 <span>导出 / 导入 JSON</span></summary>
         {storageIssue && (
           <div className="space-y-1 rounded-lg border border-red-300 bg-red-50 p-3" role="alert">
             <p className="text-sm font-medium text-red-800">已保护原始数据,当前暂停写入</p>
@@ -117,28 +120,31 @@ export function RecordsTab({ onImportSuccess }: { onImportSuccess?: () => void }
           </div>
         )}
         {importMsg && <p className="text-xs text-neutral-500">{importMsg}</p>}
-      </section>
+      </details>
 
       <section className="space-y-2">
         <h2 className="font-heading text-lg font-semibold text-neutral-900">历史记录</h2>
         {sortedDates.length === 0 && <p className="text-sm text-neutral-500">还没有记录。</p>}
         <div className="space-y-1.5">
-          {sortedDates.map((date) => {
+          {sortedDates.filter(date => !selectedDate || date === selectedDate).map((date) => {
             const log = dayLogs[date]
             const vol = dayVolume(log)
             const missingCount = log.strength.flatMap(entry => entry.sets).filter(set => validCompletedSet(set) && confirmedMissingWeight(set)).length
             return (
-              <div key={date} className="rounded-lg border border-neutral-200 bg-card px-3 py-2 text-sm">
+              <details key={date} className="history-entry rounded-lg border border-neutral-200 bg-card px-3 py-2 text-sm" open={date === selectedDate || undefined}>
+                <summary aria-label={`展开 ${date} 记录`}>
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-neutral-900">{date}</span>
                   {log.checkedIn && <span className="text-xs text-primary">已打卡</span>}
                 </div>
+                </summary>
                 <div className="text-xs text-neutral-500">
                   力量 {log.strength.length} 项 · 有氧 {log.cardio.length} 项 · 饮食 {log.meals.length} 餐 · 已知重量容量{' '}
                   {vol} kg·次
                 </div>
                 {missingCount > 0 && <p className="text-xs text-amber-800">{missingCount} 组已完成但重量未记录，未计入容量；此数值不是完整训练总量。</p>}
-              </div>
+                <ul className="history-details">{log.strength.map(entry => <li key={entry.id}><strong>{entry.name}</strong><span>{entry.sets.filter(validCompletedSet).length} / {entry.sets.length} 组完成</span></li>)}{log.cardio.map(entry => <li key={entry.id}><strong>{entry.type}</strong><span>{entry.minutes} 分钟 · {entry.done === false ? '待完成' : '已记录'}</span></li>)}</ul>
+              </details>
             )
           })}
         </div>

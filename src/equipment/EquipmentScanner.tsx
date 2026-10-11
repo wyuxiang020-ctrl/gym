@@ -5,6 +5,7 @@ import { CHEST_PRESS, validateEquipmentResult, type EquipmentResult } from '../l
 import { clearEquipmentHandoff, getEquipmentHandoff, saveEquipmentHandoff } from '../lib/store'
 import EquipmentTeaching from './EquipmentTeaching'
 import './equipment.css'
+import './equipment-training-theme.css'
 
 type Props = { onAddExercise?: (name: string) => boolean; onContinueTraining?: () => void; onStartCompanion?: (name: string) => boolean; date?: string }
 
@@ -86,11 +87,11 @@ export default function EquipmentScanner({ onAddExercise, onContinueTraining, on
     window.location.assign('/?equipment-training=1')
   }
   return <section className="equipment-scanner" aria-label="静态器械扫描">
-    <div className="equipment-steps" aria-label="流程"><span data-active={!candidate}>01 拍摄器械</span><span data-active={candidate && !confirmed}>02 核对类别</span><span data-active={confirmed}>03 查看资料</span></div>
+    <div className="equipment-steps" aria-label="流程"><span aria-current={!candidate ? 'step' : undefined} data-active={!candidate}>01 拍摄器械</span><span aria-current={candidate && !confirmed ? 'step' : undefined} data-active={candidate && !confirmed}>02 核对类别</span><span aria-current={confirmed && !saved ? 'step' : undefined} data-active={confirmed && !saved}>03 查看资料</span><span aria-current={saved ? 'step' : undefined} data-active={saved}>04 训练记录</span></div>
     <div className="equipment-grid">
       <section className="equipment-card">
         <h2>把器械拍完整</h2><p>首轮支持坐姿推胸机。拍到座椅、靠背、握把和推臂，尽量只包含一台器械。</p>
-        <div className="equipment-photo">{photo ? <img src={photo.dataUrl} alt="待识别的器械照片，本地预览" /> : <div><span aria-hidden="true">＋</span><strong>先看照片，再决定上传</strong><p>可拍照，也可从相册选择</p></div>}</div>
+        <div className="equipment-photo" data-processing={busy === 'request'} aria-busy={Boolean(busy)}>{photo ? <img src={photo.dataUrl} alt="待识别的器械照片，本地预览" /> : <div><span aria-hidden="true">⌗</span><strong>先看照片，再决定上传</strong><p>可拍照，也可从相册选择</p></div>}</div>
         <input ref={fileInput} type="file" accept="image/jpeg,image/png,image/webp" hidden aria-label="选择器械照片" onChange={event => { void choose(event.target.files?.[0]); event.target.value = '' }} />
         <input ref={cameraInput} type="file" accept="image/jpeg,image/png,image/webp" capture="environment" hidden aria-label="拍摄器械照片" onChange={event => { void choose(event.target.files?.[0]); event.target.value = '' }} />
         <div className="equipment-buttons"><button onClick={() => cameraInput.current?.click()} disabled={!!busy}>拍一张照片</button><button onClick={() => fileInput.current?.click()} disabled={!!busy}>选择照片</button>{photo && <button onClick={reset}>移除照片</button>}</div>

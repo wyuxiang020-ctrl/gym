@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { BodyTab } from './components/BodyTab'
 import { BottomTabBar, type TabKey } from './components/BottomTabBar'
 import { MealTab } from './components/MealTab'
@@ -8,6 +8,7 @@ import { WorkoutTab } from './components/WorkoutTab'
 import { TodayTab } from './components/checkin/TodayTab'
 import { DemoAccessControl } from './components/DemoAccessControl'
 import { ReleaseStatus } from './components/ReleaseStatus'
+import { NetworkStatus } from './components/NetworkStatus'
 import * as store from './lib/store'
 import { todayStr } from './lib/date'
 import { ToastProvider } from './lib/ToastContext'
@@ -60,6 +61,19 @@ function AppContent() {
   const [plans, setPlans] = useState<Plan[]>(() => store.getPlans())
   const [editingProfile, setEditingProfile] = useState(false)
   const [tab, setTab] = useState<TabKey>(searchParams.get('equipment-training') === '1' || searchParams.get('training-companion') === '1' ? 'workout' : 'today')
+  const [recordDate, setRecordDate] = useState<string | undefined>()
+  const scrollPositions = useRef<Partial<Record<TabKey, number>>>({})
+  function navigate(next: TabKey) {
+    if (next === tab) return
+    scrollPositions.current[tab] = window.scrollY
+    setTab(next)
+  }
+  useLayoutEffect(() => { window.scrollTo(0, scrollPositions.current[tab] ?? 0) }, [tab])
+  function openRecords(selectedDate: string) {
+    setRecordDate(selectedDate)
+    scrollPositions.current.records = 0
+    navigate('records')
+  }
 
   function reloadImportedData() {
     setStorageIssue(store.getStorageIssue())
@@ -126,6 +140,7 @@ function AppContent() {
     return (
       <div className="min-h-screen bg-app-bg px-4 py-10">
         <div className="mx-auto w-full max-w-[520px] space-y-6">
+          {!profile && <div className="onboarding-banner"><p className="eyebrow">GYM · 认识器械，记录进步</p><h2>今天，从这里开始。</h2><p>先建立档案，记录会保存在当前设备。</p><a href="/?equipment-scan=1">先看看器械扫描 ↗</a></div>}
           <h1 className="font-heading text-2xl font-semibold text-neutral-900">
             {profile ? '编辑档案' : '先建立身体档案'}
           </h1>
@@ -139,10 +154,10 @@ function AppContent() {
   const date = todayStr()
 
   return (
-    <div className="min-h-screen bg-app-bg">
-      <div className="mx-auto w-full max-w-[520px] px-4 pb-24 pt-6">
-        <div className="mb-6 flex items-center justify-between gap-3">
-          <div><h1 className="font-heading text-2xl font-semibold text-neutral-900">Gym</h1></div>
+    <div className="gym-shell min-h-screen bg-app-bg">
+      <div className={`app-container tab-${tab}`}>
+        <header className="app-header">
+          <div className="brand-lockup"><h1>GYM<span>.</span></h1><p>{new Date(`${date}T12:00:00`).toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' })}</p></div>
           <div className="flex items-center gap-2">
             {portfolioDemo && (
               <span className="rounded-full bg-amber-100 px-2.5 py-1.5 text-xs font-semibold text-amber-800">
@@ -151,15 +166,11 @@ function AppContent() {
             )}
             <DemoAccessControl />
           </div>
-        </div>
+        </header>
 
-        <ReleaseStatus />
-        <nav aria-label="器械与伙伴入口" className="mb-5 flex flex-wrap gap-x-4 text-sm text-primary">
-          <a className="inline-flex min-h-11 items-center underline" href="/?equipment-scan=1">器械扫描</a>
-          <a className="inline-flex min-h-11 items-center underline" href="/?training-companion=1">熊猫陪练</a>
-          <a className="inline-flex min-h-11 items-center underline" href="/?companion-lab=1">熊猫形象与动作</a>
-        </nav>
-        {tab === 'today' && <TodayTab date={date} profile={profile} />}
+        <NetworkStatus />
+        <main id="main-content">
+        {tab === 'today' && <TodayTab date={date} profile={profile} onTrain={() => navigate('workout')} onRecords={openRecords} />}
 
         {tab === 'workout' && (
           <WorkoutTab
@@ -188,10 +199,12 @@ function AppContent() {
           />
         )}
 
-        {tab === 'records' && <RecordsTab onImportSuccess={reloadImportedData} />}
+        {tab === 'records' && <RecordsTab key={recordDate ?? 'all'} initialDate={recordDate} onImportSuccess={reloadImportedData} />}
+        </main>
+        <footer className="app-footer"><nav aria-label="器械与伙伴入口"><a href="/?equipment-scan=1">器械扫描 ↗</a><a href="/?training-companion=1">熊猫陪练 ↗</a><a href="/?companion-lab=1">熊猫形象与动作 ↗</a></nav><ReleaseStatus /></footer>
       </div>
 
-      <BottomTabBar active={tab} onChange={setTab} />
+      <BottomTabBar active={tab} onChange={next => { if (next === 'records') setRecordDate(undefined); navigate(next) }} />
     </div>
   )
 }

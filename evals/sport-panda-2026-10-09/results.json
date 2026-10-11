@@ -1,0 +1,17 @@
+{
+  "scope": "isolated synthetic records; three loop boundaries; continuous time, pause, synthetic visibility event, editing focus, reduced motion and save-driven rest; no camera/model",
+  "results": [
+    {
+      "width": 390,
+      "pass": true
+    },
+    {
+      "width": 360,
+      "pass": true
+    },
+    {
+      "width": 1000,
+      "pass": true
+    }
+  ]
+}

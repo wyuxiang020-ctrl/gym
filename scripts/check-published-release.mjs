@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { chromium } from 'file:///C:/Users/WangYuxiang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs'
 
+const releaseLabel = readFileSync('src/components/ReleaseStatus.tsx', 'utf8').match(/RELEASE_LABEL = '([^']+)'/)[1]
 const base = process.env.GYM_RELEASE_URL || 'http://127.0.0.1:4185'
 assert.ok(['127.0.0.1', 'gym-iota-self.vercel.app'].includes(new URL(base).hostname))
 const out = `evals/releases/check-${Date.now()}`; mkdirSync(out, { recursive: true })
@@ -22,7 +23,7 @@ const page = await context.newPage(); page.setDefaultTimeout(20000)
 try {
   for (const [label, path] of [['scan', '/?equipment-scan=1'], ['companion', '/?training-companion=1'], ['library', '/?companion-lab=1']]) {
     await page.goto(base + path, { waitUntil: 'domcontentloaded' })
-    await page.getByRole('region', { name: '应用版本', exact: true }).getByText('器械与熊猫陪练 · 2026-10-09', { exact: true }).waitFor()
+    await page.getByRole('region', { name: '应用版本', exact: true }).getByText(releaseLabel, { exact: true }).waitFor()
     if (label === 'scan') await page.locator('.equipment-intro img').evaluate(async img => { await img.decode(); if (!img.naturalWidth) throw new Error('Panda image did not load') })
     assert.equal(await page.getByText('页面暂时无法加载', { exact: true }).count(), 0)
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1))

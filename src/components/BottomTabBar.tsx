@@ -14,10 +14,10 @@ export function BottomTabBar({ active, onChange }: { active: TabKey; onChange: (
   const activeIndex = TABS.findIndex((t) => t.key === active)
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-10 border-t border-neutral-200 bg-card">
-      <div className="relative mx-auto flex max-w-[520px]">
+    <nav aria-label="主要导航" className="bottom-tab-bar fixed inset-x-0 bottom-0 z-10 border-t border-neutral-200 bg-card">
+      <div className="relative mx-auto flex max-w-[720px]">
         <div
-          className="absolute top-0 h-0.5 bg-primary transition-all duration-300 ease-out"
+          className="absolute top-0 h-0.5 bg-primary transition-all duration-200 ease-out"
           style={{ width: `${100 / TABS.length}%`, left: `${(activeIndex * 100) / TABS.length}%` }}
         />
         {TABS.map((t) => {
@@ -25,6 +25,7 @@ export function BottomTabBar({ active, onChange }: { active: TabKey; onChange: (
           return (
             <button
               key={t.key}
+              aria-current={isActive ? 'page' : undefined}
               onClick={() => onChange(t.key)}
               className={`flex min-h-11 flex-1 flex-col items-center gap-0.5 py-1.5 text-xs font-medium ${
                 isActive ? 'text-primary' : 'text-neutral-400'

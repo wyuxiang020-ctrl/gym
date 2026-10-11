@@ -1,0 +1,15 @@
+{
+  "base": "http://127.0.0.1:4325",
+  "results": [
+    {
+      "width": 390,
+      "pass": true,
+      "checked": "gallery; mobile layout; scenario expansion; seven downloads; résumé entry; no runtime errors"
+    },
+    {
+      "width": 1440,
+      "pass": true,
+      "checked": "gallery; mobile layout; scenario expansion; seven downloads; résumé entry; no runtime errors"
+    }
+  ]
+}

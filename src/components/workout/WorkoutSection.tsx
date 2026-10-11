@@ -82,6 +82,7 @@ export function WorkoutSection({
   const [equipmentOpen, setEquipmentOpen] = useState(new URLSearchParams(window.location.search).get('equipment-training') === '1')
   const [companionOpen, setCompanionOpen] = useState(new URLSearchParams(window.location.search).get('training-companion') === '1')
   const [completion, setCompletion] = useState<CompletionEvent | null>(null)
+  const [saveError, setSaveError] = useState<string | null>(null)
   const [companionLaunch, setCompanionLaunch] = useState<{ entryId: string; sequence: number } | null>(null)
   const activePlan = plans.find((p) => p.isActive) ?? null
   const { showToast } = useToast()
@@ -100,15 +101,17 @@ export function WorkoutSection({
   }
 
   function safeEdit(action: () => void) {
-    try { action(); return true } catch (error) { showToast(error instanceof Error ? error.message : '保存失败，请保留原始记录后重试。'); return false }
+    try { action(); setSaveError(null); return true } catch (error) { const message = error instanceof Error ? error.message : '保存失败，请保留原始记录后重试。'; setSaveError(message); showToast(message); return false }
   }
 
   function saveWholeDay(nextDayLog: DayLog): boolean {
     try {
       store.replaceDayLog(date, nextDayLog)
       refresh()
+      setSaveError(null)
       return true
     } catch (error) {
+      setSaveError(error instanceof Error ? error.message : '写入失败，请检查记录后重试。')
       showToast(error instanceof Error ? error.message : '写入失败，请检查记录后重试。')
       return false
     }
@@ -415,7 +418,9 @@ export function WorkoutSection({
   }
 
   return (
-    <div className="space-y-6">
+    <div className="workout-log space-y-6">
+      {saveError && <div className="save-error-panel" role="alert"><strong>这次修改没有保存</strong><p>原因：{saveError}</p><p>已保存记录保持原样。请保留当前输入，检查浏览器存储后重试原操作。</p><button onClick={() => store.downloadExport()}>导出已保存记录备份</button></div>}
+      <div className="workout-overview"><div><p>今日记录 · {date}</p><h2>{dayLog.strength.length + dayLog.cardio.length} 个动作</h2></div><div><strong>{dayLog.strength.flatMap(entry => entry.sets).filter(validCompletedSet).length}</strong><p>力量组已完成</p></div></div>
       {allWorkoutDone && (
         <div className="animate-fade-in space-y-1 rounded-lg border border-plate-green bg-plate-green/10 p-3 text-center">
           <p className="font-heading text-sm font-semibold text-plate-green">✓ 今日训练已计入档案</p>
@@ -424,7 +429,7 @@ export function WorkoutSection({
       )}
 
       {activePlan && (
-        <div className="space-y-2 rounded-lg border border-neutral-300 bg-card p-3">
+        <div className="plan-import space-y-2 rounded-lg border border-neutral-300 bg-card p-3" style={{ order: dayLog.strength.length || dayLog.cardio.length ? 2 : 0 }}>
           <p className="text-sm font-medium text-neutral-900">从计划导入今天的动作</p>
           <p className="text-xs text-neutral-500">当前计划:{activePlan.name}</p>
           <div className="flex flex-wrap gap-1.5">
@@ -471,7 +476,7 @@ export function WorkoutSection({
         </div>
       )}
 
-      <NLWorkoutInput key={date} date={date} onConfirm={requestParsedWorkout} resetToken={parsedResetToken} />
+
 
       {companionOpen ? <Suspense fallback={<p>正在加载熊猫陪练…</p>}><WorkoutCompanion key={`${date}:${companionLaunch?.sequence ?? 0}`} date={date} entries={dayLog.strength} initialEntryId={companionLaunch?.entryId} focusOnOpen={Boolean(companionLaunch)} completion={completion} onClose={() => setCompanionOpen(false)} /></Suspense> : <button className="min-h-11 rounded-lg border border-neutral-300 px-4 text-sm text-neutral-800" onClick={() => { setCompanionLaunch(null); setCompanionOpen(true) }}>开启熊猫陪练</button>}
 
@@ -556,6 +561,10 @@ export function WorkoutSection({
           onRemove={(...args) => safeEdit(() => removeCardio(...args))}
         />
       </div>
+
+
+
+      <NLWorkoutInput key={date} date={date} onConfirm={requestParsedWorkout} resetToken={parsedResetToken} />
 
       {!weightKg && (
         <p className="text-xs text-neutral-600">添加一条包含体重的测量记录后,这里的热量才能自动估算。</p>

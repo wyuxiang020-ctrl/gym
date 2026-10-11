@@ -1,0 +1,80 @@
+{
+  "version": "virtual-companion-v4-poc",
+  "startedAt": "2026-10-09T08:02:16.643Z",
+  "base": "http://127.0.0.1:4185",
+  "evidenceType": "Existing software regression suites; isolated Edge browser profiles at desktop window widths 390/820; fixed API/YouTube events and fault injection only. Not real video playback, human tasks, real cameras, phone hardware or model quality tests.",
+  "cloudModelCalls": 0,
+  "cameraCalls": 0,
+  "liveVideoRequests": 0,
+  "networkPolicy": "Injected context policy blocks all external network and unmocked /api/ requests before navigation. Existing later YouTube/API replay routes can fulfill locally. Service workers blocked. getUserMedia always rejected before application code.",
+  "inMemoryAdaptations": [
+    "New V4 output directories",
+    "Root-relative eval import resolution for old flow script",
+    "Network/camera guards injected before browser creation; existing assertions and scenarios unchanged"
+  ],
+  "originalScriptHashes": {
+    "scripts/check-ai-contracts.mjs": "64ee15f82462cf1c4e26bb13d015e2d016badedb8af5db4609bcbc07d327127a",
+    "scripts/check-workout-save.mjs": "43b5d8ad02c044b3dc461b54f8d79d6c9fa8d39ad0c6decc0798cccc038d1fbb",
+    "scripts/check-workout-browser.mjs": "f11c22b2f2886ab1d54e42bb3ea3294e073031dfead28ccb6f0b404417e435d7",
+    "scripts/check-teaching-player-v33.mjs": "5218febb30545051db02582c35da3460aa8871eb410acb085cf073d3e9ad5a7e",
+    "scripts/check-video-flow-v33.mjs": "b9a9f0584cc6d77056927640abcc89473d02920aeadfb87607001a7ad624b69d"
+  },
+  "results": [
+    {
+      "name": "contracts-18-fixed-fixtures",
+      "exitCode": 0,
+      "ms": 139,
+      "stdout": "PASS 次数型力量组通过\nPASS 计时型力量组通过\nPASS 待补充动作允许空组数组\nPASS V3 仅重量缺失时保留已知组次并明确 unknown/null\nPASS 计时动作仅重量缺失时允许保留已知秒数\nPASS 重量和次数都缺失时允许空组并保留提示\nPASS V3 重量单位不明确时保存 unknown/null，原数值保留在提示\nPASS V3 自重动作明确 bodyweight/null\nPASS 待补充有氧允许 minutes 为 null\nPASS reps 与 durationSeconds 同为 null 被拒绝\nPASS 缺失 durationSeconds 键被拒绝\nPASS 力量组额外键被拒绝\nPASS 力量条目缺失 note 被拒绝\nPASS 有氧条目缺失 distance 被拒绝\nPASS 训练结果根级额外键被拒绝\nPASS 合法饮食结果通过\nPASS 饮食条目额外键被拒绝\nPASS 饮食结果根级额外键被拒绝\nPASS 18/18; AI runtime contract fixtures are enforced\n",
+      "stderr": ""
+    },
+    {
+      "name": "storage-18-in-memory-fixtures",
+      "exitCode": 0,
+      "ms": 697,
+      "stdout": "{\n  \"output\": \"evals/virtual-companion/v4-poc/regression-1791532936221/storage/flow-1791532937462.json\",\n  \"version\": \"虚拟训练伙伴 V4 POC · 既有功能纯回放回归\",\n  \"kind\": \"deterministic synthetic software tests, NOT human tests\",\n  \"time\": \"2026-10-09T08:02:17.460Z\",\n  \"holdoutSha256\": \"a5dda8426f31344f64d58e9bade3ede7f18fd93d4fd22529e326afe20f75cbfe\",\n  \"beforeAfter\": {\n    \"baseline\": \"e96c5b2\",\n    \"scenario\": \"Unknown legacy weight=0, 8 reps, marked done\",\n    \"before\": {\n      \"saveAllowed\": true,\n      \"completed\": true,\n      \"kcal\": 18\n    },\n    \"after\": {\n      \"saveAllowed\": false,\n      \"completed\": false,\n      \"kcal\": 0,\n      \"storedSet\": {\n        \"weight\": null,\n        \"reps\": 8,\n        \"done\": true,\n        \"weightState\": \"unknown\",\n        \"legacyWeight\": 0\n      }\n    }\n  },\n  \"checks\": [\n    {\n      \"name\": \"before/after: unknown zero no longer passes completed/save\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"known: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"bodyweight: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"not_applicable: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"unknown: storage roundtrip and statistics\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"legacy source stays intact on read; zero retained for audit\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"legacy positive number with missing-unit notice is unresolved\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"legacy positive known weight remains compatible\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"known zero rejected by server and save boundary\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"missing unit unknown passes parse only, not completed save\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"future strength and cardio blocked until explicitly marked completed\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"bulk edit preserves reps, duration and done; undo uses snapshot\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"draft per date roundtrip does not persist workout\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"storage quota failure retains previous whole record\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"invalid existing backup not overwritten\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"network error surfaced without automatic retry\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"deadline abort bounds total request wait\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"caller cancel works with no automatic retry\",\n      \"pass\": true\n    }\n  ],\n  \"passed\": 18,\n  \"total\": 18\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "workout-390",
+      "exitCode": 0,
+      "ms": 19686,
+      "stdout": "{\"name\":\"01 input-edit-unit-bulk-undo-confirm-reopen\",\"pass\":true,\"ms\":2110,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866/1.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-390\\\\browser-1791532937866\\\\page@649a8f50b3b90abac25c7804c63ddc3b.webm\"}\n{\"name\":\"02 template-import-edit-complete-reopen-duplicate-skip-cancel\",\"pass\":true,\"ms\":1125,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866/2.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-390\\\\browser-1791532937866\\\\page@d5b0bc2695f4516d822a33df0297c3fd.webm\"}\n{\"name\":\"03 network-failure-retry-cancel-preserves-edited-preview\",\"pass\":true,\"ms\":3862,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866/3.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-390\\\\browser-1791532937866\\\\page@507e473178c34d6bb85babee958efc1d.webm\"}\n{\"name\":\"04 future-strength-and-cardio-not-saved\",\"pass\":true,\"ms\":1163,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866/4.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-390\\\\browser-1791532937866\\\\page@a878bfd5153055f50074e4c402f26cf2.webm\"}\n{\"name\":\"05 repeated-AI-import-requires-explicit-replace-and-cancel\",\"pass\":true,\"ms\":827,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866/5.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-390\\\\browser-1791532937866\\\\page@2876832464b43e957977b75ece0efd26.webm\"}\n{\"name\":\"06 quota-failure-does-not-claim-save-or-clear-draft\",\"pass\":true,\"ms\":1098,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866/6.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-390\\\\browser-1791532937866\\\\page@13fc871841a1c9cff779bb838c109983.webm\"}\n{\"name\":\"07 changed-original-input-invalidates-old-preview\",\"pass\":true,\"ms\":1643,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866/7.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-390\\\\browser-1791532937866\\\\page@9f72f622bec0e64e94b228689bcf942f.webm\"}\n{\"name\":\"08 replace-retains-two-new-cardio-sessions\",\"pass\":true,\"ms\":1843,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866/8.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-390\\\\browser-1791532937866\\\\page@c6d82b2eb8b6f6631892888143fca7a8.webm\"}\n{\"name\":\"09 request-unmount-does-not-write-late-result\",\"pass\":true,\"ms\":2704,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866/9.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-390\\\\browser-1791532937866\\\\page@de8cc687a0c841d7ecf8100fe74651ee.webm\"}\n{\"output\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-390/browser-1791532937866\",\"passed\":9,\"total\":9}\n",
+      "stderr": ""
+    },
+    {
+      "name": "player-390",
+      "exitCode": 0,
+      "ms": 13251,
+      "stdout": "{\"id\":\"P01\",\"pass\":true,\"ms\":855}\n{\"id\":\"P02\",\"pass\":true,\"ms\":577}\n{\"id\":\"P03\",\"pass\":true,\"ms\":592}\n{\"id\":\"P04\",\"pass\":true,\"ms\":551}\n{\"id\":\"P05\",\"pass\":true,\"ms\":569}\n{\"id\":\"P06\",\"pass\":true,\"ms\":594}\n{\"id\":\"P07\",\"pass\":true,\"ms\":607}\n{\"id\":\"P08\",\"pass\":true,\"ms\":566}\n{\"id\":\"P09\",\"pass\":true,\"ms\":570}\n{\"id\":\"P10\",\"pass\":true,\"ms\":1046}\n{\"id\":\"P11\",\"pass\":true,\"ms\":586}\n{\"id\":\"P12\",\"pass\":true,\"ms\":589}\n{\"id\":\"P13\",\"pass\":true,\"ms\":557}\n{\"id\":\"P14\",\"pass\":true,\"ms\":1027}\n{\"output\":\"evals/virtual-companion/v4-poc/regression-1791532936221/player-390\",\"passed\":14,\"total\":14}\n",
+      "stderr": ""
+    },
+    {
+      "name": "flow-390",
+      "exitCode": 0,
+      "ms": 8187,
+      "stdout": "{\"name\":\"F01 template → four demonstrations → 12 confirmed sets → reload\",\"pass\":true,\"ms\":2587}\n{\"name\":\"F02 video failure → draft retained → save → reload\",\"pass\":true,\"ms\":1611}\n{\"name\":\"F03 ambiguous name has no automatic video match or mutation\",\"pass\":true,\"ms\":633}\n{\"out\":\"evals/virtual-companion/v4-poc/regression-1791532936221/flow-390\",\"passed\":6,\"total\":6}\n",
+      "stderr": ""
+    },
+    {
+      "name": "workout-820",
+      "exitCode": 0,
+      "ms": 19328,
+      "stdout": "{\"name\":\"01 input-edit-unit-bulk-undo-confirm-reopen\",\"pass\":true,\"ms\":2410,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904/1.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-820\\\\browser-1791532978904\\\\page@c5120dd9b7ceb42a7d11b2930e982339.webm\"}\n{\"name\":\"02 template-import-edit-complete-reopen-duplicate-skip-cancel\",\"pass\":true,\"ms\":1620,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904/2.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-820\\\\browser-1791532978904\\\\page@511fb3ad0b155af9648b87df664aa251.webm\"}\n{\"name\":\"03 network-failure-retry-cancel-preserves-edited-preview\",\"pass\":true,\"ms\":4262,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904/3.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-820\\\\browser-1791532978904\\\\page@cf76e260e6aa1cd7b7874b79d94ba301.webm\"}\n{\"name\":\"04 future-strength-and-cardio-not-saved\",\"pass\":true,\"ms\":673,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904/4.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-820\\\\browser-1791532978904\\\\page@4d0789286e8c61487b9e3e6fe6ffed57.webm\"}\n{\"name\":\"05 repeated-AI-import-requires-explicit-replace-and-cancel\",\"pass\":true,\"ms\":801,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904/5.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-820\\\\browser-1791532978904\\\\page@5a5ef3a7f5a718da5734732edd929db0.webm\"}\n{\"name\":\"06 quota-failure-does-not-claim-save-or-clear-draft\",\"pass\":true,\"ms\":1049,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904/6.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-820\\\\browser-1791532978904\\\\page@ed45fe8d4e4d1757a4f55dced0073c57.webm\"}\n{\"name\":\"07 changed-original-input-invalidates-old-preview\",\"pass\":true,\"ms\":1045,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904/7.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-820\\\\browser-1791532978904\\\\page@469bc6a3eb46d09fec556de0522f9ae2.webm\"}\n{\"name\":\"08 replace-retains-two-new-cardio-sessions\",\"pass\":true,\"ms\":1143,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904/8.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-820\\\\browser-1791532978904\\\\page@791d20cd85d574466f8814ee1d643a53.webm\"}\n{\"name\":\"09 request-unmount-does-not-write-late-result\",\"pass\":true,\"ms\":3161,\"screenshot\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904/9.png\",\"video\":\"E:\\\\gym\\\\evals\\\\virtual-companion\\\\v4-poc\\\\regression-1791532936221\\\\workout-820\\\\browser-1791532978904\\\\page@cb1cc578259ce68d08b47a738b92cbc0.webm\"}\n{\"output\":\"evals/virtual-companion/v4-poc/regression-1791532936221/workout-820/browser-1791532978904\",\"passed\":9,\"total\":9}\n",
+      "stderr": ""
+    },
+    {
+      "name": "player-820",
+      "exitCode": 0,
+      "ms": 12656,
+      "stdout": "{\"id\":\"P01\",\"pass\":true,\"ms\":902}\n{\"id\":\"P02\",\"pass\":true,\"ms\":563}\n{\"id\":\"P03\",\"pass\":true,\"ms\":577}\n{\"id\":\"P04\",\"pass\":true,\"ms\":538}\n{\"id\":\"P05\",\"pass\":true,\"ms\":538}\n{\"id\":\"P06\",\"pass\":true,\"ms\":1045}\n{\"id\":\"P07\",\"pass\":true,\"ms\":571}\n{\"id\":\"P08\",\"pass\":true,\"ms\":549}\n{\"id\":\"P09\",\"pass\":true,\"ms\":551}\n{\"id\":\"P10\",\"pass\":true,\"ms\":552}\n{\"id\":\"P11\",\"pass\":true,\"ms\":570}\n{\"id\":\"P12\",\"pass\":true,\"ms\":572}\n{\"id\":\"P13\",\"pass\":true,\"ms\":553}\n{\"id\":\"P14\",\"pass\":true,\"ms\":545}\n{\"output\":\"evals/virtual-companion/v4-poc/regression-1791532936221/player-820\",\"passed\":14,\"total\":14}\n",
+      "stderr": ""
+    },
+    {
+      "name": "flow-820",
+      "exitCode": 0,
+      "ms": 8448,
+      "stdout": "{\"name\":\"F01 template → four demonstrations → 12 confirmed sets → reload\",\"pass\":true,\"ms\":2232}\n{\"name\":\"F02 video failure → draft retained → save → reload\",\"pass\":true,\"ms\":1161}\n{\"name\":\"F03 ambiguous name has no automatic video match or mutation\",\"pass\":true,\"ms\":657}\n{\"out\":\"evals/virtual-companion/v4-poc/regression-1791532936221/flow-820\",\"passed\":6,\"total\":6}\n",
+      "stderr": ""
+    }
+  ]
+}

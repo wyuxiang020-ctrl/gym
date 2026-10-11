@@ -1,0 +1,14 @@
+{
+  "kind": "isolated synthetic records; virtual clock; no model or camera",
+  "date": "2026-10-09",
+  "results": [
+    {
+      "name": "U01 timer wall-clock, pause, extend and late wake",
+      "pass": true
+    },
+    {
+      "name": "U02 summaries ignore incomplete and account for missing weight",
+      "pass": true
+    }
+  ]
+}

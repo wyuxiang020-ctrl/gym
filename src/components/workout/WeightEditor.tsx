@@ -21,7 +21,7 @@ export function WeightEditor({ set, onChange, onEditingChange }: {
     setUnit('kg')
     setEditing(true)
   }
-  return <div className="flex flex-wrap items-center gap-1 text-xs">
+  return <div className="weight-editor flex flex-wrap items-center gap-1 text-xs">
     <select aria-label="重量状态" className="min-h-9 rounded border bg-white px-1" value={editing ? 'known' : set.weightState ?? 'unknown'} onChange={(e) => {
       const state = e.target.value as StrengthSet['weightState']
       if (state === 'known') start()
@@ -30,7 +30,7 @@ export function WeightEditor({ set, onChange, onEditingChange }: {
       {Object.entries(WEIGHT_LABELS).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
     </select>
     {editing ? <>
-      <input aria-label="重量数值" type="number" min="0.001" step="any" value={text} onChange={(e) => setText(e.target.value)} className="w-20 min-h-9 rounded border px-1" />
+      <input aria-label="重量数值" aria-describedby={`${id}-range`} inputMode="decimal" type="number" min="0.001" step="any" value={text} onChange={(e) => setText(e.target.value)} className="w-20 min-h-9 rounded border px-1" />
       <select aria-label="重量单位" value={unit} onChange={(e) => setUnit(e.target.value)} className="min-h-9 rounded border">
         <option value="kg">kg</option><option value="jin">斤</option><option value="lb">磅</option>
       </select>
@@ -38,8 +38,8 @@ export function WeightEditor({ set, onChange, onEditingChange }: {
         if (onChange({ weightState: 'known', weight: kg, missingWeightConfirmed: undefined }) !== false) setEditing(false)
       }}>确认重量</button>
       <button className="min-h-9 rounded border px-2" onClick={() => setEditing(false)}>取消重量编辑</button>
-      <span className="text-amber-700">修改尚未确认；保留原已确认值</span>
-    </> : set.weightState === 'known' ? <button className="min-h-9 rounded border px-2" onClick={start}>{set.weight} kg · 修改</button> : null}
+      <span id={`${id}-range`} className="text-amber-700">换算后须大于 0、不超过 1000 kg。修改尚未确认；保留原已确认值</span>
+    </> : set.weightState === 'known' ? <button className="known-weight min-h-9 rounded border px-2" onClick={start}>{set.weight} kg · 修改</button> : null}
     {!editing && set.weightState === 'unknown' && <div className="space-y-1 text-amber-800">
       {confirmedMissingWeight(set) ? <>
         <span>重量未记录 · 已确认缺失</span>

@@ -1,0 +1,10 @@
+{
+  "kind": "isolated desktop Edge service worker, no installed phone PWA",
+  "checks": [
+    "manifest theme and background match design",
+    "offline reload loads cached home, decorative asset and leaves records identical",
+    "offline records remain readable",
+    "explicit update and reload preserve data"
+  ],
+  "pass": true
+}

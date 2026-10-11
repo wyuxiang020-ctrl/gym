@@ -1,0 +1,37 @@
+{
+  "scope": "isolated desktop browser; reduced viewport height simulates keyboard space, not a real OS keyboard; 150% text CSS is not device zoom",
+  "results": [
+    {
+      "name": "empty-home",
+      "pass": true
+    },
+    {
+      "name": "first-profile",
+      "pass": true
+    },
+    {
+      "name": "text-enlargement",
+      "pass": true
+    },
+    {
+      "name": "long-name-large-values",
+      "pass": true
+    },
+    {
+      "name": "keyboard-height-weight-draft",
+      "pass": true
+    },
+    {
+      "name": "weight-save-failure-retains-draft",
+      "pass": true
+    },
+    {
+      "name": "offline-state",
+      "pass": true
+    },
+    {
+      "name": "keyboard-focus",
+      "pass": true
+    }
+  ]
+}

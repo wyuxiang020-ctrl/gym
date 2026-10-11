@@ -21,7 +21,7 @@ export function Stepper({
   const plateClass = showPlateColor ? plateColorClass(value) : null
 
   return (
-    <div className="flex items-center gap-1.5">
+    <div className="stepper">
       <button
         type="button"
         className="h-7 w-7 rounded-md border border-neutral-400 text-neutral-700 hover:border-neutral-500"
@@ -29,10 +29,10 @@ export function Stepper({
       >
         −
       </button>
-      <span className="flex w-14 items-center justify-center gap-1 text-center text-sm text-neutral-900 tabular-nums">
+      <span className="stepper-value">
         {plateClass && <span className={`h-2 w-2 rounded-full ${plateClass}`} />}
         {value}
-        {suffix}
+        <small>{suffix}</small>
       </span>
       <button
         type="button"

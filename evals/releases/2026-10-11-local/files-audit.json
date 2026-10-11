@@ -1,0 +1,5 @@
+{
+  "files": 643,
+  "knownSecretMatches": [],
+  "excluded": "environment files, local caches, separate portfolio rollback copies; known-value scan is not a complete security audit"
+}

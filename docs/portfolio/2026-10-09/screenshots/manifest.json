@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-09",
+  "captured": [
+    {
+      "name": "home",
+      "source": "实际界面 / 合成演示记录",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "meal",
+      "source": "实际界面 / 合成演示记录",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "meal-preview",
+      "source": "实际界面 / 固定 AI 返回用于展示核对操作，非实时模型评测",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "progress",
+      "source": "实际界面 / 合成演示记录",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "history",
+      "source": "实际界面 / 合成演示记录",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "training",
+      "source": "实际界面 / 合成演示记录",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "panda-rest",
+      "source": "实际界面 / 合成演示记录",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "summary",
+      "source": "实际界面 / 合成演示记录",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "scan",
+      "source": "实际界面 / 合成演示记录",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "equipment",
+      "source": "实际界面 / 手动选择器械路径，不是识别准确率证明",
+      "width": 390,
+      "height": 880
+    },
+    {
+      "name": "teaching",
+      "source": "实际界面 / 指定型号资料核对",
+      "width": 390,
+      "height": 880
+    }
+  ],
+  "fixture": "synthetic-demo-data.json; isolated browser; no user records or paid calls"
+}

@@ -33,10 +33,12 @@ export function WorkoutTab({
 
   return (
     <div className="space-y-4">
-      <div className="flex gap-2">
+      <header className="page-heading"><p className="eyebrow">专注每一次完成</p><h2>今天，练什么？</h2><div className="training-library-links"><a href="/?equipment-scan=1">扫描器械 ↗</a></div></header>
+      <div className="workout-subnav flex gap-2" aria-label="训练栏目">
         {TABS.map((t) => (
           <button
             key={t.key}
+            aria-pressed={tab === t.key}
             onClick={() => setTab(t.key)}
             className={`min-h-11 flex-1 rounded-md border text-sm font-medium ${
               tab === t.key ? 'border-primary text-primary' : 'border-neutral-300 text-neutral-600'

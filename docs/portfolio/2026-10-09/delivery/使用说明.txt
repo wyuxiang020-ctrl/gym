@@ -1,0 +1,11 @@
+Gym 完整产品作品集
+
+1. 打开 index.html 查看图片为主的完整案例，点击图片可放大。
+2. documents/portfolio.pdf：6 页作品集。
+3. documents/prd.pdf 与 prd.html：4 页 PRD 与可打印网页。
+4. documents/resume.pdf、resume.html、resume.txt：1 页项目简历与可复制文字。
+5. documents/evidence.html：状态、范围与证据索引。
+6. assets/：实际产品截图与已确认角色设计稿。
+
+合成数据和固定返回已经标明；用户反馈为作者自述/转述归纳，没有虚构人物或效果数据。
+新版视觉来自本地产品，基础产品已在线发布。

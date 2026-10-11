@@ -1,10 +1,34 @@
 @import 'tailwindcss';
+@import './training-design.css';
 
 @theme {
-  --color-app-bg: #eaedef;
-  --color-card: #ffffff;
-  --color-primary: #c8102e;
-  --color-primary-dark: #a50d26;
+  --color-app-bg: #101214;
+  --color-card: #1b1f22;
+  --color-primary: #dfff32;
+  --color-primary-dark: #c2e61b;
+  --color-neutral-50: #161a1d;
+  --color-neutral-100: #22282c;
+  --color-neutral-200: #30383d;
+  --color-neutral-300: #455057;
+  --color-neutral-400: #a2acb1;
+  --color-neutral-500: #aeb5b8;
+  --color-neutral-600: #bec6ca;
+  --color-neutral-700: #d1d8dc;
+  --color-neutral-800: #e4e9ec;
+  --color-neutral-900: #f3f4ee;
+  --color-amber-50: #30291c;
+  --color-amber-100: #3b301b;
+  --color-amber-700: #f8c87b;
+  --color-amber-800: #ffdb9f;
+  --color-amber-900: #ffe9c9;
+  --color-red-50: #341e24;
+  --color-red-100: #45252c;
+  --color-red-700: #ff9a9a;
+  --color-red-800: #ffb4b4;
+  --color-green-50: #172d25;
+  --color-green-100: #1d3c2e;
+  --color-green-700: #86dfb2;
+  --color-green-800: #a0edc5;
 
   --color-plate-red: #c8102e; /* 25kg */
   --color-plate-blue: #1d4ed8; /* 20kg */
@@ -28,6 +52,7 @@
 html,
 body {
   background: var(--color-app-bg);
+  color: var(--color-neutral-900);
   font-family: var(--font-sans);
   font-variant-numeric: tabular-nums;
 }
@@ -60,7 +85,7 @@ a {
 }
 
 button:active {
-  transform: scale(0.96);
+  transform: scale(0.98);
 }
 
 @keyframes fade-in {

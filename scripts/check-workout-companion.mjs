@@ -16,7 +16,8 @@ for (const [name, run] of [
   ['U02 summaries ignore incomplete and account for missing weight', () => { const entry = { ...fixture.dayLogs[date].strength[0], sets: [{ ...set, done: true }, { ...set }, { weight: null, weightState: 'unknown', missingWeightConfirmed: true, reps: 8, done: true }, { weight: null, weightState: 'not_applicable', durationSeconds: 30, done: true }] }; const before = JSON.stringify(entry); assert.deepEqual(companionSummary(entry), { completed: 3, pending: 1, volume: 200, seconds: 30, missingWeight: 1 }); assert.equal(JSON.stringify(entry), before) }],
 ]) { const row = { name, pass: false }; try { run(); row.pass = true } catch (error) { row.error = error.message; process.exitCode = 1 } results.push(row); persist() }
 const browser = await chromium.launch({ headless: true, channel: 'msedge' })
-const base = 'http://127.0.0.1:4175'
+const base = process.env.GYM_TEST_URL || 'http://127.0.0.1:4175'
+assert.ok(['127.0.0.1', 'localhost'].includes(new URL(base).hostname))
 async function test(name, run, { width = 390, data = fixture, webgl = true } = {}) {
   const context = await browser.newContext({ viewport: { width, height: 1000 }, timezoneId: 'Asia/Shanghai', serviceWorkers: 'block' })
   const requests = [], errors = []

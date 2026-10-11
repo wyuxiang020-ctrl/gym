@@ -11,6 +11,12 @@ export default function WorkoutCompanion({ entries, date, initialEntryId, focusO
   const [selected, setSelected] = useState(initialEntryId ?? entries[0]?.id ?? '')
   const panel = useRef<HTMLElement>(null)
   const [reduced, setReduced] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches)
+  useEffect(() => {
+    const media = matchMedia('(prefers-reduced-motion: reduce)')
+    const update = () => setReduced(media.matches)
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
   const entry = entries.find(item => item.id === selected) ?? entries[0]
   useEffect(() => {
     if (!focusOnOpen) return
@@ -19,7 +25,7 @@ export default function WorkoutCompanion({ entries, date, initialEntryId, focusO
   }, [focusOnOpen])
   return <section ref={panel} tabIndex={-1} className="workout-companion" aria-label="熊猫训练陪伴">
     <header><div><p>D 熊猫 · 训练陪伴</p><h3>按你的节奏，一组一组来。</h3></div><button onClick={onClose}>关闭陪练</button></header>
-    {entry ? <><label className="workout-companion-select">当前动作<select aria-label="陪练当前动作" value={entry.id} onChange={event => setSelected(event.target.value)}>{entries.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label><Session key={`${date}:${entry.id}`} entry={entry} date={date} completion={completion} reduced={reduced} /></> : <><PandaFeedback key="empty" clipId="idle" reduced={reduced} /><p>先在下方添加动作，或通过器械扫描带入，再开始陪练。</p><a href="/?equipment-scan=1">去扫描器械 ↗</a></>}
+    {entry ? <><label className="workout-companion-select">当前动作<select aria-label="陪练当前动作" value={entry.id} onChange={event => setSelected(event.target.value)}>{entries.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label><Session key={`${date}:${entry.id}`} entry={entry} date={date} completion={completion} reduced={reduced} /></> : <><PandaFeedback clipId="idle" reduced={reduced} /><p>先在下方添加动作，或通过器械扫描带入，再开始陪练。</p><a href="/?equipment-scan=1">去扫描器械 ↗</a></>}
     <label className="workout-companion-note"><input type="checkbox" checked={reduced} onChange={event => setReduced(event.target.checked)} />静态形象</label>
     <p className="workout-companion-note">根据你确认保存的记录给出提示。休息时长由你选择；关闭、换动作或离开页面会结束本次计时，已保存记录保留。</p>
   </section>
@@ -74,6 +80,6 @@ function Session({ entry, date, completion, reduced }: { entry: StrengthEntry; d
       {phase !== 'finished' && <><button onClick={() => document.getElementById(`strength-entry-${entry.id}`)?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' })}>查看当前动作记录</button><button onClick={() => { setPhase('finished'); setClock({ deadline: null, remainingMs: 0 }); setNotice('记录已按你的确认保留。未完成的组仍然是待完成。') }}>结束本次陪练</button></>}
       {phase === 'finished' && <button onClick={() => { setPhase('ready'); setNotice('继续按实际情况记录。'); setReaction(value => value + 1) }}>继续陪练</button>}
     </div>
-    {phase === 'finished' && <div className="workout-companion-summary"><h4>当前动作的已保存记录</h4><p>已确认 {summary.completed} 组；待完成 {summary.pending} 组。</p>{summary.volume > 0 && <p>已知重量的次数型容量：{summary.volume.toLocaleString()} kg·次</p>}{summary.seconds > 0 && <p>已确认计时组：{summary.seconds} 秒</p>}{summary.missingWeight > 0 && <p>{summary.missingWeight} 组已确认重量缺失，容量不包含这些组。</p>}<p className="workout-companion-note">这是该日期当前动作的全部记录，不代表仅在本次陪练中新增的训练，也不换算增肌或减脂量。</p></div>}
+    {phase === 'finished' && <div className="workout-companion-summary"><h4>当前动作的已保存记录</h4><dl className="completion-numbers"><div><dt>已确认组数</dt><dd>{summary.completed}</dd></div><div><dt>待完成组数</dt><dd>{summary.pending}</dd></div></dl><p>已确认 {summary.completed} 组；待完成 {summary.pending} 组。</p>{summary.volume > 0 && <p>已知重量的次数型容量：{summary.volume.toLocaleString()} kg·次</p>}{summary.seconds > 0 && <p>已确认计时组：{summary.seconds} 秒</p>}{summary.missingWeight > 0 && <p>{summary.missingWeight} 组已确认重量缺失，容量不包含这些组。</p>}<p className="workout-companion-note">这是该日期当前动作的全部记录，不代表仅在本次陪练中新增的训练，也不换算增肌或减脂量。</p></div>}
   </div>
 }

@@ -39,9 +39,9 @@ export function MonthHeatmap({ dayLogs, today }: { dayLogs: Record<string, DayLo
               className={`flex aspect-square items-center justify-center rounded-md border text-[11px] ${
                 isToday ? 'border-primary' : 'border-neutral-200'
               }`}
-              style={record ? { background: `rgba(200,16,46,${opacity})` } : { background: '#fff' }}
+              style={record ? { background: `rgba(160,190,45,${opacity})` } : { background: '#252c30' }}
             >
-              <span className={record && opacity > 0.55 ? 'text-white' : 'text-neutral-500'}>{day}</span>
+              <span className={record && opacity > 0.55 ? 'text-[#101214]' : 'text-neutral-900'}>{day}</span>
             </div>
           )
         })}

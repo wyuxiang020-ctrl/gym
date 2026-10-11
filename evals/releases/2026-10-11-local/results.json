@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-11",
+  "base": "http://127.0.0.1:4186",
+  "kind": "isolated synthetic records, desktop Edge viewports; no camera/model calls",
+  "results": [
+    {
+      "width": 360,
+      "pass": true
+    },
+    {
+      "width": 390,
+      "pass": true
+    },
+    {
+      "width": 430,
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "pass": true
+    }
+  ]
+}

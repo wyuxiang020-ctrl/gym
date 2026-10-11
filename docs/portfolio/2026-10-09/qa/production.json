@@ -1,0 +1,42 @@
+{
+  "site": "https://yuxiangworks.com/projects/gym/",
+  "commit": "663c66614cf260cfed5afcf88a746b030b0ecc55",
+  "deployment": 6960631991,
+  "release": "2026-10-09.5",
+  "pass": true,
+  "downloads": [
+    {
+      "file": "portfolio.pdf",
+      "status": 200,
+      "hash": "297c9d3b188063d4ffb407d6a6c99756b7a4bf9529c8dc386d69a42282db989f",
+      "length": 3125894
+    },
+    {
+      "file": "prd.pdf",
+      "status": 200,
+      "hash": "5d93dd7b8461c6878113c44630461505ea2db72c20a5e7157f2b4c88f833b671",
+      "length": 289786
+    },
+    {
+      "file": "resume.pdf",
+      "status": 200,
+      "hash": "a9e1ba4caab64b1ae7d893e5c91472667f1abdbbbcb89fd9a59d39ac94594f79",
+      "length": 161813
+    },
+    {
+      "file": "gym-portfolio.zip",
+      "status": 200,
+      "hash": "e0c894e49ecedfd42bd9d7e1d2831ac5a193491a0f7f242e6012c4e94b5e7730",
+      "length": 7073811
+    }
+  ],
+  "checks": [
+    "production case body",
+    "all case images decoded",
+    "gallery opens and closes",
+    "four documents SHA-256 equal local",
+    "four text documents HTTP 200",
+    "résumé entry",
+    "no runtime errors"
+  ]
+}

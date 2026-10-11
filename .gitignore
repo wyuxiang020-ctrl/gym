@@ -33,3 +33,9 @@ dist-ssr
 /evals/**/build*/app/
 /evals/**/build*/assets/
 /evals/**/build*/companion-assets/
+
+# Regenerable local PDF rendering scratch space.
+/tmp/
+
+# Local rollback copies of the separate portfolio website.
+/docs/portfolio/2026-10-09/before-site/
