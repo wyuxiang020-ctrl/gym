@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-13",
+  "base": "https://gym-iota-self.vercel.app",
+  "kind": "Production GET and isolated browser; no paid model, no user records",
+  "checks": [
+    {
+      "equipment": "dumbbell",
+      "actions": 15,
+      "pass": true
+    },
+    {
+      "equipment": "barbell",
+      "actions": 4,
+      "pass": true
+    },
+    {
+      "equipment": "cable_station",
+      "actions": 3,
+      "pass": true
+    },
+    {
+      "equipment": "smith_machine",
+      "actions": 1,
+      "pass": true
+    },
+    {
+      "equipment": "seated_leg_curl",
+      "actions": 1,
+      "pass": true
+    },
+    {
+      "equipment": "hip_abduction",
+      "actions": 1,
+      "pass": true
+    },
+    {
+      "name": "deployed identify handler imports and rejects GET without AI",
+      "pass": true
+    }
+  ],
+  "commit": "73efe77803c822b711f5d75cc3c06463b24a2566",
+  "deployment": "https://gym-lk9uaz61o-yuxiang-wang-s-projects.vercel.app",
+  "deploymentStatus": "Ready",
+  "releaseCheck": "evals/releases/check-1791832602635",
+  "releaseResults": {
+    "base": "https://gym-iota-self.vercel.app",
+    "kind": "isolated browser and synthetic local storage; real GET requests, no paid AI or physical camera",
+    "checks": [
+      {
+        "label": "scan",
+        "pass": true
+      },
+      {
+        "label": "companion",
+        "pass": true
+      },
+      {
+        "label": "library",
+        "pass": true
+      },
+      {
+        "label": "PWA worker activated, manual update and reload preserves records",
+        "pass": true,
+        "registration": {
+          "scope": "https://gym-iota-self.vercel.app/",
+          "active": "activated",
+          "script": "https://gym-iota-self.vercel.app/sw.js"
+        }
+      },
+      {
+        "label": "PWA standalone manifest and shortcuts",
+        "pass": true
+      }
+    ],
+    "api": {
+      "httpStatus": 200,
+      "available": true,
+      "accessRequired": true,
+      "message": "识别接口已连接。上传后才发起识别，实际结果以本次响应为准。"
+    }
+  }
+}
