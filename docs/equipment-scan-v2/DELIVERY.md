@@ -37,3 +37,5 @@
 ## 发布核验
 
 发布目标：[正式器械扫描页](https://gym-iota-self.vercel.app/?equipment-scan=1)。版本标识为「器械流程优化 · 2026-10-12」。部署完成后记录线上验证结果于本目录 `release-check.json`。
+
+发布已核验：功能提交 `a07daca`，Vercel `dpl_3LFumCjDWokhBsQWaxjMVaiykQPa` 为 READY，正式域名已更新。线上发布检查 5/5、步骤交互两种视口通过；更新检查及刷新保留隔离记录。Windows 验证使用 Edge 和 PWA 服务工作线程，不代表用户本人桌面窗口已自动刷新。
