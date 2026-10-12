@@ -88,15 +88,18 @@ export type TeachingVideoPlayerProps = {
   returnLabel?: string
   /** Set only when mounting in response to an explicit view-video click. */
   loadOnMount?: boolean
+  startSeconds?: number
+  endSeconds?: number
 }
 
-export function TeachingVideoPlayer({ title, videoId, sourceUrl, onReturn, returnLabel = '返回当前记录', loadOnMount = false }: TeachingVideoPlayerProps) {
+export function TeachingVideoPlayer({ title, videoId, sourceUrl, onReturn, returnLabel = '返回当前记录', loadOnMount = false, startSeconds = 0, endSeconds }: TeachingVideoPlayerProps) {
   const [attempt, setAttempt] = useState(loadOnMount ? 1 : 0)
   const [state, setState] = useState<PlaybackState>('idle')
   const [error, setError] = useState('')
   const holder = useRef<HTMLDivElement>(null)
   const stop = useRef<() => void>(() => {})
   const validId = /^[a-zA-Z0-9_-]{11}$/.test(videoId)
+  const validRange = Number.isInteger(startSeconds) && startSeconds >= 0 && (endSeconds === undefined || (Number.isInteger(endSeconds) && endSeconds > startSeconds))
   let safeSource = validId ? `https://www.youtube.com/watch?v=${videoId}` : undefined
   try {
     const url = new URL(sourceUrl)
@@ -106,7 +109,7 @@ export function TeachingVideoPlayer({ title, videoId, sourceUrl, onReturn, retur
   useEffect(() => {
     if (!attempt) return
     const container = holder.current
-    if (!container || !validId) {
+    if (!container || !validId || !validRange) {
       setState('error')
       setError(ERROR_MESSAGES[2])
       return
@@ -150,6 +153,8 @@ export function TeachingVideoPlayer({ title, videoId, sourceUrl, onReturn, retur
           enablejsapi: '1', origin: window.location.origin,
           playsinline: '1', controls: '1', autoplay: '0', hl: 'zh-CN',
         }).toString()
+        if (startSeconds > 0) url.searchParams.set('start', String(startSeconds))
+        if (endSeconds !== undefined) url.searchParams.set('end', String(endSeconds))
         iframe.src = url.href
         iframe.title = title
         iframe.width = '100%'
@@ -192,7 +197,7 @@ export function TeachingVideoPlayer({ title, videoId, sourceUrl, onReturn, retur
       },
     })
     return teardown
-  }, [attempt, title, validId, videoId])
+  }, [attempt, title, validId, validRange, videoId, startSeconds, endSeconds])
 
   const active = ['loading', 'ready', 'playing', 'paused', 'ended', 'buffering'].includes(state)
   const statusText: Record<PlaybackState, string> = {

@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-12T11:31:04.098Z",
+  "bilateral": {
+    "videoId": "sqNwDkUU_Ps",
+    "publisher": "PureGym",
+    "seconds": 60.061,
+    "startSeconds": 0,
+    "endSeconds": 60
+  },
+  "unilateral": {
+    "videoId": "jSuDZxWtDrI",
+    "publisher": "Bilt Wellness",
+    "fullSeconds": 71.481,
+    "startSeconds": 12,
+    "endSeconds": 72,
+    "expectedViewingSeconds": 59.481
+  },
+  "sources": [
+    "https://www.puregym.com/exercises/chest/bench-press/seated-chest-press/",
+    "https://www.puregym.com/exercises/chest/bench-press/single-arm-chest-press/",
+    "https://developers.google.com/youtube/player_parameters"
+  ],
+  "playbackEvidence": "evals/equipment-scan/live-video-1791804538771/results.json",
+  "guideEvidence": "evals/equipment-scan/navigation-1791804582996/results.json",
+  "regressionEvidence": "evals/video-pilot/v3-3/flow-390-1791804550978/results.json"
+}

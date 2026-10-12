@@ -1,0 +1,97 @@
+{
+  "kind": "Real external playback attempt, isolated Edge; no fake player events or API responses",
+  "modelCalls": 0,
+  "results": [
+    {
+      "width": 390,
+      "unilateral": false,
+      "expectedSeconds": 60,
+      "playbackPassed": true,
+      "recoveryPassed": true,
+      "failedRequests": [
+        {
+          "host": "yt3.ggpht.com",
+          "path": "/eeC6mVvB-jbYzRASoQ_IeWeqlSE-MjUwrzdkNoD2VL7koI828305_akszXpmdOtS8gg4hfZhud4=s68-c-k-c0x00ffffff-no-rj",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/qoe",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/ptracking",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/playback",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "state": "ready",
+      "first": {
+        "time": 0.108273,
+        "paused": false,
+        "ready": 4,
+        "duration": 60.061
+      },
+      "second": {
+        "time": 3.631413,
+        "paused": false,
+        "ready": 4,
+        "duration": 60.061
+      },
+      "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+    },
+    {
+      "width": 1100,
+      "unilateral": true,
+      "expectedSeconds": 60,
+      "playbackPassed": true,
+      "recoveryPassed": true,
+      "failedRequests": [
+        {
+          "host": "yt3.ggpht.com",
+          "path": "/ytc/AIdro_lpUSHIZWqfDLlaC_qhokZisNioi2jlLYNlDtMFjip3Vps=s68-c-k-c0x00ffffff-no-rj",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/qoe",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "yt3.ggpht.com",
+          "path": "/ytc/AIdro_lpUSHIZWqfDLlaC_qhokZisNioi2jlLYNlDtMFjip3Vps=s88-c-k-c0x00ffffff-no-rj",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/api/stats/playback",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "host": "www.youtube-nocookie.com",
+          "path": "/ptracking",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "state": "ready",
+      "first": {
+        "time": 12.45541,
+        "paused": false,
+        "ready": 4,
+        "duration": 71.481
+      },
+      "second": {
+        "time": 15.96149,
+        "paused": false,
+        "ready": 4,
+        "duration": 71.481
+      },
+      "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+    }
+  ]
+}

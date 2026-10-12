@@ -7,7 +7,7 @@ const out = `evals/equipment-scan/live-video-${Date.now()}`
 mkdirSync(out, { recursive: true })
 const report = { kind: 'Real external playback attempt, isolated Edge; no fake player events or API responses', modelCalls: 0,  results: [] }
 const browser = await chromium.launch({ headless: true, channel: 'msedge' })
-for (const [width, unilateral, seconds] of [[390, false, 20], [1100, true, 19]]) {
+for (const [width, unilateral, seconds] of [[390, false, 60], [1100, true, 60]]) {
   const context = await browser.newContext({ viewport: { width, height: 950 }, serviceWorkers: 'block' })
   const row = { width, unilateral, expectedSeconds: seconds, playbackPassed: false, recoveryPassed: false, failedRequests: [] }
   await context.route('**/api/identify-equipment', route => route.abort())
@@ -32,8 +32,13 @@ for (const [width, unilateral, seconds] of [[390, false, 20], [1100, true, 19]])
         row.first = await frame.locator('video').evaluate(video => ({ time: video.currentTime, paused: video.paused, ready: video.readyState, duration: video.duration }))
         await page.waitForTimeout(3500)
         row.second = await frame.locator('video').evaluate(video => ({ time: video.currentTime, paused: video.paused, ready: video.readyState, duration: video.duration }))
-        row.playbackPassed = !row.second.paused && row.second.time > row.first.time + 1 && row.second.duration <= 60
+        row.playbackPassed = !row.second.paused && row.second.time > row.first.time + 1 && row.second.duration - (unilateral ? 12 : 0) >= 40 && row.second.duration - (unilateral ? 12 : 0) <= 61
       } catch (error) { row.playbackError = error.message }
+    }
+    if (row.playbackPassed && unilateral) {
+      assert.ok(row.first.time >= 11 && row.first.time < 18, 'Excerpt starts around 12 seconds')
+      const src = new URL(await page.locator('iframe').getAttribute('src'))
+      assert.equal(src.searchParams.get('start'), '12'); assert.equal(src.searchParams.get('end'), '72')
     }
     row.message = await page.locator('[data-video-state]').innerText()
     await page.locator('[data-video-state]').screenshot({ path: `${out}/player-${width}.png` })
