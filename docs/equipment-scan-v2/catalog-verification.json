@@ -1,0 +1,600 @@
+{
+  "date": "2026-10-12",
+  "release": "常见器械教学 · 2026-10-12",
+  "build": "passed",
+  "scopeLint": "passed",
+  "checks": {
+    "catalog": {
+      "path": "evals/equipment-scan/catalog-1791805742006/results.json",
+      "report": {
+        "kind": "isolated synthetic data, fixed AI/player; not real recognition",
+        "modelCalls": 0,
+        "results": [
+          {
+            "name": "catalog schema, 9 guides and matching handoffs",
+            "pass": true
+          },
+          {
+            "width": 390,
+            "equipment": "seated_chest_press",
+            "pass": true
+          },
+          {
+            "width": 390,
+            "equipment": "lat_pulldown",
+            "pass": true
+          },
+          {
+            "width": 390,
+            "equipment": "seated_row",
+            "pass": true
+          },
+          {
+            "width": 390,
+            "equipment": "seated_leg_press",
+            "pass": true
+          },
+          {
+            "width": 390,
+            "equipment": "leg_extension",
+            "pass": true
+          },
+          {
+            "width": 390,
+            "equipment": "prone_leg_curl",
+            "pass": true
+          },
+          {
+            "width": 390,
+            "equipment": "shoulder_press",
+            "pass": true
+          },
+          {
+            "width": 390,
+            "equipment": "pec_fly",
+            "pass": true
+          },
+          {
+            "width": 1440,
+            "equipment": "seated_chest_press",
+            "pass": true
+          },
+          {
+            "width": 1440,
+            "equipment": "lat_pulldown",
+            "pass": true
+          },
+          {
+            "width": 1440,
+            "equipment": "seated_row",
+            "pass": true
+          },
+          {
+            "width": 1440,
+            "equipment": "seated_leg_press",
+            "pass": true
+          },
+          {
+            "width": 1440,
+            "equipment": "leg_extension",
+            "pass": true
+          },
+          {
+            "width": 1440,
+            "equipment": "prone_leg_curl",
+            "pass": true
+          },
+          {
+            "width": 1440,
+            "equipment": "shoulder_press",
+            "pass": true
+          },
+          {
+            "width": 1440,
+            "equipment": "pec_fly",
+            "pass": true
+          }
+        ]
+      }
+    },
+    "videos": {
+      "path": "evals/equipment-scan/catalog-live-video-1791805637851/results.json",
+      "report": {
+        "kind": "Real external playback attempt, isolated Edge; no fake player events or API responses",
+        "modelCalls": 0,
+        "results": [
+          {
+            "equipment": "lat_pulldown",
+            "videoId": "grz-WsiBbrw",
+            "width": 1100,
+            "unilateral": false,
+            "expectedSeconds": 60,
+            "playbackPassed": true,
+            "recoveryPassed": true,
+            "failedRequests": [
+              {
+                "host": "yt3.ggpht.com",
+                "path": "/twXFVVywaFY5bAq3TaWWcUsl5Ws2XhpXKDjn3XyFKGm6cz_wtPSIa5yA2KDdfxNaDobDUoNeyQ=s68-c-k-c0x00ffffff-no-rj",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/qoe",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/ptracking",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/playback",
+                "error": "net::ERR_ABORTED"
+              }
+            ],
+            "state": "ready",
+            "first": {
+              "time": 0.39306,
+              "paused": false,
+              "ready": 4,
+              "duration": 68.361
+            },
+            "second": {
+              "time": 3.912441,
+              "paused": false,
+              "ready": 4,
+              "duration": 68.361
+            },
+            "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+          },
+          {
+            "equipment": "seated_row",
+            "videoId": "TeFo51Q_Nsc",
+            "width": 1100,
+            "unilateral": false,
+            "expectedSeconds": 60,
+            "playbackPassed": true,
+            "recoveryPassed": true,
+            "failedRequests": [
+              {
+                "host": "yt3.ggpht.com",
+                "path": "/eeC6mVvB-jbYzRASoQ_IeWeqlSE-MjUwrzdkNoD2VL7koI828305_akszXpmdOtS8gg4hfZhud4=s68-c-k-c0x00ffffff-no-rj",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/qoe",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/playback",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/ptracking",
+                "error": "net::ERR_ABORTED"
+              }
+            ],
+            "state": "ready",
+            "first": {
+              "time": 0.537514,
+              "paused": false,
+              "ready": 4,
+              "duration": 60.061
+            },
+            "second": {
+              "time": 4.056936,
+              "paused": false,
+              "ready": 4,
+              "duration": 60.061
+            },
+            "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+          },
+          {
+            "equipment": "seated_leg_press",
+            "videoId": "p5dCqF7wWUw",
+            "width": 1100,
+            "unilateral": false,
+            "expectedSeconds": 60,
+            "playbackPassed": true,
+            "recoveryPassed": true,
+            "failedRequests": [
+              {
+                "host": "yt3.ggpht.com",
+                "path": "/eeC6mVvB-jbYzRASoQ_IeWeqlSE-MjUwrzdkNoD2VL7koI828305_akszXpmdOtS8gg4hfZhud4=s68-c-k-c0x00ffffff-no-rj",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/qoe",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/playback",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/ptracking",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/watchtime",
+                "error": "net::ERR_ABORTED"
+              }
+            ],
+            "state": "ready",
+            "first": {
+              "time": 0.441932,
+              "paused": false,
+              "ready": 4,
+              "duration": 60.021
+            },
+            "second": {
+              "time": 3.949126,
+              "paused": false,
+              "ready": 4,
+              "duration": 60.021
+            },
+            "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+          },
+          {
+            "equipment": "leg_extension",
+            "videoId": "Bch9qTirsVE",
+            "width": 1100,
+            "unilateral": false,
+            "expectedSeconds": 49,
+            "playbackPassed": true,
+            "recoveryPassed": true,
+            "failedRequests": [
+              {
+                "host": "yt3.ggpht.com",
+                "path": "/ytc/AIdro_ld-qxWRyMpOY_aHCFtcYrIpZ2PWn0NwVl_EXX6lcEvng=s68-c-k-c0x00ffffff-no-rj",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "i.ytimg.com",
+                "path": "/vi_webp/KqXxL16fZ0Y/default.webp",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/qoe",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/ptracking",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/playback",
+                "error": "net::ERR_ABORTED"
+              }
+            ],
+            "state": "ready",
+            "first": {
+              "time": 0.207219,
+              "paused": false,
+              "ready": 4,
+              "duration": 48.9489
+            },
+            "second": {
+              "time": 3.727928,
+              "paused": false,
+              "ready": 4,
+              "duration": 48.9489
+            },
+            "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+          },
+          {
+            "equipment": "prone_leg_curl",
+            "videoId": "QjNFk4F5dAs",
+            "width": 1100,
+            "unilateral": false,
+            "expectedSeconds": 60,
+            "playbackPassed": true,
+            "recoveryPassed": true,
+            "failedRequests": [
+              {
+                "host": "yt3.ggpht.com",
+                "path": "/eeC6mVvB-jbYzRASoQ_IeWeqlSE-MjUwrzdkNoD2VL7koI828305_akszXpmdOtS8gg4hfZhud4=s68-c-k-c0x00ffffff-no-rj",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/qoe",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/playback",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/ptracking",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/watchtime",
+                "error": "net::ERR_ABORTED"
+              }
+            ],
+            "state": "ready",
+            "first": {
+              "time": 0.325397,
+              "paused": false,
+              "ready": 4,
+              "duration": 59.961
+            },
+            "second": {
+              "time": 3.846254,
+              "paused": false,
+              "ready": 4,
+              "duration": 59.961
+            },
+            "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+          },
+          {
+            "equipment": "shoulder_press",
+            "videoId": "TnhIyp4kmO8",
+            "width": 1100,
+            "unilateral": false,
+            "expectedSeconds": 55,
+            "playbackPassed": true,
+            "recoveryPassed": true,
+            "failedRequests": [
+              {
+                "host": "yt3.ggpht.com",
+                "path": "/eeC6mVvB-jbYzRASoQ_IeWeqlSE-MjUwrzdkNoD2VL7koI828305_akszXpmdOtS8gg4hfZhud4=s68-c-k-c0x00ffffff-no-rj",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/qoe",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/playback",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/ptracking",
+                "error": "net::ERR_ABORTED"
+              }
+            ],
+            "state": "ready",
+            "first": {
+              "time": 0.230001,
+              "paused": false,
+              "ready": 4,
+              "duration": 54.761
+            },
+            "second": {
+              "time": 3.746928,
+              "paused": false,
+              "ready": 4,
+              "duration": 54.761
+            },
+            "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+          },
+          {
+            "equipment": "pec_fly",
+            "videoId": "AZFC0IjGhtQ",
+            "width": 1100,
+            "unilateral": false,
+            "expectedSeconds": 56,
+            "playbackPassed": true,
+            "recoveryPassed": true,
+            "failedRequests": [
+              {
+                "host": "yt3.ggpht.com",
+                "path": "/4ufuDtHUOpXzV1gxXV3unxvQ32xDuXjOwbUUjrTm37E1TQs2RiCvQORbqA_fli3GymYaNE4cug=s68-c-k-c0x00ffffff-no-rj",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/qoe",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/api/stats/playback",
+                "error": "net::ERR_ABORTED"
+              },
+              {
+                "host": "www.youtube-nocookie.com",
+                "path": "/ptracking",
+                "error": "net::ERR_ABORTED"
+              }
+            ],
+            "state": "ready",
+            "first": {
+              "time": 0.348621,
+              "paused": false,
+              "ready": 4,
+              "duration": 55.681
+            },
+            "second": {
+              "time": 3.871909,
+              "paused": false,
+              "ready": 4,
+              "duration": 55.681
+            },
+            "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+          }
+        ]
+      }
+    },
+    "regression": {
+      "path": "evals/equipment-scan/browser-1791805691848/results.json",
+      "report": {
+        "kind": "isolated browser, synthetic photo and fixed responses; no live camera or model",
+        "modelCalls": 0,
+        "results": [
+          {
+            "name": "B01 entry and paused mirror load no camera or model",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B02 local preview then explicit one-shot upload and human confirm",
+            "width": 1100,
+            "pass": true,
+            "apiCalls": [
+              "/api/identify-equipment"
+            ],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B03 unknown rejected candidate and manual recovery",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [
+              "/api/identify-equipment"
+            ],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B04 error preserves photo and malformed result fails closed",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [
+              "/api/identify-equipment",
+              "/api/identify-equipment"
+            ],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B05 cancel ignores late result and does not retry",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [
+              "/api/identify-equipment"
+            ],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B06 manual confirmation saves empty exercise once and survives reload",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B07 invalid file never uploads",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B08 scan handoff to a confirmed set survives reload",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [
+              "/api/identify-equipment"
+            ],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B09 offline service disables upload but keeps manual path",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B10 expired handoff is not treated as a confirmation",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [],
+            "poseRequests": [],
+            "errors": []
+          },
+          {
+            "name": "B11 storage failure preserves confirmed selection",
+            "width": 390,
+            "pass": true,
+            "apiCalls": [],
+            "poseRequests": [],
+            "errors": []
+          }
+        ]
+      }
+    },
+    "navigation": {
+      "path": "evals/equipment-scan/navigation-1791805711594/results.json",
+      "report": {
+        "kind": "Isolated records and fixed player; no real model or video",
+        "results": [
+          {
+            "width": 390,
+            "pass": true
+          },
+          {
+            "width": 1440,
+            "pass": true
+          }
+        ]
+      }
+    },
+    "http": {
+      "path": "evals/equipment-scan/http-1791805650198/results.json",
+      "report": {
+        "kind": "loopback HTTP, synthetic image, fixed upstream; no real cloud calls",
+        "results": [
+          {
+            "name": "configuration status never calls the model or discloses keys",
+            "pass": true
+          },
+          {
+            "name": "host and browser origin checks precede model calls",
+            "pass": true
+          },
+          {
+            "name": "readiness matches disabled or partial local guards without model calls",
+            "pass": true
+          },
+          {
+            "name": "HTTP malformed JSON and bounded bodies",
+            "pass": true
+          },
+          {
+            "name": "real HTTP adapter to guarded handler with fixed upstream",
+            "pass": true
+          },
+          {
+            "name": "access code guard applies through HTTP",
+            "pass": true
+          },
+          {
+            "name": "handoff is bounded, expiring and excludes photos",
+            "pass": true
+          }
+        ]
+      }
+    }
+  }
+}

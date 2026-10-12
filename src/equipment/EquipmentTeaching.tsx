@@ -13,7 +13,7 @@ export default function EquipmentTeaching({ exercise }: { exercise: EquipmentExe
     <section className="equipment-quick-guide" aria-label="使用要点与易错提醒">
       <h4>怎么用 · 记住这 4 点</h4>
       <ol>{EQUIPMENT_GUIDES[exercise.id].map((item, index) => <li key={index}><span>{item.instruction}</span>{item.mistake && <strong className="equipment-mistake">易错：{item.mistake}</strong>}</li>)}</ol>
-      <a className="equipment-guide-source" href={exercise.id === 'bilateral' ? 'https://www.puregym.com/exercises/chest/bench-press/seated-chest-press/' : 'https://www.puregym.com/exercises/chest/bench-press/single-arm-chest-press/'} target="_blank" rel="noopener noreferrer">文字参考：PureGym 动作指南 ↗</a>
+      <a className="equipment-guide-source" href={exercise.guideSource} target="_blank" rel="noopener noreferrer">文字参考：PureGym 动作指南 ↗</a>
     </section>
   </section>
 }

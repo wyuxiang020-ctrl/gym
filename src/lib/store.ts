@@ -1,3 +1,4 @@
+import { equipmentById, exercisesForEquipment, type EquipmentId, type EquipmentExerciseId } from './equipment'
 import type {
   CardioEntry,
   DayLog,
@@ -14,7 +15,7 @@ import { parseGymData } from './dataValidation'
 import { validCompletedSet } from './strength'
 import { parseWorkoutDraft, type ParsedWorkout } from './aiValidation'
 
-type EquipmentHandoff = { equipmentId: 'seated_chest_press'; confirmedAt: number; modelMatched: boolean; exerciseId: 'bilateral' | 'unilateral' }
+type EquipmentHandoff = { equipmentId: EquipmentId; confirmedAt: number; modelMatched: boolean; exerciseId: EquipmentExerciseId }
 const EQUIPMENT_HANDOFF_KEY = 'gym-equipment-handoff-v1'
 
 export function getEquipmentHandoff(): EquipmentHandoff | null {
@@ -22,18 +23,19 @@ export function getEquipmentHandoff(): EquipmentHandoff | null {
     const raw = sessionStorage.getItem(EQUIPMENT_HANDOFF_KEY)
     if (!raw || raw.length > 500) return null
     const value = JSON.parse(raw)
-    if (value.equipmentId !== 'seated_chest_press' || typeof value.confirmedAt !== 'number' || !Number.isFinite(value.confirmedAt) || typeof value.modelMatched !== 'boolean') return null
-    if (value.exerciseId !== undefined && value.exerciseId !== 'bilateral' && value.exerciseId !== 'unilateral') return null
+    if (!equipmentById(value.equipmentId) || typeof value.confirmedAt !== 'number' || !Number.isFinite(value.confirmedAt) || typeof value.modelMatched !== 'boolean') return null
+    const exerciseId = value.exerciseId ?? (value.equipmentId === 'seated_chest_press' ? 'bilateral' : undefined)
+    if (!exercisesForEquipment(value.equipmentId).some(item => item.id === exerciseId)) return null
     const age = Date.now() - value.confirmedAt
     if (age < 0 || age > 30 * 60 * 1000) return null
-    return { equipmentId: value.equipmentId, confirmedAt: value.confirmedAt, modelMatched: value.modelMatched, exerciseId: value.exerciseId ?? 'bilateral' }
+    return { equipmentId: value.equipmentId, confirmedAt: value.confirmedAt, modelMatched: value.modelMatched, exerciseId }
   } catch { return null }
 }
 
-export function saveEquipmentHandoff(modelMatched: boolean, exerciseId: EquipmentHandoff['exerciseId'] = 'bilateral'): boolean {
+export function saveEquipmentHandoff(modelMatched: boolean, exerciseId: EquipmentExerciseId = 'bilateral', equipmentId: EquipmentId = 'seated_chest_press'): boolean {
   try {
-    if (exerciseId !== 'bilateral' && exerciseId !== 'unilateral') return false
-    sessionStorage.setItem(EQUIPMENT_HANDOFF_KEY, JSON.stringify({ equipmentId: 'seated_chest_press', confirmedAt: Date.now(), modelMatched, exerciseId }))
+    if (!exercisesForEquipment(equipmentId).some(item => item.id === exerciseId)) return false
+    sessionStorage.setItem(EQUIPMENT_HANDOFF_KEY, JSON.stringify({ equipmentId, confirmedAt: Date.now(), modelMatched, exerciseId }))
     return true
   } catch { return false }
 }

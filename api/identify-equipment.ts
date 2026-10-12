@@ -17,7 +17,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const parsed = await askOpenAIForJson({
       instructions: EQUIPMENT_PROMPT,
       input: [
-        { type: 'input_text', text: '请判断照片主体是否属于本轮支持的坐姿推胸机类别。不能确定就返回 unknown。' },
+        { type: 'input_text', text: '请判断照片主体是否属于本轮支持的器械类别。不能确定就返回 unknown。' },
         { type: 'input_image', image_url: `data:${image.mediaType};base64,${image.imageBase64}`, detail: 'auto' },
       ],
       schemaName: 'equipment_candidate', schema: EQUIPMENT_SCHEMA,
