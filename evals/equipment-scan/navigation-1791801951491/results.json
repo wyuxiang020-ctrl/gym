@@ -1,0 +1,13 @@
+{
+  "kind": "Isolated records and fixed player; no real model or video",
+  "results": [
+    {
+      "width": 390,
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "pass": true
+    }
+  ]
+}

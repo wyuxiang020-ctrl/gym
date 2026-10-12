@@ -14,7 +14,7 @@ import { parseGymData } from './dataValidation'
 import { validCompletedSet } from './strength'
 import { parseWorkoutDraft, type ParsedWorkout } from './aiValidation'
 
-type EquipmentHandoff = { equipmentId: 'seated_chest_press'; confirmedAt: number; modelMatched: boolean }
+type EquipmentHandoff = { equipmentId: 'seated_chest_press'; confirmedAt: number; modelMatched: boolean; exerciseId: 'bilateral' | 'unilateral' }
 const EQUIPMENT_HANDOFF_KEY = 'gym-equipment-handoff-v1'
 
 export function getEquipmentHandoff(): EquipmentHandoff | null {
@@ -23,15 +23,17 @@ export function getEquipmentHandoff(): EquipmentHandoff | null {
     if (!raw || raw.length > 500) return null
     const value = JSON.parse(raw)
     if (value.equipmentId !== 'seated_chest_press' || typeof value.confirmedAt !== 'number' || !Number.isFinite(value.confirmedAt) || typeof value.modelMatched !== 'boolean') return null
+    if (value.exerciseId !== undefined && value.exerciseId !== 'bilateral' && value.exerciseId !== 'unilateral') return null
     const age = Date.now() - value.confirmedAt
     if (age < 0 || age > 30 * 60 * 1000) return null
-    return { equipmentId: value.equipmentId, confirmedAt: value.confirmedAt, modelMatched: value.modelMatched }
+    return { equipmentId: value.equipmentId, confirmedAt: value.confirmedAt, modelMatched: value.modelMatched, exerciseId: value.exerciseId ?? 'bilateral' }
   } catch { return null }
 }
 
-export function saveEquipmentHandoff(modelMatched: boolean): boolean {
+export function saveEquipmentHandoff(modelMatched: boolean, exerciseId: EquipmentHandoff['exerciseId'] = 'bilateral'): boolean {
   try {
-    sessionStorage.setItem(EQUIPMENT_HANDOFF_KEY, JSON.stringify({ equipmentId: 'seated_chest_press', confirmedAt: Date.now(), modelMatched }))
+    if (exerciseId !== 'bilateral' && exerciseId !== 'unilateral') return false
+    sessionStorage.setItem(EQUIPMENT_HANDOFF_KEY, JSON.stringify({ equipmentId: 'seated_chest_press', confirmedAt: Date.now(), modelMatched, exerciseId }))
     return true
   } catch { return false }
 }

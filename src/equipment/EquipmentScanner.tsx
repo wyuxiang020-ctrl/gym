@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import { postJson } from '../lib/apiClient'
 import { compressForAnalysis } from '../lib/imageCompress'
-import { CHEST_PRESS, validateEquipmentResult, type EquipmentResult } from '../lib/equipment'
+import { CHEST_PRESS, EQUIPMENT_EXERCISES, validateEquipmentResult, type EquipmentExerciseId, type EquipmentResult } from '../lib/equipment'
 import { clearEquipmentHandoff, getEquipmentHandoff, saveEquipmentHandoff } from '../lib/store'
 import EquipmentTeaching from './EquipmentTeaching'
+import EquipmentDialog, { type EquipmentDialogValue } from './EquipmentDialog'
 import './equipment.css'
 import './equipment-training-theme.css'
 
 type Props = { onAddExercise?: (name: string) => boolean; onContinueTraining?: () => void; onStartCompanion?: (name: string) => boolean; date?: string }
+type Step = 1 | 2 | 3 | 4
+const STEP_LABELS = ['拍摄器械', '器械与动作', '短视频示范', '训练记录']
 
 export default function EquipmentScanner({ onAddExercise, onContinueTraining, onStartCompanion, date }: Props) {
   const [handoff, setHandoff] = useState(() => new URLSearchParams(window.location.search).get('equipment-training') === '1' ? getEquipmentHandoff() : null)
@@ -16,7 +19,9 @@ export default function EquipmentScanner({ onAddExercise, onContinueTraining, on
   const [result, setResult] = useState<EquipmentResult | null>(null)
   const [manual, setManual] = useState(false)
   const [confirmed, setConfirmed] = useState(Boolean(handoff))
-  const [modelMatched, setModelMatched] = useState(handoff?.modelMatched ?? false)
+  const [step, setStep] = useState<Step>(handoff ? 4 : 1)
+  const [exerciseId, setExerciseId] = useState<EquipmentExerciseId>(handoff?.exerciseId ?? 'bilateral')
+  const [dialog, setDialog] = useState<EquipmentDialogValue | null>(null)
   const [service, setService] = useState<{ available: boolean; message: string } | null>(null)
   const [serviceCheck, setServiceCheck] = useState(0)
   const [saved, setSaved] = useState(false)
@@ -26,7 +31,17 @@ export default function EquipmentScanner({ onAddExercise, onContinueTraining, on
   const revision = useRef(0)
   const controller = useRef<AbortController | null>(null)
   const locked = useRef(false)
+  const stepHeading = useRef<HTMLHeadingElement>(null)
+  const previousStep = useRef(step)
+  const exercise = EQUIPMENT_EXERCISES.find(item => item.id === exerciseId) ?? EQUIPMENT_EXERCISES[0]
+  const candidate = Boolean(handoff) || manual || result?.equipmentId === CHEST_PRESS.id
   useEffect(() => () => { revision.current++; controller.current?.abort() }, [])
+  useEffect(() => {
+    if (step !== previousStep.current) {
+      previousStep.current = step
+      stepHeading.current?.focus({ preventScroll: true })
+    }
+  }, [step])
   useEffect(() => {
     const check = new AbortController()
     setService(null)
@@ -42,10 +57,29 @@ export default function EquipmentScanner({ onAddExercise, onContinueTraining, on
   function reset() {
     revision.current++
     controller.current?.abort(); controller.current = null; locked.current = false
-    setHandoff(null); clearEquipmentHandoff(); setModelMatched(false)
-    setPhoto(null); setBusy(null); setResult(null); setManual(false); setConfirmed(false); setSaved(false); setError('')
+    setHandoff(null); clearEquipmentHandoff(); setExerciseId('bilateral')
+    setPhoto(null); setBusy(null); setResult(null); setManual(false); setConfirmed(false); setSaved(false); setError(''); setStep(1)
   }
-
+  function requestRestart() {
+    if (!photo && !candidate && !result && !busy) { setStep(1); return }
+    setDialog({ title: '返回拍摄，重新选择器械？', message: '本次照片、识别结果和动作选择会清除，已保存的训练记录会保留。', actionLabel: '确认返回拍摄', onConfirm: reset })
+  }
+  function navigate(target: Step) {
+    if (target === 1) { if (step !== 1 || busy) requestRestart(); return }
+    if (!candidate && !result) {
+      setDialog({ title: busy ? '请先完成器械识别' : '请先拍摄或选择器械', message: busy ? '正在处理当前照片。请等待结果，或返回拍摄取消本次识别。' : '先拍摄并识别一台器械，也可以在第一步手动选择，然后再继续。' }); return
+    }
+    if (target >= 3 && !confirmed) {
+      setDialog({ title: '请先确认器械与动作', message: '在第二步确认器械，并选择这次想练的动作，再查看示范或带入记录。' }); return
+    }
+    setStep(target); setError('')
+  }
+  function selectExercise(id: EquipmentExerciseId) {
+    if (id === exerciseId) return
+    const select = () => { setExerciseId(id); setConfirmed(false); setSaved(false); clearEquipmentHandoff(); setError('') }
+    if (id === 'unilateral') setDialog({ title: '这台器械可以单臂使用吗？', message: '单臂推胸仅适用于左右推臂可独立运动、且机身说明允许单臂使用的器械。不确定时，请选择双臂推胸。', actionLabel: '符合条件，选择单臂', onConfirm: select })
+    else select()
+  }
   async function choose(file?: File) {
     if (!file) return
     reset()
@@ -54,72 +88,75 @@ export default function EquipmentScanner({ onAddExercise, onContinueTraining, on
     }
     const token = revision.current
     setBusy('image')
-    try {
-      const image = await compressForAnalysis(file)
-      if (token === revision.current) setPhoto(image)
-    } catch { if (token === revision.current) setError('照片无法读取，请换一张照片。') }
+    try { const image = await compressForAnalysis(file); if (token === revision.current) setPhoto(image) }
+    catch { if (token === revision.current) setError('照片无法读取，请换一张照片。') }
     finally { if (token === revision.current) setBusy(null) }
   }
-
   async function identify() {
     if (!photo || locked.current || busy || !service?.available) return
     locked.current = true
     const token = ++revision.current
     controller.current = new AbortController()
     setBusy('request'); setError(''); setResult(null); setManual(false); setConfirmed(false); setSaved(false)
-    setHandoff(null); clearEquipmentHandoff(); setModelMatched(false)
+    setHandoff(null); clearEquipmentHandoff(); setExerciseId('bilateral')
     try {
       const response = await postJson('/api/identify-equipment', { imageBase64: photo.base64, mediaType: 'image/jpeg' }, '器械识别失败，请手动确认或重拍。', { signal: controller.current.signal })
       const parsed = validateEquipmentResult((response as { result?: unknown } | null)?.result)
-      if (token === revision.current) setResult(parsed)
+      if (token === revision.current) { setResult(parsed); setStep(2) }
     } catch (cause) { if (token === revision.current) setError(cause instanceof Error ? cause.message : '识别失败，请手动确认。') }
     finally { if (token === revision.current) { setBusy(null); locked.current = false; controller.current = null } }
   }
-
   function cancel() {
     revision.current++; controller.current?.abort(); controller.current = null; locked.current = false
     setBusy(null); setError('已取消等待。服务端已开始的识别仍可能计费，不会自动重试。')
   }
-
-  const candidate = Boolean(handoff) || manual || result?.equipmentId === CHEST_PRESS.id
+  function manuallySelect() { setManual(true); setResult(null); setError(''); setStep(2) }
   function continueToTraining() {
-    if (!saveEquipmentHandoff(modelMatched)) { setError('暂时无法保留已确认器械。请保持本页，或直接进入训练记录手动添加。'); return }
+    if (!confirmed) return
+    if (!saveEquipmentHandoff(false, exerciseId)) { setError('暂时无法保留已确认器械。请保持本页，或直接进入训练记录手动添加。'); return }
     window.location.assign('/?equipment-training=1')
   }
+  const originLabel = handoff ? '从扫描页带入 · 已人工确认' : manual ? '手动选择 · 未经 AI 识别' : '识别结果'
   return <section className="equipment-scanner" aria-label="静态器械扫描">
-    <div className="equipment-steps" aria-label="流程"><span aria-current={!candidate ? 'step' : undefined} data-active={!candidate}>01 拍摄器械</span><span aria-current={candidate && !confirmed ? 'step' : undefined} data-active={candidate && !confirmed}>02 核对类别</span><span aria-current={confirmed && !saved ? 'step' : undefined} data-active={confirmed && !saved}>03 查看资料</span><span aria-current={saved ? 'step' : undefined} data-active={saved}>04 训练记录</span></div>
-    <div className="equipment-grid">
-      <section className="equipment-card">
-        <h2>把器械拍完整</h2><p>首轮支持坐姿推胸机。拍到座椅、靠背、握把和推臂，尽量只包含一台器械。</p>
+    <nav className="equipment-steps" aria-label="器械使用步骤">{STEP_LABELS.map((label, index) => {
+      const number = (index + 1) as Step
+      const complete = number === 1 ? candidate : number === 2 ? confirmed : number === 4 ? saved : false
+      return <button key={label} type="button" aria-label={`0${number} ${label}`} aria-current={step === number ? 'step' : undefined} data-active={step === number} data-complete={complete} onClick={() => navigate(number)}><span className="equipment-step-number">0{number}</span><span className="equipment-step-label">{label}</span><span className="equipment-step-dot" aria-hidden="true" /></button>
+    })}</nav>
+    {error && <p className="equipment-error" role="alert">{error}</p>}
+    <div className="equipment-grid" data-step={step}>
+      {step === 1 ? <section className="equipment-card">
+        <h2 ref={stepHeading} tabIndex={-1}>把器械拍完整</h2><p>当前支持坐姿推胸机。拍到座椅、靠背、握把和推臂，尽量只包含一台器械。</p>
         <div className="equipment-photo" data-processing={busy === 'request'} aria-busy={Boolean(busy)}>{photo ? <img src={photo.dataUrl} alt="待识别的器械照片，本地预览" /> : <div><span aria-hidden="true">⌗</span><strong>先看照片，再决定上传</strong><p>可拍照，也可从相册选择</p></div>}</div>
         <input ref={fileInput} type="file" accept="image/jpeg,image/png,image/webp" hidden aria-label="选择器械照片" onChange={event => { void choose(event.target.files?.[0]); event.target.value = '' }} />
         <input ref={cameraInput} type="file" accept="image/jpeg,image/png,image/webp" capture="environment" hidden aria-label="拍摄器械照片" onChange={event => { void choose(event.target.files?.[0]); event.target.value = '' }} />
-        <div className="equipment-buttons"><button onClick={() => cameraInput.current?.click()} disabled={!!busy}>拍一张照片</button><button onClick={() => fileInput.current?.click()} disabled={!!busy}>选择照片</button>{photo && <button onClick={reset}>移除照片</button>}</div>
-        <p className="equipment-note">选择照片只在本地预览。点击下方按钮后，压缩照片会发送至 OpenAI 识别并可能计费；请避开人物和私人信息。照片不写入训练档案。</p>
-        <p className="equipment-service" role="status">{service?.message ?? '正在检查识别服务…'}</p>
+        <div className="equipment-buttons"><button onClick={() => cameraInput.current?.click()} disabled={!!busy}>拍一张照片</button><button onClick={() => fileInput.current?.click()} disabled={!!busy}>选择照片</button>{photo && <button onClick={requestRestart}>移除照片</button>}</div>
+        <p className="equipment-note">照片先在本地预览，点击识别后才上传。请避开人物和私人信息。</p>
+        <p className="equipment-service" role="status">{service?.available ? '识别服务已连接' : service?.message ?? '正在检查识别服务…'}</p>
         {service && !service.available && <button onClick={() => setServiceCheck(value => value + 1)}>重新检查服务</button>}
         <button className="equipment-primary" disabled={!photo || !!busy || !service?.available} onClick={() => void identify()}>{busy === 'image' ? '正在准备照片…' : busy === 'request' ? '正在识别…' : '上传并识别器械'}</button>
+        <p className="equipment-note">上传后由 OpenAI 识别并可能计费，照片不写入训练档案。</p>
         {busy === 'request' && <button onClick={cancel}>取消等待</button>}
-      </section>
-      <section className="equipment-card" aria-live="polite">
-        {error && <p className="equipment-error" role="alert">{error}</p>}
-        {!candidate && <><h2>{result ? '暂时无法确认' : '识别后，由你确认'}</h2><p>{result ? result.uncertain : '系统只给器械候选，不会自动开始或记为完成训练。'}</p>{result?.evidence.map((item, index) => <p key={index}>可见线索：{item}</p>)}<p className="equipment-note">不支持的器械或看不清的照片会保留为“无法确认”。可以重拍，或对照实物手动选择。</p></>}
-        {!candidate && <button disabled={!!busy} onClick={() => { setManual(true); setError('') }}>手动选择坐姿推胸机</button>}
-        {candidate && <>
-          <p className="equipment-label">{handoff ? '从扫描页带入 · 已人工确认' : manual ? '手动选择 · 未经 AI 识别' : `AI 候选 · ${result?.confidence === 'high' ? '把握较高' : result?.confidence === 'mid' ? '仍有疑问' : '把握较低'}`}</p>
-          <h2>{CHEST_PRESS.name}</h2>
-          {!manual && !handoff && <>{result?.evidence.map((item, index) => <p key={index}>可见线索：{item}</p>)}<p className="equipment-note">待核对：{result?.uncertain}</p></>}
-          {!confirmed ? <><p>请对照器械标牌与实物确认。座椅、靠背和推臂结构应对应坐姿向前推胸，不能只凭外形相近就确认。</p><div className="equipment-buttons"><button className="equipment-primary" onClick={() => setConfirmed(true)}>确认是坐姿推胸机</button><button onClick={() => { setManual(false); setResult(null); setError('已排除该候选，可以重新拍摄或返回训练记录手动选动作。') }}>不是这类器械</button></div></> : <>
-            <p className="equipment-label">已确认类别 · 具体品牌型号仍需核对</p>
-            <h3>资料与适用范围</h3><p>对应记录动作：<strong>{CHEST_PRESS.exercise}</strong>。不适用于史密斯卧推、器械推肩或蝴蝶机夹胸。</p>
-            <p>以下是 Life Fitness Insignia SS-CP 的官方资料示例。只有设备标牌型号相同，才使用其具体调节说明；其他型号请查看机身说明。</p>
-            <div className="equipment-links"><a href={CHEST_PRESS.source} target="_blank" rel="noreferrer">查看官方器械介绍 ↗</a><a href={CHEST_PRESS.manual} target="_blank" rel="noreferrer">查看该系列说明书 ↗</a></div>
-            <EquipmentTeaching matched={modelMatched} onMatch={setModelMatched} />
-            {onAddExercise ? <><p>添加到 {date} 的力量训练，只添加动作名称。重量、次数和完成状态由你填写。</p><button className="equipment-primary" disabled={saved} onClick={() => { if (onAddExercise(CHEST_PRESS.exercise)) { setSaved(true); setError(''); clearEquipmentHandoff() } else setError('未能添加动作，请检查训练记录或存储提示后重试。') }}>{saved ? '已加入训练记录' : '添加到当前训练记录'}</button>{saved && onContinueTraining && <button onClick={onContinueTraining}>开始填写组数与重量</button>}{saved && onStartCompanion && <button className="equipment-primary" onClick={() => { if (!onStartCompanion(CHEST_PRESS.exercise)) { setSaved(false); setError('这个动作已不在当前记录中，请重新添加后开始陪练。') } }}>用熊猫陪练这个动作</button>}</> : <><button className="equipment-primary" onClick={continueToTraining}>带入训练记录 ↗</button><p className="equipment-note">保留已确认类别 30 分钟，不携带照片；进入后点击添加才写入训练记录。</p></>}
-            <button onClick={() => { setHandoff(null); clearEquipmentHandoff(); setManual(true); setResult(null); setModelMatched(false); setConfirmed(false); setSaved(false); setError('') }}>重新核对类别</button>
-          </>}
+      </section> : <aside className="equipment-card equipment-summary">
+        <p className="equipment-label">{candidate ? originLabel : '当前照片'}</p>
+        {photo ? <div className="equipment-photo"><img src={photo.dataUrl} alt="待识别的器械照片，本地预览" /></div> : <div className="equipment-summary-icon" aria-hidden="true">↗</div>}
+        {candidate && <><h2>{CHEST_PRESS.name}</h2><p>{confirmed ? `本次动作：${exercise.name}` : '选一个动作，开始这次训练。'}</p></>}
+        <button onClick={requestRestart}>重新拍摄 / 更换器械</button>
+      </aside>}
+      <section className="equipment-card equipment-step-panel" key={step}>
+        {step === 1 && <><p className="equipment-label">认识器械，只需几步</p><h2>拍一张，看看能练什么</h2><p>确认器械后选择动作，先看不到 1 分钟的示范，再记录训练。</p><button disabled={!!busy} onClick={manuallySelect}>手动选择坐姿推胸机</button></>}
+        {step === 2 && (!candidate ? <><h2 ref={stepHeading} tabIndex={-1}>暂时无法确认</h2><p>这张照片暂时不能确定为坐姿推胸机。请换个角度拍摄，或对照实物手动选择。</p><div className="equipment-buttons"><button onClick={requestRestart}>重新拍摄</button><button onClick={manuallySelect}>手动选择坐姿推胸机</button></div></> : <>
+          <p className="equipment-label">这台器械可以练</p><h2 ref={stepHeading} tabIndex={-1}>选择这次的动作</h2>
+          <div className="equipment-exercises" aria-label="可练动作">{EQUIPMENT_EXERCISES.map(item => <button key={item.id} className="equipment-exercise" aria-pressed={exerciseId === item.id} onClick={() => selectExercise(item.id)}><span className="equipment-exercise-top"><strong>{item.name}</strong><span>{item.seconds} 秒示范</span></span><span>{item.description}</span>{item.id === 'unilateral' && <small>需推臂独立运动，且本机允许单臂使用</small>}<span className="equipment-exercise-selection">{exerciseId === item.id ? '✓ 已选择' : '选择动作'}</span></button>)}</div>
+          <div className="equipment-buttons"><button className="equipment-primary" onClick={() => { setConfirmed(true); setStep(3); setError('') }}>确认是坐姿推胸机</button><button onClick={() => { reset(); setError('已排除该候选，可以重新拍摄或手动选择。') }}>不是这类器械</button></div>
+        </>)}
+        {step === 3 && confirmed && <><p className="equipment-label">看一遍，再开始</p><h2 ref={stepHeading} tabIndex={-1}>不到 1 分钟，看懂动作</h2><EquipmentTeaching key={exerciseId} exercise={exercise} /><button className="equipment-primary" onClick={() => setStep(4)}>下一步：训练记录</button><button onClick={() => setStep(2)}>返回选择动作</button></>}
+        {step === 4 && confirmed && <><p className="equipment-label">{saved ? '已加入训练' : '动作已准备好'}</p><h2 ref={stepHeading} tabIndex={-1}>{exercise.name}</h2><p>记录为「{exercise.exercise}」。重量、次数与完成状态由你填写。</p>
+          {onAddExercise ? <><p>添加到 {date} 的力量训练。</p><button className="equipment-primary" disabled={saved} onClick={() => { if (onAddExercise(exercise.exercise)) { setSaved(true); setError(''); clearEquipmentHandoff() } else setError('未能添加动作，请检查训练记录或存储提示后重试。') }}>{saved ? '已加入训练记录' : '添加到当前训练记录'}</button>{saved && onContinueTraining && <button onClick={onContinueTraining}>开始填写组数与重量</button>}{saved && onStartCompanion && <button className="equipment-primary" onClick={() => { if (!onStartCompanion(exercise.exercise)) { setSaved(false); setError('这个动作已不在当前记录中，请重新添加后开始陪练。') } }}>用熊猫陪练这个动作</button>}</> : <><button className="equipment-primary" onClick={continueToTraining}>带入训练记录 ↗</button><p className="equipment-note">保留选择 30 分钟，进入后点击添加才会保存。</p></>}
+          <button onClick={() => setStep(3)}>返回查看示范</button>
         </>}
       </section>
     </div>
+    {dialog && <EquipmentDialog value={dialog} onClose={() => setDialog(null)} />}
   </section>
 }

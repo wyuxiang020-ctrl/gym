@@ -71,8 +71,11 @@ try {
   await test('handoff is bounded, expiring and excludes photos', () => {
     const map = new Map(); globalThis.sessionStorage = { getItem: key => map.get(key) ?? null, setItem: (key, value) => map.set(key, value), removeItem: key => map.delete(key) }
     assert.equal(saveEquipmentHandoff(true), true); assert.equal(getEquipmentHandoff().modelMatched, true)
-    const [key, raw] = [...map][0]; assert.deepEqual(Object.keys(JSON.parse(raw)).sort(), ['confirmedAt', 'equipmentId', 'modelMatched'])
+    const [key, raw] = [...map][0]; assert.deepEqual(Object.keys(JSON.parse(raw)).sort(), ['confirmedAt', 'equipmentId', 'exerciseId', 'modelMatched'])
     for (const patch of [{ confirmedAt: Date.now() - 31 * 60000 }, { confirmedAt: Date.now() + 100000 }, { equipmentId: 'invented' }]) { map.set(key, JSON.stringify({ ...JSON.parse(raw), ...patch })); assert.equal(getEquipmentHandoff(), null) }
+    assert.equal(saveEquipmentHandoff(false, 'unilateral'), true); assert.equal(getEquipmentHandoff().exerciseId, 'unilateral')
+    map.set(key, JSON.stringify({ ...JSON.parse(raw), exerciseId: undefined })); assert.equal(getEquipmentHandoff().exerciseId, 'bilateral')
+    map.set(key, JSON.stringify({ ...JSON.parse(raw), exerciseId: 'invented' })); assert.equal(getEquipmentHandoff(), null)
     clearEquipmentHandoff(); assert.equal(getEquipmentHandoff(), null)
     globalThis.sessionStorage.setItem = () => { throw new Error('quota') }; assert.equal(saveEquipmentHandoff(false), false)
   })

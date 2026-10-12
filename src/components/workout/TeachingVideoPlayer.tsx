@@ -86,10 +86,12 @@ export type TeachingVideoPlayerProps = {
   sourceUrl: string
   onReturn: () => void
   returnLabel?: string
+  /** Set only when mounting in response to an explicit view-video click. */
+  loadOnMount?: boolean
 }
 
-export function TeachingVideoPlayer({ title, videoId, sourceUrl, onReturn, returnLabel = '返回当前记录' }: TeachingVideoPlayerProps) {
-  const [attempt, setAttempt] = useState(0)
+export function TeachingVideoPlayer({ title, videoId, sourceUrl, onReturn, returnLabel = '返回当前记录', loadOnMount = false }: TeachingVideoPlayerProps) {
+  const [attempt, setAttempt] = useState(loadOnMount ? 1 : 0)
   const [state, setState] = useState<PlaybackState>('idle')
   const [error, setError] = useState('')
   const holder = useRef<HTMLDivElement>(null)

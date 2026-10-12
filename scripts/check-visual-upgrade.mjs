@@ -37,7 +37,7 @@ for(const width of [360,390,430,1440]){
     await button(page,'暂停计时').click();const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('gym-data-v1')));assert.equal(stored.dayLogs[date].strength[0].sets[0].weight,30);assert.equal(stored.dayLogs[date].strength[0].sets[0].done,true)
     await button(page,'结束本次陪练').click();await page.getByRole('heading',{name:'当前动作的已保存记录'}).waitFor();await companion.scrollIntoViewIfNeeded();await audit(page,`completion-${width}`)
     await page.goto(`${base}/?equipment-scan=1`,{waitUntil:'domcontentloaded'});await button(page,'手动选择坐姿推胸机').click();await page.getByRole('heading',{name:'坐姿推胸机',exact:true}).scrollIntoViewIfNeeded();await audit(page,`equipment-result-${width}`)
-    await button(page,'确认是坐姿推胸机').click();const teaching=page.getByRole('region',{name:'器械教学适用性'});await teaching.scrollIntoViewIfNeeded();await page.getByRole('checkbox').check();await audit(page,`teaching-${width}`);await button(page,'1. 核对型号').click();assert.equal(await button(page,'1. 核对型号').getAttribute('aria-pressed'),'true')
+    await button(page,'确认是坐姿推胸机').click();const teaching=page.getByRole('region',{name:'动作短示范'});await teaching.scrollIntoViewIfNeeded();await audit(page,`teaching-${width}`);await button(page,'02 器械与动作').click();assert.equal(await button(page,'02 器械与动作').getAttribute('aria-current'),'step')
     assert.deepEqual(errors,[]);results.push({width,pass:true})
   }catch(e){results.push({width,pass:false,error:e.message,errors});await page.screenshot({path:`${out}/failure-${width}.png`});process.exitCode=1}
   if(width===390)await context.tracing.stop({path:`${out}/interaction-390.zip`})

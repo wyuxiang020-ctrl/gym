@@ -23,6 +23,7 @@ const button = (page, name) => page.getByRole('button', { name, exact: true })
 async function manualAdd(page) {
   await button(page, '手动选择坐姿推胸机').click()
   await button(page, '确认是坐姿推胸机').click()
+  await button(page, '下一步：训练记录').click()
   await button(page, '添加到当前训练记录').click()
 }
 async function test(name, run, width = 390) {
@@ -64,6 +65,7 @@ for (const [index, width] of [320, 390, 1100].entries()) {
     await page.getByLabel('选择器械照片', { exact: true }).setInputFiles(file)
     await button(page, '上传并识别器械').click()
     await button(page, '确认是坐姿推胸机').click()
+  await button(page, '下一步：训练记录').click()
     await button(page, '带入训练记录 ↗').click()
     await page.getByText('从扫描页带入 · 已人工确认').waitFor()
     assert.deepEqual((await stored(page)).dayLogs[date].strength, [existing])
@@ -118,6 +120,7 @@ await test('F04 switch existing companion and reuse exercise without duplicate',
 await test('F05 failed save cannot expose companion handoff', async page => {
   await page.goto(`${base}/?equipment-training=1`)
   await button(page, '手动选择坐姿推胸机').click(); await button(page, '确认是坐姿推胸机').click()
+  await button(page, '下一步：训练记录').click()
   await page.evaluate(() => { Storage.prototype.setItem = function() { throw new DOMException('synthetic failure', 'QuotaExceededError') } })
   await button(page, '添加到当前训练记录').click()
   await page.getByText('未能添加动作，请检查训练记录或存储提示后重试。').waitFor()

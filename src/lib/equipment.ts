@@ -10,6 +10,14 @@ export const CHEST_PRESS = {
   model: 'Life Fitness Insignia SS-CP',
 } as const
 
+// Curated movement variants, never generated from the recognition response.
+export const EQUIPMENT_EXERCISES = [
+  { id: 'bilateral', name: '双臂推胸', exercise: CHEST_PRESS.exercise, description: '双手同时向前推，完成基础推胸动作。', condition: '按本机标牌调节座椅和起始位置。', videoId: '3yHGFAwf57Q', seconds: 20 },
+  { id: 'unilateral', name: '单臂推胸', exercise: '固定器械单臂推胸', description: '一侧完成后再换另一侧。', condition: '仅限左右推臂可独立运动、且机身说明允许单臂使用的器械。', videoId: 'byWE-S2tJqs', seconds: 19 },
+] as const
+export type EquipmentExercise = typeof EQUIPMENT_EXERCISES[number]
+export type EquipmentExerciseId = EquipmentExercise['id']
+
 export type EquipmentResult = {
   equipmentId: typeof CHEST_PRESS.id | 'unknown'
   confidence: 'high' | 'mid' | 'low'
