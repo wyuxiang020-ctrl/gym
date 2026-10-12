@@ -9,3 +9,13 @@
 .equipment-picker small { color: #b2bc91; font-size: 12px; }
 .equipment-picker strong { font-size: 16px; line-height: 1.5; }
 @media (max-width: 360px) { .equipment-picker { grid-template-columns: 1fr; } }
+
+.equipment-picker-groups h4 { margin: 22px 0 8px; color: #c8d295; font-size: 14px; }
+.equipment-exercise-tools { margin: 20px 0 12px; }
+.equipment-exercise-tools label { display: grid; gap: 8px; font-size: 14px; }
+.equipment-exercise-tools input { width: 100%; box-sizing: border-box; border: 1px solid #526065; border-radius: 12px; padding: 14px; color: #f4f6f3; background: #121819; font: inherit; }
+.equipment-area-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.equipment-area-filters button { margin: 0; padding: 8px 13px; min-height: 44px; font-size: 14px; }
+.equipment-area-filters button[aria-pressed="true"] { color: #101410; background: #e7ff55; border-color: #e7ff55; }
+.equipment-exercises[data-many="true"] { max-height: 490px; overflow-y: auto; overscroll-behavior: contain; padding: 4px; scrollbar-color: #8e9f66 #202729; scrollbar-width: thin; }
+.equipment-selection-summary { border-left: 3px solid #e7ff55; padding: 10px 12px; color: #e7ff55; background: #161f1b; border-radius: 4px; }

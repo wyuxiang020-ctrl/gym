@@ -1,12 +1,15 @@
+import { EXPANDED_EQUIPMENT, EXPANDED_EXERCISES, EXPANDED_GUIDES } from './equipmentExpansion.js'
+
 export const EQUIPMENT_CATALOG = [
-  { id: 'seated_chest_press', name: '坐姿推胸机', area: '胸部', cue: '座椅靠背与胸前握把，推臂向前推；区别于肩推和夹胸' },
-  { id: 'lat_pulldown', name: '高位下拉机', area: '背部', cue: '顶部滑轮长杆、座椅和压腿垫，向胸前下拉；不含组合站' },
-  { id: 'seated_row', name: '坐姿划船机', area: '背部', cue: '固定力量器械，胸部支撑垫与向身体拉回的握把；不含有氧划船机' },
-  { id: 'seated_leg_press', name: '坐姿腿举机', area: '腿部', cue: '水平坐姿、靠背、大脚踏板与插销配重；不含45度斜轨倒蹬机' },
-  { id: 'leg_extension', name: '腿屈伸机', area: '腿部', cue: '坐姿靠背，滚垫位于小腿前侧，向前上方伸膝' },
-  { id: 'prone_leg_curl', name: '俯卧腿弯举机', area: '腿部', cue: '俯卧长凳和脚踝后侧滚垫，屈膝抬脚；不含坐姿腿弯举机' },
-  { id: 'shoulder_press', name: '坐姿肩推机', area: '肩部', cue: '坐姿靠背，握把位于肩侧，推臂向头顶上推' },
-  { id: 'pec_fly', name: '蝴蝶机夹胸', area: '胸部', cue: '坐姿靠背、两侧握把沿弧线向胸前合拢；本轮为握把式夹胸' },
+  { kind: '固定器械', id: 'seated_chest_press', name: '坐姿推胸机', area: '胸部', cue: '座椅靠背与胸前握把，推臂向前推；区别于肩推和夹胸' },
+  { kind: '固定器械', id: 'lat_pulldown', name: '高位下拉机', area: '背部', cue: '顶部滑轮长杆、座椅和压腿垫，向胸前下拉；不含组合站' },
+  { kind: '固定器械', id: 'seated_row', name: '坐姿划船机', area: '背部', cue: '固定力量器械，胸部支撑垫与向身体拉回的握把；不含有氧划船机' },
+  { kind: '固定器械', id: 'seated_leg_press', name: '坐姿腿举机', area: '腿部', cue: '水平坐姿、靠背、大脚踏板与插销配重；不含45度斜轨倒蹬机' },
+  { kind: '固定器械', id: 'leg_extension', name: '腿屈伸机', area: '腿部', cue: '坐姿靠背，滚垫位于小腿前侧，向前上方伸膝' },
+  { kind: '固定器械', id: 'prone_leg_curl', name: '俯卧腿弯举机', area: '腿部', cue: '俯卧长凳和脚踝后侧滚垫，屈膝抬脚；不含坐姿腿弯举机' },
+  { kind: '固定器械', id: 'shoulder_press', name: '坐姿肩推机', area: '肩部', cue: '坐姿靠背，握把位于肩侧，推臂向头顶上推' },
+  { kind: '固定器械', id: 'pec_fly', name: '蝴蝶机夹胸', area: '胸部', cue: '坐姿靠背、两侧握把沿弧线向胸前合拢；本轮为握把式夹胸' },
+  ...EXPANDED_EQUIPMENT,
 ] as const
 export type EquipmentId = typeof EQUIPMENT_CATALOG[number]['id']
 export function equipmentById(id: unknown) { return EQUIPMENT_CATALOG.find(item => item.id === id) }
@@ -34,13 +37,15 @@ export const EQUIPMENT_EXERCISES = [
   { equipmentId: 'prone_leg_curl', id: 'prone-leg-curl', name: '俯卧腿弯举', exercise: '俯卧腿弯举', description: '俯卧屈膝，将脚跟抬向臀部后缓慢放回。', condition: '适用于俯卧式腿弯举机。', videoId: 'QjNFk4F5dAs', seconds: 60, publisher: 'PureGym', startSeconds: 0, endSeconds: 60, videoNote: '完整短讲解 · 滚垫位置与屈膝示范', guideSource: 'https://www.puregym.com/blog/how-to-use-gym-equipment/' },
   { equipmentId: 'shoulder_press', id: 'shoulder-press', name: '器械坐姿肩推', exercise: '器械坐姿肩推', description: '从肩部两侧平稳向上推，再缓慢回位。', condition: '适用于坐姿固定器械肩推。', videoId: 'TnhIyp4kmO8', seconds: 55, publisher: 'PureGym', startSeconds: 0, endSeconds: 55, videoNote: '完整短讲解 · 坐姿、上推与回位', guideSource: 'https://www.puregym.com/blog/5-resistance-machines-gym-beginners-need-to-try/' },
   { equipmentId: 'pec_fly', id: 'pec-fly', name: '器械夹胸', exercise: '器械夹胸', description: '保持肘部微弯，将两侧握把合向胸前。', condition: '适用于握把式蝴蝶机；本轮不含反向飞鸟。', videoId: 'AZFC0IjGhtQ', seconds: 56, publisher: 'Danny Matranga', startSeconds: 0, endSeconds: 56, videoNote: '完整短讲解 · 手臂位置与夹胸示范', guideSource: 'https://www.puregym.com/exercises/chest/chest-fly/machine-fly/' },
+  ...EXPANDED_EXERCISES,
 ] as const
 export type EquipmentExercise = typeof EQUIPMENT_EXERCISES[number]
 export type EquipmentExerciseId = EquipmentExercise['id']
 export function exercisesForEquipment(id: EquipmentId) { return EQUIPMENT_EXERCISES.filter(item => item.equipmentId === id) }
 
-// Concise paraphrases of PureGym's machine chest press guides; no model-generated coaching.
+// Curated concise guides, not generated from the recognition response.
 export const EQUIPMENT_GUIDES: Record<EquipmentExerciseId, readonly { instruction: string; mistake?: string }[]> = {
+  ...EXPANDED_GUIDES,
   bilateral: [
     { instruction: '调座椅，让握把与胸部中段齐平；先用轻重量熟悉动作。' },
     { instruction: '双脚踩稳，背部贴垫、手腕放正。', mistake: '耸肩、折腕。' },
@@ -117,4 +122,11 @@ export function validateEquipmentResult(value: unknown): EquipmentResult {
   if (result.equipmentId === 'unknown' && result.confidence !== 'low') return fail()
   if (result.equipmentId !== 'unknown' && result.evidence.length === 0) return fail()
   return result as EquipmentResult
+}
+
+export function exerciseArea(exercise: EquipmentExercise): string {
+  return 'area' in exercise ? exercise.area : equipmentById(exercise.equipmentId)?.area ?? ''
+}
+export function needsExerciseChoice(id: EquipmentId): boolean {
+  return id === 'dumbbell' || id === 'barbell' || id === 'cable_station'
 }

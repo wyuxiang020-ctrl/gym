@@ -3,7 +3,7 @@ import { registerHooks } from 'node:module'
 import assert from 'node:assert/strict'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import sharp from 'sharp'
-import { validateEquipmentResult } from '../src/lib/equipment.ts'
+const { validateEquipmentResult } = await import('../src/lib/equipment.ts')
 
 const good = { equipmentId: 'seated_chest_press', confidence: 'mid', evidence: ['合成返回：座椅与推臂可见'], uncertain: '固定响应，仅测软件，未识别真实器械。' }
 const meta = { model: 'fixed-test-response', responseId: 'test-only', sdkMaxRetries: 0, timeoutMs: 110000, usage: { inputTokens: 0, outputTokens: 0, totalTokens: 0 } }
@@ -31,7 +31,7 @@ async function test(name, run) { reset(); const row = { name, pass: false }; try
 await test('bounded candidate and unknown contracts', () => {
   assert.deepEqual(validateEquipmentResult(good), good)
   assert.equal(validateEquipmentResult({ ...good, equipmentId: 'unknown', confidence: 'low', evidence: [] }).equipmentId, 'unknown')
-  for (const patch of [{ equipmentId: 'shoulder_press' }, { confidence: 0.9 }, { evidence: [] }, { uncertain: '' }, { evidence: ['x'.repeat(161)] }, { tutorial: 'invented' }, { equipmentId: 'unknown', confidence: 'high' }]) assert.throws(() => validateEquipmentResult({ ...good, ...patch }))
+  for (const patch of [{ equipmentId: 'invented_equipment' }, { confidence: 0.9 }, { evidence: [] }, { uncertain: '' }, { evidence: ['x'.repeat(161)] }, { tutorial: 'invented' }, { equipmentId: 'unknown', confidence: 'high' }]) assert.throws(() => validateEquipmentResult({ ...good, ...patch }))
 })
 await test('method, content type and invalid image never reach model', async () => {
   const before = calls

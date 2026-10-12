@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export const RELEASE_LABEL = '常见器械教学 · 2026-10-12'
+export const RELEASE_LABEL = '自由重量与器械教学 · 2026-10-13'
 
 export function ReleaseStatus() {
   const [state, setState] = useState<'idle' | 'checking' | 'ready' | 'error'>('idle')

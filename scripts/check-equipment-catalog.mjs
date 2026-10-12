@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import sharp from 'sharp'
 import { chromium } from 'file:///C:/Users/WangYuxiang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs'
-const { EQUIPMENT_CATALOG, EQUIPMENT_EXERCISES, EQUIPMENT_GUIDES, validateEquipmentResult } = await import('../src/lib/equipment.ts')
+const { EQUIPMENT_CATALOG, EQUIPMENT_EXERCISES, EQUIPMENT_GUIDES, validateEquipmentResult, needsExerciseChoice } = await import('../src/lib/equipment.ts')
 const { EQUIPMENT_SCHEMA } = await import('../api/_lib/equipment.ts')
 const { saveEquipmentHandoff, getEquipmentHandoff } = await import('../src/lib/store.ts')
 const base = process.env.GYM_TEST_URL || 'http://127.0.0.1:4186'
@@ -28,7 +28,7 @@ for (const eq of EQUIPMENT_CATALOG) {
 assert.throws(()=>validateEquipmentResult(resultFor('invented')))
 assert.equal(saveEquipmentHandoff(false,'bilateral','lat_pulldown'),false)
 map.set('gym-equipment-handoff-v1',JSON.stringify({equipmentId:'lat_pulldown',exerciseId:'bilateral',confirmedAt:Date.now(),modelMatched:false})); assert.equal(getEquipmentHandoff(),null)
-results.push({name:'catalog schema, 9 guides and matching handoffs',pass:true})
+results.push({name:'catalog schema, all guides and matching handoffs',pass:true})
 const browser = await chromium.launch({headless:true,channel:'msedge'})
 for (const width of [390,1440]) {
  for (const eq of EQUIPMENT_CATALOG) {
@@ -47,7 +47,7 @@ for (const width of [390,1440]) {
    await page.goto(`${base}/?equipment-scan=1`)
    await button('手动选择坐姿推胸机').waitFor()
    const before=await page.evaluate(()=>localStorage.getItem('gym-data-v1'))
-   assert.equal(await page.locator('.equipment-picker button').count(),8)
+   assert.equal(await page.locator('.equipment-picker button').count(),EQUIPMENT_CATALOG.length)
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1))
    if(eq.id==='seated_chest_press')await page.screenshot({path:`${out}/picker-${width}.png`,fullPage:true})
    if(width===390)await button(`手动选择${eq.name}`).click()
@@ -55,6 +55,7 @@ for (const width of [390,1440]) {
    await button(`确认是${eq.name}`).waitFor()
    const exercises=EQUIPMENT_EXERCISES.filter(item=>item.equipmentId===eq.id),ex=exercises[0]
    assert.equal(await page.locator('.equipment-exercise').count(),exercises.length)
+   if (needsExerciseChoice(eq.id)) { assert.equal(await button(`确认是${eq.name}`).isDisabled(),true); await page.getByRole('button',{name:new RegExp('^'+ex.name)}).click() }
    await button(`确认是${eq.name}`).click()
    assert.equal(await page.locator('.equipment-quick-guide li').count(),4)
    assert.equal(await page.locator('.equipment-mistake').count(),3)

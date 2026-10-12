@@ -6,14 +6,17 @@ import { chromium } from 'file:///C:/Users/WangYuxiang/.cache/codex-runtimes/cod
 
 const base = process.env.GYM_TEST_URL || 'http://127.0.0.1:4186'
 const out = `evals/equipment-scan/catalog-live-video-${Date.now()}`
+const { EXPANDED_EXERCISES } = await import('../src/lib/equipmentExpansion.ts')
+const scope = process.env.GYM_VIDEO_SCOPE === 'expanded' ? EXPANDED_EXERCISES : EQUIPMENT_EXERCISES.filter(item => item.equipmentId !== 'seated_chest_press')
+const videoIds = process.env.GYM_VIDEO_IDS?.split(',')
 mkdirSync(out, { recursive: true })
 const report = { kind: 'Real external playback attempt, isolated Edge; no fake player events or API responses', modelCalls: 0,  results: [] }
 const browser = await chromium.launch({ headless: true, channel: 'msedge' })
-for (const exercise of EQUIPMENT_EXERCISES.filter(item => item.equipmentId !== 'seated_chest_press')) {
+for (const exercise of scope.filter(item => !videoIds || videoIds.includes(item.videoId))) {
   const width = 1100, unilateral = false, seconds = exercise.seconds
   const equipment = equipmentById(exercise.equipmentId)
   const context = await browser.newContext({ viewport: { width, height: 950 }, serviceWorkers: 'block' })
-  const row = { equipment: equipment.id, videoId: exercise.videoId, width, unilateral, expectedSeconds: seconds, playbackPassed: false, recoveryPassed: false, failedRequests: [] }
+  const row = { exercise: exercise.id, equipment: equipment.id, videoId: exercise.videoId, width, unilateral, expectedSeconds: seconds, playbackPassed: false, recoveryPassed: false, failedRequests: [] }
   await context.route('**/api/identify-equipment', route => route.abort())
   await context.addInitScript(() => { navigator.mediaDevices.getUserMedia = async () => { throw new Error('No physical camera in this check') } })
   const page = await context.newPage(); page.setDefaultTimeout(8000)
@@ -22,6 +25,7 @@ for (const exercise of EQUIPMENT_EXERCISES.filter(item => item.equipmentId !== '
     await page.goto(`${base}/?equipment-scan=1`)
     const before = await page.evaluate(() => localStorage.getItem('gym-data-v1'))
     await page.getByRole('button', { name: `手动选择${equipment.name}`, exact: true }).click()
+    await page.getByRole('button', { name: new RegExp('^' + exercise.name) }).click()
     if (unilateral) { await page.getByRole('button', { name: /^单臂推胸/ }).click(); await page.getByRole('button', { name: '符合条件，选择单臂' }).click() }
     await page.getByRole('button', { name: `确认是${equipment.name}`, exact: true }).click()
     assert.equal(await page.locator('iframe').count(), 0)
@@ -45,7 +49,7 @@ for (const exercise of EQUIPMENT_EXERCISES.filter(item => item.equipmentId !== '
       assert.equal(src.searchParams.get('start'), '12'); assert.equal(src.searchParams.get('end'), '72')
     }
     row.message = await page.locator('[data-video-state]').innerText()
-    await page.locator('[data-video-state]').screenshot({ path: `${out}/player-${equipment.id}.png` })
+    await page.locator('[data-video-state]').screenshot({ path: `${out}/player-${exercise.id}.png` })
     await page.getByRole('button', { name: '下一步：训练记录', exact: true }).click()
     assert.equal(await page.locator('iframe').count(), 0)
     await page.getByRole('button', { name: '带入训练记录 ↗', exact: true }).waitFor()
@@ -55,6 +59,6 @@ for (const exercise of EQUIPMENT_EXERCISES.filter(item => item.equipmentId !== '
   report.results.push(row)
   writeFileSync(`${out}/results.json`, JSON.stringify(report, null, 2))
   if (!row.playbackPassed || !row.recoveryPassed) process.exitCode = 1
-  console.log(JSON.stringify(row)); await context.close()
+  console.log(JSON.stringify({exercise:row.exercise,playbackPassed:row.playbackPassed,recoveryPassed:row.recoveryPassed,duration:row.second?.duration,error:row.error??row.playbackError})); await context.close()
 }
 await browser.close(); console.log(out)
