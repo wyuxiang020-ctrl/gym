@@ -25,7 +25,7 @@ export default function WorkoutCompanion({ entries, date, initialEntryId, focusO
   }, [focusOnOpen])
   return <section ref={panel} tabIndex={-1} className="workout-companion" aria-label="熊猫训练陪伴">
     <header><div><p>D 熊猫 · 训练陪伴</p><h3>按你的节奏，一组一组来。</h3></div><button onClick={onClose}>关闭陪练</button></header>
-    {entry ? <><label className="workout-companion-select">当前动作<select aria-label="陪练当前动作" value={entry.id} onChange={event => setSelected(event.target.value)}>{entries.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label><Session key={`${date}:${entry.id}`} entry={entry} date={date} completion={completion} reduced={reduced} /></> : <><PandaFeedback clipId="idle" reduced={reduced} /><p>先在下方添加动作，或通过器械扫描带入，再开始陪练。</p><a href="/?equipment-scan=1">去扫描器械 ↗</a></>}
+    {entry ? <><label className="workout-companion-select">当前动作<select aria-label="陪练当前动作" value={entry.id} onChange={event => setSelected(event.target.value)}>{entries.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label><Session key={`${date}:${entry.id}`} entry={entry} date={date} completion={completion} reduced={reduced} /></> : <><PandaFeedback clipId="idle" reduced={reduced} /><p>先在下方添加动作，或通过器械选择带入，再开始陪练。</p><a href="/?equipment-scan=1">去选择器械 ↗</a></>}
     <label className="workout-companion-note"><input type="checkbox" checked={reduced} onChange={event => setReduced(event.target.checked)} />静态形象</label>
     <p className="workout-companion-note">根据你确认保存的记录给出提示。休息时长由你选择；关闭、换动作或离开页面会结束本次计时，已保存记录保留。</p>
   </section>

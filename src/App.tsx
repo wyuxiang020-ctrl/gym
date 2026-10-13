@@ -140,7 +140,7 @@ function AppContent() {
     return (
       <div className="min-h-screen bg-app-bg px-4 py-10">
         <div className="mx-auto w-full max-w-[520px] space-y-6">
-          {!profile && <div className="onboarding-banner"><p className="eyebrow">GYM · 认识器械，记录进步</p><h2>今天，从这里开始。</h2><p>先建立档案，记录会保存在当前设备。</p><a href="/?equipment-scan=1">先看看器械扫描 ↗</a></div>}
+          {!profile && <div className="onboarding-banner"><p className="eyebrow">GYM · 认识器械，记录进步</p><h2>今天，从这里开始。</h2><p>先建立档案，记录会保存在当前设备。</p><a href="/?equipment-scan=1">先看看器械选择 ↗</a></div>}
           <h1 className="font-heading text-2xl font-semibold text-neutral-900">
             {profile ? '编辑档案' : '先建立身体档案'}
           </h1>
@@ -201,7 +201,7 @@ function AppContent() {
 
         {tab === 'records' && <RecordsTab key={recordDate ?? 'all'} initialDate={recordDate} onImportSuccess={reloadImportedData} />}
         </main>
-        <footer className="app-footer"><nav aria-label="器械与伙伴入口"><a href="/?equipment-scan=1">器械扫描 ↗</a><a href="/?training-companion=1">熊猫陪练 ↗</a><a href="/?companion-lab=1">熊猫形象与动作 ↗</a></nav><ReleaseStatus /></footer>
+        <footer className="app-footer"><nav aria-label="器械与伙伴入口"><a href="/?equipment-scan=1">器械选择 ↗</a><a href="/?training-companion=1">熊猫陪练 ↗</a><a href="/?companion-lab=1">熊猫形象与动作 ↗</a></nav><ReleaseStatus /></footer>
       </div>
 
       <BottomTabBar active={tab} onChange={next => { if (next === 'records') setRecordDate(undefined); navigate(next) }} />

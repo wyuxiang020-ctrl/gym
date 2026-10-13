@@ -128,5 +128,5 @@ export function exerciseArea(exercise: EquipmentExercise): string {
   return 'area' in exercise ? exercise.area : equipmentById(exercise.equipmentId)?.area ?? ''
 }
 export function needsExerciseChoice(id: EquipmentId): boolean {
-  return id === 'dumbbell' || id === 'barbell' || id === 'cable_station'
+  return equipmentById(id)?.kind === '自由器械' || id === 'cable_station'
 }

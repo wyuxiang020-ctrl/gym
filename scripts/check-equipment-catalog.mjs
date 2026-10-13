@@ -51,7 +51,7 @@ for (const width of [390,1440]) {
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1))
    if(eq.id==='seated_chest_press')await page.screenshot({path:`${out}/picker-${width}.png`,fullPage:true})
    if(width===390)await button(`手动选择${eq.name}`).click()
-   else {await page.getByLabel('选择器械照片',{exact:true}).setInputFiles(file);await button('上传并识别器械').click()}
+   else {await button('拍照识别').click();await page.getByLabel('选择器械照片',{exact:true}).setInputFiles(file);await button('上传并识别器械').click()}
    await button(`确认是${eq.name}`).waitFor()
    const exercises=EQUIPMENT_EXERCISES.filter(item=>item.equipmentId===eq.id),ex=exercises[0]
    assert.equal(await page.locator('.equipment-exercise').count(),exercises.length)
@@ -72,7 +72,7 @@ for (const width of [390,1440]) {
    const saved=await page.evaluate(()=>localStorage.getItem('gym-data-v1'))
    const entries=Object.values(JSON.parse(saved).dayLogs).flatMap(day=>day.strength)
    assert.ok(entries.some(item=>item.name===ex.exercise&&item.sets.length===0))
-   await button('01 拍摄器械').click();await button('确认返回拍摄').click()
+   await button('01 器械选择').click();await button('确认返回选择').click()
    assert.equal(await page.evaluate(()=>localStorage.getItem('gym-data-v1')),saved)
    const other=EQUIPMENT_CATALOG.find(item=>item.id!==eq.id)
    await button(`手动选择${other.name}`).click();await button('03 短视频示范').click();await page.getByRole('dialog',{name:'请先确认器械与动作'}).waitFor()

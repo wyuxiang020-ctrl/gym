@@ -5,28 +5,42 @@ export const EXPANDED_EQUIPMENT = [
     "name": "哑铃",
     "area": "全身",
     "cue": "短握柄两端配重，可单手独立握持；固定或可调哑铃均可，不含壶铃",
-    "kind": "自由重量"
+    "kind": "自由器械"
   },
   {
     "id": "barbell",
     "name": "杠铃",
     "area": "全身",
     "cue": "可自由移动的长直杆，两侧配重或装片套筒；不含史密斯导轨杆、曲杆、陷阱杆",
-    "kind": "自由重量"
+    "kind": "自由器械"
+  },
+  {
+    "id": "kettlebell",
+    "name": "壶铃",
+    "area": "全身",
+    "cue": "球形或壶形配重，上方带一体式拱形提手；不含短杆两端配重的哑铃",
+    "kind": "自由器械"
+  },
+  {
+    "id": "ez_bar",
+    "name": "EZ 曲杆",
+    "area": "手臂",
+    "cue": "可自由移动的波浪形握杆，两端固定配重或装片套筒；不含绳索弯杆把手、直杠铃和陷阱杆",
+    "kind": "自由器械"
   },
   {
     "id": "cable_station",
     "name": "龙门架 / 绳索器械",
     "area": "全身",
     "cue": "可调高低滑轮、拉索、配重堆及可换把手的绳索训练站；需用户确认配件",
-    "kind": "固定器械"
+    "kind": "绳索与综合"
   },
   {
     "id": "smith_machine",
     "name": "史密斯机",
     "area": "全身",
     "cue": "杠杆两端固定在导轨，有旋转挂钩与安全挡块；区别自由杠铃",
-    "kind": "固定器械"
+    "kind": "绳索与综合"
   },
   {
     "id": "seated_leg_curl",
@@ -444,6 +458,70 @@ export const EXPANDED_EXERCISES = [
     "endSeconds": 55,
     "videoNote": "动作短讲解 · 可打开来源看原片",
     "guideSource": "https://www.puregym.com/exercises/legs/inner-outer-thigh/seated-hip-abduction/"
+  },
+  {
+    "equipmentId": "kettlebell",
+    "id": "kb-deadlift",
+    "name": "壶铃硬拉",
+    "exercise": "壶铃硬拉",
+    "area": "腿臀",
+    "condition": "单只壶铃、平整防滑地面。",
+    "description": "髋部向后折叠，双手提起壶铃再控制落地。",
+    "videoId": "6tTTxMMPRjo",
+    "seconds": 47,
+    "publisher": "Goodlife Health Clubs",
+    "startSeconds": 0,
+    "endSeconds": 47,
+    "videoNote": "完整动作短讲解 · 可打开来源看原片",
+    "guideSource": "https://www.puregym.com/blog/quick-and-efficient-workouts-for-busy-mums/"
+  },
+  {
+    "equipmentId": "kettlebell",
+    "id": "kb-goblet-squat",
+    "name": "壶铃高脚杯深蹲",
+    "exercise": "壶铃高脚杯深蹲",
+    "area": "腿臀",
+    "condition": "单只壶铃，双手能稳定握住两侧提手。",
+    "description": "将壶铃抱在胸前，完成下蹲与站起。",
+    "videoId": "JiQboHyV9aE",
+    "seconds": 60,
+    "publisher": "Pat Flynn",
+    "startSeconds": 5,
+    "endSeconds": 65,
+    "videoNote": "讲解片段 00:05–01:05 · 原片约 80 秒，可打开来源看完整版",
+    "guideSource": "https://www.puregym.com/blog/quick-and-efficient-workouts-for-busy-mums/"
+  },
+  {
+    "equipmentId": "ez_bar",
+    "id": "ez-curl",
+    "name": "EZ 曲杆弯举",
+    "exercise": "EZ 曲杆弯举",
+    "area": "手臂",
+    "condition": "EZ 曲杆；装片式两侧配重一致并锁紧卡扣。",
+    "description": "反手握住曲杆斜段，平稳屈肘抬起。",
+    "videoId": "4Vuv_JMh1LY",
+    "seconds": 52,
+    "publisher": "Danny Matranga",
+    "startSeconds": 0,
+    "endSeconds": 52,
+    "videoNote": "完整动作短讲解 · 可打开来源看原片",
+    "guideSource": "https://gravitus.com/guides/exercises/ez-bar-curl/"
+  },
+  {
+    "equipmentId": "ez_bar",
+    "id": "ez-reverse-curl",
+    "name": "EZ 曲杆反握弯举",
+    "exercise": "EZ 曲杆反握弯举",
+    "area": "手臂",
+    "condition": "EZ 曲杆；采用比常规弯举更轻且可控的重量。",
+    "description": "掌心朝下握杆，保持上臂稳定进行弯举。",
+    "videoId": "_U4uL7mMibw",
+    "seconds": 50,
+    "publisher": "Danny Matranga",
+    "startSeconds": 0,
+    "endSeconds": 50,
+    "videoNote": "完整动作短讲解 · 可打开来源看原片",
+    "guideSource": "https://www.strengthlog.com/reverse-barbell-curl/"
   }
 ] as const
 
@@ -871,6 +949,74 @@ export const EXPANDED_GUIDES = {
     {
       "instruction": "慢慢合回起点，全程保持控制。",
       "mistake": "快速回弹、配重砸落。"
+    }
+  ],
+  "kb-deadlift": [
+    {
+      "instruction": "双脚踩稳，壶铃放在双脚之间，先选能控制的轻重量。"
+    },
+    {
+      "instruction": "屈髋向后坐、膝盖微弯，双手握提手，背部保持平直。",
+      "mistake": "弓背、只弯腰够壶铃。"
+    },
+    {
+      "instruction": "脚掌推地，伸髋站直，手臂自然垂下。",
+      "mistake": "用手臂硬拉、顶端后仰。"
+    },
+    {
+      "instruction": "髋部向后退，控制壶铃落地，再开始下一次。",
+      "mistake": "突然砸地、重量离身体太远。"
+    }
+  ],
+  "kb-goblet-squat": [
+    {
+      "instruction": "双手握住壶铃提手两侧，抱在胸前，双脚略宽于髋。"
+    },
+    {
+      "instruction": "收紧腹部，髋膝一起弯曲，膝盖顺着脚尖方向。",
+      "mistake": "膝盖内扣、脚跟离地。"
+    },
+    {
+      "instruction": "下蹲到能保持背部稳定的深度，重量贴近胸口。",
+      "mistake": "弓背、勉强蹲得过深。"
+    },
+    {
+      "instruction": "全脚掌踩地站起，保持壶铃和躯干稳定。",
+      "mistake": "起身后仰、手臂把壶铃甩远。"
+    }
+  ],
+  "ez-curl": [
+    {
+      "instruction": "检查两侧重量与卡扣，反手握曲杆斜段，握距约肩宽。"
+    },
+    {
+      "instruction": "双脚踩稳，腹部收紧，上臂放在身体两侧。",
+      "mistake": "后仰、肩部前后晃动。"
+    },
+    {
+      "instruction": "保持手腕自然伸直，屈肘平稳举起曲杆。",
+      "mistake": "甩腰借力、折腕。"
+    },
+    {
+      "instruction": "短暂停留后缓慢下放，到手臂自然伸直再重复。",
+      "mistake": "突然松力、肘部向后跑。"
+    }
+  ],
+  "ez-reverse-curl": [
+    {
+      "instruction": "选可控的轻重量，掌心朝下握曲杆斜段，检查卡扣。"
+    },
+    {
+      "instruction": "站稳并收紧腹部，上臂贴近身体，手腕保持平直。",
+      "mistake": "塌腕、耸肩。"
+    },
+    {
+      "instruction": "保持握稳曲杆，屈肘将前臂抬起，控制身体稳定。",
+      "mistake": "后仰借力、肘部乱动。"
+    },
+    {
+      "instruction": "缓慢伸肘放回，始终握紧；握不稳时降低重量。",
+      "mistake": "突然下落、用过大的重量。"
     }
   ]
 } as const

@@ -62,6 +62,7 @@ async function test(name, run, width = 390) {
 for (const [index, width] of [320, 390, 1100].entries()) {
   await test(`F0${index + 1} scan confirm add target companion rest and reload`, async page => {
     await page.goto(`${base}/?equipment-scan=1`)
+    await button(page, '拍照识别').click()
     await page.getByLabel('选择器械照片', { exact: true }).setInputFiles(file)
     await button(page, '上传并识别器械').click()
     await button(page, '确认是坐姿推胸机').click()
@@ -76,7 +77,7 @@ for (const [index, width] of [320, 390, 1100].entries()) {
     await region(page).waitFor()
     assert.equal(await page.getByLabel('陪练当前动作').inputValue(), added.id)
     assert.equal(await region(page).evaluate(element => element === document.activeElement), true)
-    assert.equal(await button(page, '收起器械扫描').count(), 0)
+    assert.equal(await button(page, '收起器械选择').count(), 0)
     await region(page).screenshot({ path: `${out}/launch-${width}.png` })
     await button(page, '开始当前动作').click()
     await button(page, '查看当前动作记录').click()

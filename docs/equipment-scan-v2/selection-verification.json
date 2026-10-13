@@ -1,0 +1,689 @@
+{
+  "date": "2026-10-13",
+  "reports": {
+    "selection-1791878708000": {
+      "kind": "Isolated browser, synthetic photo and fixed AI; no paid model or physical camera",
+      "results": [
+        {
+          "width": 320,
+          "pass": true
+        },
+        {
+          "width": 390,
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "pass": true
+        }
+      ]
+    },
+    "catalog-1791878508364": {
+      "kind": "isolated synthetic data, fixed AI/player; not real recognition",
+      "modelCalls": 0,
+      "results": [
+        {
+          "name": "catalog schema, all guides and matching handoffs",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "seated_chest_press",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "lat_pulldown",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "seated_row",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "seated_leg_press",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "leg_extension",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "prone_leg_curl",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "shoulder_press",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "pec_fly",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "dumbbell",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "barbell",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "kettlebell",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "ez_bar",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "cable_station",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "smith_machine",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "seated_leg_curl",
+          "pass": true
+        },
+        {
+          "width": 390,
+          "equipment": "hip_abduction",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "seated_chest_press",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "lat_pulldown",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "seated_row",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "seated_leg_press",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "leg_extension",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "prone_leg_curl",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "shoulder_press",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "pec_fly",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "dumbbell",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "barbell",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "kettlebell",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "ez_bar",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "cable_station",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "smith_machine",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "seated_leg_curl",
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "equipment": "hip_abduction",
+          "pass": true
+        }
+      ]
+    },
+    "freeweights-1791878660481": {
+      "kind": "Synthetic fixed response/player and isolated records; no paid model",
+      "results": [
+        {
+          "exercise": "db-bench",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "db-incline-press",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "db-floor-press",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "db-one-arm-row",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "db-shoulder-press",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "db-lateral-raise",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "db-rear-fly",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "db-incline-curl",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "db-hammer-curl",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "db-overhead-extension",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "db-goblet-squat",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "db-rdl",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "db-reverse-lunge",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "db-split-squat",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "db-chest-supported-row",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "bb-bench",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "bb-squat",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "bb-rdl",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "bb-row",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "cable-pushdown",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "cable-curl",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "cable-face-pull",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "smith-bench",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "seated-curl",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "hip-abduction",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "kb-deadlift",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "kb-goblet-squat",
+          "width": 390,
+          "pass": true
+        },
+        {
+          "exercise": "ez-curl",
+          "width": 1440,
+          "pass": true
+        },
+        {
+          "exercise": "ez-reverse-curl",
+          "width": 390,
+          "pass": true
+        }
+      ]
+    },
+    "catalog-live-video-1791878525694": {
+      "kind": "Real external playback attempt, isolated Edge; no fake player events or API responses",
+      "modelCalls": 0,
+      "results": [
+        {
+          "exercise": "kb-deadlift",
+          "equipment": "kettlebell",
+          "videoId": "6tTTxMMPRjo",
+          "width": 1100,
+          "unilateral": false,
+          "expectedSeconds": 47,
+          "playbackPassed": true,
+          "recoveryPassed": true,
+          "failedRequests": [
+            {
+              "host": "yt3.ggpht.com",
+              "path": "/3pohLtzj2IIxMwN3g1vCFErccHKH64Djcfk6F8IhBK4oWNdQclWWIhv3vBvLuszW0WoxIkSYyg=s68-c-k-c0x00ffffff-no-rj",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/api/stats/qoe",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/ptracking",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/api/stats/playback",
+              "error": "net::ERR_ABORTED"
+            }
+          ],
+          "state": "ready",
+          "first": {
+            "time": 0.354951,
+            "paused": false,
+            "ready": 4,
+            "duration": 46.921
+          },
+          "second": {
+            "time": 3.872307,
+            "paused": false,
+            "ready": 4,
+            "duration": 46.921
+          },
+          "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+        },
+        {
+          "exercise": "kb-goblet-squat",
+          "equipment": "kettlebell",
+          "videoId": "JiQboHyV9aE",
+          "width": 1100,
+          "unilateral": false,
+          "expectedSeconds": 60,
+          "playbackPassed": true,
+          "recoveryPassed": true,
+          "failedRequests": [
+            {
+              "host": "yt3.ggpht.com",
+              "path": "/KVHQYjcmgWrOBa0HkSo2exp-CXHi9jM40EwfNUKBNR_-Xwl9xHhjzCoMYepLEUa0LJYDP2qhbsY=s68-c-k-c0x00ffffff-no-rj",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/api/stats/qoe",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/ptracking",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/api/stats/playback",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/api/stats/watchtime",
+              "error": "net::ERR_ABORTED"
+            }
+          ],
+          "state": "ready",
+          "first": {
+            "time": 5.579066,
+            "paused": false,
+            "ready": 4,
+            "duration": 80.121
+          },
+          "second": {
+            "time": 9.09944,
+            "paused": false,
+            "ready": 4,
+            "duration": 80.121
+          },
+          "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+        },
+        {
+          "exercise": "ez-curl",
+          "equipment": "ez_bar",
+          "videoId": "4Vuv_JMh1LY",
+          "width": 1100,
+          "unilateral": false,
+          "expectedSeconds": 52,
+          "playbackPassed": true,
+          "recoveryPassed": true,
+          "failedRequests": [
+            {
+              "host": "yt3.ggpht.com",
+              "path": "/4ufuDtHUOpXzV1gxXV3unxvQ32xDuXjOwbUUjrTm37E1TQs2RiCvQORbqA_fli3GymYaNE4cug=s68-c-k-c0x00ffffff-no-rj",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/api/stats/qoe",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/ptracking",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/api/stats/playback",
+              "error": "net::ERR_ABORTED"
+            }
+          ],
+          "state": "ready",
+          "first": {
+            "time": 0.575457,
+            "paused": false,
+            "ready": 4,
+            "duration": 51.041
+          },
+          "second": {
+            "time": 4.083489,
+            "paused": false,
+            "ready": 4,
+            "duration": 51.041
+          },
+          "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+        },
+        {
+          "exercise": "ez-reverse-curl",
+          "equipment": "ez_bar",
+          "videoId": "_U4uL7mMibw",
+          "width": 1100,
+          "unilateral": false,
+          "expectedSeconds": 50,
+          "playbackPassed": true,
+          "recoveryPassed": true,
+          "failedRequests": [
+            {
+              "host": "yt3.ggpht.com",
+              "path": "/4ufuDtHUOpXzV1gxXV3unxvQ32xDuXjOwbUUjrTm37E1TQs2RiCvQORbqA_fli3GymYaNE4cug=s68-c-k-c0x00ffffff-no-rj",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/api/stats/qoe",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/ptracking",
+              "error": "net::ERR_ABORTED"
+            },
+            {
+              "host": "www.youtube-nocookie.com",
+              "path": "/api/stats/playback",
+              "error": "net::ERR_ABORTED"
+            }
+          ],
+          "state": "ready",
+          "first": {
+            "time": 0.392163,
+            "paused": false,
+            "ready": 4,
+            "duration": 49.281
+          },
+          "second": {
+            "time": 3.896675,
+            "paused": false,
+            "ready": 4,
+            "duration": 49.281
+          },
+          "message": "正在播放。可使用原站控件暂停、重播或全屏查看。\n\n关闭视频\n打开视频来源 ↗\n收起示范\n\n第三方播放器可能受地区、网络、登录或发布者权限影响；Gym 不下载、缓存或修改视频。示范不能判断你本人的动作是否正确。"
+        }
+      ]
+    },
+    "browser-1791878890113": {
+      "kind": "isolated browser, synthetic photo and fixed responses; no live camera or model",
+      "modelCalls": 0,
+      "results": [
+        {
+          "name": "B01 entry and paused mirror load no camera or model",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B02 local preview then explicit one-shot upload and human confirm",
+          "width": 1100,
+          "pass": true,
+          "apiCalls": [
+            "/api/identify-equipment"
+          ],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B03 unknown rejected candidate and manual recovery",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [
+            "/api/identify-equipment"
+          ],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B04 error preserves photo and malformed result fails closed",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [
+            "/api/identify-equipment",
+            "/api/identify-equipment"
+          ],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B05 cancel ignores late result and does not retry",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [
+            "/api/identify-equipment"
+          ],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B06 manual confirmation saves empty exercise once and survives reload",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B07 invalid file never uploads",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B08 scan handoff to a confirmed set survives reload",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [
+            "/api/identify-equipment"
+          ],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B09 offline service disables upload but keeps manual path",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B10 expired handoff is not treated as a confirmation",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [],
+          "poseRequests": [],
+          "errors": []
+        },
+        {
+          "name": "B11 storage failure preserves confirmed selection",
+          "width": 390,
+          "pass": true,
+          "apiCalls": [],
+          "poseRequests": [],
+          "errors": []
+        }
+      ]
+    },
+    "navigation-1791878559670": {
+      "kind": "Isolated records and fixed player; no real model or video",
+      "results": [
+        {
+          "width": 390,
+          "pass": true
+        },
+        {
+          "width": 1440,
+          "pass": true
+        }
+      ]
+    },
+    "contracts-1791878274922": {
+      "kind": "fixed model responses and synthetic pixels; no live recognition",
+      "modelCalls": 0,
+      "results": [
+        {
+          "name": "bounded candidate and unknown contracts",
+          "pass": true
+        },
+        {
+          "name": "method, content type and invalid image never reach model",
+          "pass": true
+        },
+        {
+          "name": "access guard stops valid images before model",
+          "pass": true
+        },
+        {
+          "name": "one guarded call with normalized image and no-store",
+          "pass": true
+        },
+        {
+          "name": "malformed model output is 422, not a guessed candidate",
+          "pass": true
+        },
+        {
+          "name": "upstream error has no retry",
+          "pass": true
+        },
+        {
+          "name": "daily request ceiling protects new endpoint",
+          "pass": true
+        }
+      ]
+    }
+  }
+}

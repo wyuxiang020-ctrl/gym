@@ -481,8 +481,8 @@ export function WorkoutSection({
       {companionOpen ? <Suspense fallback={<p>正在加载熊猫陪练…</p>}><WorkoutCompanion key={`${date}:${companionLaunch?.sequence ?? 0}`} date={date} entries={dayLog.strength} initialEntryId={companionLaunch?.entryId} focusOnOpen={Boolean(companionLaunch)} completion={completion} onClose={() => setCompanionOpen(false)} /></Suspense> : <button className="min-h-11 rounded-lg border border-neutral-300 px-4 text-sm text-neutral-800" onClick={() => { setCompanionLaunch(null); setCompanionOpen(true) }}>开启熊猫陪练</button>}
 
       <section>
-        <button className="min-h-11 rounded-lg border border-neutral-300 px-4 text-sm text-neutral-800" aria-expanded={equipmentOpen} onClick={() => setEquipmentOpen(value => !value)}>{equipmentOpen ? '收起器械扫描' : '扫描静态器械'}</button>
-        {equipmentOpen && <div className="equipment-embedded"><Suspense fallback={<p>正在加载器械扫描…</p>}><EquipmentScanner key={date} date={date} onStartCompanion={name => {
+        <button className="min-h-11 rounded-lg border border-neutral-300 px-4 text-sm text-neutral-800" aria-expanded={equipmentOpen} onClick={() => setEquipmentOpen(value => !value)}>{equipmentOpen ? '收起器械选择' : '选择训练器械'}</button>
+        {equipmentOpen && <div className="equipment-embedded"><Suspense fallback={<p>正在加载器械选择…</p>}><EquipmentScanner key={date} date={date} onStartCompanion={name => {
           const current = store.getDayLog(date)
           const entry = current.strength.find(item => item.name === name)
           if (!entry) return false

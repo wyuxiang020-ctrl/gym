@@ -53,7 +53,7 @@ export default defineConfig({
         display: 'standalone',
         start_url: '/',
         shortcuts: [
-          { name: '器械扫描', url: '/?equipment-scan=1' },
+          { name: '器械选择', url: '/?equipment-scan=1' },
           { name: '熊猫陪练', url: '/?training-companion=1' },
           { name: '熊猫形象与动作', url: '/?companion-lab=1' },
         ],

@@ -47,7 +47,7 @@ try {
   await page.getByRole('button', { name: '检查更新', exact: true }).click()
   await page.getByRole('button', { name: '刷新页面', exact: true }).waitFor()
   await page.getByRole('button', { name: '刷新页面', exact: true }).click()
-  await page.getByRole('heading', { name: '先认清器械，再开始训练。', exact: true }).waitFor()
+  await page.getByRole('heading', { name: '选好器械，开始今天的训练。', exact: true }).waitFor()
   assert.equal(await page.evaluate(() => localStorage.getItem('gym-data-v1')), before)
   report.checks.push({ label: 'PWA worker activated, manual update and reload preserves records', pass: true, registration })
   const manifestResponse = await page.evaluate(async () => { const response = await fetch('/manifest.webmanifest', { signal: AbortSignal.timeout(15000) }); return { status: response.status, value: await response.json() } }); assert.equal(manifestResponse.status, 200)

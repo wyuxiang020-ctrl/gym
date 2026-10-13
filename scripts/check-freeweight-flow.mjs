@@ -42,7 +42,7 @@ for(const [index,ex]of EXPANDED_EXERCISES.entries()){
   const h=await p.evaluate(()=>JSON.parse(sessionStorage.getItem('gym-equipment-handoff-v1')));assert.equal(h.equipmentId,eq.id);assert.equal(h.exerciseId,ex.id)
   await button('添加到当前训练记录').click();await button('已加入训练记录').waitFor()
   const saved=await p.evaluate(()=>localStorage.getItem('gym-data-v1'));const entries=Object.values(JSON.parse(saved).dayLogs).flatMap(d=>d.strength);assert.ok(entries.some(e=>e.name===ex.exercise&&e.sets.length===0))
-  await button('01 拍摄器械').click();await button('确认返回拍摄').click();assert.equal(await p.evaluate(()=>localStorage.getItem('gym-data-v1')),saved)
+  await button('01 器械选择').click();await button('确认返回选择').click();assert.equal(await p.evaluate(()=>localStorage.getItem('gym-data-v1')),saved)
   assert.equal(await p.evaluate(()=>sessionStorage.getItem('gym-equipment-handoff-v1')),null)
   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));assert.deepEqual(errors,[]);row.pass=true
  }catch(e){row.error=e.message;process.exitCode=1}
